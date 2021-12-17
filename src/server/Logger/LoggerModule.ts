@@ -1,0 +1,36 @@
+import { Global, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { WinstonModule } from 'nest-winston';
+import requestContext from 'request-context';
+
+import { Logger } from '@server/Logger/services/Logger';
+import { WinstonOptionsFactory } from '@server/Logger/services/WinstonOptionsFactory';
+import { LoggerMiddleware } from '@server/Logger/middlewares/LoggerMiddleware';
+import { REQUEST_CONTEXT_ID } from '@server/Logger/utils/constants';
+
+@Global()
+@Module({
+  imports: [
+    WinstonModule.forRootAsync({
+      imports: [LoggerModule],
+      inject: [WinstonOptionsFactory],
+      useFactory: (optionsFactory: WinstonOptionsFactory) =>
+        optionsFactory.create(),
+    }),
+  ],
+  providers: [Logger, WinstonOptionsFactory],
+  exports: [Logger, WinstonOptionsFactory],
+})
+export class LoggerModule implements NestModule {
+  /**
+   * Конфигурация для модуля. Подключает middleware для создания контекста
+   * запроса, логирования запросов и ответов. Исключает все _next маршруты.
+   */
+  public configure(consumer: MiddlewareConsumer): void {
+    consumer
+      .apply(requestContext.middleware(REQUEST_CONTEXT_ID))
+      .forRoutes('*')
+      .apply(LoggerMiddleware)
+      .exclude('/_next/(.*)')
+      .forRoutes('*');
+  }
+}
