@@ -1,6 +1,6 @@
 {
   "name": "typedoc-theme-hierarchy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "ISC",
   "main": "dist/index.js",
   "repository": "https://github.com/DiFuks/fuks-blog",
