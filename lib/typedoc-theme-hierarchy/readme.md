@@ -1,6 +1,6 @@
 # Typedoc Theme Hierarchy
 
-![plot](./.github/images/demo.jpg)
+![plot](https://github.com/DiFuks/fuks-blog/raw/master/lib/typedoc-theme-hierarchy/.github/images/demo.jpg)
 
 ## Installing
 
