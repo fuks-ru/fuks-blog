@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "license": "ISC",
   "main": "dist/index.js",
+  "repository": "https://github.com/DiFuks/fuks-blog",
   "keywords": [
     "typedoc-theme"
   ],
@@ -15,7 +16,7 @@
   },
   "scripts": {
     "build": "tsc && cp -R ./src/assets ./dist",
-    "lint": "tsc && eslint \"./**/*.{ts,tsx,js}\""
+    "lint": "tsc --no-emit && eslint \"./**/*.{ts,tsx,js}\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4"
