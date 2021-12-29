@@ -1,0 +1,10 @@
+{
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/no-unknown-property": "off",
+    "react/jsx-key": "off",
+    "react/display-name": "off"
+  }
+}

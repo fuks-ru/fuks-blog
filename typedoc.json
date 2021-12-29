@@ -1,0 +1,10 @@
+{
+  "entryPoints": [
+    "entries"
+  ],
+  "entryPointStrategy": "Expand",
+  "out": "public/docs",
+  "plugin": "./lib/typedoc-theme-hierarchy/dist/index.js",
+  "theme": "hierarchy",
+  "tsconfig": "./tsconfig.typedoc.json"
+}

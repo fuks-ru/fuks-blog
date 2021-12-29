@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.packages.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "lib": [
+      "esnext"
+    ],
+    "types": [
+      "node"
+    ],
+    "noEmit": true
+  },
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ],
+    "transpileOnly": true
+  }
+}

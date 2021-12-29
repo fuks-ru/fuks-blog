@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.packages.json",
+  "compilerOptions": {
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "node_modules",
+    "lib"
+  ]
+}
