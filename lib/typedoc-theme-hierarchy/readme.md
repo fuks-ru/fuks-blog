@@ -1,5 +1,11 @@
 # Typedoc Theme Hierarchy
 
+---
+
+<a href="https://www.npmjs.com/package/typedoc-theme-hierarchy">npm</a>
+
+<a href="https://github.com/DiFuks/fuks-blog/tree/master/lib/typedoc-theme-hierarchy">GitHub</a>
+
 ![plot](https://github.com/DiFuks/fuks-blog/raw/master/lib/typedoc-theme-hierarchy/.github/images/demo.jpg)
 
 ## Installing
