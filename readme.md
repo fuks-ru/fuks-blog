@@ -1,9 +1,19 @@
 # Мой блог
 
-## Для запуска в dev-режиме:
+## Запуск в dev-режиме:
 
 ```bash
-npm i
+yarn dev
+```
 
-npm run dev
+## Запуск в prod-режиме:
+
+```bash
+yarn prod
+```
+
+## Линтинг:
+
+```bash
+yarn lint
 ```
