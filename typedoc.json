@@ -4,7 +4,8 @@
   ],
   "entryPointStrategy": "Expand",
   "out": "public/docs",
-  "plugin": "./lib/typedoc-theme-hierarchy/dist/index.js",
+  "plugin": "./node_modules/typedoc-theme-hierarchy/dist/index.js",
   "theme": "hierarchy",
-  "tsconfig": "./tsconfig.typedoc.json"
+  "tsconfig": "./tsconfig.packages.json",
+  "name": "Fuks blog typedoc"
 }

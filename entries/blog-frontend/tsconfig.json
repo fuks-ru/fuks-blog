@@ -2,12 +2,18 @@
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "preserve",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ],
-    "noEmit": true
-  }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

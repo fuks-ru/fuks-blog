@@ -1,8 +1,0 @@
-{
-  "singleQuote": true,
-  "trailingComma": "all",
-  "jsxSingleQuote": true,
-  "tabWidth": 2,
-  "jsdocSingleLineComment": false,
-  "plugins": ["prettier-plugin-jsdoc"]
-}

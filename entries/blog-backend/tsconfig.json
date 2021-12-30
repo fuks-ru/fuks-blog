@@ -8,8 +8,7 @@
     ],
     "types": [
       "node"
-    ],
-    "noEmit": true
+    ]
   },
   "ts-node": {
     "require": [

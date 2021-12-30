@@ -2,14 +2,15 @@
   "name": "@fuks/blog-backend",
   "version": "1.0.0",
   "description": "My blog backend",
+  "repository": "https://github.com/DiFuks/fuks-blog",
   "private": true,
   "author": "Dmitry Fuks",
+  "license": "ISC",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node-dev --inspect=0.0.0.0:5555 src/main.ts --ignore ../blog-frontend/.next",
     "prod": "cross-env NODE_ENV=production ts-node src/main.ts",
     "lint": "tsc && eslint \"./**/*.{ts,tsx,js}\""
   },
-  "license": "ISC",
   "dependencies": {
     "@fuks/blog-frontend": "*",
     "@nestjs/common": "^8.2.3",

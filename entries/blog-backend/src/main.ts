@@ -11,7 +11,6 @@ import { ConfigGetter } from './Config/services/ConfigGetter';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
   const configGetter = app.select(ConfigModule).get(ConfigGetter);
 
   app.use(cookieParser());

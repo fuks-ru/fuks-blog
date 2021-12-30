@@ -1,4 +1,2 @@
-.idea
 node_modules
-entries/blog-backend/.env.local
 public/docs
