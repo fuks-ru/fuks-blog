@@ -7699,10 +7699,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typedoc-theme-hierarchy@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/typedoc-theme-hierarchy/-/typedoc-theme-hierarchy-1.0.7.tgz#f656ee44737008bc9eb8bedab8fbe2949e7d3956"
-  integrity sha512-mr8cSaUsh16KBpRJ1b7XVf1X0p5rv5yGEQ7SuuWvp7WvHEoZiImmAy4wdArmcxm+91zgvyJE1IRTu7EGco+vXA==
+typedoc-theme-hierarchy@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/typedoc-theme-hierarchy/-/typedoc-theme-hierarchy-1.0.8.tgz#e0d73a1c8c36e03a676f863ed0f8c54633fcbdab"
+  integrity sha512-rTHw/GEXERiPBIY7aS88oZBWELINXW3JI3L5PBMezdREVoho/1qY2wg97Ky3aTyVHwM7IgwZ84p3oJdq/U/ayg==
   dependencies:
     fs-extra "^10.0.0"
 
