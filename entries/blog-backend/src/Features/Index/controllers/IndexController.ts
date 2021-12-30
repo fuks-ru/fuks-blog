@@ -4,8 +4,8 @@ import type { IIndexPageProps } from '@fuks/blog-frontend/src/pages/index.page';
 
 import { TestSwaggerRequest } from '../dto/TestSwaggerRequest';
 import { TestSwaggerResponse } from '../dto/TestSwaggerResponse';
-import { Page } from '../../Common/decorators/Page';
-import { ApiPost } from '../../Common/decorators/ApiPost';
+import { Page } from '../../../Common/decorators/Page';
+import { ApiPost } from '../../../Common/decorators/ApiPost';
 
 @Controller()
 @ApiTags('index')
