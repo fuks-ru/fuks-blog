@@ -1,8 +1,16 @@
-import { DefaultTheme, DefaultThemeRenderContext, Options } from 'typedoc';
+import {
+  DefaultTheme,
+  DefaultThemeRenderContext,
+  Options,
+  RendererEvent,
+} from 'typedoc';
+import { Renderer } from 'typedoc/dist/lib/output/renderer';
+import { copy } from 'fs-extra';
+import path from 'node:path';
 
 import { navigation } from '../partials/navigation';
 
-class FuksOverrideThemeContext extends DefaultThemeRenderContext {
+class OverrideThemeContext extends DefaultThemeRenderContext {
   public constructor(theme: DefaultTheme, options: Options) {
     super(theme, options);
 
@@ -11,13 +19,29 @@ class FuksOverrideThemeContext extends DefaultThemeRenderContext {
 }
 
 export class OverrideTheme extends DefaultTheme {
-  private _contextCache?: FuksOverrideThemeContext;
+  private _contextCache?: OverrideThemeContext;
+
+  public constructor(renderer: Renderer) {
+    super(renderer);
+
+    this.listenTo(this.owner, RendererEvent.END, async () => {
+      const out = this.application.options.getValue('out');
+
+      await copy(
+        path.join(
+          process.cwd(),
+          '/node_modules/typedoc-theme-hierarchy/dist/assets',
+        ),
+        path.join(out, '/assets'),
+      );
+    });
+  }
 
   /**
    * Переопределяет стандартный контекст.
    */
-  public override getRenderContext(): FuksOverrideThemeContext {
-    this._contextCache ||= new FuksOverrideThemeContext(
+  public override getRenderContext(): OverrideThemeContext {
+    this._contextCache ||= new OverrideThemeContext(
       this,
       this.application.options,
     );

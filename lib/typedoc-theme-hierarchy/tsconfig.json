@@ -2,12 +2,9 @@
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "./src",
-    "outDir": "dist",
-    "declarationDir": "dist",
-    "composite": true,
     "jsx": "react",
     "jsxFactory": "JSX.createElement",
-    "jsxFragmentFactory": "JSX.Fragment"
-  }
+    "jsxFragmentFactory": "JSX.Fragment",
+    "isolatedModules": false
+  },
 }

@@ -12,7 +12,7 @@
     "dev": "lerna run dev --stream",
     "prod": "lerna run build --stream && yarn run typedoc && lerna run prod --stream",
     "lint": "lerna run lint --stream",
-    "typedoc": "typedoc && cp -R lib/typedoc-theme-hierarchy/dist/assets/* ./public/docs/assets && cp -R ./node_modules/@fortawesome/fontawesome-free ./public/docs/assets/fontawesome"
+    "typedoc": "typedoc"
   },
   "license": "ISC",
   "devDependencies": {

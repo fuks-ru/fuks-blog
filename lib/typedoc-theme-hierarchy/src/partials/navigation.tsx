@@ -1,4 +1,4 @@
-import { ContainerReflection, JSX, PageEvent, Reflection } from 'typedoc';
+import { JSX, PageEvent, Reflection } from 'typedoc';
 import { DeclarationReflection } from 'typedoc/dist/lib/models/reflections/declaration';
 
 interface IItem extends DeclarationReflection {
@@ -17,22 +17,7 @@ interface ICategory {
 export const navigation =
   (urlTo: (reflection: Reflection) => string | undefined) =>
   (props: PageEvent<Reflection>): JSX.Element => {
-    const children =
-      props.model instanceof ContainerReflection
-        ? props.model.children || []
-        : [];
-
-    const firstChildren = children[0];
-
-    if (!firstChildren) {
-      return <></>;
-    }
-
-    const rootParent = getRootParent(firstChildren);
-
-    const rootChildren = rootParent.children || [];
-
-    const categories = formatFileHierarchy(rootChildren);
+    const categories = formatFileHierarchy(props.model.project.children || []);
 
     return (
       <div class='tree'>
@@ -105,14 +90,6 @@ const formatFileHierarchy = (values: DeclarationReflection[]): ICategory => {
   }
 
   return result;
-};
-
-const getRootParent = (reflection: Reflection): ContainerReflection => {
-  if (!reflection.parent) {
-    return reflection as ContainerReflection;
-  }
-
-  return getRootParent(reflection.parent);
 };
 
 const addToCategory = (
