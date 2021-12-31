@@ -2,6 +2,7 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { v4 } from 'uuid';
 import requestContext from 'request-context';
+import { lookup } from 'geoip-lite';
 
 import {
   REQUEST_CONTEXT_ID,
@@ -36,12 +37,16 @@ export class LoggerMiddleware implements NestMiddleware {
       sessionId,
     );
 
+    const geo = lookup('94.180.168.48');
+
     this.logger.info('Новый входящий запрос', {
       extra: {
         url: req.url,
         method: req.method,
         query: req.query,
         body: req.body,
+        ip: req.ip,
+        city: geo?.city,
       },
     });
 

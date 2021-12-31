@@ -5,10 +5,10 @@ import path from 'node:path';
 
 import { SystemErrorModule } from './SystemError/SystemErrorModule';
 import { LoggerModule } from './Logger/LoggerModule';
-import { CategoriesModule } from './Features/Categories/CategoriesModule';
+import { CategoriesModule } from './Pages/Categories/CategoriesModule';
 import { ConfigModule } from './Config/ConfigModule';
 import { CommonModule } from './Common/CommonModule';
-import { IndexModule } from './Features/Index/IndexModule';
+import { IndexModule } from './Pages/Index/IndexModule';
 import { ErrorFilterModule } from './ErrorFilter/ErrorFilterModule';
 
 @Module({
