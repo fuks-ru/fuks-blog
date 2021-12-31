@@ -37,7 +37,7 @@ export class LoggerMiddleware implements NestMiddleware {
       sessionId,
     );
 
-    const geo = lookup('94.180.168.48');
+    const geo = lookup(req.ip);
 
     this.logger.info('Новый входящий запрос', {
       extra: {
