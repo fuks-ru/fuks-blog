@@ -70,8 +70,10 @@ const App: FC<
       <meta name='theme-color' content='#ffffff' />
     </Head>
     {pageProps.error ? (
+      // eslint-disable-next-line react/jsx-props-no-spreading
       <ErrorPage {...pageProps} />
     ) : (
+      // eslint-disable-next-line react/jsx-props-no-spreading
       <Component {...pageProps} />
     )}
   </>

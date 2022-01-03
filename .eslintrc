@@ -1,9 +1,5 @@
 {
   "extends": ["eslint-config-fuks"],
-  "parserOptions": {
-    "project": "./tsconfig.packages.json",
-    "sourceType": "module"
-  },
   "rules": {
     "no-relative-imports/no-relative-imports": "off"
   }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Button } from '@fuks/ui/src/components/Button/Button';
 
 import { IPage } from '../common/types/page/IPage';
 import { getSsp } from '../common/utils/next/getSsp';
@@ -18,6 +19,7 @@ const Index: IPage<IIndexPageProps> = ({ message }) => (
   <div>
     {message}
     <Link href='/categories'>To Categories</Link>
+    <Button>Hello</Button>
   </div>
 );
 

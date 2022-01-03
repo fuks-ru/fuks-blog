@@ -17,5 +17,8 @@
     "jsx": "preserve",
     "incremental": true,
     "isolatedModules": true
-  }
+  },
+  "exclude": [
+    "entries/ui/storybook-static"
+  ]
 }

@@ -1,0 +1,32 @@
+{
+  "name": "@fuks/ui",
+  "version": "1.0.0",
+  "description": "My blog ui",
+  "main": "index.js",
+  "repository": "https://github.com/DiFuks/fuks-blog",
+  "author": "Dmitry Fuks",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.16.7",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-docs": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/react": "^6.4.9",
+    "babel-loader": "^8.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.38",
+    "@types/styled-components": "^5.1.19"
+  },
+  "scripts": {
+    "lint": "tsc && eslint \"./**/*.{ts,tsx,js,mdx}\"",
+    "dev": "start-storybook -p 6006 --ci",
+    "build": "build-storybook"
+  }
+}
