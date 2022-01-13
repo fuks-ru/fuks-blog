@@ -1,6 +1,7 @@
 import OpenApiClientAxios from 'openapi-client-axios';
 
 import { API_PREFIX } from '../utils/constants';
+
 import { Client } from './ApiSchema';
 
 class Api {

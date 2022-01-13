@@ -2,8 +2,9 @@ import { FC } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import { ErrorPage } from './_500/index.page';
 import { IPageProps } from '../common/types/page/IPageProps';
+
+import { ErrorPage } from './_500/index.page';
 
 const App: FC<
   Omit<AppProps<IPageProps>, 'pageProps'> & { pageProps: IPageProps }

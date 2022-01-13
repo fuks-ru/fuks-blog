@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { IPage } from '../../common/types/page/IPage';
 import { getSsp } from '../../common/utils/next/getSsp';
 import { IPageProps } from '../../common/types/page/IPageProps';
+
 import { ICategoryPageProps } from './[id]/index.page';
 
 /**

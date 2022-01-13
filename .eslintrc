@@ -1,5 +1,7 @@
 {
-  "extends": ["eslint-config-fuks"],
+  "extends": [
+    "eslint-config-fuks"
+  ],
   "rules": {
     "no-relative-imports/no-relative-imports": "off"
   }
