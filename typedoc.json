@@ -1,7 +1,5 @@
 {
-  "entryPoints": [
-    "entries"
-  ],
+  "entryPoints": ["entries"],
   "entryPointStrategy": "Expand",
   "out": "public/docs",
   "plugin": "./node_modules/typedoc-theme-hierarchy/dist/index.js",

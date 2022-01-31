@@ -16,7 +16,7 @@ import { Logger } from '../../Logger/services/Logger';
 
 @Injectable()
 export class ErrorFilter implements ExceptionFilter {
-  public constructor(private logger: Logger) {}
+  public constructor(private readonly logger: Logger) {}
 
   /**
    * Обрабатывает все ошибки приложения.

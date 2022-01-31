@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "build": "next build",
-    "lint": "tsc && eslint \"./**/*.{ts,tsx,js}\"",
+    "lint": "tsc && eslint \"./**/*.{ts,tsx,js,json}\"",
     "typegen": "./node_modules/.bin/typegen http://localhost:3000/swagger-json > ./src/common/api/ApiSchema.ts"
   },
   "dependencies": {

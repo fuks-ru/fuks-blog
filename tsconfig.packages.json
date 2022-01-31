@@ -18,7 +18,5 @@
     "incremental": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "entries/ui/storybook-static"
-  ]
+  "exclude": ["entries/ui/storybook-static"]
 }

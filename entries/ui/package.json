@@ -25,7 +25,7 @@
     "@types/styled-components": "^5.1.19"
   },
   "scripts": {
-    "lint": "tsc && eslint \"./**/*.{ts,tsx,js,mdx}\"",
+    "lint": "tsc && eslint \"./**/*.{ts,tsx,js,mdx,json}\"",
     "dev": "start-storybook -p 6006 --ci",
     "build": "build-storybook"
   }

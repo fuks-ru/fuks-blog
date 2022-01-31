@@ -2,17 +2,11 @@
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": [
-      "esnext"
-    ],
-    "types": [
-      "node"
-    ]
+    "lib": ["esnext"],
+    "types": ["node"]
   },
   "ts-node": {
-    "require": [
-      "tsconfig-paths/register"
-    ],
+    "require": ["tsconfig-paths/register"],
     "transpileOnly": true
   }
 }

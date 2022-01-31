@@ -10,14 +10,14 @@
   ],
   "scripts": {
     "dev": "lerna run dev --stream --parallel",
-    "prod": "lerna run build --stream && yarn run typedoc && lerna run prod --stream",
-    "lint": "lerna run lint --stream --parallel",
+    "prod": "yarn run lint && lerna run build --stream && yarn run typedoc && lerna run prod --stream",
+    "lint": "eslint \"*.json\" && lerna run lint --stream --parallel",
     "typedoc": "typedoc"
   },
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.5.0",
-    "eslint-config-fuks": "^1.1.14",
+    "eslint-config-fuks": "^1.2.0",
     "lerna": "^4.0.0",
     "typedoc": "^0.22.10",
     "typedoc-theme-hierarchy": "^1.0.11"

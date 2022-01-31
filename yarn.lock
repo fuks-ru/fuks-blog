@@ -6954,10 +6954,10 @@ eslint-config-airbnb@^19.0.4:
     object.assign "^4.1.2"
     object.entries "^1.1.5"
 
-eslint-config-fuks@^1.1.14:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/eslint-config-fuks/-/eslint-config-fuks-1.1.14.tgz#944c7e496a298edab0ed0a83329caa8c70549cbe"
-  integrity sha512-+8UtfPF8o1X++Ez5pxLYEH69xOKu04MHThM7u1i7sy7MD+ycJHHMRZOOYjDPMxgSG9kVzaRzmvq5kteFU6y3Rw==
+eslint-config-fuks@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-fuks/-/eslint-config-fuks-1.2.0.tgz#26f3fea83cec0aa5194e0a68c29ad604386be809"
+  integrity sha512-rcqrq0Tf9vVHoBeTLbobmNV9NMzIFwEyP2vQl6VEQxR2Gh8SZiU2h+O7bBg07lWdZa0aJ62+OdrCJwe4dFsSCg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.8.1"
     "@typescript-eslint/parser" "^5.8.1"
@@ -6968,6 +6968,7 @@ eslint-config-fuks@^1.1.14:
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-import "^2.25.3"
     eslint-plugin-jsdoc "^37.2.0"
+    eslint-plugin-json "^3.1.0"
     eslint-plugin-jsx-a11y "^6.5.1"
     eslint-plugin-mdx "^1.16.0"
     eslint-plugin-no-relative-imports "github:MatthewBurstein/eslint-plugin-no-relative-imports"
@@ -7068,6 +7069,14 @@ eslint-plugin-jsdoc@^37.2.0:
     regextras "^0.8.0"
     semver "^7.3.5"
     spdx-expression-parse "^3.0.1"
+
+eslint-plugin-json@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-json/-/eslint-plugin-json-3.1.0.tgz#251108ba1681c332e0a442ef9513bd293619de67"
+  integrity sha512-MrlG2ynFEHe7wDGwbUuFPsaT2b1uhuEFhJ+W1f1u+1C2EkXmTYJp4B1aAdQQ8M+CC3t//N/oRKiIVw14L2HR1g==
+  dependencies:
+    lodash "^4.17.21"
+    vscode-json-languageservice "^4.1.6"
 
 eslint-plugin-jsx-a11y@^6.5.1:
   version "6.5.1"
@@ -14857,6 +14866,32 @@ vm-browserify@1.1.2, vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+vscode-json-languageservice@^4.1.6:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/vscode-json-languageservice/-/vscode-json-languageservice-4.2.0.tgz#df0693b69ba2fbf0a6add896087b6f1c9c38f06a"
+  integrity sha512-XNawv0Vdy/sUK0S+hGf7cq/qsVAbIniGJr89TvZOqMCNJmpgKTy1e8PL1aWW0uy6BfWMG7vxa5lZb3ypuFtuGQ==
+  dependencies:
+    jsonc-parser "^3.0.0"
+    vscode-languageserver-textdocument "^1.0.3"
+    vscode-languageserver-types "^3.16.0"
+    vscode-nls "^5.0.0"
+    vscode-uri "^3.0.3"
+
+vscode-languageserver-textdocument@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.4.tgz#3cd56dd14cec1d09e86c4bb04b09a246cb3df157"
+  integrity sha512-/xhqXP/2A2RSs+J8JNXpiiNVvvNM0oTosNVmQnunlKvq9o4mupHOBAnnzH0lwIPKazXKvAKsVp1kr+H/K4lgoQ==
+
+vscode-languageserver-types@^3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/vscode-languageserver-types/-/vscode-languageserver-types-3.16.0.tgz#ecf393fc121ec6974b2da3efb3155644c514e247"
+  integrity sha512-k8luDIWJWyenLc5ToFQQMaSrqCHiLwyKPHKPQZ5zz21vM+vIVUSvsRpcbiECH4WR88K2XZqc4ScRcZ7nk/jbeA==
+
+vscode-nls@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/vscode-nls/-/vscode-nls-5.0.0.tgz#99f0da0bd9ea7cda44e565a74c54b1f2bc257840"
+  integrity sha512-u0Lw+IYlgbEJFF6/qAqG2d1jQmJl0eyAGJHoAJqr2HT4M2BNuQYSEiSE75f52pXHSJm8AlTjnLLbBFPrdz2hpA==
+
 vscode-oniguruma@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/vscode-oniguruma/-/vscode-oniguruma-1.6.1.tgz#2bf4dfcfe3dd2e56eb549a3068c8ee39e6c30ce5"
@@ -14866,6 +14901,11 @@ vscode-textmate@5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-5.2.0.tgz#01f01760a391e8222fe4f33fbccbd1ad71aed74e"
   integrity sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==
+
+vscode-uri@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/vscode-uri/-/vscode-uri-3.0.3.tgz#a95c1ce2e6f41b7549f86279d19f47951e4f4d84"
+  integrity sha512-EcswR2S8bpR7fD0YPeS7r2xXExrScVMxg4MedACaWHEtx9ftCF/qHG1xGkolzTPcEmjTavCQgbVzHUIdTMzFGA==
 
 walker@^1.0.7, walker@~1.0.5:
   version "1.0.8"
