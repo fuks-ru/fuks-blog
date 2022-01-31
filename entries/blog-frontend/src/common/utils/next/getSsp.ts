@@ -41,12 +41,12 @@ export const getSsp =
         );
 
         return {
-          props: response.data,
+          props: response.data as IPageProps,
         };
       } catch (error) {
         if ('isAxiosError' in (error as AxiosError)) {
           return {
-            props: (error as AxiosError).response?.data,
+            props: (error as AxiosError).response?.data as IPageProps,
           };
         }
 
