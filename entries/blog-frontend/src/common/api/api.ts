@@ -5,7 +5,7 @@ import { API_PREFIX } from '../utils/constants';
 import { Client } from './ApiSchema';
 
 class Api {
-  private openApi!: OpenApiClientAxios;
+  private readonly openApi!: OpenApiClientAxios;
 
   public constructor() {
     this.openApi = new OpenApiClientAxios({
