@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "lerna run dev --stream --parallel",
     "prod": "yarn run lint && lerna run build --stream && yarn run typedoc && lerna run prod --stream",
-    "lint": "eslint \"*.json\" && lerna run lint --stream --parallel",
+    "lint:prod": "eslint \"*.json\" && lerna run lint --stream --parallel",
+    "lint:dev": "eslint \"*.json\" && lerna run lint --stream --parallel --no-bail",
     "typedoc": "typedoc"
   },
   "license": "ISC",
