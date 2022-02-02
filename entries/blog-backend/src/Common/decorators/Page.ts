@@ -1,7 +1,7 @@
 import { applyDecorators, Get, UseInterceptors } from '@nestjs/common';
 import { ApiExcludeEndpoint } from '@nestjs/swagger';
-import { API_PAGE_PREFIX } from '@fuks/blog-frontend/src/common/utils/constants';
 
+import { API_PAGE_PREFIX } from '../../Config/services/ConfigGetter';
 import { makeFormatPageResponseInterceptor } from '../interceptors/FormatPageResponseInterceptor';
 
 /**

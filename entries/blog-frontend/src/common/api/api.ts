@@ -1,7 +1,5 @@
 import OpenApiClientAxios from 'openapi-client-axios';
 
-import { API_PREFIX } from '../utils/constants';
-
 import { Client } from './ApiSchema';
 
 class Api {
@@ -9,7 +7,7 @@ class Api {
 
   public constructor() {
     this.openApi = new OpenApiClientAxios({
-      definition: `${process.env.SERVER_FULL_HOST}${API_PREFIX}-json`,
+      definition: `${process.env.SERVER_FULL_HOST}/api-json`,
     });
   }
 

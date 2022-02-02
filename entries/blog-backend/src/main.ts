@@ -3,7 +3,6 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 import path from 'node:path';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { API_PREFIX } from '@fuks/blog-frontend/src/common/utils/constants';
 
 import { AppModule } from './AppModule';
 import { ConfigModule } from './Config/ConfigModule';
@@ -25,7 +24,7 @@ import { ConfigGetter } from './Config/services/ConfigGetter';
 
   const document = SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup(API_PREFIX, app, document);
+  SwaggerModule.setup(configGetter.getApiPrefix(), app, document);
 
-  await app.listen(configGetter.get('SERVER_PORT'));
+  await app.listen(configGetter.getEnv('SERVER_PORT'));
 })();

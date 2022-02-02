@@ -6,17 +6,17 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import {
-  API_PAGE_PREFIX,
-  API_PREFIX,
-} from '@fuks/blog-frontend/src/common/utils/constants';
 import { IPageProps } from '@fuks/blog-frontend/src/common/types/page/IPageProps';
 
+import { ConfigGetter } from '../../Config/services/ConfigGetter';
 import { Logger } from '../../Logger/services/Logger';
 
 @Injectable()
 export class ErrorFilter implements ExceptionFilter {
-  public constructor(private readonly logger: Logger) {}
+  public constructor(
+    private readonly logger: Logger,
+    private readonly configGetter: ConfigGetter,
+  ) {}
 
   /**
    * Обрабатывает все ошибки приложения.
@@ -26,8 +26,10 @@ export class ErrorFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
 
-    const isApi = request.url.includes(API_PREFIX);
-    const isApiPage = request.url.includes(API_PAGE_PREFIX);
+    const isApi = request.url.includes(this.configGetter.getApiPrefix());
+    const isApiPage = request.url.includes(
+      this.configGetter.getApiPagePrefix(),
+    );
 
     const title = 'Произошла ошибка';
 

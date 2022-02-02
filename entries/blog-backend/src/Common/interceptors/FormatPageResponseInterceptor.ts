@@ -9,12 +9,18 @@ import {
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Request, Response } from 'express';
-import { API_PAGE_PREFIX } from '@fuks/blog-frontend/src/common/utils/constants';
+
+import { ConfigGetter } from 'src/Config/services/ConfigGetter';
 
 @Injectable()
 abstract class FormatPageResponseInterceptor implements NestInterceptor {
   protected abstract readonly pageFileName: string;
 
+  public constructor(private readonly configGetter: ConfigGetter) {}
+
+  /**
+   * Перехватчик запроса, определяющий нужно ли отдать страницу и json.
+   */
   public intercept(
     context: ExecutionContext,
     next: CallHandler,
@@ -22,7 +28,9 @@ abstract class FormatPageResponseInterceptor implements NestInterceptor {
     const request = context.switchToHttp().getRequest<Request>();
     const response = context.switchToHttp().getResponse<Response>();
 
-    const isApiPage = request.url.includes(API_PAGE_PREFIX);
+    const isApiPage = request.url.includes(
+      this.configGetter.getApiPagePrefix(),
+    );
 
     if (isApiPage) {
       return next.handle();

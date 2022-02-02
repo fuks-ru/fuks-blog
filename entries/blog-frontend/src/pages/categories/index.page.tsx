@@ -21,7 +21,7 @@ const Categories: IPage<ICategoriesPageProps> = ({ items }) => (
     <Link href='/?a=3'>To main</Link>
     {items.map((item) => (
       <Link key={item.id} href={`/categories/${item.id}`}>
-        To {item.name}
+        <a href={`/categories/${item.id}`}>To {item.name}</a>
       </Link>
     ))}
   </div>

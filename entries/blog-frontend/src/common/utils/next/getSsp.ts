@@ -6,7 +6,6 @@ import {
   PreviewData,
 } from 'next/types';
 
-import { API_PAGE_PREFIX } from '../constants';
 import { IPageProps } from '../../types/page/IPageProps';
 import { api } from '../../api/api';
 
@@ -37,7 +36,7 @@ export const getSsp =
 
       try {
         const response = await client.get(
-          `${API_PAGE_PREFIX}${contextDraft.resolvedUrl}`,
+          `/api/page${contextDraft.resolvedUrl}`,
         );
 
         return {

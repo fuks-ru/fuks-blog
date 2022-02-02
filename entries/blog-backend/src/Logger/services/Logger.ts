@@ -10,19 +10,49 @@ import {
 } from '../utils/constants';
 import { LoggerLevel } from '../enums/LoggerLevel';
 
+/**
+ * Опции логгера.
+ */
 interface ILoggerOptions {
+  /**
+   * Дополнительная информация.
+   */
   extra?: unknown;
 }
 
+/**
+ * Сообщения логгера.
+ */
 interface ILoggerMessage {
+  /**
+   * Id запроса.
+   */
   requestId: string;
+  /**
+   * Id сессии.
+   */
   sessionId: string;
+  /**
+   * Текст сообщения.
+   */
   message: string;
+  /**
+   * Дополнительные данные.
+   */
   extra?: unknown;
 }
 
+/**
+ * Контекст запроса.
+ */
 interface IRequestContext {
+  /**
+   * Id запроса.
+   */
   [REQUEST_ID_KEY]: string;
+  /**
+   * Id сессии.
+   */
   [REQUEST_SESSION_ID_KEY]: string;
 }
 
