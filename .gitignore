@@ -1,4 +1,5 @@
 node_modules
 /public/docs
 tsconfig.*tsbuildinfo
-.idea
+/.idea
+/lerna-debug.log

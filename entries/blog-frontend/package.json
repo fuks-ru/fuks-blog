@@ -5,9 +5,10 @@
   "repository": "https://github.com/DiFuks/fuks-blog",
   "private": true,
   "author": "Dmitry Fuks",
+  "sideEffects": false,
   "license": "ISC",
   "scripts": {
-    "build": "next build && ./node_modules/.bin/typegen http://localhost:3000/swagger-json > ./src/common/api/ApiSchema.ts",
+    "build": "next build",
     "lint": "tsc && eslint \"{**/*,*}.{ts,tsx,js,json}\""
   },
   "dependencies": {

@@ -4,6 +4,6 @@
     "baseUrl": ".",
     "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": [".storybook/**/*.js", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "include": [".storybook/**/*.*", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["storybook-static", "dist"]
 }
