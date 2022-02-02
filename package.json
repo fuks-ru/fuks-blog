@@ -9,10 +9,10 @@
     "entries/*"
   ],
   "scripts": {
-    "dev": "lerna run dev --stream --parallel",
-    "prod": "yarn run lint && lerna run build --stream && yarn run typedoc && lerna run prod --stream",
-    "lint:prod": "eslint \"*.json\" && lerna run lint --stream --parallel",
-    "lint:dev": "eslint \"*.json\" && lerna run lint --stream --parallel --no-bail",
+    "dev": "lerna run dev --stream",
+    "prod": "yarn run lint && lerna run build --stream && lerna run prod --stream",
+    "storybook": "lerna run storybook",
+    "lint": "eslint \"*.json\" && lerna run lint --parallel --no-bail",
     "typedoc": "typedoc"
   },
   "license": "ISC",

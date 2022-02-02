@@ -1,0 +1,32 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": { "version": "3" }
+      }
+    ],
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@babel/plugin-transform-react-display-name",
+        [
+          "babel-plugin-styled-components",
+          {
+            "ssr": true,
+            "displayName": true
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,5 +1,4 @@
 {
-  "packages": ["lib/*", "entries/*"],
   "version": "independent",
   "useWorkspaces": true,
   "npmClient": "yarn"

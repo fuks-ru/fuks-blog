@@ -7,9 +7,8 @@
   "author": "Dmitry Fuks",
   "license": "ISC",
   "scripts": {
-    "build": "next build",
-    "lint": "tsc && eslint \"./**/*.{ts,tsx,js,json}\"",
-    "typegen": "./node_modules/.bin/typegen http://localhost:3000/swagger-json > ./src/common/api/ApiSchema.ts"
+    "build": "next build && ./node_modules/.bin/typegen http://localhost:3000/swagger-json > ./src/common/api/ApiSchema.ts",
+    "lint": "tsc && eslint \"{**/*,*}.{ts,tsx,js,json}\""
   },
   "dependencies": {
     "@fuks/ui": "*",
@@ -17,7 +16,6 @@
     "lodash": "^4.17.21",
     "next": "^12.0.7",
     "next-compose-plugins": "^2.2.1",
-    "next-transpile-modules": "^9.0.0",
     "openapi-client-axios": "^4.3.3",
     "openapi-client-axios-typegen": "^4.3.3",
     "react": "^17.0.2",

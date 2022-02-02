@@ -1,4 +1,4 @@
 node_modules
 /public/docs
-tsconfig.tsbuildinfo
+tsconfig.*tsbuildinfo
 .idea

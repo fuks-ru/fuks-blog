@@ -1,5 +1,5 @@
+import { Button } from '@fuks/ui';
 import Link from 'next/link';
-import { Button } from '@fuks/ui/src/components/Button/Button';
 
 import { IPage } from '../common/types/page/IPage';
 import { getSsp } from '../common/utils/next/getSsp';
