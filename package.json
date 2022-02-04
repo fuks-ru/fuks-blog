@@ -21,6 +21,6 @@
     "eslint-config-fuks": "^1.2.1",
     "lerna": "^4.0.0",
     "typedoc": "^0.22.10",
-    "typedoc-theme-hierarchy": "^1.0.11"
+    "typedoc-theme-hierarchy": "^1.0.14"
   }
 }
