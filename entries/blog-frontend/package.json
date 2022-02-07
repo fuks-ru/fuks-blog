@@ -26,6 +26,8 @@
   "devDependencies": {
     "@types/lodash": "^4.14.177",
     "@types/next": "^9.0.0",
-    "@types/react": "^17.0.37"
+    "@types/react": "^17.0.37",
+    "eslint": "^8.5.0",
+    "eslint-config-fuks": "^1.2.1"
   }
 }

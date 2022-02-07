@@ -1,6 +1,3 @@
 {
-  "extends": ["eslint-config-fuks"],
-  "rules": {
-    "no-relative-imports/no-relative-imports": "off"
-  }
+  "extends": ["eslint-config-fuks"]
 }
