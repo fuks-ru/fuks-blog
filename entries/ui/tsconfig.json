@@ -2,7 +2,16 @@
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["dom", "dom.iterable", "esnext"]
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "ESNext",
+    "paths": {
+      "@ui/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "transform": "@zerollup/ts-transform-paths"
+      }
+    ]
   },
   "include": [".storybook/**/*.*", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["storybook-static", "dist"]

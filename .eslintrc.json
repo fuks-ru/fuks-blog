@@ -1,3 +1,25 @@
 {
-  "extends": ["eslint-config-fuks"]
+  "extends": ["eslint-config-fuks"],
+  "parserOptions": {
+    "project": "entries/*/tsconfig.json",
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "parserOptions": {
+        "project": false
+      },
+      "rules": {
+        "sonarjs/no-duplicate-string": ["off"]
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "entries/*/tsconfig.json"
+      }
+    }
+  }
 }

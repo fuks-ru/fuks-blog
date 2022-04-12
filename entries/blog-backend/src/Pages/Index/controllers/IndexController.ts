@@ -2,10 +2,10 @@ import { Body, Controller } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import type { IIndexPageProps } from '@fuks/blog-frontend/src/pages/index.page';
 
-import { TestSwaggerRequest } from '../dto/TestSwaggerRequest';
-import { TestSwaggerResponse } from '../dto/TestSwaggerResponse';
-import { Page } from '../../../Common/decorators/Page';
-import { ApiPost } from '../../../Common/decorators/ApiPost';
+import { TestSwaggerRequest } from '@blog-backend/Pages/Index/dto/TestSwaggerRequest';
+import { TestSwaggerResponse } from '@blog-backend/Pages/Index/dto/TestSwaggerResponse';
+import { Page } from '@blog-backend/Common/decorators/Page';
+import { ApiPost } from '@blog-backend/Common/decorators/ApiPost';
 
 @Controller()
 @ApiTags('index')

@@ -8,8 +8,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node-dev --inspect=0.0.0.0:5555 src/main.ts --ignore ../blog-frontend/.next",
-    "prod": "cross-env NODE_ENV=production ts-node src/main.ts",
-    "lint": "tsc && eslint \"{**/*,*}.{ts,tsx,js,json}\""
+    "prod": "cross-env NODE_ENV=production ts-node src/main.ts"
   },
   "dependencies": {
     "@fuks/blog-frontend": "*",

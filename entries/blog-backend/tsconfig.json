@@ -3,10 +3,20 @@
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["esnext"],
-    "types": ["node"]
+    "types": ["node"],
+    "typeRoots": ["./src/Common/types"],
+    "paths": {
+      "@blog-backend/*": ["./src/*"],
+      "@blog-frontend/*": ["../blog-frontend/src/*"]
+    }
   },
+  "references": [
+    {
+      "path": "../blog-frontend"
+    }
+  ],
   "ts-node": {
     "require": ["tsconfig-paths/register"],
-    "transpileOnly": true
+    "files": true
   }
 }

@@ -6,8 +6,8 @@ import {
   PreviewData,
 } from 'next/types';
 
-import { IPageProps } from '../../types/page/IPageProps';
-import { api } from '../../api/api';
+import { IPageProps } from '@blog-frontend/common/types/page/IPageProps';
+import { api } from '@blog-frontend/common/api/api';
 
 interface IGetServerSidePropsContext<
   P = unknown,
