@@ -1,1 +1,4 @@
 /var
+/lib/*
+!/lib/index.ts
+/dist

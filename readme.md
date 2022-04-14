@@ -3,6 +3,7 @@
 ## Запуск в dev-режиме:
 
 ```bash
+yarn build:lib
 yarn dev
 ```
 

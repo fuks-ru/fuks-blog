@@ -6,6 +6,7 @@ import {
   PreviewData,
 } from 'next/types';
 
+import { API_PAGE_PREFIX } from 'blog-frontend/common/utils/constants';
 import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
 import { api } from 'blog-frontend/common/api/api';
 
@@ -38,11 +39,11 @@ type IGetServerSideProps<
 export const getSsp =
   (): IGetServerSideProps<IPageProps> => async (contextDraft) => {
     if (contextDraft.req.url?.includes('.json')) {
-      const client = await api.getClient();
+      const client = api.getInstance();
 
       try {
         const response = await client.get(
-          `/api/page${contextDraft.resolvedUrl}`,
+          `${API_PAGE_PREFIX}${contextDraft.resolvedUrl}`,
         );
 
         return {

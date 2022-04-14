@@ -2,10 +2,10 @@
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
       "blog-frontend/*": ["src/*"]
-    }
+    },
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
   "exclude": ["node_modules"]

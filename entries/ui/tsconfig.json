@@ -5,11 +5,14 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "ESNext",
     "paths": {
-      "@ui/*": ["./src/*"]
+      "ui/*": ["./src/*"]
     },
     "plugins": [
+      { "transform": "typescript-transform-paths", "useRootDirs": true },
       {
-        "transform": "@zerollup/ts-transform-paths"
+        "transform": "typescript-transform-paths",
+        "useRootDirs": true,
+        "afterDeclarations": true
       }
     ]
   },

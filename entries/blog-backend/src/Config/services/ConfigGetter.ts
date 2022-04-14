@@ -1,19 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
+import { ErrorCode } from 'blog-backend/SystemError/dto/SystemError';
 import { SystemErrorFactory } from 'blog-backend/SystemError/services/SystemErrorFactory';
-
-/**
- * Префикс API-запросов.
- */
-export const API_PREFIX = '/api';
-
-/**
- * Префикс API-запросов за состоянием страницы.
- */
-export const API_PAGE_PREFIX = `${API_PREFIX}/page`;
 
 @Injectable()
 export class ConfigGetter {
+  private readonly apiPrefix = '/api';
+
   public constructor(private readonly systemErrorFactory: SystemErrorFactory) {}
 
   /**
@@ -25,7 +18,10 @@ export class ConfigGetter {
     const envValue = process.env[name];
 
     if (!envValue) {
-      throw this.systemErrorFactory.create(`Не найден ${name} конфиг параметр`);
+      throw this.systemErrorFactory.create(
+        ErrorCode.CONFIG_NOT_FOUND,
+        `Не найден ${name} конфиг параметр`,
+      );
     }
 
     return envValue;
@@ -44,13 +40,13 @@ export class ConfigGetter {
    * Получает префикс маршрута для апи.
    */
   public getApiPrefix(): string {
-    return API_PREFIX;
+    return this.apiPrefix;
   }
 
   /**
-   * Получает префикс маршрута для апи страницы.
+   * True, если сервер запущен в dev-режиме.
    */
-  public getApiPagePrefix(): string {
-    return API_PAGE_PREFIX;
+  public isDev(): boolean {
+    return this.getEnv('NODE_ENV') !== 'production';
   }
 }

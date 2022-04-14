@@ -1,3 +1,4 @@
-ApiSchema.ts
 dist
 public
+/entries/blog-backend/lib/*
+!/entries/blog-backend/lib/index.ts

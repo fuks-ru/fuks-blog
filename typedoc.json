@@ -9,9 +9,7 @@
   "exclude": [
     "**/dist/**/*",
     "**/node_modules/**/*",
-    "**/storybook-static/**/*",
     "**/.next/**/*",
-    "**/.rollup.cache/**/*",
-    "**/.storybook/**/*"
+    "**/.rollup.cache/**/*"
   ]
 }

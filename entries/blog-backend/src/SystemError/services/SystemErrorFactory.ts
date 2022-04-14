@@ -1,14 +1,16 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+
+import {
+  ErrorCode,
+  SystemError,
+} from 'blog-backend/SystemError/dto/SystemError';
 
 @Injectable()
 export class SystemErrorFactory {
   /**
    * Создает ошибку для приложения.
    */
-  public create(
-    message: string,
-    status: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR,
-  ): HttpException {
-    return new HttpException(message, status);
+  public create(code: ErrorCode, message: string): SystemError {
+    return new SystemError(code, message);
   }
 }

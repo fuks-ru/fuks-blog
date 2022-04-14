@@ -10,8 +10,9 @@
   ],
   "scripts": {
     "dev": "yarn workspaces foreach --interlaced --verbose --parallel run dev",
+    "prod": "yarn run lint && yarn run build:lib && yarn run build && yarn workspaces foreach --interlaced --verbose --parallel run prod",
     "build": "yarn workspaces foreach --interlaced --verbose --topological-dev run build",
-    "prod": "yarn run lint && yarn run build && yarn workspaces foreach --interlaced --verbose --topological-dev run prod",
+    "build:lib": "yarn workspaces foreach --interlaced --verbose --topological-dev run build:lib",
     "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\"",
     "lint:fix": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\" --fix",
     "typedoc": "typedoc"

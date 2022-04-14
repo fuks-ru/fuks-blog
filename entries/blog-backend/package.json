@@ -6,41 +6,47 @@
   "private": true,
   "author": "Dmitry Fuks",
   "license": "ISC",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon --watch \"src/**\" --ext \"ts\" --exec \"ts-node ./src/main.ts\"",
-    "prod": "cross-env NODE_ENV=production ts-node ./src/main.ts"
+    "build:lib": "ts-node -r tsconfig-paths/register ./src/Swagger/utils/buildShema.ts && yarn run typegen:build && yarn run lib:build",
+    "dev": "concurrently -r \"cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only ./src/main.ts\" \"yarn run lib:watch\"",
+    "prod": "cross-env NODE_ENV=production ts-node -r tsconfig-paths/register ./src/main.ts",
+    "typegen:build": "typegen ./lib/swagger-schema.json > ./lib/client.ts",
+    "typegen:watch": "nodemon --watch ./lib/swagger-schema.json --exec \"yarn run typegen:build\"",
+    "lib:build": "ttsc --project tsconfig.lib.json",
+    "lib:watch": "concurrently -r \"yarn run typegen:watch\" \"ttsc --watch --project tsconfig.lib.json\""
   },
-  "dependencies": {
-    "@fuks/blog-frontend": "*",
+  "devDependencies": {
+    "@fuks/common": "*",
     "@nestjs/common": "^8.4.4",
     "@nestjs/core": "^8.4.4",
     "@nestjs/platform-express": "^8.4.4",
     "@nestjs/swagger": "^5.2.1",
-    "@types/uuid": "^8.3.4",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.181",
+    "axios": "^0.26.1",
+    "concurrently": "^7.1.0",
     "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
+    "dotenv-extended": "^2.9.0",
     "express": "^4.17.3",
-    "geoip-lite": "^1.4.4",
     "lodash": "^4.17.21",
-    "nest-next": "^10.0.0",
-    "nest-winston": "^1.6.2",
+    "nodemon": "^2.0.15",
+    "openapi-client-axios": "^5.1.2",
+    "openapi-client-axios-typegen": "^5.0.2",
     "reflect-metadata": "^0.1.13",
-    "request-context": "^2.0.0",
     "rxjs": "^7.5.5",
     "swagger-ui-express": "^4.3.0",
     "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.14.1",
+    "ttypescript": "^1.5.13",
     "typescript": "^4.6.3",
-    "uuid": "^8.3.2",
-    "winston": "^3.7.2",
-    "winston-daily-rotate-file": "^4.6.1"
+    "typescript-transform-paths": "^3.3.1"
   },
-  "devDependencies": {
-    "@types/cookie-parser": "^1.4.2",
-    "@types/express": "^4.17.13",
-    "@types/geoip-lite": "^1.4.1",
-    "@types/lodash": "^4.14.181",
-    "eslint-config-fuks": "^1.2.3",
-    "nodemon": "^2.0.15"
+  "peerDependencies": {
+    "openapi-client-axios": "^5.1.2"
   }
 }

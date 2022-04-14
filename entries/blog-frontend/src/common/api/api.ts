@@ -1,24 +1,18 @@
-import OpenApiClientAxios from 'openapi-client-axios';
+import axios, { AxiosInstance } from 'axios';
 
-import { Client } from 'blog-frontend/common/api/ApiSchema';
+import { FULL_HOST } from 'blog-frontend/common/utils/constants';
 
 class Api {
-  private readonly openApi!: OpenApiClientAxios;
+  private readonly axiosInstance!: AxiosInstance;
 
   public constructor() {
-    this.openApi = new OpenApiClientAxios({
-      definition: `${process.env.SERVER_FULL_HOST}/api-json`,
+    this.axiosInstance = axios.create({
+      baseURL: FULL_HOST,
     });
   }
 
-  public async getClient(): Promise<Client> {
-    await this.init();
-
-    return this.openApi.getClient();
-  }
-
-  private async init(): Promise<void> {
-    await this.openApi.init();
+  public getInstance(): AxiosInstance {
+    return this.axiosInstance;
   }
 }
 
@@ -26,7 +20,5 @@ const api = new Api();
 
 /**
  * Инстанс класса для всех http запросов на bff.
- *
- * Является оберткой над openapi-client-axios.
  */
 export { api };
