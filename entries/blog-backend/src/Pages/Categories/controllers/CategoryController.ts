@@ -1,9 +1,9 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import type { ICategoriesPageProps } from '@fuks/blog-frontend/src/pages/categories/index.page';
-import type { ICategoryPageProps } from '@fuks/blog-frontend/src/pages/categories/[id]/index.page';
+import { ICategoriesPageProps } from '@fuks/blog-frontend/src/pages/categories/index.page';
+import { ICategoryPageProps } from '@fuks/blog-frontend/src/pages/categories/[id]/index.page';
 
-import { Page } from '../../../Common/decorators/Page';
+import { Page } from 'blog-backend/Common/decorators/Page';
 
 @Controller()
 @ApiTags('categories')

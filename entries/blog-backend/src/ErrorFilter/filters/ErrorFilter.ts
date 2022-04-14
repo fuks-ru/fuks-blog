@@ -8,8 +8,8 @@ import {
 import { Request, Response } from 'express';
 import type { IPageProps } from '@fuks/blog-frontend/src/common/types/page/IPageProps';
 
-import { ConfigGetter } from '../../Config/services/ConfigGetter';
-import { Logger } from '../../Logger/services/Logger';
+import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
+import { Logger } from 'blog-backend/Logger/services/Logger';
 
 @Injectable()
 export class ErrorFilter implements ExceptionFilter {

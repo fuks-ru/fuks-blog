@@ -1,3 +1,34 @@
 {
-  "extends": ["eslint-config-fuks"]
+  "extends": ["eslint-config-fuks"],
+  "parserOptions": {
+    "project": "entries/*/tsconfig.json",
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": ["*.json"],
+      "parserOptions": {
+        "project": false
+      },
+      "rules": {
+        "sonarjs/no-duplicate-string": ["off"]
+      }
+    },
+    {
+      "files": ["*.mdx"],
+      "parserOptions": {
+        "project": false
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "entries/*/tsconfig.json"
+      }
+    },
+    "react": {
+      "version": "18.0.0"
+    }
+  }
 }

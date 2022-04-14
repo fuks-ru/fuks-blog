@@ -6,14 +6,20 @@ import {
   PreviewData,
 } from 'next/types';
 
-import { IPageProps } from '../../types/page/IPageProps';
-import { api } from '../../api/api';
+import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
+import { api } from 'blog-frontend/common/api/api';
 
-interface IGetServerSidePropsContext<
+/**
+ * Описание кастомной функции getServerSideProps.
+ */
+export interface IGetServerSidePropsContext<
   P = unknown,
   Q extends ParsedUrlQuery = ParsedUrlQuery,
   D extends PreviewData = PreviewData,
 > extends Omit<GetServerSidePropsContext<Q, D>, 'query'> {
+  /**
+   * В этом параметре приходят данные от сервера в режиме SSR.
+   */
   query: P;
 }
 

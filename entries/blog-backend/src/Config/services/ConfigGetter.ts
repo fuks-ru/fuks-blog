@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { SystemErrorFactory } from '../../SystemError/services/SystemErrorFactory';
+import { SystemErrorFactory } from 'blog-backend/SystemError/services/SystemErrorFactory';
 
 /**
  * Префикс API-запросов.

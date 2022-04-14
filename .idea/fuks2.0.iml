@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/var" />
+      <excludeFolder url="file://$MODULE_DIR$/lib/typedoc-theme-hierarchy/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/public/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/ui/storybook-static" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/ui/.rollup.cache" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

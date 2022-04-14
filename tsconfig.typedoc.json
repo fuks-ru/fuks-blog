@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.packages.json",
+  "compilerOptions": {
+    "paths": {
+      "@ui/*": ["./entries/ui/src/*"],
+      "@blog-frontend/*": ["./entries/blog-frontend/src/*"],
+      "@blog-backend/*": ["./entries/blog-backend/src/*"]
+    }
+  }
+}

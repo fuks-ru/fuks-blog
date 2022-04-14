@@ -9,18 +9,42 @@
     "entries/*"
   ],
   "scripts": {
-    "dev": "lerna run dev --stream",
-    "prod": "yarn run lint && lerna run build --stream && lerna run prod --stream",
-    "storybook": "lerna run storybook",
-    "lint": "eslint \"*.json\" && lerna run lint --parallel --no-bail",
+    "dev": "yarn workspaces foreach --interlaced --verbose --parallel run dev",
+    "build": "yarn workspaces foreach --interlaced --verbose --topological-dev run build",
+    "prod": "yarn run lint && yarn run build && yarn workspaces foreach --interlaced --verbose --topological-dev run prod",
+    "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\"",
+    "lint:fix": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\" --fix",
     "typedoc": "typedoc"
   },
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.5.0",
-    "eslint-config-fuks": "^1.2.1",
-    "lerna": "^4.0.0",
-    "typedoc": "^0.22.10",
-    "typedoc-theme-hierarchy": "^1.0.14"
-  }
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-fuks": "^1.3.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.2.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-mdx": "^1.17.0",
+    "eslint-plugin-no-relative-imports": "github:MatthewBurstein/eslint-plugin-no-relative-imports",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-sonarjs": "^0.13.0",
+    "eslint-plugin-styled-components-varname": "^1.0.1",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-jsdoc": "^0.3.38",
+    "typedoc": "^0.22.15",
+    "typedoc-theme-hierarchy": "^1.1.1",
+    "typescript": "^4.6.3"
+  },
+  "packageManager": "yarn@3.2.0"
 }

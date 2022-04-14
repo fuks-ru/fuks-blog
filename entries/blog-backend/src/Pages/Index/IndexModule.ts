@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { IndexController } from './controllers/IndexController';
+import { IndexController } from 'blog-backend/Pages/Index/controllers/IndexController';
 
 @Module({
   controllers: [IndexController],

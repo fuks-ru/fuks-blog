@@ -2,10 +2,10 @@ import { Global, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { WinstonModule } from 'nest-winston';
 import requestContext from 'request-context';
 
-import { LoggerMiddleware } from './middlewares/LoggerMiddleware';
-import { WinstonOptionsFactory } from './services/WinstonOptionsFactory';
-import { Logger } from './services/Logger';
-import { REQUEST_CONTEXT_ID } from './utils/constants';
+import { LoggerMiddleware } from 'blog-backend/Logger/middlewares/LoggerMiddleware';
+import { WinstonOptionsFactory } from 'blog-backend/Logger/services/WinstonOptionsFactory';
+import { Logger } from 'blog-backend/Logger/services/Logger';
+import { REQUEST_CONTEXT_ID } from 'blog-backend/Logger/utils/constants';
 
 @Global()
 @Module({
