@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
-import { IPage } from '@blog-frontend/common/types/page/IPage';
-import { getSsp } from '@blog-frontend/common/utils/next/getSsp';
-import { IPageProps } from '@blog-frontend/common/types/page/IPageProps';
+import { IPage } from 'blog-frontend/common/types/page/IPage';
+import { getSsp } from 'blog-frontend/common/utils/next/getSsp';
+import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
 
 /**
  * Пропсы для детальной страницы категории.

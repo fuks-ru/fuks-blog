@@ -3,7 +3,7 @@ import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import ttypescript from 'ttypescript';
 
-const config = (cliArgs) => {
+const config = () => {
   const plugins = [
     typescript({
       tsconfig: 'tsconfig.build.json',
@@ -15,7 +15,7 @@ const config = (cliArgs) => {
     }),
   ];
 
-  if (cliArgs.prod) {
+  if (process.env.NODE_ENV) {
     plugins.push(terser());
   }
 

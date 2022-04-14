@@ -1,6 +1,6 @@
 import OpenApiClientAxios from 'openapi-client-axios';
 
-import { Client } from '@blog-frontend/common/api/ApiSchema';
+import { Client } from 'blog-frontend/common/api/ApiSchema';
 
 class Api {
   private readonly openApi!: OpenApiClientAxios;

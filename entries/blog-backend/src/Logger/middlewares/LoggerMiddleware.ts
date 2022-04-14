@@ -8,8 +8,8 @@ import {
   REQUEST_CONTEXT_ID,
   REQUEST_ID_KEY,
   REQUEST_SESSION_ID_KEY,
-} from '@blog-backend/Logger/utils/constants';
-import { Logger } from '@blog-backend/Logger/services/Logger';
+} from 'blog-backend/Logger/utils/constants';
+import { Logger } from 'blog-backend/Logger/services/Logger';
 
 interface ICookie {
   sessionId: string;

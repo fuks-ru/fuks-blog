@@ -1,6 +1,6 @@
 import { applyDecorators, Get } from '@nestjs/common';
 
-import { API_PREFIX } from '@blog-backend/Config/services/ConfigGetter';
+import { API_PREFIX } from 'blog-backend/Config/services/ConfigGetter';
 
 /**
  * Декоратор для POST-api запросов.

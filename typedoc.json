@@ -2,9 +2,9 @@
   "entryPoints": ["entries"],
   "entryPointStrategy": "Expand",
   "out": "public/docs",
-  "plugin": "./node_modules/typedoc-theme-hierarchy/dist/index.js",
+  "plugin": "typedoc-theme-hierarchy/dist/index.js",
   "theme": "hierarchy",
-  "tsconfig": "./tsconfig.packages.json",
+  "tsconfig": "./tsconfig.typedoc.json",
   "name": "Fuks blog typedoc",
   "exclude": [
     "**/dist/**/*",

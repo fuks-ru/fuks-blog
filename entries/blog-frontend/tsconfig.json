@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
-      "@blog-frontend/*": ["src/*"]
+      "blog-frontend/*": ["src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],

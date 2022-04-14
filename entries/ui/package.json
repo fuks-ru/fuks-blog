@@ -11,32 +11,23 @@
   "sideEffects": false,
   "scripts": {
     "dev": "rollup --config rollup.config.js -w",
-    "storybook": "start-storybook -p 6006 --ci",
-    "build": "build-storybook && rollup --config rollup.config.js --prod"
+    "build": "rollup --config rollup.config.js --environment NODE_ENV:production"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
+    "@babel/core": "^7.17.9",
     "@babel/plugin-transform-react-display-name": "^7.16.7",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@mdx-js/react": "^2.1.1",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-typescript": "^8.3.1",
-    "@storybook/addon-actions": "^6.5.0-alpha.61",
-    "@storybook/addon-docs": "^6.5.0-alpha.61",
-    "@storybook/addon-essentials": "^6.5.0-alpha.61",
-    "@storybook/addon-links": "^6.5.0-alpha.61",
-    "@storybook/builder-webpack5": "^6.5.0-alpha.61",
-    "@storybook/manager-webpack5": "^6.5.0-alpha.61",
-    "@storybook/react": "^6.5.0-alpha.61",
-    "@types/react": "^18.0.2",
-    "@types/styled-components": "^5.1.19",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@types/react": "^18.0.4",
+    "@types/styled-components": "^5.1.25",
     "@zerollup/ts-transform-paths": "^1.7.18",
-    "babel-plugin-styled-components": "^2.0.2",
-    "core-js": "3",
+    "babel-loader": "^8.2.4",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "babel-plugin-styled-components": "^2.0.7",
+    "core-js": "3.21.1",
     "react": "^18.0.0",
-    "react-docgen-typescript-plugin": "^1.0.1",
     "react-dom": "^18.0.0",
     "rollup": "^2.70.1",
     "rollup-plugin-terser": "^7.0.2",
@@ -44,10 +35,8 @@
     "styled-components": "^5.3.5",
     "ttypescript": "^1.5.13",
     "typescript": "^4.6.3",
-    "webpack": "^5.72.0"
-  },
-  "resolutions": {
-    "@storybook/{app}/webpack": "^5"
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "peerDependencies": {
     "react": "^18.0.0"

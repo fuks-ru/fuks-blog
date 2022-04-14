@@ -4,9 +4,9 @@ import cookieParser from 'cookie-parser';
 import path from 'node:path';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
-import { AppModule } from '@blog-backend/AppModule';
-import { ConfigModule } from '@blog-backend/Config/ConfigModule';
-import { ConfigGetter } from '@blog-backend/Config/services/ConfigGetter';
+import { AppModule } from 'blog-backend/AppModule';
+import { ConfigModule } from 'blog-backend/Config/ConfigModule';
+import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);

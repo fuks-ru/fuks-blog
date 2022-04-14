@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import path from 'node:path';
 
 import 'winston-daily-rotate-file';
-import { LoggerLevel } from '@blog-backend/Logger/enums/LoggerLevel';
+import { LoggerLevel } from 'blog-backend/Logger/enums/LoggerLevel';
 
 @Injectable()
 export class WinstonOptionsFactory {

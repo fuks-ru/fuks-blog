@@ -13,6 +13,12 @@
       "rules": {
         "sonarjs/no-duplicate-string": ["off"]
       }
+    },
+    {
+      "files": ["*.mdx"],
+      "parserOptions": {
+        "project": false
+      }
     }
   ],
   "settings": {
@@ -20,6 +26,9 @@
       "typescript": {
         "project": "entries/*/tsconfig.json"
       }
+    },
+    "react": {
+      "version": "18.0.0"
     }
   }
 }

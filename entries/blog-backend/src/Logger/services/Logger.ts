@@ -7,8 +7,8 @@ import {
   REQUEST_CONTEXT_ID,
   REQUEST_ID_KEY,
   REQUEST_SESSION_ID_KEY,
-} from '@blog-backend/Logger/utils/constants';
-import { LoggerLevel } from '@blog-backend/Logger/enums/LoggerLevel';
+} from 'blog-backend/Logger/utils/constants';
+import { LoggerLevel } from 'blog-backend/Logger/enums/LoggerLevel';
 
 /**
  * Опции логгера.

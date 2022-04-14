@@ -12,8 +12,11 @@ module.exports = withPlugins([], {
   env: {
     SERVER_FULL_HOST: `${process.env.SERVER_SCHEMA}://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`,
   },
-  webpack: (config) => ({
-    ...config,
-    plugins: [...config.plugins, new ForkTsCheckerWebpackPlugin()],
-  }),
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.plugins.push(new ForkTsCheckerWebpackPlugin());
+    }
+
+    return config;
+  },
 });

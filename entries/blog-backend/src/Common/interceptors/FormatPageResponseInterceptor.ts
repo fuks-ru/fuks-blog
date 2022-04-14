@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Request, Response } from 'express';
 
-import { ConfigGetter } from '@blog-backend/Config/services/ConfigGetter';
+import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 
 @Injectable()
 abstract class FormatPageResponseInterceptor implements NestInterceptor {

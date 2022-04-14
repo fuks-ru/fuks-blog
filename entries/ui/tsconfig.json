@@ -13,6 +13,6 @@
       }
     ]
   },
-  "include": [".storybook/**/*.*", "**/*.ts", "**/*.tsx", "**/*.js"],
-  "exclude": ["storybook-static", "dist"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
+  "exclude": ["dist"]
 }
