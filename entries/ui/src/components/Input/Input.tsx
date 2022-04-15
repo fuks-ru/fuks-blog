@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 interface IProps {
-  value?: string;
+  value: string;
 }
 
 /**
