@@ -8,6 +8,7 @@ const config = () => {
     typescript({
       tsconfig: 'tsconfig.build.json',
       typescript: ttypescript,
+      exclude: ['src/**/*.fixture.tsx'],
     }),
     babel({
       exclude: /node_modules/,

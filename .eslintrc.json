@@ -21,7 +21,17 @@
         "project": false
       },
       "rules": {
-        "sonarjs/no-duplicate-string": ["off"]
+        "sonarjs/no-duplicate-string": ["off"],
+        "unicorn/numeric-separators-style": ["off"]
+      }
+    },
+    {
+      "files": ["*.fixture.tsx"],
+      "rules": {
+        "react/function-component-definition": ["off"],
+        "@typescript-eslint/explicit-module-boundary-types": ["off"],
+        "@typescript-eslint/explicit-function-return-type": ["off"],
+        "jsdoc/require-jsdoc": ["off"]
       }
     }
   ]

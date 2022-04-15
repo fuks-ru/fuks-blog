@@ -1,0 +1,6 @@
+{
+  "port": 6006,
+  "webpack": {
+    "overridePath": "./webpack.cosmos.js"
+  }
+}

@@ -2,3 +2,4 @@ dist
 public
 /entries/blog-backend/lib/*
 !/entries/blog-backend/lib/index.ts
+/entries/ui/cosmos-export

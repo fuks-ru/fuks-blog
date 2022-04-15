@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "yarn workspaces foreach --interlaced --verbose --parallel run dev",
     "prod": "yarn run lint && yarn run build:lib && yarn run build && yarn workspaces foreach --interlaced --verbose --parallel run prod",
+    "story": "yarn workspaces foreach --interlaced --verbose --parallel run story",
     "build": "yarn workspaces foreach --interlaced --verbose --topological-dev run build",
     "build:lib": "yarn workspaces foreach --interlaced --verbose --topological-dev run build:lib",
     "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\"",
