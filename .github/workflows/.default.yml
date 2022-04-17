@@ -7,18 +7,19 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2
 
-    - name: Install modules
-      run: yarn
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Eslint
-      run: yarn lint
+      - name: Install modules
+        run: yarn
 
-    - name: Build libs
-      run: yarn build:lib
+      - name: Eslint
+        run: yarn lint
 
-    - name: Build packages
-      run: yarn build
+      - name: Build libs
+        run: yarn build:lib
+
+      - name: Build packages
+        run: yarn build
