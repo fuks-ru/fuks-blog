@@ -10,6 +10,9 @@ export class IndexController {
    */
   @Page()
   public index(): IIndexPageProps {
-    return { title: 'Главная страница', message: 'Hello world!' };
+    return {
+      title: 'Главная страница',
+      message: 'Добро пожаловать в разрабатываемый блог Димы Фукса!',
+    };
   }
 }
