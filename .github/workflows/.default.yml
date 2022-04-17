@@ -22,8 +22,8 @@ jobs:
       - name: Build libs
         run: yarn build:lib
 
-      - name: Eslint
-        run: yarn lint
+#      - name: Eslint
+#        run: yarn lint
 
       - name: Build packages
         run: yarn build
@@ -47,9 +47,9 @@ jobs:
           file: ./.docker/node/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fuks-blog:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/fuks-blog:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/fuks-blog:buildcache,mode=max
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:buildcache,mode=max
 
       - name: Nginx build and push
         uses: docker/build-push-action@v2
@@ -58,4 +58,4 @@ jobs:
           file: ./.docker/nginx/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fuks-blog-nginx:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog-nginx:latest
