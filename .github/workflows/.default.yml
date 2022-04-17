@@ -79,3 +79,25 @@ jobs:
             docker run --name fuks-blog --rm --network="my-blog" -d difuks/fuks-blog
             sleep 10
             docker run --name fuks-blog-nginx --rm --network="my-blog" -d difuks/fuks-blog-nginx
+
+  notification:
+    name: Notification
+
+    needs: [build, deploy]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send telegram message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+
+            Repository: ${{ github.repository }}
+
+            Build: ${{ needs.build.result }}
+            Deploy: ${{ needs.deploy.result }}
