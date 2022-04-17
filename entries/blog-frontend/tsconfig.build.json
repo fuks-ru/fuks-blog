@@ -1,10 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist/lib",
     "noEmit": false,
-    "declaration": true,
-    "isolatedModules": false,
+    "outDir": "./dist",
     "plugins": [
       { "transform": "typescript-transform-paths", "useRootDirs": true },
       {
@@ -14,5 +12,5 @@
       }
     ]
   },
-  "include": ["./lib/index.ts"]
+  "include": ["./src/server/**/*.ts"]
 }

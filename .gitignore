@@ -2,6 +2,9 @@ node_modules
 /public/docs
 tsconfig.*tsbuildinfo
 /lerna-debug.log
+dist
+var
+.env.local
 
 .yarn/*
 !.yarn/cache
