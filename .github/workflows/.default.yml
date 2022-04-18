@@ -179,30 +179,18 @@ jobs:
     if: always()
 
     steps:
-      - name: Needs context
-        env:
-          NEEDS_CONTEXT: ${{ toJSON(needs) }}
-        run: |
-          echo "$NEEDS_CONTEXT"
-
       - name: Send telegram message
         uses: appleboy/telegram-action@master
         env:
-          RUNS_URL: ${{ github.server_url }}/${{ github.repository }}/runs
           COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.actor }} created [commit](${{ env.COMMIT_URL }})
+            *${{ github.actor }}* created [commit](${{ env.COMMIT_URL }})
 
-            Repository: ${{ github.repository }}
+            [Build and deploy](${{ env.COMMIT_URL }}/checks)
 
-            Commit message:
-            ```
-            ${{ github.event.commits[0].message }}
-            ```
-
-            [Build](${{ env.RUNS_URL }}/${{ needs.build.job_id }}): *${{ needs.build.result }}*
-            [Deploy](${{ env.RUNS_URL }}/${{ needs.deploy.job_id }}): *${{ needs.deploy.result }}*
+            Build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
+            Deploy *${{ needs.deploy.result == 'success' && '✅' || '⛔️' }}*
