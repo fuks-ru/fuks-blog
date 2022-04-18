@@ -23,35 +23,35 @@ jobs:
       - name: Build libs
         run: yarn build:lib
 
-#      - name: Eslint
-#        run: yarn lint
+      - name: Eslint
+        run: yarn lint
 
-#      - name: Build packages
-#        run: yarn build
+      - name: Build packages
+        run: yarn build
 
-#      - name: '@difuks/common version bump'
-#        uses: phips28/gh-action-bump-version@master
-#        with:
-#          minor-wording: 'feat(common)'
-#          skip-tag: 'true'
-#        env:
-#          PACKAGEJSON_DIR: entries/common
-#
-#      - name: '@difuks/ui version bump'
-#        uses: phips28/gh-action-bump-version@master
-#        env:
-#          PACKAGEJSON_DIR: entries/ui
-#        with:
-#          minor-wording: 'feat(ui)'
-#          skip-tag: 'true'
-#
-#      - name: '@difuks/blog-backend version bump'
-#        uses: 'phips28/gh-action-bump-version@master'
-#        env:
-#          PACKAGEJSON_DIR: entries/blog-backend
-#        with:
-#          minor-wording: 'feat(blog-backend)'
-#          skip-tag: 'true'
+      - name: '@difuks/common version bump'
+        uses: phips28/gh-action-bump-version@master
+        with:
+          minor-wording: 'feat(common)'
+          skip-tag: 'true'
+        env:
+          PACKAGEJSON_DIR: entries/common
+
+      - name: '@difuks/ui version bump'
+        uses: phips28/gh-action-bump-version@master
+        env:
+          PACKAGEJSON_DIR: entries/ui
+        with:
+          minor-wording: 'feat(ui)'
+          skip-tag: 'true'
+
+      - name: '@difuks/blog-backend version bump'
+        uses: 'phips28/gh-action-bump-version@master'
+        env:
+          PACKAGEJSON_DIR: entries/blog-backend
+        with:
+          minor-wording: 'feat(blog-backend)'
+          skip-tag: 'true'
 
       - name: '@difuks/common publish'
         uses: JS-DevTools/npm-publish@v1
@@ -74,65 +74,65 @@ jobs:
           package: entries/blog-backend/package.json
           registry: https://npm.pkg.github.com
 
-#      - name: Set up QEMU
-#        uses: docker/setup-qemu-action@v1
-#
-#      - name: Set up Docker Buildx
-#        uses: docker/setup-buildx-action@v1
-#
-#      - name: Login to DockerHub
-#        uses: docker/login-action@v1
-#        with:
-#          username: ${{ secrets.DOCKERHUB_USERNAME }}
-#          password: ${{ secrets.DOCKERHUB_TOKEN }}
-#
-#      - name: Node build and push
-#        uses: docker/build-push-action@v2
-#        with:
-#          context: .
-#          file: ./.docker/node/Dockerfile
-#          builder: ${{ steps.buildx.outputs.name }}
-#          push: true
-#          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:latest
-#          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:buildcache
-#          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:buildcache,mode=max
-#
-#      - name: Nginx build and push
-#        uses: docker/build-push-action@v2
-#        with:
-#          context: .
-#          file: ./.docker/nginx/Dockerfile
-#          builder: ${{ steps.buildx.outputs.name }}
-#          push: true
-#          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog-nginx:latest
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
 
-#  deploy:
-#    name: Deploy
-#
-#    needs: build
-#
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: Pull and run docker containers
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.SSH_HOST }}
-#          username: ${{ secrets.SSH_USERNAME }}
-#          key: ${{ secrets.SSH_PRIVATE_KEY }}
-#          script: |
-#            docker pull difuks/fuks-blog
-#            docker pull difuks/fuks-blog-nginx
-#            docker kill fuks-blog
-#            docker kill fuks-blog-nginx
-#            docker run --name fuks-blog --rm --network="my-blog" -d difuks/fuks-blog
-#            sleep 10
-#            docker run --name fuks-blog-nginx --rm --network="my-blog" -d difuks/fuks-blog-nginx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Node build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./.docker/node/Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:buildcache,mode=max
+
+      - name: Nginx build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./.docker/nginx/Dockerfile
+          builder: ${{ steps.buildx.outputs.name }}
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog-nginx:latest
+
+  deploy:
+    name: Deploy
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pull and run docker containers
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker pull difuks/fuks-blog
+            docker pull difuks/fuks-blog-nginx
+            docker kill fuks-blog
+            docker kill fuks-blog-nginx
+            docker run --name fuks-blog --rm --network="my-blog" -d difuks/fuks-blog
+            sleep 10
+            docker run --name fuks-blog-nginx --rm --network="my-blog" -d difuks/fuks-blog-nginx
 
   notification:
     name: Notification
 
-    needs: [build]
+    needs: [build,deploy]
 
     runs-on: ubuntu-latest
 
