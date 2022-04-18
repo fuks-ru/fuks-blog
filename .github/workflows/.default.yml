@@ -160,9 +160,9 @@ jobs:
             docker pull difuks/fuks-blog-nginx
             docker stop fuks-blog  &>/dev/nul
             docker stop fuks-blog-nginx  &>/dev/nul
-            docker run --name fuks-blog --rm --network="my-blog" -d difuks/fuks-blog
+            docker run --name fuks-blog --rm --network="my-blog" -e PERSONAL_NPM_TOKEN=${{ secrets.PERSONAL_NPM_TOKEN }} -d difuks/fuks-blog
             sleep 10
-            docker run --name fuks-blog-nginx --rm --network="my-blog" -d -e PERSONAL_NPM_TOKEN=${PERSONAL_NPM_TOKEN} difuks/fuks-blog-nginx
+            docker run --name fuks-blog-nginx --rm --network="my-blog" -d difuks/fuks-blog-nginx
 
   notification:
     name: Notification
