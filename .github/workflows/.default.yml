@@ -33,6 +33,7 @@ jobs:
         uses: phips28/gh-action-bump-version@master
         with:
           minor-wording: 'feat(common)'
+          patch-wording: 'fix(common)'
           skip-tag: 'true'
         env:
           PACKAGEJSON_DIR: entries/common
@@ -43,6 +44,7 @@ jobs:
           PACKAGEJSON_DIR: entries/ui
         with:
           minor-wording: 'feat(ui)'
+          patch-wording: 'fix(ui)'
           skip-tag: 'true'
 
       - name: '@difuks/blog-backend version bump'
@@ -51,6 +53,7 @@ jobs:
           PACKAGEJSON_DIR: entries/blog-backend
         with:
           minor-wording: 'feat(blog-backend)'
+          patch-wording: 'fix(blog-backend)'
           skip-tag: 'true'
 
       - name: '@difuks/common publish'
