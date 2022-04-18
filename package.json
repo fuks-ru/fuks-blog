@@ -12,7 +12,7 @@
     "dev": "yarn workspaces foreach --interlaced --verbose --parallel run dev",
     "prod": "yarn workspaces foreach --interlaced --verbose --jobs=unlimited --parallel run prod",
     "story": "yarn workspaces foreach --interlaced --verbose --parallel run story",
-    "build": "yarn workspaces foreach --interlaced --verbose --topological-dev run build",
+    "build": "yarn workspaces foreach --interlaced --verbose --topological-dev run build && typedoc",
     "build:lib": "yarn workspaces foreach --interlaced --verbose --topological-dev run build:lib",
     "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\"",
     "lint:fix": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\" --fix",
