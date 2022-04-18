@@ -1,4 +1,4 @@
-import { Button } from '@fuks/ui';
+import { Button } from '@difuks/ui';
 import Link from 'next/link';
 
 import { IPage } from 'blog-frontend/common/types/page/IPage';

@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,6 +39,45 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: @difuks/common version bump
+        uses: phips28/gh-action-bump-version@master
+        with:
+          minor-wording: 'feat(common)'
+        env:
+          PACKAGEJSON_DIR: entries/common
+
+      - name: @difuks/ui version bump
+        uses: phips28/gh-action-bump-version@master
+        env:
+          PACKAGEJSON_DIR: entries/ui
+        with:
+          minor-wording: 'feat(ui)'
+
+      - name: @difuks/blog-backend version bump
+        uses: 'phips28/gh-action-bump-version@master'
+        env:
+          PACKAGEJSON_DIR: entries/blog-backend
+        with:
+          minor-wording: 'feat(blog-backend)'
+
+      - name: @difuks/common publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
+          package: entries/common/package.json
+
+      - name: @difuks/ui publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
+          package: entries/ui/package.json
+
+      - name: @difuks/blog-backend publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
+          package: entries/blog-backend/package.json
 
       - name: Node build and push
         uses: docker/build-push-action@v2

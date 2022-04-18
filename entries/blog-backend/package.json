@@ -1,9 +1,8 @@
 {
-  "name": "@fuks/blog-backend",
-  "version": "1.0.0",
+  "name": "@difuks/blog-backend",
+  "version": "0.0.1",
   "description": "My blog backend",
   "repository": "https://github.com/DiFuks/fuks-blog",
-  "private": true,
   "author": "Dmitry Fuks",
   "license": "ISC",
   "main": "./dist/lib/index.js",
@@ -19,8 +18,14 @@
     "lib:build": "ttsc --project tsconfig.lib.json",
     "lib:watch": "concurrently -r \"yarn run typegen:watch\" \"ttsc --watch --project tsconfig.lib.json\""
   },
+  "files": [
+    "dist/lib"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
-    "@fuks/common": "*",
+    "@difuks/common": "*",
     "@nestjs/common": "^8.4.4",
     "@nestjs/core": "^8.4.4",
     "@nestjs/platform-express": "^8.4.4",

@@ -1523,6 +1523,136 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@difuks/blog-backend@*, @difuks/blog-backend@workspace:entries/blog-backend":
+  version: 0.0.0-use.local
+  resolution: "@difuks/blog-backend@workspace:entries/blog-backend"
+  dependencies:
+    "@difuks/common": "*"
+    "@nestjs/common": ^8.4.4
+    "@nestjs/core": ^8.4.4
+    "@nestjs/platform-express": ^8.4.4
+    "@nestjs/swagger": ^5.2.1
+    "@types/cookie-parser": ^1.4.2
+    "@types/express": ^4.17.13
+    "@types/lodash": ^4.14.181
+    axios: ^0.26.1
+    concurrently: ^7.1.0
+    cookie-parser: ^1.4.6
+    cross-env: ^7.0.3
+    dotenv-extended: ^2.9.0
+    express: ^4.17.3
+    lodash: ^4.17.21
+    nodemon: ^2.0.15
+    openapi-client-axios: ^5.1.2
+    openapi-client-axios-typegen: ^5.0.2
+    reflect-metadata: ^0.1.13
+    rxjs: ^7.5.5
+    swagger-ui-express: ^4.3.0
+    ts-node: ^10.7.0
+    ts-node-dev: ^1.1.8
+    tsconfig-paths: ^3.14.1
+    ttypescript: ^1.5.13
+    typescript: ^4.6.3
+    typescript-transform-paths: ^3.3.1
+  peerDependencies:
+    openapi-client-axios: ^5.1.2
+  languageName: unknown
+  linkType: soft
+
+"@difuks/blog-frontend@workspace:entries/blog-frontend":
+  version: 0.0.0-use.local
+  resolution: "@difuks/blog-frontend@workspace:entries/blog-frontend"
+  dependencies:
+    "@difuks/blog-backend": "*"
+    "@difuks/common": "*"
+    "@difuks/ui": "*"
+    "@nestjs/common": ^8.4.4
+    "@nestjs/core": ^8.4.4
+    "@nestjs/platform-express": ^8.4.4
+    "@types/cookie-parser": ^1.4.2
+    "@types/express": ^4.17.13
+    "@types/lodash": ^4.14.181
+    "@types/next": ^9.0.0
+    "@types/node": ^17.0.23
+    "@types/react": 18.0.1
+    axios: ^0.26.1
+    cookie-parser: ^1.4.6
+    cross-env: ^7.0.3
+    express: ^4.17.3
+    lodash: ^4.17.21
+    nest-next: ^10.0.0
+    next: ^12.1.5
+    next-compose-plugins: ^2.2.1
+    openapi-client-axios: ^5.1.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    reflect-metadata: ^0.1.13
+    rxjs: ^7.5.5
+    ts-node-dev: ^1.1.8
+    tsconfig-paths: ^3.14.1
+    ttypescript: ^1.5.13
+    typescript: ^4.6.3
+    typescript-transform-paths: ^3.3.1
+  languageName: unknown
+  linkType: soft
+
+"@difuks/common@*, @difuks/common@workspace:entries/common":
+  version: 0.0.0-use.local
+  resolution: "@difuks/common@workspace:entries/common"
+  dependencies:
+    "@nestjs/common": ^8.4.4
+    "@types/express": ^4.17.13
+    "@types/geoip-lite": ^1.4.1
+    "@types/uuid": ^8.3.4
+    express: ^4.17.3
+    geoip-lite: ^1.4.4
+    nest-winston: ^1.6.2
+    request-context: ^2.0.0
+    ttypescript: ^1.5.13
+    typescript: ^4.6.3
+    typescript-transform-paths: ^3.3.1
+    uuid: ^8.3.2
+    winston: ^3.7.2
+    winston-daily-rotate-file: ^4.6.1
+  peerDependencies:
+    "@nestjs/common": ^8.4.4
+    express: ^4.17.3
+  languageName: unknown
+  linkType: soft
+
+"@difuks/ui@*, @difuks/ui@workspace:entries/ui":
+  version: 0.0.0-use.local
+  resolution: "@difuks/ui@workspace:entries/ui"
+  dependencies:
+    "@babel/core": ^7.17.9
+    "@babel/plugin-transform-react-display-name": ^7.16.7
+    "@babel/preset-env": ^7.16.11
+    "@babel/preset-react": ^7.16.7
+    "@babel/preset-typescript": ^7.16.7
+    "@rollup/plugin-babel": ^5.3.1
+    "@types/react": ^18.0.4
+    "@types/styled-components": ^5.1.25
+    babel-loader: ^8.2.4
+    babel-plugin-styled-components: ^2.0.7
+    core-js: 3.21.1
+    html-webpack-plugin: ^5.5.0
+    react: ^18.0.0
+    react-cosmos: ^5.7.2
+    react-dom: ^18.0.0
+    rollup: ^2.70.1
+    rollup-plugin-terser: ^7.0.2
+    rollup-plugin-typescript2: ^0.31.2
+    styled-components: ^5.3.5
+    tsconfig-paths-webpack-plugin: ^3.5.2
+    ttypescript: ^1.5.13
+    typescript: ^4.6.3
+    typescript-transform-paths: ^3.3.1
+    webpack: ^5.72.0
+  peerDependencies:
+    react: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@emotion/is-prop-valid@npm:^1.1.0":
   version: 1.1.2
   resolution: "@emotion/is-prop-valid@npm:1.1.2"
@@ -1591,136 +1721,6 @@ __metadata:
   checksum: 1f797b9f94d71b965992cf6c44e3bcb574643014fd1e3d4862d25056bd5568f59c488461a7e9a1c1758ca7f0def5d3cb69c3d8b38581bcf4a53af74371243797
   languageName: node
   linkType: hard
-
-"@fuks/blog-backend@*, @fuks/blog-backend@workspace:entries/blog-backend":
-  version: 0.0.0-use.local
-  resolution: "@fuks/blog-backend@workspace:entries/blog-backend"
-  dependencies:
-    "@fuks/common": "*"
-    "@nestjs/common": ^8.4.4
-    "@nestjs/core": ^8.4.4
-    "@nestjs/platform-express": ^8.4.4
-    "@nestjs/swagger": ^5.2.1
-    "@types/cookie-parser": ^1.4.2
-    "@types/express": ^4.17.13
-    "@types/lodash": ^4.14.181
-    axios: ^0.26.1
-    concurrently: ^7.1.0
-    cookie-parser: ^1.4.6
-    cross-env: ^7.0.3
-    dotenv-extended: ^2.9.0
-    express: ^4.17.3
-    lodash: ^4.17.21
-    nodemon: ^2.0.15
-    openapi-client-axios: ^5.1.2
-    openapi-client-axios-typegen: ^5.0.2
-    reflect-metadata: ^0.1.13
-    rxjs: ^7.5.5
-    swagger-ui-express: ^4.3.0
-    ts-node: ^10.7.0
-    ts-node-dev: ^1.1.8
-    tsconfig-paths: ^3.14.1
-    ttypescript: ^1.5.13
-    typescript: ^4.6.3
-    typescript-transform-paths: ^3.3.1
-  peerDependencies:
-    openapi-client-axios: ^5.1.2
-  languageName: unknown
-  linkType: soft
-
-"@fuks/blog-frontend@workspace:entries/blog-frontend":
-  version: 0.0.0-use.local
-  resolution: "@fuks/blog-frontend@workspace:entries/blog-frontend"
-  dependencies:
-    "@fuks/blog-backend": "*"
-    "@fuks/common": "*"
-    "@fuks/ui": "*"
-    "@nestjs/common": ^8.4.4
-    "@nestjs/core": ^8.4.4
-    "@nestjs/platform-express": ^8.4.4
-    "@types/cookie-parser": ^1.4.2
-    "@types/express": ^4.17.13
-    "@types/lodash": ^4.14.181
-    "@types/next": ^9.0.0
-    "@types/node": ^17.0.23
-    "@types/react": 18.0.1
-    axios: ^0.26.1
-    cookie-parser: ^1.4.6
-    cross-env: ^7.0.3
-    express: ^4.17.3
-    lodash: ^4.17.21
-    nest-next: ^10.0.0
-    next: ^12.1.5
-    next-compose-plugins: ^2.2.1
-    openapi-client-axios: ^5.1.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
-    reflect-metadata: ^0.1.13
-    rxjs: ^7.5.5
-    ts-node-dev: ^1.1.8
-    tsconfig-paths: ^3.14.1
-    ttypescript: ^1.5.13
-    typescript: ^4.6.3
-    typescript-transform-paths: ^3.3.1
-  languageName: unknown
-  linkType: soft
-
-"@fuks/common@*, @fuks/common@workspace:entries/common":
-  version: 0.0.0-use.local
-  resolution: "@fuks/common@workspace:entries/common"
-  dependencies:
-    "@nestjs/common": ^8.4.4
-    "@types/express": ^4.17.13
-    "@types/geoip-lite": ^1.4.1
-    "@types/uuid": ^8.3.4
-    express: ^4.17.3
-    geoip-lite: ^1.4.4
-    nest-winston: ^1.6.2
-    request-context: ^2.0.0
-    ttypescript: ^1.5.13
-    typescript: ^4.6.3
-    typescript-transform-paths: ^3.3.1
-    uuid: ^8.3.2
-    winston: ^3.7.2
-    winston-daily-rotate-file: ^4.6.1
-  peerDependencies:
-    "@nestjs/common": ^8.4.4
-    express: ^4.17.3
-  languageName: unknown
-  linkType: soft
-
-"@fuks/ui@*, @fuks/ui@workspace:entries/ui":
-  version: 0.0.0-use.local
-  resolution: "@fuks/ui@workspace:entries/ui"
-  dependencies:
-    "@babel/core": ^7.17.9
-    "@babel/plugin-transform-react-display-name": ^7.16.7
-    "@babel/preset-env": ^7.16.11
-    "@babel/preset-react": ^7.16.7
-    "@babel/preset-typescript": ^7.16.7
-    "@rollup/plugin-babel": ^5.3.1
-    "@types/react": ^18.0.4
-    "@types/styled-components": ^5.1.25
-    babel-loader: ^8.2.4
-    babel-plugin-styled-components: ^2.0.7
-    core-js: 3.21.1
-    html-webpack-plugin: ^5.5.0
-    react: ^18.0.0
-    react-cosmos: ^5.7.2
-    react-dom: ^18.0.0
-    rollup: ^2.70.1
-    rollup-plugin-terser: ^7.0.2
-    rollup-plugin-typescript2: ^0.31.2
-    styled-components: ^5.3.5
-    tsconfig-paths-webpack-plugin: ^3.5.2
-    ttypescript: ^1.5.13
-    typescript: ^4.6.3
-    typescript-transform-paths: ^3.3.1
-    webpack: ^5.72.0
-  peerDependencies:
-    react: ^18.0.0
-  languageName: unknown
-  linkType: soft
 
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3

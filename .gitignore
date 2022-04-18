@@ -1,7 +1,7 @@
 node_modules
 /public/docs
+/public/cosmos
 tsconfig.*tsbuildinfo
-/lerna-debug.log
 dist
 var
 .env.local

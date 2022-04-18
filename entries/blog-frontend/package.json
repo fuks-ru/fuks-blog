@@ -1,5 +1,5 @@
 {
-  "name": "@fuks/blog-frontend",
+  "name": "@difuks/blog-frontend",
   "version": "1.0.0",
   "description": "My blog frontend",
   "repository": "https://github.com/DiFuks/fuks-blog",
@@ -13,8 +13,8 @@
     "prod": "cross-env NODE_ENV=production node ./dist/server/main.js"
   },
   "dependencies": {
-    "@fuks/blog-backend": "*",
-    "@fuks/common": "*",
+    "@difuks/blog-backend": "*",
+    "@difuks/common": "*",
     "@nestjs/common": "^8.4.4",
     "@nestjs/core": "^8.4.4",
     "@nestjs/platform-express": "^8.4.4",
@@ -33,7 +33,7 @@
     "rxjs": "^7.5.5"
   },
   "devDependencies": {
-    "@fuks/ui": "*",
+    "@difuks/ui": "*",
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/lodash": "^4.14.181",

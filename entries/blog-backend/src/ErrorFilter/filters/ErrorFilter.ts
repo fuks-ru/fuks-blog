@@ -1,4 +1,4 @@
-import { Logger } from '@fuks/common';
+import { Logger } from '@difuks/common';
 import {
   ArgumentsHost,
   ExceptionFilter,

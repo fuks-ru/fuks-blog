@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
-import { LoggerModule } from '@fuks/common';
+import { LoggerModule } from '@difuks/common';
 import Next from 'next';
 
 import { PagesModule } from 'blog-frontend/server/Pages/PagesModule';

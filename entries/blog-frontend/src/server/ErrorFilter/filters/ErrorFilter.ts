@@ -6,7 +6,7 @@ import {
   Injectable,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { Logger } from '@fuks/common';
+import { Logger } from '@difuks/common';
 
 import type { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
 import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter';

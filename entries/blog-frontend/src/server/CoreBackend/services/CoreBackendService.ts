@@ -1,4 +1,4 @@
-import { Client, getApi } from '@fuks/blog-backend';
+import { Client, getApi } from '@difuks/blog-backend';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
