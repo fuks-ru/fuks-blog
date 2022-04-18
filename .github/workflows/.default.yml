@@ -5,15 +5,14 @@ on:
     branches:
       - master
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
-  RUNS_URL: ${{ github.server_url }}/${{ github.repository }}/runs
-  COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
 
     steps:
       - name: Checkout
@@ -180,8 +179,17 @@ jobs:
     if: always()
 
     steps:
+      - name: Needs context
+        env:
+          NEEDS_CONTEXT: ${{ toJSON(needs) }}
+        run: |
+          echo "$NEEDS_CONTEXT"
+
       - name: Send telegram message
         uses: appleboy/telegram-action@master
+        env:
+          RUNS_URL: ${{ github.server_url }}/${{ github.repository }}/runs
+          COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
