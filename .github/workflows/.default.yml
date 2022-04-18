@@ -8,6 +8,8 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
+  RUNS_URL: ${{ github.server_url }}/${{ github.repository }}/runs
+  COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
 
 jobs:
   build:
@@ -165,7 +167,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script_stop: true
           script: |
-            export PERSONAL_NPM_TOKEN=${{ secrets.PERSONAL_NPM_TOKEN }}
+            export PERSONAL_NPM_TOKEN=${{ env.PERSONAL_NPM_TOKEN }}
             bash /fuks-blog/.deploy.sh
 
   notification:
@@ -183,11 +185,16 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
           message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
+            ${{ github.actor }} created [commit](${{ env.COMMIT_URL }})
 
             Repository: ${{ github.repository }}
 
-            Build: ${{ needs.build.result }}
-            Deploy: ${{ needs.deploy.result }}
+            Commit message:
+            ```
+            ${{ github.event.commits[0].message }}
+            ```
+
+            [Build](${{ env.RUNS_URL }}/${{ needs.build.job_id }}): *${{ needs.build.result }}*
+            [Deploy](${{ env.RUNS_URL }}/${{ needs.deploy.job_id }}): *${{ needs.deploy.result }}*
