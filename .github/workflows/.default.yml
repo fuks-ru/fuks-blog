@@ -13,6 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    if: false
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -123,6 +125,11 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+
       - name: Nginx build and push
         uses: docker/build-push-action@v2
         with:
@@ -140,6 +147,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Copy single file to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: .github/workflows/.deploy.sh
+          remote: /fuks-blog/.deploy.sh
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Pull and run docker containers
         uses: appleboy/ssh-action@master
         with:
@@ -148,13 +167,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script_stop: true
           script: |
-            docker pull difuks/fuks-blog
-            docker pull difuks/fuks-blog-nginx
-            docker stop fuks-blog  &>/dev/nul
-            docker stop fuks-blog-nginx  &>/dev/nul
-            docker run --name fuks-blog --rm --network="my-blog" -d difuks/fuks-blog
-            sleep 10
-            docker run --name fuks-blog-nginx --rm --network="my-blog" -d difuks/fuks-blog-nginx
+            bash /fuks-blog/.deploy.sh
 
   notification:
     name: Notification
