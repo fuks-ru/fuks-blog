@@ -13,9 +13,6 @@ COPY entries/common/package.json /app/entries/common/package.json
 COPY entries/blog-backend/package.json /app/entries/blog-backend/package.json
 COPY entries/blog-frontend/package.json /app/entries/blog-frontend/package.json
 
-COPY entries/blog-backend/.env /app/entries/blog-backend/.env
-COPY entries/blog-frontend/.env /app/entries/blog-frontend/.env
-
 COPY entries/blog-frontend/public /app/entries/blog-frontend/public
 
 COPY entries/common/dist /app/entries/common/dist
