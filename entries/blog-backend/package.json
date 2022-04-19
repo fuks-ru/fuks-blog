@@ -19,7 +19,8 @@
     "lib:watch": "concurrently -r \"yarn run typegen:watch\" \"rollup --config rollup.config.js -w\""
   },
   "files": [
-    "dist/lib"
+    "dist/lib",
+    "readme.md"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

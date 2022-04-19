@@ -9,7 +9,8 @@
   "license": "ISC",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "readme.md"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

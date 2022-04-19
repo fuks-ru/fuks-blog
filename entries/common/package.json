@@ -11,7 +11,8 @@
     "build:lib": "ttsc"
   },
   "files": [
-    "dist"
+    "dist",
+    "readme.md"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
