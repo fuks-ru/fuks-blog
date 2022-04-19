@@ -17,7 +17,12 @@ load({
 });
 
 (async () => {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: {
+      origin: 'http://localhost:3002',
+      credentials: true,
+    },
+  });
   const configGetter = app.select(ConfigModule).get(ConfigGetter);
   const swaggerService = app.select(SwaggerModule).get(SwaggerService);
 
@@ -32,5 +37,5 @@ load({
     swaggerService.writeToFile(document);
   }
 
-  await app.listen(configGetter.getEnv('SERVER_PORT'));
+  await app.listen(3_001);
 })();

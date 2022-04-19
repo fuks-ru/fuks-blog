@@ -8,11 +8,7 @@ export const API_PREFIX = '/api';
  */
 export const API_PAGE_PREFIX = `${API_PREFIX}/page`;
 
-const BFF_SCHEMA = process.env.BFF_SCHEMA || 'http';
-const BFF_HOST = process.env.BFF_HOST || 'localhost';
-const BFF_PORT = process.env.BFF_PORT || '3001';
-
 /**
- * Полный адрес сервера.
+ * Порт, на котором запускается BFF.
  */
-export const FULL_HOST = `${BFF_SCHEMA}://${BFF_HOST}:${BFF_PORT}`;
+export const BFF_PORT = 3_000;

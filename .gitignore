@@ -1,6 +1,5 @@
 node_modules
-/public/docs
-/public/cosmos
+/public
 tsconfig.*tsbuildinfo
 dist
 var

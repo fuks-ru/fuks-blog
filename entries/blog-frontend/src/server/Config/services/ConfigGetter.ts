@@ -3,7 +3,6 @@ import { Injectable } from '@nestjs/common';
 import {
   API_PAGE_PREFIX,
   API_PREFIX,
-  FULL_HOST,
 } from 'blog-frontend/common/utils/constants';
 import { SystemErrorFactory } from 'blog-frontend/server/SystemError/services/SystemErrorFactory';
 
@@ -24,13 +23,6 @@ export class ConfigGetter {
     }
 
     return envValue;
-  }
-
-  /**
-   * Получает полный адрес сервера.
-   */
-  public getFullHost(): string {
-    return FULL_HOST;
   }
 
   /**

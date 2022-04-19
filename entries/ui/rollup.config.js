@@ -16,7 +16,7 @@ const config = () => {
     }),
   ];
 
-  if (process.env.NODE_ENV) {
+  if (process.env.NODE_ENV === 'production') {
     plugins.push(terser());
   }
 

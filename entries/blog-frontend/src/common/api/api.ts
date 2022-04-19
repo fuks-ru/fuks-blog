@@ -1,13 +1,15 @@
 import axios, { AxiosInstance } from 'axios';
 
-import { FULL_HOST } from 'blog-frontend/common/utils/constants';
+import { BFF_PORT } from 'blog-frontend/common/utils/constants';
 
 class Api {
   private readonly axiosInstance!: AxiosInstance;
 
+  private readonly baseUrl = `http://localhost:${BFF_PORT}/`;
+
   public constructor() {
     this.axiosInstance = axios.create({
-      baseURL: FULL_HOST,
+      baseURL: this.baseUrl,
     });
   }
 

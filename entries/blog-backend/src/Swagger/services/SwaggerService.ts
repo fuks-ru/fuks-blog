@@ -3,12 +3,8 @@ import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
-
 @Injectable()
 export class SwaggerService {
-  public constructor(private readonly configGetter: ConfigGetter) {}
-
   /**
    * Создает документ для Swagger схемы.
    */
@@ -16,7 +12,7 @@ export class SwaggerService {
     const config = new DocumentBuilder()
       .setTitle('Fuks Blog')
       .setVersion('1.0')
-      .addServer(this.configGetter.getFullHost())
+      .addServer('/')
       .build();
 
     return SwaggerModule.createDocument(app, config);

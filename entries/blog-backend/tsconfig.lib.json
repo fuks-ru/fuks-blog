@@ -5,6 +5,7 @@
     "noEmit": false,
     "declaration": true,
     "isolatedModules": false,
+    "module": "ESNext",
     "plugins": [
       { "transform": "typescript-transform-paths", "useRootDirs": true },
       {

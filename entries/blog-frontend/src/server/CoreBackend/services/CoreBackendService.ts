@@ -9,7 +9,7 @@ export class CoreBackendService {
    * Инициализировать клиента.
    */
   public async init(): Promise<void> {
-    this.client = await getApi();
+    this.client = await getApi('http://localhost:3001');
   }
 
   /**

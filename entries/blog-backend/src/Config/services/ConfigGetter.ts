@@ -5,7 +5,7 @@ import { SystemErrorFactory } from 'blog-backend/SystemError/services/SystemErro
 
 @Injectable()
 export class ConfigGetter {
-  private readonly apiPrefix = '/api';
+  private readonly apiPrefix = '/blog-backend/api';
 
   public constructor(private readonly systemErrorFactory: SystemErrorFactory) {}
 
@@ -25,15 +25,6 @@ export class ConfigGetter {
     }
 
     return envValue;
-  }
-
-  /**
-   * Получает полный адрес сервера.
-   */
-  public getFullHost(): string {
-    return `${this.getEnv('SERVER_SCHEMA')}://${this.getEnv(
-      'SERVER_HOST',
-    )}:${this.getEnv('SERVER_PORT')}`;
   }
 
   /**
