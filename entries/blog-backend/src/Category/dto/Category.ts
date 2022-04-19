@@ -5,7 +5,7 @@ export class Category {
    * Id.
    */
   @ApiProperty()
-  public id!: string;
+  public id!: number;
 
   /**
    * Название.

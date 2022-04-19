@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import {
   ApiCreatedResponse,
   ApiOperation,
@@ -22,9 +22,9 @@ export class CategoryController {
     operationId: 'categoryGet',
   })
   @ApiParam({ name: 'id', required: true, schema: { type: 'number' } })
-  public get(): Category {
+  public get(@Param('id', ParseIntPipe) id: number): Category {
     return {
-      id: '1',
+      id,
       name: 'Первая категория',
     };
   }
@@ -43,11 +43,11 @@ export class CategoryController {
   public list(): Category[] {
     return [
       {
-        id: '1',
+        id: 1,
         name: 'Первая категория',
       },
       {
-        id: '2',
+        id: 2,
         name: 'Вторая категория',
       },
     ];
