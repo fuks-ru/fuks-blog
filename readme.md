@@ -7,14 +7,6 @@ yarn build:lib
 yarn dev
 ```
 
-## Запуск в prod-режиме:
-
-```bash
-yarn build:lib
-yarn build
-yarn prod
-```
-
 ## Линтинг:
 
 ```bash
