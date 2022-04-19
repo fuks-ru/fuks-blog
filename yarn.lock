@@ -1523,9 +1523,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@difuks/blog-admin@workspace:entries/blog-admin":
+"@difuks/admin-frontend@workspace:entries/admin-frontend":
   version: 0.0.0-use.local
-  resolution: "@difuks/blog-admin@workspace:entries/blog-admin"
+  resolution: "@difuks/admin-frontend@workspace:entries/admin-frontend"
   dependencies:
     "@babel/core": ^7.17.9
     "@babel/preset-env": ^7.16.11
@@ -1540,7 +1540,6 @@ __metadata:
     babel-loader: ^8.2.4
     core-js: ^3.22.0
     cross-env: ^7.0.3
-    dotenv-extended: ^2.9.0
     fork-ts-checker-webpack-plugin: ^7.2.6
     html-webpack-plugin: ^5.5.0
     node-polyfill-webpack-plugin: ^1.1.4
@@ -1576,7 +1575,6 @@ __metadata:
     concurrently: ^7.1.0
     cookie-parser: ^1.4.6
     cross-env: ^7.0.3
-    dotenv-extended: ^2.9.0
     express: ^4.17.3
     lodash: ^4.17.21
     nodemon: ^2.0.15
@@ -3353,15 +3351,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"auto-parse@npm:^1.3.0":
-  version: 1.8.0
-  resolution: "auto-parse@npm:1.8.0"
-  dependencies:
-    typpy: 2.3.11
-  checksum: 05c6562edd290b04bd73e8aace2a627b755e66a3320be7306b594296aa73490a5591595ac50f00f9a2325c8eeddab7a35fdb4a370ad823c9e2656c35db91a244
-  languageName: node
-  linkType: hard
-
 "available-typed-arrays@npm:^1.0.5":
   version: 1.0.5
   resolution: "available-typed-arrays@npm:1.0.5"
@@ -3934,13 +3923,6 @@ __metadata:
     pascal-case: ^3.1.2
     tslib: ^2.0.3
   checksum: bcbd25cd253b3cbc69be3f535750137dbf2beb70f093bdc575f73f800acc8443d34fd52ab8f0a2413c34f1e8203139ffc88428d8863e4dfe530cfb257a379ad6
-  languageName: node
-  linkType: hard
-
-"camelcase@npm:^5.3.1":
-  version: 5.3.1
-  resolution: "camelcase@npm:5.3.1"
-  checksum: e6effce26b9404e3c0f301498184f243811c30dfe6d0b9051863bd8e4034d09c8c2923794f280d6827e5aa055f6c434115ff97864a16a963366fb35fd673024b
   languageName: node
   linkType: hard
 
@@ -5099,27 +5081,6 @@ __metadata:
   dependencies:
     is-obj: ^2.0.0
   checksum: d5775790093c234ef4bfd5fbe40884ff7e6c87573e5339432870616331189f7f5d86575c5b5af2dcf0f61172990f4f734d07844b1f23482fff09e3c4bead05ea
-  languageName: node
-  linkType: hard
-
-"dotenv-extended@npm:^2.9.0":
-  version: 2.9.0
-  resolution: "dotenv-extended@npm:2.9.0"
-  dependencies:
-    auto-parse: ^1.3.0
-    camelcase: ^5.3.1
-    cross-spawn: ^7.0.1
-    dotenv: ^8.2.0
-  bin:
-    dotenv-extended: lib/bin/index.js
-  checksum: e7daf245c8c59c0ccb6861a942ae0a9893bf7a4871442fbe83322c7792d3a6da6fef07b82fa9db3c46dc2bcc199528c574feb72c4c1074116d5693608923e2ef
-  languageName: node
-  linkType: hard
-
-"dotenv@npm:^8.2.0":
-  version: 8.6.0
-  resolution: "dotenv@npm:8.6.0"
-  checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
   languageName: node
   linkType: hard
 
@@ -6591,15 +6552,6 @@ __metadata:
   version: 1.1.1
   resolution: "function-bind@npm:1.1.1"
   checksum: b32fbaebb3f8ec4969f033073b43f5c8befbb58f1a79e12f1d7490358150359ebd92f49e72ff0144f65f2c48ea2a605bff2d07965f548f6474fd8efd95bf361a
-  languageName: node
-  linkType: hard
-
-"function.name@npm:^1.0.3":
-  version: 1.0.13
-  resolution: "function.name@npm:1.0.13"
-  dependencies:
-    noop6: ^1.0.1
-  checksum: 376bd4247cacffb50ae425c64e99c42fd10a875197e09db7e65002a5bc0f539608b03f1ff7e27234516cd5b3bbfd9d9d8e912fa9aaeec52d3b422d501f290fff
   languageName: node
   linkType: hard
 
@@ -9219,13 +9171,6 @@ __metadata:
   bin:
     nodemon: bin/nodemon.js
   checksum: 0569b09b713fdcc76f06734d7cc106950e69e02069cbf44bda3fae8d266926bdfa003aeddd22f8fcdf46ea6ff51ca64f5528f8006536e79820a26e648ef346cf
-  languageName: node
-  linkType: hard
-
-"noop6@npm:^1.0.1":
-  version: 1.0.9
-  resolution: "noop6@npm:1.0.9"
-  checksum: cc46d03eb22c5a990b3ce5e3ff71a82628efadcdeefdae566639657d2a947033ea919d1f4bfc7bfbcf674d43c21b3e580c2f07c8043e7ef487ac527237e2532f
   languageName: node
   linkType: hard
 
@@ -12267,15 +12212,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 6bf45caf847062420592e711bc9c28bf5f9a9a7fa8245343b81493e4ededae33f1774009d1234d911422d1646a2c839f44e1a23ecb111b40a60ac2ea4c1482a8
-  languageName: node
-  linkType: hard
-
-"typpy@npm:2.3.11":
-  version: 2.3.11
-  resolution: "typpy@npm:2.3.11"
-  dependencies:
-    function.name: ^1.0.3
-  checksum: 9bbef6a83a70e123cce6466d268ddebcb58251decec431f57c91be4b62c79511e986427b21efb47f5053e4b2e8287ecc305e8f57966517f689166490aeed51fc
   languageName: node
   linkType: hard
 

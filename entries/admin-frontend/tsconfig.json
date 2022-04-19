@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "blog-admin/*": ["src/*"]
+      "admin-frontend/*": ["src/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"]
   },

@@ -2,19 +2,12 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule as BaseSwaggerModule } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { load } from 'dotenv-extended';
-import * as path from 'node:path';
 
 import { SwaggerService } from 'blog-backend/Swagger/services/SwaggerService';
 import { SwaggerModule } from 'blog-backend/Swagger/SwaggerModule';
 import { AppModule } from 'blog-backend/AppModule';
 import { ConfigModule } from 'blog-backend/Config/ConfigModule';
 import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
-
-load({
-  path: path.join(process.cwd(), '.env.local'),
-  defaults: path.join(process.cwd(), '.env'),
-});
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {

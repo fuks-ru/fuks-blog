@@ -1,4 +1,3 @@
-import { load } from 'dotenv-extended';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
 import * as path from 'node:path';
@@ -14,14 +13,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 import 'webpack-dev-server';
 
-load({
-  path: path.join(process.cwd(), '.env.local'),
-  defaults: path.join(process.cwd(), '.env'),
-});
-
 const isDevelopment = process.env.NODE_ENV !== 'production';
-
-console.log(process.env.NODE_ENV);
 
 const plugins: WebpackPluginInstance[] = [
   new HtmlWebpackPlugin({

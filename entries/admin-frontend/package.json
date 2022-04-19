@@ -1,5 +1,5 @@
 {
-  "name": "@difuks/blog-admin",
+  "name": "@difuks/admin-frontend",
   "version": "1.0.0",
   "description": "My blog admin",
   "repository": "https://github.com/DiFuks/fuks-blog",
@@ -24,7 +24,6 @@
     "babel-loader": "^8.2.4",
     "core-js": "^3.22.0",
     "cross-env": "^7.0.3",
-    "dotenv-extended": "^2.9.0",
     "fork-ts-checker-webpack-plugin": "^7.2.6",
     "html-webpack-plugin": "^5.5.0",
     "node-polyfill-webpack-plugin": "^1.1.4",

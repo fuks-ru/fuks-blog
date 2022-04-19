@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 
-import { App } from 'blog-admin/App';
+import { App } from 'admin-frontend/App';
 
 const container = document.querySelector('#app');
 

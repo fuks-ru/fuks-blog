@@ -4,7 +4,7 @@
     "outDir": "dist/lib",
     "noEmit": false,
     "declaration": true,
-    "isolatedModules": false,
+    "declarationDir": "dist/lib",
     "module": "ESNext",
     "plugins": [
       { "transform": "typescript-transform-paths", "useRootDirs": true },
