@@ -14,7 +14,7 @@ const config = () => {
   return {
     input: 'lib/index.ts',
     output: {
-      format: 'esm',
+      format: 'cjs',
       dir: 'dist/lib',
       preserveModules: true,
     },
