@@ -44,7 +44,7 @@ export class ContractGenerator {
 
   private readonly indexTsDistPath = path.join(
     this.commonPackageRootPath,
-    '../bin/generateApiContract/helpers/index.ts.dist',
+    '../openApi.ts.dist',
   );
 
   private readonly indexTsCachePath = path.join(

@@ -9,7 +9,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "ttsc --watch",
-    "build:lib": "ttsc"
+    "build:lib": "ttsc && cp ./lib/openApi.ts.dist ./dist/openApi.ts.dist"
   },
   "files": [
     "dist",
