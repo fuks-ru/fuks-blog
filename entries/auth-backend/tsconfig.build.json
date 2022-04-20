@@ -2,6 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "dist/build",
+    "declaration": true,
+    "noEmit": false,
     "plugins": [
       { "transform": "typescript-transform-paths", "useRootDirs": true },
       {

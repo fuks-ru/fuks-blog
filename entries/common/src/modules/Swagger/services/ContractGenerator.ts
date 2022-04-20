@@ -118,6 +118,7 @@ export class ContractGenerator {
 
     await build.write({
       dir: this.libOutPath,
+      format: 'cjs',
     });
   }
 }

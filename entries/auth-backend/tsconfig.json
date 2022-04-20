@@ -3,8 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "auth-backend/*": ["./src/*"],
-      "auth-backend-lib/*": ["./lib/*"]
+      "auth-backend/*": ["./src/*"]
     }
   }
 }
