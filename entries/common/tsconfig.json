@@ -6,6 +6,7 @@
     "declaration": true,
     "noEmit": false,
     "lib": ["esnext"],
+    "isolatedModules": false,
     "paths": {
       "common/*": ["./src/*"]
     },
@@ -17,5 +18,7 @@
         "afterDeclarations": true
       }
     ]
-  }
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./src/bin/generateApiContract/helpers/index.ts"]
 }

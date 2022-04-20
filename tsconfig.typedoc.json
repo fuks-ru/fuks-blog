@@ -6,8 +6,8 @@
       "blog-frontend/*": ["./entries/blog-frontend/src/*"],
       "blog-backend/*": ["./entries/blog-backend/src/*"],
       "common/*": ["./entries/common/src/*"],
-      "blog-backend-lib/*": ["./entries/blog-backend/lib/*"],
-      "admin-frontend/*": ["./entries/admin-frontend/src/*"]
+      "admin-frontend/*": ["./entries/admin-frontend/src/*"],
+      "auth-backend/*": ["./entries/auth-backend/src/*"]
     }
   }
 }

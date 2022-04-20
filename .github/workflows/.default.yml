@@ -44,6 +44,8 @@ jobs:
               - 'entries/ui/**'
             blog-backend:
               - 'entries/blog-backend/**'
+            auth-backend:
+              - 'entries/auth-backend/**'
 
       - name: '@difuks/common version bump'
         uses: phips28/gh-action-bump-version@master
@@ -75,6 +77,16 @@ jobs:
           patch-wording: 'fix(blog-backend)'
           skip-tag: 'true'
 
+      - name: '@difuks/auth-backend version bump'
+        uses: 'phips28/gh-action-bump-version@master'
+        if: steps.path-filter.outputs.auth-backend == 'true'
+        env:
+          PACKAGEJSON_DIR: entries/auth-backend
+        with:
+          minor-wording: 'feat(auth-backend)'
+          patch-wording: 'fix(auth-backend)'
+          skip-tag: 'true'
+
       - name: '@difuks/common publish'
         uses: JS-DevTools/npm-publish@v1
         with:
@@ -94,6 +106,13 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_NPM_TOKEN }}
           package: entries/blog-backend/package.json
+          registry: https://npm.pkg.github.com
+
+      - name: '@difuks/auth-backend publish'
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
+          package: entries/auth-backend/package.json
           registry: https://npm.pkg.github.com
 
       - name: Set up QEMU

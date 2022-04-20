@@ -1,6 +1,6 @@
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import {
-  ApiCreatedResponse,
+  ApiOkResponse,
   ApiOperation,
   ApiParam,
   ApiTags,
@@ -15,7 +15,7 @@ export class CategoryController {
    * Возвращает конкретную категорию.
    */
   @Get('/:id')
-  @ApiCreatedResponse({
+  @ApiOkResponse({
     type: Category,
   })
   @ApiOperation({
@@ -33,7 +33,7 @@ export class CategoryController {
    * Возвращает список категорий.
    */
   @Get('/')
-  @ApiCreatedResponse({
+  @ApiOkResponse({
     type: Category,
     isArray: true,
   })
