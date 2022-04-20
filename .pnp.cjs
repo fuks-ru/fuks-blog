@@ -2780,6 +2780,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
             ["@types/openapi-client-axios", null],\
+            ["axios", "npm:0.26.1"],\
             ["cookie-parser", "npm:1.4.6"],\
             ["cross-env", "npm:7.0.3"],\
             ["express", "npm:4.17.3"],\
@@ -2814,11 +2815,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cookie-parser", "npm:1.4.2"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/express-session", "npm:1.17.4"],\
+            ["axios", "npm:0.26.1"],\
             ["cookie-parser", "npm:1.4.6"],\
             ["cross-env", "npm:7.0.3"],\
             ["express", "npm:4.17.3"],\
             ["google-auth-library", "npm:7.14.1"],\
-            ["openapi-client-axios", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:5.1.2"],\
+            ["openapi-client-axios", "virtual:88841c9d5995e65a1ff2888b6ecbb40b3ab1e4a4df9571faf02d75335f13a7afca26a51678ba66d1e741bca44e318b895bfeabb5ee8f2abe19380d93b2e6d74b#npm:5.1.2"],\
             ["openapi-client-axios-typegen", "npm:5.0.2"],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.5"],\
@@ -13265,27 +13267,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", null],\
             ["@types/js-yaml", null],\
             ["axios", "npm:0.26.1"],\
-            ["bath-es5", "npm:3.0.3"],\
-            ["copy-anything", "npm:3.0.2"],\
-            ["js-yaml", null],\
-            ["openapi-types", "npm:10.0.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/axios",\
-            "@types/js-yaml",\
-            "axios",\
-            "js-yaml"\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:5.1.2", {\
-          "packageLocation": "./.yarn/__virtual__/openapi-client-axios-virtual-4b20077f01/0/cache/openapi-client-axios-npm-5.1.2-626f95b300-103c292ee4.zip/node_modules/openapi-client-axios/",\
-          "packageDependencies": [\
-            ["openapi-client-axios", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:5.1.2"],\
-            ["@apidevtools/json-schema-ref-parser", "npm:9.0.9"],\
-            ["@types/axios", null],\
-            ["@types/js-yaml", null],\
-            ["axios", null],\
             ["bath-es5", "npm:3.0.3"],\
             ["copy-anything", "npm:3.0.2"],\
             ["js-yaml", null],\

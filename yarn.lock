@@ -1626,6 +1626,7 @@ __metadata:
     "@types/cookie-parser": ^1.4.2
     "@types/express": ^4.17.13
     "@types/express-session": ^1.17.4
+    axios: ^0.26.1
     cookie-parser: ^1.4.6
     cross-env: ^7.0.3
     express: ^4.17.3
