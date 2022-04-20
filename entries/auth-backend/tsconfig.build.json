@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist/build",
+    "plugins": [
+      { "transform": "typescript-transform-paths", "useRootDirs": true },
+      {
+        "transform": "typescript-transform-paths",
+        "useRootDirs": true,
+        "afterDeclarations": true
+      }
+    ]
+  },
+  "include": ["./src/**/*.ts"]
+}

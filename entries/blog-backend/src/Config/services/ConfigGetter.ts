@@ -7,6 +7,8 @@ import { SystemErrorFactory } from 'blog-backend/SystemError/services/SystemErro
 export class ConfigGetter {
   private readonly apiPrefix = '/blog-backend/api';
 
+  private readonly apiPort = 3_001;
+
   public constructor(private readonly systemErrorFactory: SystemErrorFactory) {}
 
   /**
@@ -32,6 +34,13 @@ export class ConfigGetter {
    */
   public getApiPrefix(): string {
     return this.apiPrefix;
+  }
+
+  /**
+   * Получает порт для апи.
+   */
+  public getApiPort(): number {
+    return this.apiPort;
   }
 
   /**

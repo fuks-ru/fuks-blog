@@ -18,7 +18,13 @@ const config = () => {
       dir: 'dist/lib',
       preserveModules: true,
     },
-    plugins,
+    plugins: [
+      typescript({
+        tsconfig: 'tsconfig.lib.json',
+        typescript: ttypescript,
+      }),
+      json(),
+    ],
     external: ['openapi-client-axios'],
   };
 };

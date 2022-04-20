@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { getApi, TApiResponse } from '@difuks/blog-backend';
 
+import { Auth } from 'admin-frontend/pages/Auth/Auth';
 import { BLOG_BACKEND_URL } from 'admin-frontend/common/constants';
 
 /**
@@ -12,13 +13,13 @@ export const App: FC = () => {
   );
 
   useEffect(() => {
-    (async () => {
-      const api = await getApi(BLOG_BACKEND_URL);
-
-      const response = await api.categoryList();
-
-      setCategories(response.data);
-    })();
+    // (async () => {
+    //   const api = await getApi(BLOG_BACKEND_URL);
+    //
+    //   const response = await api.categoryList();
+    //
+    //   setCategories(response.data);
+    // })();
   }, []);
 
   return (
@@ -27,6 +28,7 @@ export const App: FC = () => {
       {categories.map((category) => (
         <div key={category.id}>{category.name}</div>
       ))}
+      <Auth />
     </div>
   );
 };

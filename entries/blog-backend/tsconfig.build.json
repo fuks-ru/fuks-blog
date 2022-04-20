@@ -3,10 +3,6 @@
   "compilerOptions": {
     "outDir": "dist/build",
     "noEmit": false,
-    "paths": {
-      "blog-backend/*": ["./src/*"],
-      "blog-backend-lib/*": ["./lib/*"]
-    },
     "plugins": [
       { "transform": "typescript-transform-paths", "useRootDirs": true },
       {

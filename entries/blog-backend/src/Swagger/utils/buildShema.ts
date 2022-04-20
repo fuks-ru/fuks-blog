@@ -1,11 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { SwaggerModule, SwaggerService } from '@difuks/common';
 
 import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 import { ConfigModule } from 'blog-backend/Config/ConfigModule';
 import { AppModule } from 'blog-backend/AppModule';
-import { SwaggerService } from 'blog-backend/Swagger/services/SwaggerService';
-import { SwaggerModule } from 'blog-backend/Swagger/SwaggerModule';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -14,7 +13,7 @@ import { SwaggerModule } from 'blog-backend/Swagger/SwaggerModule';
 
   app.setGlobalPrefix(configGetter.getApiPrefix());
 
-  const document = swaggerService.createDocument(app);
+  const document = swaggerService.createDocument('Fuks block backend', app);
 
   swaggerService.writeToFile(document);
 })();

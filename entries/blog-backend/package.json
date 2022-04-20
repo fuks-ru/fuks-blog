@@ -9,7 +9,7 @@
   "module": "./dist/lib/index.js",
   "types": "./dist/lib/index.d.ts",
   "scripts": {
-    "build:lib": "ts-node -r tsconfig-paths/register ./src/Swagger/utils/buildShema.ts && yarn run typegen:build && yarn run lib:build",
+    "build:lib": "ts-node -r tsconfig-paths/register ./src/Swagger/utils/buildShema.ts && yarn typegen:build && yarn lib:build",
     "build": "ttsc --project tsconfig.build.json",
     "dev": "concurrently -r \"cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only ./src/main.ts\" \"yarn run lib:watch\"",
     "prod": "cross-env NODE_ENV=production node ./dist/build/main.js",
