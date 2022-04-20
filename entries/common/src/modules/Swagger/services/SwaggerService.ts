@@ -1,10 +1,12 @@
 import { INestApplication, Injectable } from '@nestjs/common';
 import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
-import fs from 'node:fs';
-import path from 'node:path';
+
+import { ContractGenerator } from 'common/modules/Swagger/services/ContractGenerator';
 
 @Injectable()
 export class SwaggerService {
+  public constructor(private readonly contractGenerator: ContractGenerator) {}
+
   /**
    * Создает документ для Swagger схемы.
    */
@@ -19,12 +21,20 @@ export class SwaggerService {
   }
 
   /**
-   * Записывает схему в файл.
+   * Генерирует api-контракты в файл.
    */
-  public writeToFile(document: OpenAPIObject): void {
-    fs.writeFileSync(
-      path.join(process.cwd(), '/lib/swagger-schema.json'),
-      JSON.stringify(document),
-    );
+  public async generateApiContract(document: OpenAPIObject): Promise<void> {
+    await this.contractGenerator.generateContractLib(document);
+  }
+
+  /**
+   * Создает маршрут для просмотра swagger-схемы в браущере.
+   */
+  public setupRoute(
+    path: string,
+    app: INestApplication,
+    document: OpenAPIObject,
+  ): void {
+    SwaggerModule.setup(path, app, document);
   }
 }

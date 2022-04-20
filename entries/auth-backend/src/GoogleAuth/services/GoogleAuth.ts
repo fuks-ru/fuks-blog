@@ -37,8 +37,6 @@ export class GoogleAuth {
       );
     }
 
-    console.log(payload);
-
     const { email } = payload;
 
     if (email !== this.user.email) {

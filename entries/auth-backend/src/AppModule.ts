@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { LoggerModule } from '@difuks/common';
+import { LoggerModule, SwaggerModule } from '@difuks/common';
 
 import { ConfigModule } from 'auth-backend/Config/ConfigModule';
 import { ErrorFilterModule } from 'auth-backend/ErrorFilter/ErrorFilterModule';
@@ -13,6 +13,7 @@ import { SystemErrorModule } from 'auth-backend/SystemError/SystemErrorModule';
     LoggerModule,
     ConfigModule,
     GoogleAuthModule,
+    SwaggerModule,
   ],
 })
 export class AppModule {}

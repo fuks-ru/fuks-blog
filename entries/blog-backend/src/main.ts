@@ -1,5 +1,4 @@
 import { NestFactory } from '@nestjs/core';
-import { SwaggerModule as BaseSwaggerModule } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, SwaggerService } from '@difuks/common';
@@ -21,12 +20,12 @@ import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
   app.use(cookieParser());
   app.setGlobalPrefix(configGetter.getApiPrefix());
 
-  const document = swaggerService.createDocument('Fuks block backend', app);
+  const document = swaggerService.createDocument('Fuks blog backend', app);
 
-  BaseSwaggerModule.setup(configGetter.getApiPrefix(), app, document);
+  swaggerService.setupRoute(configGetter.getApiPrefix(), app, document);
 
   if (configGetter.isDev()) {
-    swaggerService.writeToFile(document);
+    void swaggerService.generateApiContract(document);
   }
 
   await app.listen(configGetter.getApiPort());
