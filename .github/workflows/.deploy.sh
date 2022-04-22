@@ -1,8 +1,6 @@
 #!/bin/bash
 
 FUKS_BLOG_AUTH_POSTGRES_VOLUME="${PWD}/var/fuks-blog-auth-postgres"
-FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}"
-FUKS_BLOG_AUTH_POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}"
 
 docker pull difuks/fuks-blog
 docker pull difuks/fuks-blog-nginx
@@ -21,10 +19,11 @@ docker run --name fuks-blog-auth-postgres \
   --network="my-blog" \
   postgres:14.2-alpine
 docker run --name fuks-blog \
-  --rm -d \
+  --rm \
   -e FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
   -e FUKS_BLOG_AUTH_POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
   -e FUKS_BLOG_AUTH_JWT_SECRET="${FUKS_BLOG_AUTH_JWT_SECRET}" \
+  -e PERSONAL_NPM_TOKEN="${PERSONAL_NPM_TOKEN}" \
   --network="my-blog" \
   difuks/fuks-blog
 sleep 10
