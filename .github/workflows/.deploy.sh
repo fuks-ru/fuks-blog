@@ -8,6 +8,9 @@ docker pull difuks/fuks-blog-nginx
 docker stop fuks-blog  &>/dev/nul
 docker stop fuks-blog-nginx  &>/dev/nul
 docker stop fuks-blog-auth-postgres  &>/dev/nul
+docker rm fuks-blog  &>/dev/nul
+docker rm fuks-blog-nginx  &>/dev/nul
+docker rm fuks-blog-auth-postgres  &>/dev/nul
 
 docker run --name fuks-blog-auth-postgres \
   --rm -d \
