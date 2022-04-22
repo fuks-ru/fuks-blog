@@ -2,9 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, SwaggerService } from '@difuks/common/dist';
 
+import { AppModule } from 'auth-backend/AppModule';
 import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
 import { ConfigModule } from 'auth-backend/Config/ConfigModule';
-import { AppModule } from 'auth-backend/AppModule';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);

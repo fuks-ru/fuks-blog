@@ -14,6 +14,18 @@
       "version": "18.0.0"
     }
   },
+  "rules": {
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ]
+  },
   "overrides": [
     {
       "files": ["*.json"],

@@ -1,14 +1,20 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
-import { Response } from 'express';
+import { Body, Controller, Post, Request, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Request as ExpressRequest } from 'express';
 
 import { GoogleAuthRequest } from 'auth-backend/GoogleAuth/dto/GoogleAuthRequest';
-import { GoogleAuth } from 'auth-backend/GoogleAuth/services/GoogleAuth';
+import { LoginService } from 'auth-backend/Login/services/LoginService';
+import { User } from 'auth-backend/User/entities/User';
+
+interface IRequest extends ExpressRequest {
+  user: User;
+}
 
 @Controller()
-@ApiTags('googleAuth')
+@ApiTags('GoogleAuth')
 export class GoogleAuthController {
-  public constructor(private readonly googleAuth: GoogleAuth) {}
+  public constructor(private readonly loginService: LoginService) {}
 
   /**
    * Маршрут для авторизации.
@@ -17,12 +23,11 @@ export class GoogleAuthController {
   @ApiOperation({
     operationId: 'authGoogle',
   })
-  public async auth(
-    @Body() { token }: GoogleAuthRequest,
-    @Res() response: Response,
-  ): Promise<void> {
-    response.cookie('userId', await this.googleAuth.auth(token));
-
-    response.send();
+  @UseGuards(AuthGuard('google'))
+  public auth(
+    @Request() { user }: IRequest,
+    @Body() _: GoogleAuthRequest,
+  ): void {
+    this.loginService.login(user);
   }
 }

@@ -47,6 +47,6 @@ export class ConfigGetter {
    * True, если сервер запущен в dev-режиме.
    */
   public isDev(): boolean {
-    return this.getEnv('NODE_ENV') !== 'production';
+    return this.getEnv('NODE_ENV') === 'development';
   }
 }

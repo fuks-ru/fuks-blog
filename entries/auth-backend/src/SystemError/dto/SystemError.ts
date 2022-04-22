@@ -6,8 +6,8 @@ import { HttpStatus } from '@nestjs/common';
 export enum ErrorCode {
   CONFIG_NOT_FOUND = 100,
   GOOGLE_AUTH_PAYLOAD_EMPTY = 200,
-  GOOGLE_AUTH_USER_NOT_FOUND = 201,
-  OTHER = 1_000,
+  GOOGLE_AUTH_EMAIL_NOT_FOUND = 201,
+  BASIC_AUTH_INCORRECT_EMAIL_OR_PASSWORD = 301,
   UNKNOWN = 1_001,
 }
 
@@ -18,11 +18,11 @@ export class SystemError extends Error {
   public readonly httpStatus: HttpStatus;
 
   private readonly statusResolver = {
-    [ErrorCode.OTHER]: HttpStatus.INTERNAL_SERVER_ERROR,
     [ErrorCode.UNKNOWN]: HttpStatus.INTERNAL_SERVER_ERROR,
     [ErrorCode.CONFIG_NOT_FOUND]: HttpStatus.INTERNAL_SERVER_ERROR,
-    [ErrorCode.GOOGLE_AUTH_PAYLOAD_EMPTY]: HttpStatus.FORBIDDEN,
-    [ErrorCode.GOOGLE_AUTH_USER_NOT_FOUND]: HttpStatus.FORBIDDEN,
+    [ErrorCode.GOOGLE_AUTH_PAYLOAD_EMPTY]: HttpStatus.UNAUTHORIZED,
+    [ErrorCode.GOOGLE_AUTH_EMAIL_NOT_FOUND]: HttpStatus.UNAUTHORIZED,
+    [ErrorCode.BASIC_AUTH_INCORRECT_EMAIL_OR_PASSWORD]: HttpStatus.UNAUTHORIZED,
   };
 
   public constructor(

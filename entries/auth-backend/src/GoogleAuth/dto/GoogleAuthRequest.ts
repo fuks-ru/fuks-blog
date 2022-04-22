@@ -5,5 +5,5 @@ export class GoogleAuthRequest {
    * Токен для авторизации.
    */
   @ApiProperty()
-  public token!: string;
+  public accessToken!: string;
 }

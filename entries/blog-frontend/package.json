@@ -12,12 +12,19 @@
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch .next ./src/server/main.ts",
     "prod": "cross-env NODE_ENV=production node ./dist/server/main.js"
   },
-  "dependencies": {
+  "devDependencies": {
     "@difuks/blog-backend": "*",
     "@difuks/common": "*",
+    "@difuks/ui": "*",
     "@nestjs/common": "^8.4.4",
     "@nestjs/core": "^8.4.4",
     "@nestjs/platform-express": "^8.4.4",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.13",
+    "@types/lodash": "^4.14.181",
+    "@types/next": "^9.0.0",
+    "@types/node": "^17.0.23",
+    "@types/react": "18.0.1",
     "axios": "^0.26.1",
     "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
@@ -30,16 +37,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.5.5"
-  },
-  "devDependencies": {
-    "@difuks/ui": "*",
-    "@types/cookie-parser": "^1.4.2",
-    "@types/express": "^4.17.13",
-    "@types/lodash": "^4.14.181",
-    "@types/next": "^9.0.0",
-    "@types/node": "^17.0.23",
-    "@types/react": "18.0.1",
+    "rxjs": "^7.5.5",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.14.1",
     "ttypescript": "^1.5.13",

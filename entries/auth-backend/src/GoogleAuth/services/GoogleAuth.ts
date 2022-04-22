@@ -1,51 +1,34 @@
 import { Injectable } from '@nestjs/common';
-import { OAuth2Client } from 'google-auth-library';
+import { TokenPayload } from 'google-auth-library';
 
+import { User } from 'auth-backend/User/entities/User';
+import { EmailRegisterService } from 'auth-backend/Register/services/EmailRegisterService';
 import { ErrorCode } from 'auth-backend/SystemError/dto/SystemError';
 import { SystemErrorFactory } from 'auth-backend/SystemError/services/SystemErrorFactory';
+import { UserService } from 'auth-backend/User/services/UserService';
 
 @Injectable()
 export class GoogleAuth {
-  private readonly clientId =
-    '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com';
-
-  private readonly user = {
-    id: '1',
-    name: 'Дима',
-    email: 'difuks@gmail.com',
-  };
-
-  private readonly client = new OAuth2Client(this.clientId);
-
-  public constructor(private readonly systemErrorFactory: SystemErrorFactory) {}
+  public constructor(
+    private readonly systemErrorFactory: SystemErrorFactory,
+    private readonly userService: UserService,
+    private readonly emailRegisterService: EmailRegisterService,
+  ) {}
 
   /**
-   * Авторизуют пользователя.
+   * Авторизуют пользователя по google профилю.
    */
-  public async auth(token: string): Promise<string> {
-    const ticket = await this.client.verifyIdToken({
-      idToken: token,
-      audience: this.clientId,
-    });
-
-    const payload = ticket.getPayload();
-
-    if (!payload) {
+  public async auth(tokenPayload: TokenPayload): Promise<User> {
+    if (!tokenPayload.email) {
       throw this.systemErrorFactory.create(
-        ErrorCode.GOOGLE_AUTH_PAYLOAD_EMPTY,
-        'Нет ответа от Google API',
-      );
-    }
-
-    const { email } = payload;
-
-    if (email !== this.user.email) {
-      throw this.systemErrorFactory.create(
-        ErrorCode.GOOGLE_AUTH_USER_NOT_FOUND,
+        ErrorCode.GOOGLE_AUTH_EMAIL_NOT_FOUND,
         'Пользователь не найдет',
       );
     }
 
-    return this.user.id;
+    return (
+      (await this.userService.findByEmail(tokenPayload.email)) ||
+      (await this.emailRegisterService.register(tokenPayload.email))
+    );
   }
 }

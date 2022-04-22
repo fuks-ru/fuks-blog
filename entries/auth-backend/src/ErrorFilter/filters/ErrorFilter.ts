@@ -41,7 +41,7 @@ export class ErrorFilter implements ExceptionFilter {
 
     response
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
-      .json(this.formatResponse(ErrorCode.OTHER, exception.message));
+      .json(this.formatResponse(ErrorCode.UNKNOWN, exception.message));
   }
 
   private formatResponse(code: ErrorCode, message: string): IErrorResponse {
