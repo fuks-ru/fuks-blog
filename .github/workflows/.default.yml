@@ -133,6 +133,7 @@ jobs:
             export FUKS_BLOG_AUTH_POSTGRES_PASSWORD=${{ secrets.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}
             export FUKS_BLOG_AUTH_POSTGRES_USER=${{ secrets.FUKS_BLOG_AUTH_POSTGRES_USER }}
             export PERSONAL_NPM_TOKEN=${{ secrets.PERSONAL_NPM_TOKEN }}
+            export FUKS_BLOG_AUTH_JWT_SECRET=${{ secrets.FUKS_BLOG_AUTH_JWT_SECRET }}
             bash /fuks-blog/.deploy.sh
 
   notification:
