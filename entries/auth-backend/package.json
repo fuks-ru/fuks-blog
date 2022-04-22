@@ -10,7 +10,7 @@
   "types": "./dist/lib/index.d.ts",
   "scripts": {
     "dev:database": "bash ../../.docker/auth-postgres/run-dev.sh",
-    "build:lib": "yarn dev:database && cross-env NODE_ENV=development ts-node -r tsconfig-paths/register ./src/schemaBuilder.ts",
+    "build:lib": "cross-env NODE_ENV=development ts-node -r tsconfig-paths/register ./src/schemaBuilder.ts",
     "build": "ttsc --project tsconfig.build.json",
     "dev": "yarn dev:database && cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only --inspect=0.0.0.0:5003  ./src/main.ts",
     "prod": "cross-env NODE_ENV=production node ./dist/build/main.js"

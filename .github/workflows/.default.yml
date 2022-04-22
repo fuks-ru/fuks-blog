@@ -43,6 +43,9 @@ jobs:
         with:
           cmd: typedoc
 
+      - name: Run auth database
+        run: bash ./docker/auth-postgres/run-dev.sh
+
       - name: Publish common package
         uses: ./.github/actions/publish-package
         with:
