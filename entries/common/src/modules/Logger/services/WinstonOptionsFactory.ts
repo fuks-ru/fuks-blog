@@ -25,7 +25,7 @@ export class WinstonOptionsFactory {
   private readonly logDatePattern = 'DD-MM-YYYY';
 
   /**
-   * Создает траспорты для winston библиотеки.
+   * Создает транспорты для winston библиотеки.
    */
   public create(): WinstonModuleOptions {
     const myFormat = format.combine(
