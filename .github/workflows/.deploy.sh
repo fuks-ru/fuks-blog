@@ -12,7 +12,7 @@ docker stop fuks-blog-nginx  &>/dev/nul
 docker stop fuks-blog-auth-postgres  &>/dev/nul
 
 docker run --name fuks-blog-auth-postgres \
-    --rm \
+    --rm -d \
     -e POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
     -e POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
     -e POSTGRES_DB=auth \
