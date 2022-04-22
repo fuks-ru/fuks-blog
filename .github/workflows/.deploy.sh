@@ -19,7 +19,7 @@ docker run --name fuks-blog-auth-postgres \
   --network="my-blog" \
   postgres:14.2-alpine
 docker run --name fuks-blog \
-  --rm \
+  --rm -d \
   -e FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
   -e FUKS_BLOG_AUTH_POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
   -e FUKS_BLOG_AUTH_JWT_SECRET="${FUKS_BLOG_AUTH_JWT_SECRET}" \
