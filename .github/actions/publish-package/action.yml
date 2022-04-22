@@ -27,5 +27,6 @@ runs:
         PACKAGEJSON_DIR: entries/${{ inputs.package-name }}
 
     - name: Publish
+      if: steps.path-filter.outputs[inputs.package-name] == 'true'
       shell: bash
       run: yarn workspace @difuks/${{ inputs.package-name }} npm publish
