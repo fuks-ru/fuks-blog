@@ -12,12 +12,12 @@ export class WinstonOptionsFactory {
 
   private readonly logErrorFilename = path.join(
     process.cwd(),
-    '/var/error-%DATE%.log',
+    '/var/logs/error-%DATE%.log',
   );
 
   private readonly logCombineFilename = path.join(
     process.cwd(),
-    '/var/combined-%DATE%.log',
+    '/var/logs/combined-%DATE%.log',
   );
 
   private readonly maxFiles = '14d';
