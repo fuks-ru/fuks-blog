@@ -1,0 +1,33 @@
+name: 'Publish npm package'
+description: 'Publish npm package'
+inputs:
+  package-name:
+    description: 'Name of package'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Set path filter
+      uses: dorny/paths-filter@v2
+      id: path-filter
+      with:
+        filters: |
+          ${{ inputs.package-name }}:
+            - 'entries/${{inputs.package-name}}/**'
+    - name: 'Version bump'
+      uses: phips28/gh-action-bump-version@master
+      if: steps.path-filter.outputs[inputs.package-name] == 'true'
+      with:
+        minor-wording: 'feat(${{ inputs.package-name }})'
+        patch-wording: 'fix(${{ inputs.package-name }})'
+        skip-tag: 'true'
+      env:
+        PACKAGEJSON_DIR: entries/${{ inputs.package-name }}
+
+    - name: 'Publish'
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.PERSONAL_NPM_TOKEN }}
+        package: entries/${{ inputs.package-name }}/package.json
+        registry: https://npm.pkg.github.com

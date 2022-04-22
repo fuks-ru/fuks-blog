@@ -12,6 +12,7 @@ jobs:
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
 
     steps:
       - name: Checkout
@@ -32,87 +33,25 @@ jobs:
       - name: Build typedoc
         run: yarn typedoc
 
-      - name: Set path filter
-        uses: dorny/paths-filter@v2
-        id: path-filter
+      - name: Publish common package
+        uses: ./.github/actions/publish-package
         with:
-          filters: |
-            common:
-              - 'entries/common/**'
-            ui:
-              - 'entries/ui/**'
-            blog-backend:
-              - 'entries/blog-backend/**'
-            auth-backend:
-              - 'entries/auth-backend/**'
+          package-name: common
 
-      - name: '@difuks/common version bump'
-        uses: phips28/gh-action-bump-version@master
-        if: steps.path-filter.outputs.common == 'true'
+      - name: Publish blog-backend package
+        uses: ./.github/actions/publish-package
         with:
-          minor-wording: 'feat(common)'
-          patch-wording: 'fix(common)'
-          skip-tag: 'true'
-        env:
-          PACKAGEJSON_DIR: entries/common
+          package-name: blog-backend
 
-      - name: '@difuks/ui version bump'
-        uses: phips28/gh-action-bump-version@master
-        if: steps.path-filter.outputs.ui == 'true'
-        env:
-          PACKAGEJSON_DIR: entries/ui
+      - name: Publish ui package
+        uses: ./.github/actions/publish-package
         with:
-          minor-wording: 'feat(ui)'
-          patch-wording: 'fix(ui)'
-          skip-tag: 'true'
+          package-name: ui
 
-      - name: '@difuks/blog-backend version bump'
-        uses: 'phips28/gh-action-bump-version@master'
-        if: steps.path-filter.outputs.blog-backend == 'true'
-        env:
-          PACKAGEJSON_DIR: entries/blog-backend
+      - name: Publish auth-backend package
+        uses: ./.github/actions/publish-package
         with:
-          minor-wording: 'feat(blog-backend)'
-          patch-wording: 'fix(blog-backend)'
-          skip-tag: 'true'
-
-      - name: '@difuks/auth-backend version bump'
-        uses: 'phips28/gh-action-bump-version@master'
-        if: steps.path-filter.outputs.auth-backend == 'true'
-        env:
-          PACKAGEJSON_DIR: entries/auth-backend
-        with:
-          minor-wording: 'feat(auth-backend)'
-          patch-wording: 'fix(auth-backend)'
-          skip-tag: 'true'
-
-      - name: '@difuks/common publish'
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
-          package: entries/common/package.json
-          registry: https://npm.pkg.github.com
-
-      - name: '@difuks/ui publish'
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
-          package: entries/ui/package.json
-          registry: https://npm.pkg.github.com
-
-      - name: '@difuks/blog-backend publish'
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
-          package: entries/blog-backend/package.json
-          registry: https://npm.pkg.github.com
-
-      - name: '@difuks/auth-backend publish'
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.PERSONAL_NPM_TOKEN }}
-          package: entries/auth-backend/package.json
-          registry: https://npm.pkg.github.com
+          package-name: auth-backend
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
