@@ -14,6 +14,7 @@ import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
       credentials: true,
     },
   });
+
   const configGetter = app.select(ConfigModule).get(ConfigGetter);
   const swaggerService = app.select(SwaggerModule).get(SwaggerService);
 
