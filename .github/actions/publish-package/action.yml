@@ -15,6 +15,7 @@ runs:
         filters: |
           ${{ inputs.package-name }}:
             - 'entries/${{inputs.package-name}}/**'
+
     - name: 'Version bump'
       uses: phips28/gh-action-bump-version@master
       if: steps.path-filter.outputs[inputs.package-name] == 'true'
@@ -25,7 +26,6 @@ runs:
       env:
         PACKAGEJSON_DIR: entries/${{ inputs.package-name }}
 
-    - name: 'Publish'
-      uses: borales/actions-yarn@v2.3.0
-      with:
-        cmd: workspace @difuks/${{ inputs.package-name }} npm publish
+    - name: Publish
+      shell: bash
+      run: yarn workspace @difuks/${{ inputs.package-name }} npm publish
