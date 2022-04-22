@@ -23,6 +23,9 @@ jobs:
         with:
           cmd: install
 
+      - name: Run auth database
+        run: bash ./docker/auth-postgres/run-dev.sh
+
       - name: Build libs
         uses: borales/actions-yarn@v2.3.0
         with:
@@ -42,9 +45,6 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: typedoc
-
-      - name: Run auth database
-        run: bash ./docker/auth-postgres/run-dev.sh
 
       - name: Publish common package
         uses: ./.github/actions/publish-package
