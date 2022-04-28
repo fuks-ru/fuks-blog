@@ -9,7 +9,9 @@
       "auth-frontend/*": ["./entries/auth-frontend/src/*"],
       "auth-backend/*": ["./entries/auth-backend/src/*"],
       "api-blog-backend/*": ["./entries/api-blog-backend/src/*"],
-      "api-auth-backend/*": ["./entries/api-auth-backend/src/*"]
+      "api-auth-backend/*": ["./entries/api-auth-backend/src/*"],
+      "admin-frontend/*": ["./entries/admin-frontend/src/*"]
     }
-  }
+  },
+  "exclude": ["./entries/**/*.spec.ts"]
 }

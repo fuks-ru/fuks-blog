@@ -13,5 +13,6 @@
       }
     ]
   },
-  "include": ["./src/**/*.ts"]
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./src/__e2e__/**/*.*"]
 }
