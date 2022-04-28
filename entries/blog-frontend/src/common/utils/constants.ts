@@ -9,6 +9,6 @@ export const API_PREFIX = '/api';
 export const API_PAGE_PREFIX = `${API_PREFIX}/page`;
 
 /**
- * Порт, на котором запускается BFF.
+ * Если true, то мы в режиме ssr.
  */
-export const BFF_PORT = 3_000;
+export const IS_SERVER = typeof window === 'undefined';

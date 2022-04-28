@@ -7,7 +7,9 @@
       "blog-backend/*": ["./entries/blog-backend/src/*"],
       "common/*": ["./entries/common/src/*"],
       "auth-frontend/*": ["./entries/auth-frontend/src/*"],
-      "auth-backend/*": ["./entries/auth-backend/src/*"]
+      "auth-backend/*": ["./entries/auth-backend/src/*"],
+      "api-blog-backend/*": ["./entries/api-blog-backend/src/*"],
+      "api-auth-backend/*": ["./entries/api-auth-backend/src/*"]
     }
   }
 }

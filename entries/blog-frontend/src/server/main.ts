@@ -1,24 +1,19 @@
+import { CONFIG } from '@difuks/common';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import path from 'node:path';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
-import { BFF_PORT } from 'blog-frontend/common/utils/constants';
-import { CoreBackendService } from 'blog-frontend/server/CoreBackend/services/CoreBackendService';
-import { CoreBackendModule } from 'blog-frontend/server/CoreBackend/CoreBackendModule';
+import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter';
 import { AppModule } from 'blog-frontend/server/AppModule';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  const coreBackendService = app
-    .select(CoreBackendModule)
-    .get(CoreBackendService);
+  const configGetter = await app.resolve<ConfigGetter>(CONFIG);
 
   app.use(cookieParser());
 
   app.useStaticAssets(path.join(process.cwd(), 'public'));
 
-  await coreBackendService.init();
-
-  await app.listen(BFF_PORT);
+  await app.listen(configGetter.getApiPort());
 })();

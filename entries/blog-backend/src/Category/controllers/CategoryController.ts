@@ -1,16 +1,21 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Public } from '@difuks/api-auth-backend/dist/decorators/Public';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
+  ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 
-import { Category } from 'blog-backend/Category/dto/Category';
+import { Category } from 'blog-backend/Category/entities/Category';
+import { CategoryService } from 'blog-backend/Category/services/CategoryService';
 
 @Controller('/category')
 @ApiTags('category')
 export class CategoryController {
+  public constructor(private readonly categoryService: CategoryService) {}
+
   /**
    * Возвращает конкретную категорию.
    */
@@ -21,12 +26,9 @@ export class CategoryController {
   @ApiOperation({
     operationId: 'categoryGet',
   })
-  @ApiParam({ name: 'id', required: true, schema: { type: 'number' } })
-  public get(@Param('id', ParseIntPipe) id: number): Category {
-    return {
-      id,
-      name: 'Первая категория',
-    };
+  @ApiParam({ name: 'id', required: true, schema: { type: 'string' } })
+  public get(@Param('id') id: string): Promise<Category> {
+    return this.categoryService.getById(id);
   }
 
   /**
@@ -40,16 +42,23 @@ export class CategoryController {
   @ApiOperation({
     operationId: 'categoryList',
   })
-  public list(): Category[] {
-    return [
-      {
-        id: 1,
-        name: 'Первая категория',
-      },
-      {
-        id: 2,
-        name: 'Вторая категория',
-      },
-    ];
+  @Public()
+  public list(): Promise<Category[]> {
+    return this.categoryService.getList();
+  }
+
+  /**
+   * Создает категорию.
+   */
+  @Post('/')
+  @ApiCreatedResponse({
+    type: Category,
+    isArray: true,
+  })
+  @ApiOperation({
+    operationId: 'categoryCreate',
+  })
+  public create(@Body() body: Category): Promise<Category> {
+    return this.categoryService.create(body);
   }
 }

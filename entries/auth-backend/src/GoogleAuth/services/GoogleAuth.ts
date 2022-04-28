@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { TokenPayload } from 'google-auth-library';
+import { SystemErrorFactory } from '@difuks/common';
 
+import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';
 import { EmailRegisterService } from 'auth-backend/Register/services/EmailRegisterService';
-import { ErrorCode } from 'auth-backend/SystemError/dto/SystemError';
-import { SystemErrorFactory } from 'auth-backend/SystemError/services/SystemErrorFactory';
 import { UserService } from 'auth-backend/User/services/UserService';
 
 @Injectable()

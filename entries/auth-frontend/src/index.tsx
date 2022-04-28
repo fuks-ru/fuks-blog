@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 
-import { initAuthApi } from 'auth-frontend/common/utils/initAuthApi';
 import { App } from 'auth-frontend/App';
+import { initAuthApi } from 'auth-frontend/common/utils/initAuthApi';
 
 const container = document.querySelector('#app');
 

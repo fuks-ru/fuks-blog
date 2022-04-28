@@ -1,35 +1,37 @@
-import { Injectable } from '@nestjs/common';
+import { ports } from '@difuks/common/dist/constants';
+import { IErrorFilterModuleOptions } from '@difuks/common/dist/modules/ErrorFilter/types/IErrorFilterModuleOptions';
+import { HttpStatus, Injectable } from '@nestjs/common';
+import { ConfigGetterBase, SystemErrorFactory } from '@difuks/common';
 
-import {
-  API_PAGE_PREFIX,
-  API_PREFIX,
-} from 'blog-frontend/common/utils/constants';
-import { SystemErrorFactory } from 'blog-frontend/server/SystemError/services/SystemErrorFactory';
+import { API_PAGE_PREFIX } from 'blog-frontend/common/utils/constants';
+import { ErrorCode } from 'blog-frontend/server/Config/enums/ErrorCode';
 
 @Injectable()
-export class ConfigGetter {
-  public constructor(private readonly systemErrorFactory: SystemErrorFactory) {}
-
+export class ConfigGetter extends ConfigGetterBase {
   /**
-   * Получает config-параметр из env файла.
-   *
-   * @throws HttpException. В случае отсутствия конфига.
+   * Соответствие между ошибками и статус-кодами ответов.
    */
-  public getEnv(name: string): string {
-    const envValue = process.env[name];
+  protected readonly statusResolver: Record<ErrorCode, HttpStatus> = {};
 
-    if (!envValue) {
-      throw this.systemErrorFactory.create(`Не найден ${name} конфиг параметр`);
-    }
-
-    return envValue;
+  public constructor(systemErrorFactory: SystemErrorFactory) {
+    super(systemErrorFactory);
   }
 
   /**
-   * Получает префикс маршрута для апи.
+   * Получает порт для апи.
    */
-  public getApiPrefix(): string {
-    return API_PREFIX;
+  public getApiPort(): number {
+    return ports.BLOG_FRONTEND_PORT;
+  }
+
+  /**
+   * Получает порт для апи.
+   */
+  public override getErrorFilterConfig(): IErrorFilterModuleOptions {
+    return {
+      ...super.getErrorFilterConfig(),
+      errorPageName: '_500',
+    };
   }
 
   /**

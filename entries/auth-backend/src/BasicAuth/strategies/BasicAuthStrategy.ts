@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-local';
+import { SystemErrorFactory } from '@difuks/common';
 
+import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';
 import { BasicAuthService } from 'auth-backend/BasicAuth/services/BasicAuthService';
-import { ErrorCode } from 'auth-backend/SystemError/dto/SystemError';
-import { SystemErrorFactory } from 'auth-backend/SystemError/services/SystemErrorFactory';
 
 @Injectable()
 export class BasicAuthStrategy extends PassportStrategy(Strategy) {

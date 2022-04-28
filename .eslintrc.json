@@ -23,8 +23,9 @@
     ],
     "@typescript-eslint/no-unused-vars": [
       "error",
-      { "argsIgnorePattern": "^_" }
-    ]
+      { "argsIgnorePattern": "^_", "ignoreRestSiblings": true }
+    ],
+    "no-await-in-loop": ["off"]
   },
   "overrides": [
     {
@@ -35,6 +36,14 @@
       "rules": {
         "sonarjs/no-duplicate-string": ["off"],
         "unicorn/numeric-separators-style": ["off"]
+      }
+    },
+    {
+      "files": ["*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/no-unsafe-assignment": ["off"],
+        "@typescript-eslint/no-unsafe-member-access": ["off"],
+        "sonarjs/no-duplicate-string": ["off"]
       }
     },
     {

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
+import { EncodingModule } from '@difuks/common';
 
-import { EncodingModule } from 'auth-backend/Encoding/EncodingModule';
 import { LoginModule } from 'auth-backend/Login/LoginModule';
 import { RegisterController } from 'auth-backend/Register/controllers/RegisterController';
 import { BasicRegisterService } from 'auth-backend/Register/services/BasicRegisterService';

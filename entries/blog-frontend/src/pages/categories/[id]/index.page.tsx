@@ -11,7 +11,7 @@ export interface ICategoryPageProps extends IPageProps {
   /**
    * ID.
    */
-  id: number;
+  id: string;
   /**
    * Название.
    */

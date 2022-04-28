@@ -1,3 +1,4 @@
+import { ports } from '@difuks/common/dist/constants';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
 import * as path from 'node:path';
@@ -56,12 +57,12 @@ const config: Configuration = {
     ],
   },
   devServer: {
-    port: 3_002,
+    port: ports.AUTH_FRONTEND_PORT,
     hot: true,
   },
 };
 
 /**
- * Webpack config для админки.
+ * Webpack config для авторизации.
  */
 export default config;

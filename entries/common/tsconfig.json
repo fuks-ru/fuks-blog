@@ -5,6 +5,8 @@
     "outDir": "dist",
     "declaration": true,
     "noEmit": false,
+    "target": "esnext",
+    "module": "esnext",
     "lib": ["esnext"],
     "isolatedModules": false,
     "paths": {
@@ -19,6 +21,5 @@
       }
     ]
   },
-  "include": ["./src/**/*.ts"],
-  "exclude": ["./src/bin/generateApiContract/helpers/index.ts"]
+  "include": ["./src/**/*.ts"]
 }

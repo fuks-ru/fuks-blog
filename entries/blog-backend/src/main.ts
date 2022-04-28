@@ -1,20 +1,14 @@
+import { CONFIG, SwaggerModule, SwaggerService } from '@difuks/common';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { SwaggerModule, SwaggerService } from '@difuks/common';
 
 import { AppModule } from 'blog-backend/AppModule';
-import { ConfigModule } from 'blog-backend/Config/ConfigModule';
 import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 
 (async () => {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    cors: {
-      origin: 'http://localhost:3002',
-      credentials: true,
-    },
-  });
-  const configGetter = app.select(ConfigModule).get(ConfigGetter);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const configGetter = await app.resolve<ConfigGetter>(CONFIG);
   const swaggerService = app.select(SwaggerModule).get(SwaggerService);
 
   app.use(cookieParser());

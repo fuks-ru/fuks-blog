@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { EncodingService } from '@difuks/common';
 
-import { EncodingService } from 'auth-backend/Encoding/services/EncodingService';
-import { SystemErrorFactory } from 'auth-backend/SystemError/services/SystemErrorFactory';
 import { User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';
 
@@ -9,7 +8,6 @@ import { UserService } from 'auth-backend/User/services/UserService';
 export class BasicAuthService {
   public constructor(
     private readonly userService: UserService,
-    private readonly systemErrorFactory: SystemErrorFactory,
     private readonly encodingService: EncodingService,
   ) {}
 

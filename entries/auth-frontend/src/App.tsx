@@ -4,7 +4,7 @@ import { Register } from 'auth-frontend/pages/Register/Register';
 import { Auth } from 'auth-frontend/pages/Auth/Auth';
 
 /**
- * Главный компонент админки.
+ * Главный компонент авторизации.
  */
 export const App: FC = () => (
   <div>

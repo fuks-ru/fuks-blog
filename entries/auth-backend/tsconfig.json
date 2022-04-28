@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "isolatedModules": false,
     "paths": {
       "auth-backend/*": ["./src/*"]
     }

@@ -8,6 +8,12 @@
       <excludeFolder url="file://$MODULE_DIR$/entries/ui/cosmos-export" />
       <excludeFolder url="file://$MODULE_DIR$/public" />
       <excludeFolder url="file://$MODULE_DIR$/entries/blog-frontend/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/auth-backend/var" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/blog-backend/var" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/blog-frontend/var" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/api-auth-backend/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/api-blog-backend/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/entries/auth-backend/dist" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

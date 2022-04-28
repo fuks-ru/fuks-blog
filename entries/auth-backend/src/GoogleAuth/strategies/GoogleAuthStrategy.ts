@@ -1,14 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { CONFIG, SystemErrorFactory } from '@difuks/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Request as ExpressRequest } from 'express';
 import { OAuth2Client } from 'google-auth-library';
 import { Strategy } from 'passport-custom';
 
+import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { GoogleAuthRequest } from 'auth-backend/GoogleAuth/dto/GoogleAuthRequest';
 import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
 import { GoogleAuth } from 'auth-backend/GoogleAuth/services/GoogleAuth';
-import { ErrorCode } from 'auth-backend/SystemError/dto/SystemError';
-import { SystemErrorFactory } from 'auth-backend/SystemError/services/SystemErrorFactory';
 import { User } from 'auth-backend/User/entities/User';
 
 interface IRequest extends ExpressRequest {
@@ -22,6 +22,7 @@ export class GoogleAuthStrategy extends PassportStrategy(Strategy, 'google') {
   public constructor(
     private readonly googleAuth: GoogleAuth,
     private readonly systemErrorFactory: SystemErrorFactory,
+    @Inject(CONFIG)
     private readonly configGetter: ConfigGetter,
   ) {
     super();

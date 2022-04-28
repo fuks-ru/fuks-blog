@@ -28,7 +28,7 @@ export class LoggerMiddleware implements NestMiddleware {
   public use(req: Request, res: Response, next: NextFunction): void {
     requestContext.set(`${REQUEST_CONTEXT_ID}:${REQUEST_ID_KEY}`, v4());
 
-    const sessionId = (req.cookies as ICookie).sessionId || v4();
+    const sessionId = (req.cookies as ICookie)?.sessionId || v4();
 
     res.cookie('sessionId', sessionId);
 

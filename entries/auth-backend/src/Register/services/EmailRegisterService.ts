@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { v4 } from 'uuid';
+import { EncodingService } from '@difuks/common';
 
-import { EncodingService } from 'auth-backend/Encoding/services/EncodingService';
 import { Role, User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';
 
@@ -24,6 +24,6 @@ export class EmailRegisterService {
     user.email = email;
     user.role = Role.USER;
 
-    return this.userService.addUser(user);
+    return this.userService.addUserIfNotExists(user);
   }
 }

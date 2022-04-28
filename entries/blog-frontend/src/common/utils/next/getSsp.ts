@@ -1,3 +1,4 @@
+import { HttpStatus } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import { ParsedUrlQuery } from 'node:querystring';
 import {
@@ -5,6 +6,7 @@ import {
   GetServerSidePropsResult,
   PreviewData,
 } from 'next/types';
+import { IErrorResponse } from '@difuks/common';
 
 import { API_PAGE_PREFIX } from 'blog-frontend/common/utils/constants';
 import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
@@ -21,7 +23,7 @@ export interface IGetServerSidePropsContext<
   /**
    * В этом параметре приходят данные от сервера в режиме SSR.
    */
-  query: P;
+  query: P | IErrorResponse;
 }
 
 type IGetServerSideProps<
@@ -31,6 +33,39 @@ type IGetServerSideProps<
 > = (
   context: IGetServerSidePropsContext<P, Q, D>,
 ) => Promise<GetServerSidePropsResult<P>> | GetServerSidePropsResult<P>;
+
+const getErrorPageProps = (
+  errorResponse?: IErrorResponse,
+): GetServerSidePropsResult<IPageProps> => {
+  if (!errorResponse) {
+    return {
+      props: {
+        title: 'Произошла ошибка',
+        error: {
+          message: 'Нет ответа от Api',
+        },
+      },
+    };
+  }
+
+  if (errorResponse.redirect) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: errorResponse.redirect.location,
+      },
+    };
+  }
+
+  return {
+    props: {
+      title: 'Произошла ошибка',
+      error: {
+        message: errorResponse.message,
+      },
+    },
+  };
+};
 
 /**
  * Фабрика для getSerSideProps функции, осуществляющая прокидывание пропсов в
@@ -50,24 +85,20 @@ export const getSsp =
           props: response.data as IPageProps,
         };
       } catch (error) {
-        if ('isAxiosError' in (error as AxiosError)) {
-          return {
-            props: (error as AxiosError).response?.data as IPageProps,
-          };
-        }
+        const errorResponse = (error as AxiosError)?.response
+          ?.data as IErrorResponse;
 
-        return {
-          props: {
-            title: 'Произошла ошибка',
-            error: {
-              message: 'Нет ответа от Api',
-            },
-          },
-        };
+        return getErrorPageProps(errorResponse);
       }
     }
 
+    if (contextDraft.res.statusCode >= HttpStatus.AMBIGUOUS) {
+      const errorResponse = contextDraft.query as IErrorResponse;
+
+      return getErrorPageProps(errorResponse);
+    }
+
     return {
-      props: contextDraft.query,
+      props: contextDraft.query as IPageProps,
     };
   };

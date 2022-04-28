@@ -1,13 +1,18 @@
+import { BlogBackendModule } from '@difuks/api-blog-backend/dist/BlogBackendModule';
+import {
+  ValidationModule,
+  LoggerModule,
+  ErrorFilterModule,
+  SystemErrorModule,
+  ConfigModule,
+  RedirectModule,
+} from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
-import { LoggerModule } from '@difuks/common';
 import Next from 'next';
 
 import { PagesModule } from 'blog-frontend/server/Pages/PagesModule';
-import { CoreBackendModule } from 'blog-frontend/server/CoreBackend/CoreBackendModule';
-import { SystemErrorModule } from 'blog-frontend/server/SystemError/SystemErrorModule';
-import { ConfigModule } from 'blog-frontend/server/Config/ConfigModule';
-import { ErrorFilterModule } from 'blog-frontend/server/ErrorFilter/ErrorFilterModule';
+import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter';
 
 @Module({
   imports: [
@@ -20,12 +25,14 @@ import { ErrorFilterModule } from 'blog-frontend/server/ErrorFilter/ErrorFilterM
         viewsDir: '',
       },
     ),
-    ConfigModule,
     SystemErrorModule,
-    ErrorFilterModule,
     LoggerModule,
-    CoreBackendModule,
+    ErrorFilterModule,
+    ConfigModule.forRoot(ConfigGetter),
+    ValidationModule,
+    BlogBackendModule,
     PagesModule,
+    RedirectModule,
   ],
 })
 export class AppModule {}

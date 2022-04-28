@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { EncodingService } from '@difuks/common';
 
-import { EncodingService } from 'auth-backend/Encoding/services/EncodingService';
 import { BasicRegisterRequest } from 'auth-backend/Register/dto/BasicRegisterRequest';
 import { Role, User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';
@@ -26,6 +26,6 @@ export class BasicRegisterService {
     user.email = registerRequest.email;
     user.role = Role.USER;
 
-    return this.userService.addUser(user);
+    return this.userService.addUserIfNotExists(user);
   }
 }

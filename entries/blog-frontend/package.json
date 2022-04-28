@@ -9,11 +9,11 @@
   "license": "ISC",
   "scripts": {
     "build": "next build && ttsc --project tsconfig.build.json",
-    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch .next ./src/server/main.ts",
+    "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only --inspect=0.0.0.0:4000 --ignore-watch .next ./src/server/main.ts",
     "prod": "cross-env NODE_ENV=production node ./dist/server/main.js"
   },
   "devDependencies": {
-    "@difuks/blog-backend": "*",
+    "@difuks/api-blog-backend": "*",
     "@difuks/common": "*",
     "@difuks/ui": "*",
     "@nestjs/common": "^8.4.4",
@@ -26,6 +26,8 @@
     "@types/node": "^17.0.23",
     "@types/react": "18.0.1",
     "axios": "^0.26.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
     "express": "^4.17.3",

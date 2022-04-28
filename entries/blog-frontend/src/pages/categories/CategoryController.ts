@@ -1,13 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { BlogBackendService } from '@difuks/api-blog-backend/dist/services/BlogBackendService';
+import { Controller, Param } from '@nestjs/common';
 
 import type { ICategoriesPageProps } from 'blog-frontend/pages/categories/index.page';
 import type { ICategoryPageProps } from 'blog-frontend/pages/categories/[id]/index.page';
-import { Page } from 'blog-frontend/server/Common/decorators/Page';
-import { CoreBackendService } from 'blog-frontend/server/CoreBackend/services/CoreBackendService';
+import { Page } from 'blog-frontend/server/Pages/decorators/Page';
 
 @Controller()
 export class CategoryController {
-  public constructor(private readonly coreBackend: CoreBackendService) {}
+  public constructor(private readonly coreBackend: BlogBackendService) {}
 
   /**
    * Маршрут списка категорий.
@@ -23,8 +23,8 @@ export class CategoryController {
    * Маршрут детальное страницы.
    */
   @Page('categories/[id]')
-  public async detail(): Promise<ICategoryPageProps> {
-    const response = await this.coreBackend.getClient().categoryGet({ id: 2 });
+  public async detail(@Param('id') id: string): Promise<ICategoryPageProps> {
+    const response = await this.coreBackend.getClient().categoryGet({ id });
 
     return { title: 'Категории / Hello', ...response.data };
   }

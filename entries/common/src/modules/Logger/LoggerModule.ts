@@ -2,8 +2,9 @@ import { Global, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { WinstonModule } from 'nest-winston';
 import requestContext from 'request-context';
 
+import { WinstonOptionsModule } from 'common/modules/Logger/modules/WinstonOptions/WinstonOptionsModule';
 import { LoggerMiddleware } from 'common/modules/Logger/middlewares/LoggerMiddleware';
-import { WinstonOptionsFactory } from 'common/modules/Logger/services/WinstonOptionsFactory';
+import { WinstonOptionsFactory } from 'common/modules/Logger/modules/WinstonOptions/services/WinstonOptionsFactory';
 import { Logger } from 'common/modules/Logger/services/Logger';
 import { REQUEST_CONTEXT_ID } from 'common/modules/Logger/utils/constants';
 
@@ -11,14 +12,14 @@ import { REQUEST_CONTEXT_ID } from 'common/modules/Logger/utils/constants';
 @Module({
   imports: [
     WinstonModule.forRootAsync({
-      imports: [LoggerModule],
+      imports: [WinstonOptionsModule],
       inject: [WinstonOptionsFactory],
       useFactory: (optionsFactory: WinstonOptionsFactory) =>
         optionsFactory.create(),
     }),
   ],
-  providers: [Logger, WinstonOptionsFactory],
-  exports: [Logger, WinstonOptionsFactory],
+  providers: [Logger],
+  exports: [Logger],
 })
 export class LoggerModule implements NestModule {
   /**

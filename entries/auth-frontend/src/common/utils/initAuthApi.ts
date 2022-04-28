@@ -1,6 +1,5 @@
 import { getApi, Client } from '@difuks/auth-backend';
-
-import { AUTH_BACKEND_URL } from 'auth-frontend/common/constants';
+import { urls } from '@difuks/common/dist/constants';
 
 /**
  * Клиент для работы с AuthApi.
@@ -12,5 +11,5 @@ export let authApi: Client;
  * Инициализирует Api.
  */
 export const initAuthApi = async (): Promise<void> => {
-  authApi = await getApi(AUTH_BACKEND_URL);
+  authApi = await getApi(urls.AUTH_BACKEND_URL);
 };

@@ -21,14 +21,14 @@ jobs:
       - name: Install modules
         run: yarn install
 
-      - name: Run auth database
-        run: bash ./.docker/auth-postgres/run-dev.sh
-
       - name: Build libs
         run: yarn build:lib
 
       - name: Eslint
         run: yarn lint
+
+      - name: E2E tests
+        run: yarn e2e
 
       - name: Build packages
         run: yarn build
@@ -55,6 +55,16 @@ jobs:
         uses: ./.github/actions/publish-package
         with:
           package-name: auth-backend
+
+      - name: Publish api-auth-backend package
+        uses: ./.github/actions/publish-package
+        with:
+          package-name: api-auth-backend
+
+      - name: Publish api-blog-backend package
+        uses: ./.github/actions/publish-package
+        with:
+          package-name: api-blog-backend
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1

@@ -1,82 +1,55 @@
-import { Injectable } from '@nestjs/common';
+import { SystemErrorFactory, ConfigGetterBase } from '@difuks/common';
+import { ports } from '@difuks/common/dist/constants';
+import { HttpStatus, Injectable } from '@nestjs/common';
+import { JwtModuleOptions } from '@nestjs/jwt';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import * as path from 'node:path';
+import * as process from 'node:process';
 
-import { ErrorCode } from 'auth-backend/SystemError/dto/SystemError';
-import { SystemErrorFactory } from 'auth-backend/SystemError/services/SystemErrorFactory';
+import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 
 @Injectable()
-export class ConfigGetter {
-  public constructor(private readonly systemErrorFactory: SystemErrorFactory) {}
-
+export class ConfigGetter extends ConfigGetterBase {
   /**
-   * Получает config-параметр из env файла.
-   *
-   * @throws HttpException. В случае отсутствия конфига.
+   * Соответствие между ошибками и статус-кодами ответов.
    */
-  public getEnv(name: string): string {
-    const envValue = process.env[name];
+  protected readonly statusResolver: Record<ErrorCode, HttpStatus> = {
+    [ErrorCode.GOOGLE_AUTH_PAYLOAD_EMPTY]: HttpStatus.UNAUTHORIZED,
+    [ErrorCode.GOOGLE_AUTH_EMAIL_NOT_FOUND]: HttpStatus.UNAUTHORIZED,
+    [ErrorCode.BASIC_AUTH_INCORRECT_EMAIL_OR_PASSWORD]: HttpStatus.UNAUTHORIZED,
+    [ErrorCode.USER_ALREADY_EXISTS]: HttpStatus.CONFLICT,
+    [ErrorCode.USER_NOT_FOUND]: HttpStatus.NOT_FOUND,
+  };
 
-    if (envValue) {
-      return envValue;
-    }
-
-    throw this.systemErrorFactory.create(
-      ErrorCode.CONFIG_NOT_FOUND,
-      `Не найден ${name} конфиг параметр`,
-    );
-  }
-
-  /**
-   * Получает префикс маршрута для апи.
-   */
-  public getApiPrefix(): string {
-    return '/api';
+  public constructor(systemErrorFactory: SystemErrorFactory) {
+    super(systemErrorFactory);
   }
 
   /**
    * Получает порт для апи.
    */
   public getApiPort(): number {
-    return 3_003;
-  }
-
-  /**
-   * True, если сервер запущен в dev-режиме.
-   */
-  public isDev(): boolean {
-    return this.getEnv('NODE_ENV') === 'development';
+    return ports.AUTH_BACKEND_PORT;
   }
 
   /**
    * Возвращает конфиг для подключения к БД.
    */
   public getTypeOrmConfig(): TypeOrmModuleOptions {
-    return {
-      type: 'postgres',
-      host: this.isDev() ? 'localhost' : 'fuks-blog-auth-postgres',
-      port: 5_432,
-      synchronize: this.isDev(),
-      database: 'auth',
-      username: this.isDev()
-        ? 'postgres'
-        : this.getEnv('FUKS_BLOG_AUTH_POSTGRES_USER'),
-      password: this.isDev()
-        ? 'root'
-        : this.getEnv('FUKS_BLOG_AUTH_POSTGRES_PASSWORD'),
-      entities: ['**/entities/**/*.ts'],
-      migrationsTableName: 'migration',
-      migrations: ['src/__migration__/*.ts'],
-      autoLoadEntities: true,
-    };
+    return this.isDev()
+      ? this.getDevTypeOrmConfig()
+      : this.getProdTypeOrmConfig();
   }
 
   /**
    * Получает jwt секрет.
    */
-  public getJwtSecret(): string {
-    return this.isDev()
-      ? 'dev-jwt-secret'
-      : this.getEnv('FUKS_BLOG_AUTH_JWT_SECRET');
+  public getJwtConfig(): JwtModuleOptions {
+    return {
+      secret: this.isDev()
+        ? 'dev-jwt-secret'
+        : this.getEnv('FUKS_BLOG_AUTH_JWT_SECRET'),
+    };
   }
 
   /**
@@ -84,5 +57,31 @@ export class ConfigGetter {
    */
   public getGoogleClientId(): string {
     return '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com';
+  }
+
+  private getProdTypeOrmConfig(): TypeOrmModuleOptions {
+    return {
+      type: 'postgres',
+      host: 'fuks-blog-auth-postgres',
+      port: 5_432,
+      synchronize: false,
+      database: 'auth',
+      username: this.getEnv('FUKS_BLOG_AUTH_POSTGRES_USER'),
+      password: this.getEnv('FUKS_BLOG_AUTH_POSTGRES_PASSWORD'),
+      entities: ['**/entities/**/*.ts'],
+      migrationsTableName: 'migration',
+      migrations: ['src/__migration__/*.ts'],
+      autoLoadEntities: true,
+    };
+  }
+
+  private getDevTypeOrmConfig(): TypeOrmModuleOptions {
+    return {
+      type: 'sqlite',
+      database: path.join(process.cwd(), './var/fuks-blog-auth-sqlite'),
+      synchronize: true,
+      entities: ['**/entities/**/*.ts'],
+      autoLoadEntities: true,
+    };
   }
 }
