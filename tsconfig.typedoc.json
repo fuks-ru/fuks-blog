@@ -3,14 +3,15 @@
   "compilerOptions": {
     "paths": {
       "ui/*": ["./entries/ui/src/*"],
-      "blog-frontend/*": ["./entries/blog-frontend/src/*"],
-      "blog-backend/*": ["./entries/blog-backend/src/*"],
       "common/*": ["./entries/common/src/*"],
-      "auth-frontend/*": ["./entries/auth-frontend/src/*"],
-      "auth-backend/*": ["./entries/auth-backend/src/*"],
       "api-blog-backend/*": ["./entries/api-blog-backend/src/*"],
       "api-auth-backend/*": ["./entries/api-auth-backend/src/*"],
-      "admin-frontend/*": ["./entries/admin-frontend/src/*"]
+
+      "blog-frontend/*": ["./packages/blog-frontend/src/*"],
+      "blog-backend/*": ["./packages/blog-backend/src/*"],
+      "auth-frontend/*": ["./packages/auth-frontend/src/*"],
+      "auth-backend/*": ["./packages/auth-backend/src/*"],
+      "admin-frontend/*": ["./packages/admin-frontend/src/*"]
     },
     "isolatedModules": false
   },
