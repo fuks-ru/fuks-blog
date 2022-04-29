@@ -121,15 +121,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Copy single file to remote
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: .github/workflows/.deploy.sh
-          remote: /fuks-blog/.deploy.sh
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
-
       - name: Pull docker containers
         uses: appleboy/ssh-action@master
         with:
