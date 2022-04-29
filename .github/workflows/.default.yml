@@ -130,45 +130,111 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Pull and run docker containers
+      - name: Pull docker containers
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script_stop: true
-          script: |
-            cd /fuks-blog
-            export FUKS_BLOG_AUTH_POSTGRES_PASSWORD=${{ secrets.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}
-            export FUKS_BLOG_AUTH_POSTGRES_USER=${{ secrets.FUKS_BLOG_AUTH_POSTGRES_USER }}
-            export PERSONAL_NPM_TOKEN=${{ secrets.PERSONAL_NPM_TOKEN }}
-            export FUKS_BLOG_AUTH_JWT_SECRET=${{ secrets.FUKS_BLOG_AUTH_JWT_SECRET }}
-            export FUKS_BLOG_BACKEND_POSTGRES_USER=${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_USER }}
-            export FUKS_BLOG_BACKEND_POSTGRES_PASSWORD=${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}
-            bash /fuks-blog/.deploy.sh
+          script: |            
+            docker pull difuks/fuks-blog
+            docker pull difuks/fuks-blog-nginx
+
+      - name: Stop docker containers
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
+          script: |            
+            docker stop fuks-blog  &>/dev/nul
+            docker stop fuks-blog-nginx  &>/dev/nul
+            docker stop fuks-blog-auth-postgres  &>/dev/nul
+            docker stop fuks-blog-backend-postgres  &>/dev/nul
+            docker rm fuks-blog  &>/dev/nul
+            docker rm fuks-blog-nginx  &>/dev/nul
+            docker rm fuks-blog-auth-postgres  &>/dev/nul
+            docker rm fuks-blog-backend-postgres  &>/dev/nul
+
+      - name: Run docker containers
+        uses: appleboy/ssh-action@master
+        env:
+          FUKS_BLOG_AUTH_POSTGRES_PASSWORD: ${{ secrets.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}
+          FUKS_BLOG_AUTH_POSTGRES_USER: ${{ secrets.FUKS_BLOG_AUTH_POSTGRES_USER }}
+          FUKS_BLOG_BACKEND_POSTGRES_USER: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_USER }}
+          FUKS_BLOG_BACKEND_POSTGRES_PASSWORD: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}
+          PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
+          FUKS_BLOG_AUTH_JWT_SECRET: ${{ secrets.FUKS_BLOG_AUTH_JWT_SECRET }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
+          envs: >
+            FUKS_BLOG_AUTH_POSTGRES_PASSWORD,
+            FUKS_BLOG_AUTH_POSTGRES_USER,
+            FUKS_BLOG_BACKEND_POSTGRES_USER,
+            FUKS_BLOG_BACKEND_POSTGRES_PASSWORD,
+            PERSONAL_NPM_TOKEN,
+            FUKS_BLOG_AUTH_JWT_SECRET
+          script: |            
+            docker run --name fuks-blog-auth-postgres \
+            --rm -d \
+            -e POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
+            -e POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
+            -e POSTGRES_DB=auth \
+            -e PGDATA=/var/lib/postgresql/data/pgdata \
+            -v "${FUKS_BLOG_AUTH_POSTGRES_VOLUME}":/var/lib/postgresql/data \
+            --network="my-blog" \
+            postgres:14.2-alpine
+            
+            docker run --name fuks-blog-backend-postgres \
+            --rm -d \
+            -e POSTGRES_PASSWORD="${FUKS_BLOG_BACKEND_POSTGRES_PASSWORD}" \
+            -e POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
+            -e POSTGRES_DB=blog \
+            -e PGDATA=/var/lib/postgresql/data/pgdata \
+            -v "${FUKS_BLOG_BACKEND_POSTGRES_VOLUME}":/var/lib/postgresql/data \
+            --network="my-blog" \
+            postgres:14.2-alpine
+            
+            docker run --name fuks-blog \
+            --rm -d \
+            -e FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
+            -e FUKS_BLOG_AUTH_POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
+            -e FUKS_BLOG_BACKEND_POSTGRES_PASSWORD="${FUKS_BLOG_BACKEND_POSTGRES_PASSWORD}" \
+            -e FUKS_BLOG_BACKEND_POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
+            -e FUKS_BLOG_AUTH_JWT_SECRET="${FUKS_BLOG_AUTH_JWT_SECRET}" \
+            -e PERSONAL_NPM_TOKEN="${PERSONAL_NPM_TOKEN}" \
+            --network="my-blog" \
+            difuks/fuks-blog
+            sleep 10
+            docker run --name fuks-blog-nginx --rm --network="my-blog" -d difuks/fuks-blog-nginx
 
   notification:
-    name: Notification
+      name: Notification
 
-    needs: [build,deploy]
+      needs: [build,deploy]
 
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
 
-    if: always()
+      if: always()
 
-    steps:
-      - name: Send telegram message
-        uses: appleboy/telegram-action@master
-        env:
-          COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: markdown
-          message: |
-            *${{ github.actor }}* created [commit](${{ env.COMMIT_URL }})
-
-            [Build and deploy](${{ env.COMMIT_URL }}/checks)
-
-            Build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
-            Deploy *${{ needs.deploy.result == 'success' && '✅' || '⛔️' }}*
+      steps:
+        - name: Send telegram message
+          uses: appleboy/telegram-action@master
+          env:
+            COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
+          with:
+            to: ${{ secrets.TELEGRAM_TO }}
+            token: ${{ secrets.TELEGRAM_TOKEN }}
+            format: markdown
+            message: |
+              *${{ github.actor }}* created [commit](${{ env.COMMIT_URL }})
+  
+              [Build and deploy](${{ env.COMMIT_URL }}/checks)
+  
+              Build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
+              Deploy *${{ needs.deploy.result == 'success' && '✅' || '⛔️' }}*
