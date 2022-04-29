@@ -11,7 +11,8 @@
       "api-blog-backend/*": ["./entries/api-blog-backend/src/*"],
       "api-auth-backend/*": ["./entries/api-auth-backend/src/*"],
       "admin-frontend/*": ["./entries/admin-frontend/src/*"]
-    }
+    },
+    "isolatedModules": false
   },
   "exclude": ["./entries/**/*.spec.ts"]
 }
