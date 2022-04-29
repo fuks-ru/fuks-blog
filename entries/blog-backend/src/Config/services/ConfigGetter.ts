@@ -41,7 +41,7 @@ export class ConfigGetter extends ConfigGetterBase {
     return {
       type: 'postgres',
       host: 'fuks-blog-backend-postgres',
-      port: 5_433,
+      port: 5_432,
       synchronize: false,
       database: 'blog',
       username: this.getEnv('FUKS_BLOG_BACKEND_POSTGRES_USER'),
