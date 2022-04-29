@@ -14,7 +14,7 @@ runs:
       with:
         filters: |
           ${{ inputs.package-name }}:
-            - 'entries/${{inputs.package-name}}/**'
+            - '${{inputs.package-name}}/**'
 
     - name: 'Version bump'
       uses: phips28/gh-action-bump-version@master
@@ -24,7 +24,7 @@ runs:
         patch-wording: 'fix(${{ inputs.package-name }})'
         skip-tag: 'true'
       env:
-        PACKAGEJSON_DIR: entries/${{ inputs.package-name }}
+        PACKAGEJSON_DIR: ${{ inputs.package-name }}
 
     - name: Publish
       if: steps.path-filter.outputs[inputs.package-name] == 'true'

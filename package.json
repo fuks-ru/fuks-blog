@@ -6,7 +6,8 @@
   "private": true,
   "author": "Dmitry Fuks",
   "workspaces": [
-    "entries/*"
+    "entries/*",
+    "packages/*"
   ],
   "scripts": {
     "dev": "yarn workspaces foreach --interlaced --verbose --jobs=unlimited --parallel run dev",

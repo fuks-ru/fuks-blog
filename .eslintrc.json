@@ -1,13 +1,13 @@
 {
   "extends": ["eslint-config-fuks"],
   "parserOptions": {
-    "project": "entries/*/tsconfig.json",
+    "project": "{entries,packages}/*/tsconfig.json",
     "sourceType": "module"
   },
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": "entries/*/tsconfig.json"
+        "project": "{entries,packages}/*/tsconfig.json"
       }
     },
     "react": {

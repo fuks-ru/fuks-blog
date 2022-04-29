@@ -1,15 +1,14 @@
 {
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "outDir": "dist",
     "declaration": true,
     "noEmit": false,
-    "target": "esnext",
-    "module": "esnext",
     "lib": ["esnext"],
+    "isolatedModules": false,
     "paths": {
-      "common/*": ["./src/*"]
+      "api-blog-backend/*": ["./src/*"]
     },
     "plugins": [
       { "transform": "typescript-transform-paths", "useRootDirs": true },

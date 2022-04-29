@@ -2,8 +2,8 @@
   "name": "@difuks/ui",
   "version": "1.2.2",
   "description": "My blog ui",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "author": "Dmitry Fuks",
   "license": "ISC",
@@ -19,7 +19,7 @@
     "dev": "rollup --config rollup.config.js -w",
     "build:lib": "rollup --config rollup.config.js --environment NODE_ENV:production",
     "build": "yarn cosmos:export",
-    "story": "cosmos",
+    "story": "../../public/cosmos",
     "cosmos:export": "cosmos-export"
   },
   "devDependencies": {

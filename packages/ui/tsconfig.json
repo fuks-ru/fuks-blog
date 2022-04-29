@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.packages.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "ESNext",
     "paths": {
@@ -17,5 +17,7 @@
     ]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
-  "exclude": ["dist"]
+  "exclude": [
+    "dist"
+  ]
 }

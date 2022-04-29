@@ -5,7 +5,6 @@ on:
     branches:
       - master
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,32 +38,32 @@ jobs:
       - name: Publish common package
         uses: ./.github/actions/publish-package
         with:
-          package-name: common
+          package-name: packages/common
 
       - name: Publish blog-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: blog-backend
+          package-name: entries/blog-backend
 
       - name: Publish ui package
         uses: ./.github/actions/publish-package
         with:
-          package-name: ui
+          package-name: packages/ui
 
       - name: Publish auth-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: auth-backend
+          package-name: entries/auth-backend
 
       - name: Publish api-auth-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: api-auth-backend
+          package-name: packages/api-auth-backend
 
       - name: Publish api-blog-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: api-blog-backend
+          package-name: packages/api-blog-backend
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1

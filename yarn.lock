@@ -1642,9 +1642,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/api-auth-backend@*, @difuks/api-auth-backend@workspace:entries/api-auth-backend":
+"@difuks/api-auth-backend@*, @difuks/api-auth-backend@workspace:packages/api-auth-backend":
   version: 0.0.0-use.local
-  resolution: "@difuks/api-auth-backend@workspace:entries/api-auth-backend"
+  resolution: "@difuks/api-auth-backend@workspace:packages/api-auth-backend"
   dependencies:
     "@difuks/auth-backend": "*"
     "@difuks/common": "*"
@@ -1668,9 +1668,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/api-blog-backend@*, @difuks/api-blog-backend@workspace:entries/api-blog-backend":
+"@difuks/api-blog-backend@*, @difuks/api-blog-backend@workspace:packages/api-blog-backend":
   version: 0.0.0-use.local
-  resolution: "@difuks/api-blog-backend@workspace:entries/api-blog-backend"
+  resolution: "@difuks/api-blog-backend@workspace:packages/api-blog-backend"
   dependencies:
     "@difuks/blog-backend": "*"
     "@difuks/common": "*"
@@ -1860,9 +1860,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/common@*, @difuks/common@workspace:entries/common":
+"@difuks/common@*, @difuks/common@workspace:packages/common":
   version: 0.0.0-use.local
-  resolution: "@difuks/common@workspace:entries/common"
+  resolution: "@difuks/common@workspace:packages/common"
   dependencies:
     "@nestjs/common": ^8.4.4
     "@nestjs/core": ^8.4.4
@@ -1906,9 +1906,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/ui@*, @difuks/ui@workspace:entries/ui":
+"@difuks/ui@*, @difuks/ui@workspace:packages/ui":
   version: 0.0.0-use.local
-  resolution: "@difuks/ui@workspace:entries/ui"
+  resolution: "@difuks/ui@workspace:packages/ui"
   dependencies:
     "@babel/core": ^7.17.9
     "@babel/plugin-transform-react-display-name": ^7.16.7
