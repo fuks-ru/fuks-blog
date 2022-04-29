@@ -38,32 +38,38 @@ jobs:
       - name: Publish common package
         uses: ./.github/actions/publish-package
         with:
-          package-name: packages/common
+          package-dir: packages/common
+          package-name: common
 
       - name: Publish blog-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: entries/blog-backend
+          package-dir: entries/blog-backend
+          package-name: blog-backend
 
       - name: Publish ui package
         uses: ./.github/actions/publish-package
         with:
-          package-name: packages/ui
+          package-dir: packages/ui
+          package-name: ui
 
       - name: Publish auth-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: entries/auth-backend
+          package-dir: entries/auth-backend
+          package-name: auth-backend
 
       - name: Publish api-auth-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: packages/api-auth-backend
+          package-dir: packages/api-auth-backend
+          package-name: api-auth-backend
 
       - name: Publish api-blog-backend package
         uses: ./.github/actions/publish-package
         with:
-          package-name: packages/api-blog-backend
+          package-dir: packages/api-blog-backend
+          package-name: api-blog-backend
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1

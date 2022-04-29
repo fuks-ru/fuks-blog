@@ -4,6 +4,9 @@ inputs:
   package-name:
     description: 'Name of package'
     required: true
+  package-dir:
+    description: 'Directory of package'
+    required: true
 
 runs:
   using: composite
@@ -14,7 +17,7 @@ runs:
       with:
         filters: |
           ${{ inputs.package-name }}:
-            - '${{inputs.package-name}}/**'
+            - '${{inputs.package-dir}}/**'
 
     - name: 'Version bump'
       uses: phips28/gh-action-bump-version@master
@@ -24,7 +27,7 @@ runs:
         patch-wording: 'fix(${{ inputs.package-name }})'
         skip-tag: 'true'
       env:
-        PACKAGEJSON_DIR: ${{ inputs.package-name }}
+        PACKAGEJSON_DIR: ${{ inputs.package-dir }}
 
     - name: Publish
       if: steps.path-filter.outputs[inputs.package-name] == 'true'
