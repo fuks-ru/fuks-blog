@@ -2,16 +2,16 @@
   "extends": "./tsconfig.packages.json",
   "compilerOptions": {
     "paths": {
-      "ui/*": ["./entries/ui/src/*"],
-      "common/*": ["./entries/common/src/*"],
-      "api-blog-backend/*": ["./entries/api-blog-backend/src/*"],
-      "api-auth-backend/*": ["./entries/api-auth-backend/src/*"],
+      "ui/*": ["./packages/ui/src/*"],
+      "common/*": ["./packages/common/src/*"],
+      "api-blog-backend/*": ["./packages/api-blog-backend/src/*"],
+      "api-auth-backend/*": ["./packages/api-auth-backend/src/*"],
 
-      "blog-frontend/*": ["./packages/blog-frontend/src/*"],
-      "blog-backend/*": ["./packages/blog-backend/src/*"],
-      "auth-frontend/*": ["./packages/auth-frontend/src/*"],
-      "auth-backend/*": ["./packages/auth-backend/src/*"],
-      "admin-frontend/*": ["./packages/admin-frontend/src/*"]
+      "blog-frontend/*": ["./entries/blog-frontend/src/*"],
+      "blog-backend/*": ["./entries/blog-backend/src/*"],
+      "auth-frontend/*": ["./entries/auth-frontend/src/*"],
+      "auth-backend/*": ["./entries/auth-backend/src/*"],
+      "admin-frontend/*": ["./entries/admin-frontend/src/*"]
     },
     "isolatedModules": false
   },
