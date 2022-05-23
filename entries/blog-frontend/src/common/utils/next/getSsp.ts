@@ -85,7 +85,7 @@ export const getSsp =
           props: response.data as IPageProps,
         };
       } catch (error) {
-        const errorResponse = (error as AxiosError)?.response
+        const errorResponse = (error as AxiosError).response
           ?.data as IErrorResponse;
 
         return getErrorPageProps(errorResponse);

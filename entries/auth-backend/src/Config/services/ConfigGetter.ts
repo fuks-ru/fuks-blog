@@ -6,6 +6,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as path from 'node:path';
 import * as process from 'node:process';
 
+import { ormConfig } from 'auth-backend/Config/utils/ormconfig';
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 
 @Injectable()
@@ -61,16 +62,7 @@ export class ConfigGetter extends ConfigGetterBase {
 
   private getProdTypeOrmConfig(): TypeOrmModuleOptions {
     return {
-      type: 'postgres',
-      host: 'fuks-blog-auth-postgres',
-      port: 5_432,
-      synchronize: false,
-      database: 'auth',
-      username: this.getEnv('FUKS_BLOG_AUTH_POSTGRES_USER'),
-      password: this.getEnv('FUKS_BLOG_AUTH_POSTGRES_PASSWORD'),
-      entities: ['**/entities/**/*.ts'],
-      migrationsTableName: 'migration',
-      migrations: ['src/__migration__/*.ts'],
+      ...ormConfig,
       autoLoadEntities: true,
     };
   }

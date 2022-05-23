@@ -18,6 +18,7 @@
     "story": "yarn workspaces foreach --interlaced --verbose --parallel run story",
     "build": "yarn workspaces foreach --interlaced --verbose --topological-dev run build",
     "build:lib": "yarn workspaces foreach --interlaced --verbose --topological-dev run build:lib",
+    "migration:run": "yarn workspaces foreach --interlaced --verbose --parallel run migration:run",
     "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\"",
     "lint:fix": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\" --fix",
     "typedoc": "typedoc"
@@ -49,7 +50,7 @@
     "prettier": "^2.6.2",
     "prettier-plugin-jsdoc": "^0.3.38",
     "typedoc": "^0.22.15",
-    "typedoc-theme-hierarchy": "^1.1.1",
+    "typedoc-theme-hierarchy": "^1.2.1",
     "typescript": "^4.6.3"
   },
   "packageManager": "yarn@3.2.0"

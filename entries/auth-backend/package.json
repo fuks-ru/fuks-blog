@@ -9,12 +9,14 @@
   "module": "./dist/lib/index.js",
   "types": "./dist/lib/index.d.ts",
   "scripts": {
-    "dev:database": "bash ../../.docker/auth-postgres/run-dev.sh",
     "build:lib": "cross-env NODE_ENV=development ts-node -r tsconfig-paths/register ./src/schemaBuilder.ts",
     "build": "ttsc --project tsconfig.build.json",
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only --inspect=0.0.0.0:5003 ./src/main.ts",
     "prod": "cross-env NODE_ENV=production node ./dist/build/main.js",
-    "e2e": "cross-env NODE_ENV=development jest"
+    "e2e": "cross-env NODE_ENV=development jest",
+    "migration:generate": "bash ./.bin/generate-migration.sh",
+    "migration:run": "yarn typeorm migration:run",
+    "typeorm": "node -r ts-node/register/transpile-only $(yarn bin typeorm) -d src/Config/utils/ormconfig.ts"
   },
   "files": [
     "dist/lib",

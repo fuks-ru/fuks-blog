@@ -103,7 +103,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.6.2"],\
             ["prettier-plugin-jsdoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.3.38"],\
             ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15"],\
-            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.1.1"],\
+            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.2.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
@@ -13022,7 +13022,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.6.2"],\
             ["prettier-plugin-jsdoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.3.38"],\
             ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15"],\
-            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.1.1"],\
+            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.2.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
@@ -15857,10 +15857,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["marked", [\
-        ["npm:4.0.14", {\
-          "packageLocation": "./.yarn/cache/marked-npm-4.0.14-e5c71dccb3-778bc2fc94.zip/node_modules/marked/",\
+        ["npm:4.0.16", {\
+          "packageLocation": "./.yarn/cache/marked-npm-4.0.16-1c7fe7ec7b-c0ef780bf5.zip/node_modules/marked/",\
           "packageDependencies": [\
-            ["marked", "npm:4.0.14"]\
+            ["marked", "npm:4.0.16"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -22402,7 +22402,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/typescript", null],\
             ["glob", "npm:7.2.0"],\
             ["lunr", "npm:2.3.9"],\
-            ["marked", "npm:4.0.14"],\
+            ["marked", "npm:4.0.16"],\
             ["minimatch", "npm:5.0.1"],\
             ["shiki", "npm:0.10.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
@@ -22415,17 +22415,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typedoc-theme-hierarchy", [\
-        ["npm:1.1.1", {\
-          "packageLocation": "./.yarn/cache/typedoc-theme-hierarchy-npm-1.1.1-b57f713047-20a953d8ba.zip/node_modules/typedoc-theme-hierarchy/",\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/typedoc-theme-hierarchy-npm-1.2.1-2c3ce13b8d-aa27316e2b.zip/node_modules/typedoc-theme-hierarchy/",\
           "packageDependencies": [\
-            ["typedoc-theme-hierarchy", "npm:1.1.1"]\
+            ["typedoc-theme-hierarchy", "npm:1.2.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/typedoc-theme-hierarchy-virtual-ffbfd5301c/0/cache/typedoc-theme-hierarchy-npm-1.1.1-b57f713047-20a953d8ba.zip/node_modules/typedoc-theme-hierarchy/",\
+        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.2.1", {\
+          "packageLocation": "./.yarn/__virtual__/typedoc-theme-hierarchy-virtual-47496d990e/0/cache/typedoc-theme-hierarchy-npm-1.2.1-2c3ce13b8d-aa27316e2b.zip/node_modules/typedoc-theme-hierarchy/",\
           "packageDependencies": [\
-            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.1.1"],\
+            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.2.1"],\
             ["@types/typedoc", null],\
             ["fs-extra", "npm:10.0.1"],\
             ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15"]\

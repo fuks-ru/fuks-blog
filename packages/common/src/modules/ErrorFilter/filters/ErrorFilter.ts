@@ -36,7 +36,7 @@ export class ErrorFilter implements ExceptionFilter<Error> {
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
 
-    if (!request.url?.includes('_next')) {
+    if (!request.url.includes('_next')) {
       this.logger.error('Произошла ошибка', {
         extra: {
           error: exception,

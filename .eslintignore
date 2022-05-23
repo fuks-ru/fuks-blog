@@ -1,3 +1,4 @@
 dist
 public
 var
+__migration__

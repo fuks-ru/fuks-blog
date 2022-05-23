@@ -7937,7 +7937,7 @@ __metadata:
     prettier: ^2.6.2
     prettier-plugin-jsdoc: ^0.3.38
     typedoc: ^0.22.15
-    typedoc-theme-hierarchy: ^1.1.1
+    typedoc-theme-hierarchy: ^1.2.1
     typescript: ^4.6.3
   languageName: unknown
   linkType: soft
@@ -10397,11 +10397,11 @@ __metadata:
   linkType: hard
 
 "marked@npm:^4.0.12":
-  version: 4.0.14
-  resolution: "marked@npm:4.0.14"
+  version: 4.0.16
+  resolution: "marked@npm:4.0.16"
   bin:
     marked: bin/marked.js
-  checksum: 778bc2fc94c51ae4fbafe5a08bc1f3917799c4dd39e9fccd972a97df4e5bc5aa78664b7143d12d4b4969608fb90c6a2de3f19811a2f9ccf6b7f207022f2842ba
+  checksum: c0ef780bf56c9bb49c15b66683e5648410c924c1d725f1489fc3c7dc3bd01194c50d720052bb0282ad7907f472dfdc8fa278acbc7903c5db3be4b83487e0d684
   languageName: node
   linkType: hard
 
@@ -15404,14 +15404,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-theme-hierarchy@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "typedoc-theme-hierarchy@npm:1.1.1"
+"typedoc-theme-hierarchy@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "typedoc-theme-hierarchy@npm:1.2.1"
   dependencies:
     fs-extra: ^10.0.0
   peerDependencies:
     typedoc: ^0.22.9
-  checksum: 20a953d8bad2c70c52d33b07b47f329eb83f76810ec3298f957785d717c153a47fe579facf68fb2e51f563660863a7a3751ab7c079d4c965f8e042209a9398bb
+  checksum: aa27316e2b59c8886b6a3624d3b423cd8570c237973c057b79688c713cd886d48b5d7becf6d93df8653f7c03bb309b10734192585a2a969068e6d95b03ec57f6
   languageName: node
   linkType: hard
 
