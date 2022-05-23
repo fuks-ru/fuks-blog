@@ -13,28 +13,21 @@ runs:
   steps:
     - name: Run node script
       uses: appleboy/ssh-action@master
-      env:
-        FUKS_BLOG_AUTH_POSTGRES_PASSWORD: ${{ inputs.secret-context.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}
-        FUKS_BLOG_AUTH_POSTGRES_USER: ${{ inputs.secret-context.FUKS_BLOG_AUTH_POSTGRES_USER }}
-        FUKS_BLOG_AUTH_POSTGRES_HOST: fuks-blog-auth-postgres
-
-        FUKS_BLOG_BACKEND_POSTGRES_PASSWORD: ${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}
-        FUKS_BLOG_BACKEND_POSTGRES_USER: ${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_USER }}
-        FUKS_BLOG_BACKEND_POSTGRES_HOST: ${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_HOST }}
-
-        PERSONAL_NPM_TOKEN: ${{ inputs.secret-context.PERSONAL_NPM_TOKEN }}
-        FUKS_BLOG_AUTH_JWT_SECRET: ${{ inputs.secret-context.FUKS_BLOG_AUTH_JWT_SECRET }}
       with:
         host: ${{ inputs.secret-context.SSH_HOST }}
         username: ${{ inputs.secret-context.SSH_USERNAME }}
         key: ${{ inputs.secret-context.SSH_PRIVATE_KEY }}
         script_stop: true
-        envs: >
-          FUKS_BLOG_AUTH_POSTGRES_PASSWORD,
-          FUKS_BLOG_AUTH_POSTGRES_USER,
-          FUKS_BLOG_AUTH_POSTGRES_HOST,
-          FUKS_BLOG_BACKEND_POSTGRES_USER,
-          FUKS_BLOG_BACKEND_POSTGRES_PASSWORD,
-          PERSONAL_NPM_TOKEN,
-          FUKS_BLOG_AUTH_JWT_SECRET
-        script: ${{inputs.script}}
+        script: |
+          export FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${{ inputs.secret-context.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}"
+          export FUKS_BLOG_AUTH_POSTGRES_USER: "${{ inputs.secret-context.FUKS_BLOG_AUTH_POSTGRES_USER }}"
+          export FUKS_BLOG_AUTH_POSTGRES_HOST: "fuks-blog-auth-postgres"
+  
+          export FUKS_BLOG_BACKEND_POSTGRES_PASSWORD: "${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}"
+          export FUKS_BLOG_BACKEND_POSTGRES_USER: "${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_USER }}"
+          export FUKS_BLOG_BACKEND_POSTGRES_HOST: "fuks-blog-backend-postgres"
+  
+          export PERSONAL_NPM_TOKEN: "${{ inputs.secret-context.PERSONAL_NPM_TOKEN }}"
+          export FUKS_BLOG_AUTH_JWT_SECRET: "${{ inputs.secret-context.FUKS_BLOG_AUTH_JWT_SECRET }}"
+
+          ${{inputs.script}}
