@@ -7,6 +7,9 @@ inputs:
   detached:
     description: 'Detached docker mode'
     required: false
+  secret-context:
+    description: 'Secret params'
+    required: true
 
 runs:
   using: composite
@@ -14,6 +17,7 @@ runs:
     - name: Run node script
       uses: ./.github/actions/ssh-script
       with:
+        secret-context: ${{ inputs.secret-context }}
         script: |
           docker run --name fuks-blog \
           --rm ${{ inputs.detached && '-d' }} \

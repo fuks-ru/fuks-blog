@@ -4,6 +4,9 @@ inputs:
   script:
     description: 'Script for run'
     required: true
+  secret-context:
+    description: 'Secret params'
+    required: true
 
 runs:
   using: composite
@@ -11,20 +14,20 @@ runs:
     - name: Run node script
       uses: appleboy/ssh-action@master
       env:
-        FUKS_BLOG_AUTH_POSTGRES_PASSWORD: ${{ secrets.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}
-        FUKS_BLOG_AUTH_POSTGRES_USER: ${{ secrets.FUKS_BLOG_AUTH_POSTGRES_USER }}
+        FUKS_BLOG_AUTH_POSTGRES_PASSWORD: ${{ inputs.secret-context.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}
+        FUKS_BLOG_AUTH_POSTGRES_USER: ${{ inputs.secret-context.FUKS_BLOG_AUTH_POSTGRES_USER }}
         FUKS_BLOG_AUTH_POSTGRES_HOST: fuks-blog-auth-postgres
 
-        FUKS_BLOG_BACKEND_POSTGRES_PASSWORD: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}
-        FUKS_BLOG_BACKEND_POSTGRES_USER: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_USER }}
-        FUKS_BLOG_BACKEND_POSTGRES_HOST: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_HOST }}
+        FUKS_BLOG_BACKEND_POSTGRES_PASSWORD: ${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}
+        FUKS_BLOG_BACKEND_POSTGRES_USER: ${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_USER }}
+        FUKS_BLOG_BACKEND_POSTGRES_HOST: ${{ inputs.secret-context.FUKS_BLOG_BACKEND_POSTGRES_HOST }}
 
-        PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
-        FUKS_BLOG_AUTH_JWT_SECRET: ${{ secrets.FUKS_BLOG_AUTH_JWT_SECRET }}
+        PERSONAL_NPM_TOKEN: ${{ inputs.secret-context.PERSONAL_NPM_TOKEN }}
+        FUKS_BLOG_AUTH_JWT_SECRET: ${{ inputs.secret-context.FUKS_BLOG_AUTH_JWT_SECRET }}
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        host: ${{ inputs.secret-context.SSH_HOST }}
+        username: ${{ inputs.secret-context.SSH_USERNAME }}
+        key: ${{ inputs.secret-context.SSH_PRIVATE_KEY }}
         script_stop: true
         envs: >
           FUKS_BLOG_AUTH_POSTGRES_PASSWORD,

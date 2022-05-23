@@ -128,12 +128,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Pull docker containers
-        uses: appleboy/ssh-action@master
+        uses: ./.github/actions/ssh-script
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script_stop: true
+          secret-context: ${{ toJson(secrets) }}
           script: |            
             docker pull difuks/fuks-blog
             docker pull difuks/fuks-blog-nginx
@@ -141,6 +138,7 @@ jobs:
       - name: Stop docker containers
         uses: ./.github/actions/ssh-script
         with:
+          secret-context: ${{ toJson(secrets) }}
           script: |            
             docker stop fuks-blog || true
             docker stop fuks-blog-nginx || true
@@ -154,6 +152,7 @@ jobs:
       - name: Run auth database
         uses: ./.github/actions/ssh-script
         with:
+          secret-context: ${{ toJson(secrets) }}
           script: |
             docker run --name fuks-blog-auth-postgres \
             --rm -d \
@@ -168,6 +167,7 @@ jobs:
       - name: Run blog backend database
         uses: ./.github/actions/ssh-script
         with:
+          secret-context: ${{ toJson(secrets) }}
           script: |
             docker run --name fuks-blog-backend-postgres \
             --rm -d \
@@ -182,11 +182,13 @@ jobs:
       - name: Run migrations
         uses: ./.github/actions/run-node
         with:
+          secret-context: ${{ toJson(secrets) }}
           script: yarn migration:run
 
       - name: Run node
         uses: ./.github/actions/run-node
         with:
+          secret-context: ${{ toJson(secrets) }}
           script: yarn prod
           detached: true
 
@@ -198,6 +200,7 @@ jobs:
       - name: Run nginx
         uses: ./.github/actions/ssh-script
         with:
+          secret-context: ${{ toJson(secrets) }}
           script: |
             docker run --name fuks-blog-nginx --rm --network="my-blog" -d difuks/fuks-blog-nginx
 
