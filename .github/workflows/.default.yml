@@ -123,23 +123,43 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      NODE_DOCKER_PARAMS: |
+        --name fuks-blog \
+        --rm \
+        -e FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
+        -e FUKS_BLOG_AUTH_POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
+        -e FUKS_BLOG_AUTH_POSTGRES_HOST="${FUKS_BLOG_AUTH_POSTGRES_HOST}" \
+
+        -e FUKS_BLOG_BACKEND_POSTGRES_PASSWORD="${FUKS_BLOG_BACKEND_POSTGRES_PASSWORD}" \
+        -e FUKS_BLOG_BACKEND_POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
+        -e FUKS_BLOG_BACKEND_POSTGRES_HOST="${FUKS_BLOG_BACKEND_POSTGRES_HOST}" \
+
+        -e FUKS_BLOG_AUTH_JWT_SECRET="${FUKS_BLOG_AUTH_JWT_SECRET}" \
+        -e PERSONAL_NPM_TOKEN="${PERSONAL_NPM_TOKEN}" \
+
+        -v "/fuks-blog/var/auth-backend":/app/entries/auth-backend/var \
+        -v "/fuks-blog/var/blog-backend":/app/entries/blog-backend/var \
+
+        --network="my-blog" \
+
+        difuks/fuks-blog
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Pull docker containers
-        uses: appleboy/ssh-action@master
+        uses: ./.github/workflows/ssh-script
+        secrets: inherit
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script_stop: true
           script: |            
             docker pull difuks/fuks-blog
             docker pull difuks/fuks-blog-nginx
 
       - name: Stop docker containers
-        uses: ./.github/actions/ssh-script
+        uses: ./.github/workflows/ssh-script
+        secrets: inherit
         with:
           script: |            
             docker stop fuks-blog || true
@@ -152,7 +172,8 @@ jobs:
             docker rm fuks-blog-backend-postgres || true
 
       - name: Run auth database
-        uses: ./.github/actions/ssh-script
+        uses: ./.github/workflows/ssh-script
+        secrets: inherit
         with:
           script: |
             docker run --name fuks-blog-auth-postgres \
@@ -161,12 +182,13 @@ jobs:
             -e POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
             -e POSTGRES_DB=auth \
             -e PGDATA=/var/lib/postgresql/data/pgdata \
-            -v "/fuks-blog/var/fuks-blog-auth-postgres":/var/lib/postgresql/data \
+            -v "/fuks-blog/var/auth-postgres":/var/lib/postgresql/data \
             --network="my-blog" \
             postgres:14.2-alpine
 
       - name: Run blog backend database
-        uses: ./.github/actions/ssh-script
+        secrets: inherit
+        uses: ./.github/workflows/ssh-script
         with:
           script: |
             docker run --name fuks-blog-backend-postgres \
@@ -175,20 +197,31 @@ jobs:
             -e POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
             -e POSTGRES_DB=blog \
             -e PGDATA=/var/lib/postgresql/data/pgdata \
-            -v "/fuks-blog/var/fuks-blog-backend-postgres":/var/lib/postgresql/data \
+            -v "/fuks-blog/var/blog-postgres":/var/lib/postgresql/data \
             --network="my-blog" \
             postgres:14.2-alpine
 
       - name: Run migrations
-        uses: ./.github/actions/run-node
+        uses: ./.github/workflows/ssh-script
+        secrets: inherit
         with:
-          script: yarn migration:run
+          script: |
+            docker run \
+            
+            ${{ env.NODE_DOCKER_PARAMS }} \
+            
+            yarn migration:run 
 
-      - name: Run node
-        uses: ./.github/actions/run-node
+      - name: Run migrations
+        uses: ./.github/workflows/ssh-script
+        secrets: inherit
         with:
-          script: yarn prod
-          detached: true
+          script: |
+            docker run -d \
+            
+            ${{ env.NODE_DOCKER_PARAMS }} \
+            
+            yarn prod
 
       - name: Sleep for wait node start
         uses: jakejarvis/wait-action@master

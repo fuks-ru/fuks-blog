@@ -1,0 +1,40 @@
+name: 'Run ssh script'
+
+on:
+  workflow_call:
+    inputs:
+      script:
+        type: string
+        required: true
+
+jobs:
+  run_ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run ssh script
+        uses: appleboy/ssh-action@master
+        env:
+          FUKS_BLOG_AUTH_POSTGRES_PASSWORD: ${{ secrets.FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}
+          FUKS_BLOG_AUTH_POSTGRES_USER: ${{ secrets.FUKS_BLOG_AUTH_POSTGRES_USER }}
+          FUKS_BLOG_AUTH_POSTGRES_HOST: fuks-blog-auth-postgres
+
+          FUKS_BLOG_BACKEND_POSTGRES_PASSWORD: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}
+          FUKS_BLOG_BACKEND_POSTGRES_USER: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_USER }}
+          FUKS_BLOG_BACKEND_POSTGRES_HOST: ${{ secrets.FUKS_BLOG_BACKEND_POSTGRES_HOST }}
+
+          PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
+          FUKS_BLOG_AUTH_JWT_SECRET: ${{ secrets.FUKS_BLOG_AUTH_JWT_SECRET }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script_stop: true
+          envs: >
+            FUKS_BLOG_AUTH_POSTGRES_PASSWORD,
+            FUKS_BLOG_AUTH_POSTGRES_USER,
+            FUKS_BLOG_AUTH_POSTGRES_HOST,
+            FUKS_BLOG_BACKEND_POSTGRES_USER,
+            FUKS_BLOG_BACKEND_POSTGRES_PASSWORD,
+            PERSONAL_NPM_TOKEN,
+            FUKS_BLOG_AUTH_JWT_SECRET
+          script: ${{inputs.script}}
