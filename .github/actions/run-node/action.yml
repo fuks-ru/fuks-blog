@@ -1,0 +1,33 @@
+name: 'Run node container'
+description: 'Run node container'
+inputs:
+  script:
+    description: 'Script for run'
+    required: true
+  detached:
+    description: 'Detached docker mode'
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: Run node script
+      uses: ./.github/actions/ssh-script
+      with:
+        script: |
+          docker run --name fuks-blog \
+          --rm ${{ inputs.detached && '-d' }} \
+          -e FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
+          -e FUKS_BLOG_AUTH_POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
+          -e FUKS_BLOG_AUTH_POSTGRES_HOST="${FUKS_BLOG_AUTH_POSTGRES_HOST}" \
+
+          -e FUKS_BLOG_BACKEND_POSTGRES_PASSWORD="${FUKS_BLOG_BACKEND_POSTGRES_PASSWORD}" \
+          -e FUKS_BLOG_BACKEND_POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
+          -e FUKS_BLOG_BACKEND_POSTGRES_HOST="${FUKS_BLOG_BACKEND_POSTGRES_HOST}" \
+
+          -e FUKS_BLOG_AUTH_JWT_SECRET="${FUKS_BLOG_AUTH_JWT_SECRET}" \
+          -e PERSONAL_NPM_TOKEN="${PERSONAL_NPM_TOKEN}" \
+
+          --network="my-blog" \
+          difuks/fuks-blog \
+          ${{ inputs.script }}
