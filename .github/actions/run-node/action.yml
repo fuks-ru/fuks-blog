@@ -34,6 +34,7 @@ runs:
           
           -v "/fuks-blog/var/auth-backend":/app/entries/auth-backend/var \
           -v "/fuks-blog/var/blog-backend":/app/entries/blog-backend/var \
+          -v "/fuks-blog/var/blog-frontend":/app/entries/blog-frontend/var \
 
           --network="my-blog" \
           difuks/fuks-blog \
