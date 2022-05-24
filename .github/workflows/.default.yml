@@ -6,120 +6,120 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install modules
-        run: yarn install
-
-      - name: Build libs
-        run: yarn build:lib
-
-      - name: Eslint
-        run: yarn lint
-
-      - name: E2E tests
-        run: yarn e2e
-
-      - name: Build packages
-        run: yarn build
-
-      - name: Build typedoc
-        run: yarn typedoc
-
-      - name: Publish common package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: packages/common
-          package-name: common
-
-      - name: Publish blog-backend package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: entries/blog-backend
-          package-name: blog-backend
-
-      - name: Publish ui package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: packages/ui
-          package-name: ui
-
-      - name: Publish auth-backend package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: entries/auth-backend
-          package-name: auth-backend
-
-      - name: Publish api-auth-backend package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: packages/api-auth-backend
-          package-name: api-auth-backend
-
-      - name: Publish api-blog-backend package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: packages/api-blog-backend
-          package-name: api-blog-backend
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Node build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./.docker/node/Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache-new
-
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
-      - name: Nginx build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./.docker/nginx/Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog-nginx:latest
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    env:
+#      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
+#
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#
+#      - name: Install modules
+#        run: yarn install
+#
+#      - name: Build libs
+#        run: yarn build:lib
+#
+#      - name: Eslint
+#        run: yarn lint
+#
+#      - name: E2E tests
+#        run: yarn e2e
+#
+#      - name: Build packages
+#        run: yarn build
+#
+#      - name: Build typedoc
+#        run: yarn typedoc
+#
+#      - name: Publish common package
+#        uses: ./.github/actions/publish-package
+#        with:
+#          package-dir: packages/common
+#          package-name: common
+#
+#      - name: Publish blog-backend package
+#        uses: ./.github/actions/publish-package
+#        with:
+#          package-dir: entries/blog-backend
+#          package-name: blog-backend
+#
+#      - name: Publish ui package
+#        uses: ./.github/actions/publish-package
+#        with:
+#          package-dir: packages/ui
+#          package-name: ui
+#
+#      - name: Publish auth-backend package
+#        uses: ./.github/actions/publish-package
+#        with:
+#          package-dir: entries/auth-backend
+#          package-name: auth-backend
+#
+#      - name: Publish api-auth-backend package
+#        uses: ./.github/actions/publish-package
+#        with:
+#          package-dir: packages/api-auth-backend
+#          package-name: api-auth-backend
+#
+#      - name: Publish api-blog-backend package
+#        uses: ./.github/actions/publish-package
+#        with:
+#          package-dir: packages/api-blog-backend
+#          package-name: api-blog-backend
+#
+#      - name: Set up QEMU
+#        uses: docker/setup-qemu-action@v1
+#
+#      - name: Set up Docker Buildx
+#        uses: docker/setup-buildx-action@v1
+#
+#      - name: Cache Docker layers
+#        uses: actions/cache@v2
+#        with:
+#          path: /tmp/.buildx-cache
+#          key: ${{ runner.os }}-buildx-${{ github.sha }}
+#          restore-keys: |
+#            ${{ runner.os }}-buildx-
+#
+#      - name: Login to DockerHub
+#        uses: docker/login-action@v1
+#        with:
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_TOKEN }}
+#
+#      - name: Node build and push
+#        uses: docker/build-push-action@v2
+#        with:
+#          context: .
+#          file: ./.docker/node/Dockerfile
+#          builder: ${{ steps.buildx.outputs.name }}
+#          push: true
+#          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog:latest
+#          cache-from: type=local,src=/tmp/.buildx-cache
+#          cache-to: type=local,dest=/tmp/.buildx-cache-new
+#
+#      - name: Move cache
+#        run: |
+#          rm -rf /tmp/.buildx-cache
+#          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+#
+#      - name: Nginx build and push
+#        uses: docker/build-push-action@v2
+#        with:
+#          context: .
+#          file: ./.docker/nginx/Dockerfile
+#          builder: ${{ steps.buildx.outputs.name }}
+#          push: true
+#          tags: ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog-nginx:latest
 
   deploy:
     name: Deploy
 
-    needs: build
+#    needs: build
 
     runs-on: ubuntu-latest
 
@@ -190,7 +190,6 @@ jobs:
         with:
           secret-context: ${{ toJson(secrets) }}
           script: yarn prod
-          detached: true
 
       - name: Sleep for wait node start
         uses: jakejarvis/wait-action@master
@@ -207,7 +206,7 @@ jobs:
   notification:
       name: Notification
 
-      needs: [build,deploy]
+      needs: [deploy]
 
       runs-on: ubuntu-latest
 
