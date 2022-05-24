@@ -11,9 +11,9 @@ export const ormConfig: DataSourceOptions = {
   database: 'blog',
   username: process.env.FUKS_BLOG_BACKEND_POSTGRES_USER,
   password: process.env.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD,
-  entities: ['**/entities/**/*.ts'],
+  entities: ['src/**/entities/*.ts', 'dist/build/**/entities/*.js'],
   migrationsTableName: 'migration',
-  migrations: ['src/__migration__/*.ts'],
+  migrations: ['src/__migration__/*.ts', 'dist/build/__migration__/*.js'],
 };
 
 const devDataSource = new DataSource(ormConfig);
