@@ -12,8 +12,8 @@ docker run --name fuks-blog-backend-postgres \
   -p 5432:5432 \
   postgres:14.2-alpine
 
-yarn typeorm migration:generate "/$(pwd)/src/__migration__/$1"
+yarn typeorm dev:migration:generate "/$(pwd)/src/__migration__/$1"
 
-yarn migration:run
+yarn dev:typeorm migration:run
 
 docker stop fuks-blog-backend-postgres

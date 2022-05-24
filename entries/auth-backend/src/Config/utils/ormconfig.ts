@@ -13,7 +13,7 @@ export const ormConfig: DataSourceOptions = {
   password: process.env.FUKS_BLOG_AUTH_POSTGRES_PASSWORD,
   entities: ['**/entities/**/*.ts'],
   migrationsTableName: 'migration',
-  migrations: ['src/__migration__/*.ts'],
+  migrations: ['src/__migration__/*.ts', 'dist/build/__migration__/*.ts'],
 };
 
 const devDataSource = new DataSource(ormConfig);

@@ -183,7 +183,7 @@ jobs:
         uses: ./.github/actions/run-node
         with:
           secret-context: ${{ toJson(secrets) }}
-          script: yarn migration:run
+          script: yarn prod:migration:run
 
       - name: Run node
         uses: ./.github/actions/run-node

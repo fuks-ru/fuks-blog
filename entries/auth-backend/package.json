@@ -14,9 +14,10 @@
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only --inspect=0.0.0.0:5003 ./src/main.ts",
     "prod": "cross-env NODE_ENV=production node ./dist/build/main.js",
     "e2e": "cross-env NODE_ENV=development jest",
-    "migration:generate": "bash ./.bin/generate-migration.sh",
-    "migration:run": "yarn typeorm migration:run",
-    "typeorm": "node -r ts-node/register/transpile-only $(yarn bin typeorm) -d src/Config/utils/ormconfig.ts"
+    "dev:migration:generate": "bash ./.bin/generate-migration.sh",
+    "prod:migration:run": "yarn prod:typeorm migration:run",
+    "dev:typeorm": "node -r ts-node/register/transpile-only $(yarn bin typeorm) -d ./src/Config/utils/ormconfig.ts",
+    "prod:typeorm": "node -r ts-node/register/transpile-only $(yarn bin typeorm) -d ./dist/build/Config/utils/ormconfig.js"
   },
   "files": [
     "dist/lib",
