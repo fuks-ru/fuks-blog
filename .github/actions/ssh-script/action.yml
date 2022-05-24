@@ -20,14 +20,14 @@ runs:
         script_stop: true
         script: |
           export FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}"
-          export FUKS_BLOG_AUTH_POSTGRES_USER: "${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_POSTGRES_USER }}"
-          export FUKS_BLOG_AUTH_POSTGRES_HOST: "fuks-blog-auth-postgres"
+          export FUKS_BLOG_AUTH_POSTGRES_USER="${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_POSTGRES_USER }}"
+          export FUKS_BLOG_AUTH_POSTGRES_HOST="fuks-blog-auth-postgres"
   
-          export FUKS_BLOG_BACKEND_POSTGRES_PASSWORD: "${{ fromJson(inputs.secret-context).FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}"
-          export FUKS_BLOG_BACKEND_POSTGRES_USER: "${{ fromJson(inputs.secret-context).FUKS_BLOG_BACKEND_POSTGRES_USER }}"
-          export FUKS_BLOG_BACKEND_POSTGRES_HOST: "fuks-blog-backend-postgres"
+          export FUKS_BLOG_BACKEND_POSTGRES_PASSWORD="${{ fromJson(inputs.secret-context).FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}"
+          export FUKS_BLOG_BACKEND_POSTGRES_USER="${{ fromJson(inputs.secret-context).FUKS_BLOG_BACKEND_POSTGRES_USER }}"
+          export FUKS_BLOG_BACKEND_POSTGRES_HOST="fuks-blog-backend-postgres"
   
-          export PERSONAL_NPM_TOKEN: "${{ fromJson(inputs.secret-context).PERSONAL_NPM_TOKEN }}"
-          export FUKS_BLOG_AUTH_JWT_SECRET: "${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_JWT_SECRET }}"
+          export PERSONAL_NPM_TOKEN="${{ fromJson(inputs.secret-context).PERSONAL_NPM_TOKEN }}"
+          export FUKS_BLOG_AUTH_JWT_SECRET="${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_JWT_SECRET }}"
 
           ${{inputs.script}}
