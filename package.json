@@ -18,7 +18,7 @@
     "story": "yarn workspaces foreach --interlaced --verbose --parallel run story",
     "build": "yarn workspaces foreach --interlaced --verbose --topological-dev run build",
     "build:lib": "yarn workspaces foreach --interlaced --verbose --topological-dev run build:lib",
-    "migration:run": "yarn workspaces foreach --interlaced --verbose --parallel run migration:run",
+    "prod:migration:run": "yarn workspaces foreach --interlaced --verbose --parallel run prod:migration:run",
     "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\"",
     "lint:fix": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\" --fix",
     "typedoc": "typedoc"
