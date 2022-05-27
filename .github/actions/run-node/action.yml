@@ -19,8 +19,6 @@ runs:
       with:
         secret-context: ${{ inputs.secret-context }}
         script: |
-          su node
-
           docker run --name fuks-blog \
           --rm ${{ inputs.detached && '-d' }} \
           -e FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \

@@ -30,10 +30,6 @@ COPY entries/blog-frontend/dist /app/entries/blog-frontend/dist
 COPY entries/blog-frontend/.next /app/entries/blog-frontend/.next
 COPY entries/auth-backend/dist /app/entries/auth-backend/dist
 
-RUN mkdir -p /app/entries/auth-backend/var/logs
-RUN mkdir -p /app/entries/blog-backend/var/logs
-RUN mkdir -p /app/entries/blog-frontend/var/logs
-
 RUN chown -R node:node /app
 
 USER node
