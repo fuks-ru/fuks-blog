@@ -190,6 +190,7 @@ jobs:
         with:
           secret-context: ${{ toJson(secrets) }}
           script: yarn prod
+          detached: true
 
       - name: Sleep for wait node start
         uses: jakejarvis/wait-action@master
