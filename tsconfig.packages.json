@@ -1,7 +1,3 @@
 {
-  "extends": "eslint-config-fuks/tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "."
-  },
-  "include": [".eslintrc.js"]
+  "extends": "eslint-config-fuks/tsconfig.json"
 }

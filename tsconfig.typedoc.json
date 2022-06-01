@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.packages.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "ui/*": ["./packages/ui/src/*"],
       "common/*": ["./packages/common/src/*"],

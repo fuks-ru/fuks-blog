@@ -6730,9 +6730,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-fuks@npm:^1.4.7":
-  version: 1.4.7
-  resolution: "eslint-config-fuks@npm:1.4.7"
+"eslint-config-fuks@npm:^1.4.11":
+  version: 1.4.11
+  resolution: "eslint-config-fuks@npm:1.4.11"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.8.1
     "@typescript-eslint/parser": ^5.8.1
@@ -6760,7 +6760,7 @@ __metadata:
     eslint: ^8.5.0
     prettier: ^2.5.0
     typescript: ^4.6.3
-  checksum: 7901556de8e305bc5b7ca69649d441bd67a35dbf942aa225d31bbd72f242e3aec24545f3044141562cba34a5d75bde152c9365cc3ebec8fccccd754425422bcf
+  checksum: 54d75741942a75f5d2590921a46de208ae99c177163da19edcc07ebd52ef01b840e6518e07954590ce3f6050b6d1ba528c3b823603bd42a34cbaef549914d113
   languageName: node
   linkType: hard
 
@@ -7815,7 +7815,7 @@ __metadata:
   dependencies:
     "@rushstack/eslint-patch": ^1.1.3
     eslint: ^8.13.0
-    eslint-config-fuks: ^1.4.7
+    eslint-config-fuks: ^1.4.11
     typedoc: ^0.22.15
     typedoc-theme-hierarchy: ^1.2.1
     typescript: ^4.6.3
