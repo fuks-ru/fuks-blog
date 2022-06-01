@@ -1,21 +1,7 @@
 {
+  "extends": "eslint-config-fuks/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "esnext",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "allowJs": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noUncheckedIndexedAccess": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "noImplicitOverride": true
-  }
+    "baseUrl": "."
+  },
+  "include": [".eslintrc.js"]
 }
