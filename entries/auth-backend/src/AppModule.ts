@@ -7,13 +7,16 @@ import {
   ValidationModule,
   ErrorFilterModule,
   ConfigModule,
+  RequestRefModule,
+  RedirectModule,
 } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from 'auth-backend/Auth/AuthModule';
 
-import { BasicAuthModule } from 'auth-backend/BasicAuth/BasicAuthModule';
+import { BasicAuthModule } from 'auth-backend/BasicLogin/BasicAuthModule';
 import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
-import { GoogleAuthModule } from 'auth-backend/GoogleAuth/GoogleAuthModule';
+import { GoogleLoginModule } from 'auth-backend/GoogleLogin/GoogleLoginModule';
 import { RegisterModule } from 'auth-backend/Register/RegisterModule';
 
 @Module({
@@ -28,12 +31,15 @@ import { RegisterModule } from 'auth-backend/Register/RegisterModule';
     }),
     ErrorFilterModule,
     ConfigModule.forRoot(ConfigGetter),
-    GoogleAuthModule,
+    GoogleLoginModule,
     SwaggerModule,
     RegisterModule,
     CookieSetterModule,
     BasicAuthModule,
     ValidationModule,
+    RedirectModule,
+    RequestRefModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

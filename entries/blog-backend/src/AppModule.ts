@@ -1,4 +1,4 @@
-import { AuthModule } from '@difuks/api-auth-backend/dist/AuthModule';
+import { AuthModule } from '@difuks/api-auth-backend/dist/backend';
 import {
   LoggerModule,
   SwaggerModule,
@@ -7,6 +7,9 @@ import {
   ValidationModule,
   ConfigModule,
   CONFIG,
+  RedirectModule,
+  CookieSetterModule,
+  RequestRefModule,
 } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -30,6 +33,9 @@ import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
     CategoryModule,
     SwaggerModule,
     AuthModule,
+    RedirectModule,
+    CookieSetterModule,
+    RequestRefModule,
   ],
 })
 export class AppModule {}

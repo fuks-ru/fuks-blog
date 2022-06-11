@@ -1,4 +1,4 @@
-import { BlogBackendModule } from '@difuks/api-blog-backend/dist/BlogBackendModule';
+import { BlogBackendModule } from '@difuks/api-blog-backend/dist/backend';
 import {
   ValidationModule,
   LoggerModule,
@@ -6,7 +6,10 @@ import {
   SystemErrorModule,
   ConfigModule,
   RedirectModule,
+  CookieSetterModule,
+  RequestRefModule,
 } from '@difuks/common';
+import { isDevelopment } from '@difuks/common/dist/constants';
 import { Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
@@ -18,7 +21,7 @@ import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter'
   imports: [
     RenderModule.forRootAsync(
       Next({
-        dev: process.env.NODE_ENV !== 'production',
+        dev: isDevelopment,
         dir: process.cwd(),
       }),
       {
@@ -33,6 +36,8 @@ import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter'
     BlogBackendModule,
     PagesModule,
     RedirectModule,
+    CookieSetterModule,
+    RequestRefModule,
   ],
 })
 export class AppModule {}

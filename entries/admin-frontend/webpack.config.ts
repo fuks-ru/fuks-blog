@@ -1,4 +1,4 @@
-import { ports } from '@difuks/common/dist/constants';
+import { ports, isDevelopment } from '@difuks/common/dist/constants';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
 import * as path from 'node:path';
@@ -13,8 +13,6 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 import 'webpack-dev-server';
-
-const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const plugins: WebpackPluginInstance[] = [
   new HtmlWebpackPlugin({
@@ -39,6 +37,7 @@ const config: Configuration = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(process.cwd(), '../../public/admin'),
+    clean: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],

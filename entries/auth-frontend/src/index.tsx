@@ -1,7 +1,8 @@
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
+import { initApi } from 'auth-frontend/common/api';
 import { App } from 'auth-frontend/App';
-import { initAuthApi } from 'auth-frontend/common/utils/initAuthApi';
 
 const container = document.querySelector('#app');
 
@@ -10,9 +11,13 @@ if (!container) {
 }
 
 (async () => {
-  await initAuthApi();
+  await initApi();
 
   const root = createRoot(container);
 
-  root.render(<App />);
+  root.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  );
 })();

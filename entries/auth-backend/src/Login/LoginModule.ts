@@ -3,7 +3,6 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 
 import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
-import { LoginController } from 'auth-backend/Login/contollers/LoginController';
 import { LoginService } from 'auth-backend/Login/services/LoginService';
 import { UserModule } from 'auth-backend/User/UserModule';
 
@@ -16,7 +15,6 @@ import { UserModule } from 'auth-backend/User/UserModule';
     }),
     UserModule,
   ],
-  controllers: [LoginController],
   providers: [LoginService],
   exports: [LoginService],
 })

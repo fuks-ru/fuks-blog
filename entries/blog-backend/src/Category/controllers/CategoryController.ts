@@ -1,4 +1,4 @@
-import { Public } from '@difuks/api-auth-backend/dist/decorators/Public';
+import { Public } from '@difuks/api-auth-backend/dist/backend';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
   ApiCreatedResponse,
@@ -27,6 +27,7 @@ export class CategoryController {
     operationId: 'categoryGet',
   })
   @ApiParam({ name: 'id', required: true, schema: { type: 'string' } })
+  @Public()
   public get(@Param('id') id: string): Promise<Category> {
     return this.categoryService.getById(id);
   }
@@ -42,7 +43,6 @@ export class CategoryController {
   @ApiOperation({
     operationId: 'categoryList',
   })
-  @Public()
   public list(): Promise<Category[]> {
     return this.categoryService.getList();
   }

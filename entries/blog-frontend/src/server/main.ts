@@ -8,7 +8,9 @@ import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter'
 import { AppModule } from 'blog-frontend/server/AppModule';
 
 (async () => {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    cors: true,
+  });
   const configGetter = await app.resolve<ConfigGetter>(CONFIG);
 
   app.use(cookieParser());

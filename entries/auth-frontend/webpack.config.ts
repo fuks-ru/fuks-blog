@@ -1,4 +1,4 @@
-import { ports } from '@difuks/common/dist/constants';
+import { ports, isDevelopment } from '@difuks/common/dist/constants';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
 import * as path from 'node:path';
@@ -11,10 +11,9 @@ import {
 } from 'webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import 'webpack-dev-server';
-
-const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const plugins: WebpackPluginInstance[] = [
   new HtmlWebpackPlugin({
@@ -23,6 +22,9 @@ const plugins: WebpackPluginInstance[] = [
   new NodePolyfillPlugin(),
   new EnvironmentPlugin({
     NODE_ENV: process.env.NODE_ENV,
+  }),
+  new MiniCssExtractPlugin({
+    filename: `styles${isDevelopment ? '' : '-[contenthash]'}.css`,
   }),
 ];
 
@@ -39,6 +41,8 @@ const config: Configuration = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(process.cwd(), '../../public/auth'),
+    filename: `[name]${isDevelopment ? '' : '-[contenthash]'}.js`,
+    clean: true,
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -50,15 +54,36 @@ const config: Configuration = {
       {
         test: /\.tsx?/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: [
+          { loader: 'babel-loader' },
+          {
+            loader: '@linaria/webpack-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
     ],
   },
   devServer: {
     port: ports.AUTH_FRONTEND_PORT,
     hot: true,
+    historyApiFallback: true,
   },
 };
 
