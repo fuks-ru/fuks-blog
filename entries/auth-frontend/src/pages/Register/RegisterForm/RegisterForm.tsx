@@ -1,7 +1,6 @@
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { css } from '@linaria/core';
-import { Button, Form, Input, Card, Space, Typography } from 'antd';
-import Text from 'antd/es/typography/Text';
+import { Button, Form, Input, Card, Typography } from 'antd';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 

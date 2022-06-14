@@ -8,6 +8,10 @@ import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
 import { Form, FormInstance, message } from 'antd';
 import { useCallback } from 'react';
 
+/**
+ * Обертка над api-client сервиса авторизации, предоставляющая инстанс
+ * antd-формы и callback onFinish.
+ */
 export const useAuthForm = <
   ApiName extends keyof OperationMethods,
   Body extends TApiBody<ApiName>,
@@ -45,6 +49,9 @@ export const useAuthForm = <
   return [form, onFinish];
 };
 
+/**
+ * Инициализирует api-client сервиса авторизации.
+ */
 export const initApi = async (): Promise<void> => {
   await initAuthApi((error) => {
     if (error instanceof UnknownError) {

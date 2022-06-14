@@ -12,8 +12,8 @@ import {
 } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from 'auth-backend/Auth/AuthModule';
 
+import { AuthModule } from 'auth-backend/Auth/AuthModule';
 import { BasicAuthModule } from 'auth-backend/BasicLogin/BasicAuthModule';
 import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
 import { GoogleLoginModule } from 'auth-backend/GoogleLogin/GoogleLoginModule';

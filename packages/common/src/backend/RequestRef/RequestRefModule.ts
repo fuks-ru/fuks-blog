@@ -11,6 +11,9 @@ import { REQUEST_CONTEXT_ID } from 'common/backend/RequestRef/utils/constants';
   exports: [RequestRefService],
 })
 export class RequestRefModule implements NestModule {
+  /**
+   * Регистрирует middleware, инициализирующий контекст для хранения request'а.
+   */
   public configure(consumer: MiddlewareConsumer): void {
     consumer
       .apply(requestContext.middleware(REQUEST_CONTEXT_ID))

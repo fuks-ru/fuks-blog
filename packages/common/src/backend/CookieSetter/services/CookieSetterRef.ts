@@ -28,7 +28,7 @@ interface IRequestContext {
   /**
    * Id сессии.
    */
-  [COOKIE]: ICookie;
+  [COOKIE]?: ICookie;
 }
 
 @Injectable()

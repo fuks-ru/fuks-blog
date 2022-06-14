@@ -5,4 +5,4 @@ import { isDevelopment } from '@difuks/common/dist/constants';
  */
 export const GOOGLE_CLIENT_ID = isDevelopment
   ? '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com'
-  : process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID as string;
+  : (process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID as string);

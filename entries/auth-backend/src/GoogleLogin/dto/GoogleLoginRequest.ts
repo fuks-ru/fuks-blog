@@ -11,5 +11,5 @@ export class GoogleLoginRequest {
    * Путь для перенаправления.
    */
   @ApiProperty()
-  public redirectFrom?: string;
+  public redirectFrom!: string;
 }

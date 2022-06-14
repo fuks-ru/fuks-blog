@@ -18,11 +18,46 @@ module.exports = {
       },
     },
   },
+  rules: {
+    'jsdoc/require-throws': 'off',
+    'jsdoc/require-jsdoc': [
+      'error',
+      {
+        checkConstructors: false,
+        contexts: [
+          'TSInterfaceDeclaration',
+          'TSTypeAliasDeclaration',
+          'TSPropertySignature',
+          'TSEnumDeclaration',
+          'TSMethodSignature',
+          'ExportDefaultDeclaration',
+          'ExportNamedDeclaration[declaration][declaration.declarations.0.id.name!="getServerSideProps"][declaration.type!="ClassDeclaration"]',
+          'PropertyDefinition:not([accessibility="private"])',
+          'MethodDefinition:not([accessibility="private"])',
+          'ClassProperty:not([accessibility="private"])',
+        ],
+        publicOnly: true,
+      },
+    ],
+  },
   overrides: [
     {
       files: ['*.json'],
       parserOptions: {
         project: false,
+      },
+    },
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/no-misused-promises': [
+          'error',
+          {
+            checksVoidReturn: {
+              attributes: false,
+            },
+          },
+        ],
       },
     },
     {

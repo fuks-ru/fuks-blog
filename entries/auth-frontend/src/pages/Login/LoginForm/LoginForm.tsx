@@ -1,5 +1,4 @@
-import { styled } from '@linaria/react';
-import { Button, Card, Form, Input, Row, Typography } from 'antd';
+import { Button, Card, Form, Input, Typography } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { FC } from 'react';
 import { css } from '@linaria/core';
@@ -8,6 +7,9 @@ import { Link } from 'react-router-dom';
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
 import { useAuthForm } from 'auth-frontend/common/api';
 
+/**
+ * Форма фхода.
+ */
 export const LoginForm: FC = () => {
   const [form, onFinish] = useAuthForm('loginBasic');
 

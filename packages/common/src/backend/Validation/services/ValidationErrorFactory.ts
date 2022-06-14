@@ -23,6 +23,9 @@ export class ValidationErrorFactory {
     return new ValidationError(preparedErrors);
   }
 
+  /**
+   * Создает объект ошибки валидации.
+   */
   public createFromData<Data extends Record<string, string[]>>(
     data: Data,
   ): ValidationError<Data> {

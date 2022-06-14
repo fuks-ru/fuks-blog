@@ -21,9 +21,9 @@ export class ApiErrorsService {
   ) {}
 
   /**
-   *
+   * Интерцептор для api-клиентов для взаимодейтсвия с другим сервисом.
    */
-  public interceptor(error: AxiosError<IErrorResponse> | Error) {
+  public interceptor(error: AxiosError<IErrorResponse> | Error): never {
     if (!('response' in error)) {
       throw this.systemErrorFactory.create(
         CommonErrorCode.REMOTE_HOST_ERROR,

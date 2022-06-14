@@ -41,5 +41,5 @@ export class BasicRegisterRequest {
    * Путь для перенаправления.
    */
   @ApiProperty()
-  public redirectFrom?: string;
+  public redirectFrom!: string;
 }

@@ -7,7 +7,10 @@ import { CookieSetterRef } from 'common/backend/CookieSetter/services/CookieSett
 export class CookieResponseSetter {
   public constructor(private readonly cookieSetterRef: CookieSetterRef) {}
 
-  public set(response: Response) {
+  /**
+   * Устанавливает куку для ответа.
+   */
+  public set(response: Response): void {
     for (const [name, { value, options = {} }] of Object.entries(
       this.cookieSetterRef.getCookies(),
     )) {

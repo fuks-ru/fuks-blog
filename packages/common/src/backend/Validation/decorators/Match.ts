@@ -1,4 +1,3 @@
-import { Type } from '@nestjs/common';
 import {
   registerDecorator,
   ValidationArguments,
@@ -9,8 +8,11 @@ import {
 
 @ValidatorConstraint({ name: 'Match' })
 class MatchConstraint implements ValidatorConstraintInterface {
+  /**
+   * Метод, проверяющий соответствие одного свойства класса другому.
+   */
   // eslint-disable-next-line @typescript-eslint/ban-types
-  public validate(value: Object, args: ValidationArguments) {
+  public validate(value: Object, args: ValidationArguments): boolean {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const [relatedPropertyName] = args.constraints;
 
@@ -21,6 +23,9 @@ class MatchConstraint implements ValidatorConstraintInterface {
   }
 }
 
+/**
+ * Декоратор class-validator, проверяющий соответствие одного свойства класса другому.
+ */
 export const Match =
   (property: string, validationOptions?: ValidationOptions) =>
   // eslint-disable-next-line @typescript-eslint/ban-types
