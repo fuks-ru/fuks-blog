@@ -28,7 +28,6 @@
     "fork-ts-checker-webpack-plugin": "^7.2.6",
     "html-webpack-plugin": "^5.5.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
-    "openapi-client-axios": "^5.1.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-google-login": "^5.2.2",
