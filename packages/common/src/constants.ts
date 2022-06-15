@@ -4,11 +4,17 @@
 export const CONFIG = 'common-config';
 
 const prodDomainUrl = 'new.fuks.ru';
+const devDomainUrl = 'localhost';
 
 /**
  * Находимся ли мы в dev режиме.
  */
 export const isDevelopment = process.env.NODE_ENV === 'development';
+
+/**
+ * Базовый url для всех сервисов.
+ */
+export const domainUrl = isDevelopment ? devDomainUrl : prodDomainUrl;
 
 /**
  * Порты всех сервисов.
@@ -26,23 +32,23 @@ export const ports = {
  */
 export const urls = {
   AUTH_BACKEND_URL: isDevelopment
-    ? `http://localhost:${ports.AUTH_BACKEND_PORT}`
+    ? `http://${devDomainUrl}:${ports.AUTH_BACKEND_PORT}`
     : `https://auth.${prodDomainUrl}`,
 
   AUTH_FRONTEND_URL: isDevelopment
-    ? `http://localhost:${ports.AUTH_FRONTEND_PORT}`
+    ? `http://${devDomainUrl}:${ports.AUTH_FRONTEND_PORT}`
     : `https://auth.${prodDomainUrl}`,
 
   BLOG_BACKEND_URL: isDevelopment
-    ? `http://localhost:${ports.BLOG_BACKEND_PORT}`
+    ? `http://${devDomainUrl}:${ports.BLOG_BACKEND_PORT}`
     : `https://backend.${prodDomainUrl}`,
 
   BLOG_FRONTEND_URL: isDevelopment
-    ? `http://localhost:${ports.BLOG_FRONTEND_PORT}`
+    ? `http://${devDomainUrl}:${ports.BLOG_FRONTEND_PORT}`
     : `https://${prodDomainUrl}`,
 
   ADMIN_FRONTEND_URL: isDevelopment
-    ? `http://localhost:${ports.ADMIN_FRONTEND_PORT}`
+    ? `http://${devDomainUrl}:${ports.ADMIN_FRONTEND_PORT}`
     : `https://admin.${prodDomainUrl}`,
 };
 
