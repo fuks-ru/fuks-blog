@@ -19,17 +19,23 @@ runs:
           ${{ inputs.package-name }}:
             - '${{inputs.package-dir}}/**'
 
-    - name: 'Version bump'
-      uses: phips28/gh-action-bump-version@master
+    - name: Commit message check
+      id: check-strategy
       if: steps.path-filter.outputs[inputs.package-name] == 'true'
-      with:
-        minor-wording: 'feat(${{ inputs.package-name }})'
-        patch-wording: 'fix(${{ inputs.package-name }})'
-        skip-tag: 'true'
-      env:
-        PACKAGEJSON_DIR: ${{ inputs.package-dir }}
+      shell: bash
+      run: |
+        isMinor=${{ contains(github.event.head_commit.message, 'feat(${{ inputs.package-name }})') }}
+        isPatch=${{ contains(github.event.head_commit.message, 'fix(${{ inputs.package-name }})') }}
+        
+        if [$isMinor == 'true']
+        then
+          echo "::set-output name=strategy::minor"
+        elif [$isPatch == 'true']
+          echo "::set-output name=strategy::patch"
+        else
+          echo "::set-output name=strategy::patch"
 
     - name: Publish
       if: steps.path-filter.outputs[inputs.package-name] == 'true'
       shell: bash
-      run: yarn workspace @difuks/${{ inputs.package-name }} npm publish
+      run: yarn workspace @difuks/${{ inputs.package-name }} version ${{ steps.check-strategy.outputs.strategy }}
