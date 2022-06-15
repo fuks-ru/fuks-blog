@@ -1,4 +1,4 @@
-import { BlogBackendService } from '@difuks/api-blog-backend/dist/services/BlogBackendService';
+import { BlogBackendService } from '@difuks/api-blog-backend/dist/backend';
 import { Controller, Param } from '@nestjs/common';
 
 import type { ICategoriesPageProps } from 'blog-frontend/pages/categories/index.page';

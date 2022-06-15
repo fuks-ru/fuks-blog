@@ -1,9 +1,11 @@
 import { ports } from '@difuks/common/dist/constants';
-import { IErrorFilterModuleOptions } from '@difuks/common/dist/modules/ErrorFilter/types/IErrorFilterModuleOptions';
+import {
+  IErrorFilterModuleOptions,
+  ConfigGetterBase,
+  SystemErrorFactory,
+} from '@difuks/common';
 import { HttpStatus, Injectable } from '@nestjs/common';
-import { ConfigGetterBase, SystemErrorFactory } from '@difuks/common';
 
-import { API_PAGE_PREFIX } from 'blog-frontend/common/utils/constants';
 import { ErrorCode } from 'blog-frontend/server/Config/enums/ErrorCode';
 
 @Injectable()
@@ -32,12 +34,5 @@ export class ConfigGetter extends ConfigGetterBase {
       ...super.getErrorFilterConfig(),
       errorPageName: '_500',
     };
-  }
-
-  /**
-   * Получает префикс маршрута для апи страницы.
-   */
-  public getApiPagePrefix(): string {
-    return API_PAGE_PREFIX;
   }
 }

@@ -31,6 +31,14 @@ export type TApiResponse<Method extends keyof OperationMethods> = ReturnType<
   : never;
 
 /**
+ * Описания типа тела запроса.
+ */
+export type TApiBody<Method extends keyof OperationMethods> =
+  OperationMethods[Method] extends (...args: infer Args) => unknown
+    ? Exclude<Args[1], undefined>
+    : never;
+
+/**
  * Описание схема клиента.
  */
 export type {

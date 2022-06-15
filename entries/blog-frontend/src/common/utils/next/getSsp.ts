@@ -7,8 +7,8 @@ import {
   PreviewData,
 } from 'next/types';
 import { IErrorResponse } from '@difuks/common';
+import { API_PAGE_PREFIX } from '@difuks/common/dist/constants';
 
-import { API_PAGE_PREFIX } from 'blog-frontend/common/utils/constants';
 import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
 import { api } from 'blog-frontend/common/api/api';
 
@@ -69,12 +69,15 @@ const getErrorPageProps = (
 
 /**
  * Фабрика для getSerSideProps функции, осуществляющая прокидывание пропсов в
- * компонентов и получение новых пропсов с бэкенда в случае с SPA переходом.
+ * компоненты и получение новых пропсов с бэкенда в случае с SPA переходом.
  */
 export const getSsp =
   (): IGetServerSideProps<IPageProps> => async (contextDraft) => {
     if (contextDraft.req.url?.includes('.json')) {
       const client = api.getInstance();
+
+      client.defaults.headers.common.cookie =
+        contextDraft.req.headers.cookie || '';
 
       try {
         const response = await client.get(

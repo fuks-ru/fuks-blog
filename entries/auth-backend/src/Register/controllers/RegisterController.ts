@@ -23,6 +23,6 @@ export class RegisterController {
   public async basic(@Body() body: BasicRegisterRequest): Promise<void> {
     const user = await this.basicRegisterService.register(body);
 
-    this.loginService.login(user);
+    this.loginService.login(user, body.redirectFrom);
   }
 }

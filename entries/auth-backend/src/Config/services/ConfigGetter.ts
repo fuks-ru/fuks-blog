@@ -17,7 +17,6 @@ export class ConfigGetter extends ConfigGetterBase {
   protected readonly statusResolver: Record<ErrorCode, HttpStatus> = {
     [ErrorCode.GOOGLE_AUTH_PAYLOAD_EMPTY]: HttpStatus.UNAUTHORIZED,
     [ErrorCode.GOOGLE_AUTH_EMAIL_NOT_FOUND]: HttpStatus.UNAUTHORIZED,
-    [ErrorCode.BASIC_AUTH_INCORRECT_EMAIL_OR_PASSWORD]: HttpStatus.UNAUTHORIZED,
     [ErrorCode.USER_ALREADY_EXISTS]: HttpStatus.CONFLICT,
     [ErrorCode.USER_NOT_FOUND]: HttpStatus.NOT_FOUND,
   };
