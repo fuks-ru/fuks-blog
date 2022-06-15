@@ -128,14 +128,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Pull docker containers
-        uses: ./.github/actions/ssh-script
-        with:
-          secret-context: ${{ toJson(secrets) }}
-          script: |            
-            docker pull difuks/fuks-blog
-            docker pull difuks/fuks-blog-nginx
-
       - name: Stop docker containers
         uses: ./.github/actions/ssh-script
         with:
@@ -149,6 +141,21 @@ jobs:
             docker rm fuks-blog-nginx || true
             docker rm fuks-blog-auth-postgres || true
             docker rm fuks-blog-backend-postgres || true
+
+      - name: Remove docker images
+        uses: ./.github/actions/ssh-script
+        with:
+          secret-context: ${{ toJson(secrets) }}
+          script: |
+            docker rmi $(docker images | grep 'fuks-blog')
+
+      - name: Pull docker containers
+        uses: ./.github/actions/ssh-script
+        with:
+          secret-context: ${{ toJson(secrets) }}
+          script: |
+            docker pull difuks/fuks-blog
+            docker pull difuks/fuks-blog-nginx
 
       - name: Run auth database
         uses: ./.github/actions/ssh-script
