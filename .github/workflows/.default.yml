@@ -147,7 +147,7 @@ jobs:
         with:
           secret-context: ${{ toJson(secrets) }}
           script: |
-            docker rmi $(docker images | grep 'fuks-blog')
+            docker rmi $(docker images | grep 'fuks-blog') || true
 
       - name: Pull docker containers
         uses: ./.github/actions/ssh-script
