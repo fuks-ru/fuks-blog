@@ -6,7 +6,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import {
   IMockedUser,
   UsersBuilder,
-} from 'auth-backend/__e2e__/services/UsersBuilder';
+} from 'auth-backend/__e2e__/dsl/UsersBuilder';
 import { AppModule } from 'auth-backend/AppModule';
 import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
 
@@ -64,6 +64,10 @@ export class AppBuilder {
       .compile();
 
     const app = moduleRef.createNestApplication();
+
+    const configGetter = await moduleRef.resolve<ConfigGetter>(CONFIG);
+
+    app.setGlobalPrefix(configGetter.getApiPrefix());
 
     await this.usersBuilder.build(app);
 

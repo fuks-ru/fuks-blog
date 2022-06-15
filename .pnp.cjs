@@ -4847,7 +4847,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["openapi-client-axios-typegen", "npm:5.0.2"],\
             ["passport", "npm:0.5.2"],\
             ["passport-custom", "npm:1.1.1"],\
-            ["passport-local", "npm:1.0.0"],\
             ["pg", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:8.7.3"],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.5"],\
@@ -4902,7 +4901,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["openapi-client-axios-typegen", "npm:5.0.2"],\
             ["passport", "npm:0.5.2"],\
             ["passport-custom", "npm:1.1.1"],\
-            ["passport-local", "npm:1.0.0"],\
             ["pg", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:8.7.3"],\
             ["reflect-metadata", "npm:0.1.13"],\
             ["rxjs", "npm:7.5.5"],\
@@ -19690,16 +19688,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/passport-custom-npm-1.1.1-37dd146ef9-245b265491.zip/node_modules/passport-custom/",\
           "packageDependencies": [\
             ["passport-custom", "npm:1.1.1"],\
-            ["passport-strategy", "npm:1.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["passport-local", [\
-        ["npm:1.0.0", {\
-          "packageLocation": "./.yarn/cache/passport-local-npm-1.0.0-ed89961a0c-86dc08b12f.zip/node_modules/passport-local/",\
-          "packageDependencies": [\
-            ["passport-local", "npm:1.0.0"],\
             ["passport-strategy", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\

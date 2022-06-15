@@ -17,5 +17,5 @@ export class BasicLoginRequest {
    * Путь для перенаправления.
    */
   @ApiProperty()
-  public redirectFrom!: string;
+  public redirectFrom?: string;
 }

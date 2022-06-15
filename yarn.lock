@@ -2458,7 +2458,6 @@ __metadata:
     openapi-client-axios-typegen: ^5.0.2
     passport: ^0.5.2
     passport-custom: ^1.1.1
-    passport-local: ^1.0.0
     pg: ^8.7.3
     reflect-metadata: ^0.1.13
     rxjs: ^7.5.5
@@ -13004,15 +13003,6 @@ __metadata:
   dependencies:
     passport-strategy: 1.x.x
   checksum: 245b265491c83186002a19db1c812565bb95fd2a7b842f8e8de58f3e22d669f680178b623db6a4be22aecacecd75097b96fa06f35c2b35fe3ef71e9ec77a538d
-  languageName: node
-  linkType: hard
-
-"passport-local@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "passport-local@npm:1.0.0"
-  dependencies:
-    passport-strategy: 1.x.x
-  checksum: 86dc08b12f05f0ce1bb109780ccb0377eff45bbba70aa9c0d65f092b3ef476d344c0443517db2e9f3e5ec0ca849171ab25fb622164e0f69a677173af42b9bba7
   languageName: node
   linkType: hard
 

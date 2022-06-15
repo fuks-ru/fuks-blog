@@ -1,12 +1,15 @@
+import {
+  CommonErrorCode,
+  SystemErrorFactory,
+  ValidationErrorFactory,
+} from '@difuks/common';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Request as ExpressRequest } from 'express';
 import { Strategy } from 'passport-custom';
-import { SystemErrorFactory, ValidationErrorFactory } from '@difuks/common';
 import { isEmail } from 'class-validator';
 
 import { BasicLoginRequest } from 'auth-backend/BasicLogin/dto/BasicLoginRequest';
-import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';
 import { BasicLoginService } from 'auth-backend/BasicLogin/services/BasicLoginService';
 
@@ -57,7 +60,7 @@ export class BasicLoginStrategy extends PassportStrategy(Strategy, 'local') {
 
     if (!user) {
       throw this.systemErrorFactory.create(
-        ErrorCode.BASIC_AUTH_INCORRECT_EMAIL_OR_PASSWORD,
+        CommonErrorCode.UNAUTHORIZED,
         'Неверный логин или пароль',
       );
     }

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, MinLength, ValidateIf } from 'class-validator';
+import { IsEmail, MinLength, ValidateIf, IsOptional } from 'class-validator';
 import { Match } from '@difuks/common';
 
 export class BasicRegisterRequest {
@@ -41,5 +41,6 @@ export class BasicRegisterRequest {
    * Путь для перенаправления.
    */
   @ApiProperty()
-  public redirectFrom!: string;
+  @IsOptional()
+  public redirectFrom?: string;
 }

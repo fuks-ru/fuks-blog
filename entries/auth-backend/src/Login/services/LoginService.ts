@@ -18,7 +18,7 @@ export class LoginService {
   /**
    * Генерирует jwt и устанавливает куку.
    */
-  public login(user: User, redirectFrom: string): void {
+  public login(user: User, redirectFrom?: string): void {
     const payload: IJwtPayload = {
       id: user.id,
     };
