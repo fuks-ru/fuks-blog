@@ -39,3 +39,8 @@ runs:
       if: steps.path-filter.outputs[inputs.package-name] == 'true'
       shell: bash
       run: yarn workspace @difuks/${{ inputs.package-name }} version ${{ steps.check-strategy.outputs.strategy }}
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      if: steps.path-filter.outputs[inputs.package-name] == 'true'
+      with:
+        commit_message: 'ci: Up ${{ inputs.package-name }} ${{ steps.check-strategy.outputs.strategy }} version'
