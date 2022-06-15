@@ -31,9 +31,11 @@ runs:
         then
           echo "::set-output name=strategy::minor"
         elif [$isPatch == 'true']
+        then
           echo "::set-output name=strategy::patch"
         else
           echo "::set-output name=strategy::patch"
+        fi
 
     - name: Publish
       if: steps.path-filter.outputs[inputs.package-name] == 'true'
