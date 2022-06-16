@@ -14,10 +14,10 @@
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --transpile-only --inspect=0.0.0.0:5003 ./src/main.ts",
     "prod": "cross-env NODE_ENV=production node ./dist/build/main.js",
     "e2e": "cross-env NODE_ENV=development jest",
-    "dev:migration:generate": "bash ./.bin/generate-migration.sh",
-    "prod:migration:run": "yarn prod:typeorm migration:run",
-    "dev:typeorm": "node -r ts-node/register/transpile-only $(yarn bin typeorm) -d ./src/Config/utils/ormconfig.ts",
-    "prod:typeorm": "node -r ts-node/register/transpile-only $(yarn bin typeorm) -d ./dist/build/Config/utils/ormconfig.js"
+    "dev:migration:generate": "cross-env NODE_ENV=development bash ./.bin/generate-migration.sh",
+    "prod:migration:run": "cross-env NODE_ENV=production yarn prod:typeorm migration:run",
+    "dev:typeorm": "cross-env NODE_ENV=development node -r ts-node/register/transpile-only $(yarn bin typeorm) -d ./src/Config/utils/ormconfig.ts",
+    "prod:typeorm": "cross-env NODE_ENV=production node $(yarn bin typeorm) -d ./dist/build/Config/utils/ormconfig.js"
   },
   "files": [
     "dist/lib",
@@ -40,6 +40,7 @@
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.1",
+    "@types/nodemailer": "^6.4.4",
     "@types/passport-jwt": "^3.0.6",
     "@types/passport-local": "^1.0.34",
     "@types/supertest": "^2.0.12",
@@ -50,6 +51,7 @@
     "class-validator": "^0.13.2",
     "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
+    "date-fns": "^2.28.0",
     "express": "^4.17.3",
     "google-auth-library": "^7.14.1",
     "jest": "^27.5.1",
@@ -59,7 +61,6 @@
     "passport": "^0.5.2",
     "passport-custom": "^1.1.1",
     "pg": "^8.7.3",
-    "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.5",
     "sqlite3": "^5.0.5",
@@ -77,5 +78,9 @@
   },
   "peerDependencies": {
     "openapi-client-axios": "^5.1.2"
+  },
+  "dependencies": {
+    "@types/qs": "^6.9.7",
+    "qs": "^6.10.5"
   }
 }

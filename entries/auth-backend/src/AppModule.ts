@@ -12,6 +12,7 @@ import {
 } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MailerModule } from '@nestjs-modules/mailer';
 
 import { AuthModule } from 'auth-backend/Auth/AuthModule';
 import { BasicAuthModule } from 'auth-backend/BasicLogin/BasicAuthModule';
@@ -40,6 +41,16 @@ import { RegisterModule } from 'auth-backend/Register/RegisterModule';
     RedirectModule,
     RequestRefModule,
     AuthModule,
+    MailerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [CONFIG],
+      useFactory: (configGetter: ConfigGetter) => ({
+        transport: configGetter.getMailerTransport(),
+        defaults: {
+          from: `"Fuks Blog" <${configGetter.getMailerFrom()}>`,
+        },
+      }),
+    }),
   ],
 })
 export class AppModule {}

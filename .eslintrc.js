@@ -20,6 +20,10 @@ module.exports = {
   },
   rules: {
     'jsdoc/require-throws': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { argsIgnorePattern: '^_', ignoreRestSiblings: true },
+    ],
     'jsdoc/require-jsdoc': [
       'error',
       {

@@ -22,8 +22,9 @@ const plugins: WebpackPluginInstance[] = [
   new NodePolyfillPlugin(),
   new EnvironmentPlugin({
     NODE_ENV: process.env.NODE_ENV,
-    FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID:
-      process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID,
+    FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID: isDevelopment
+      ? '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com'
+      : process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID,
   }),
   new MiniCssExtractPlugin({
     filename: `styles${isDevelopment ? '' : '-[contenthash]'}.css`,

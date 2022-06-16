@@ -1,5 +1,6 @@
 import { SystemErrorFactory, ConfigGetterBase } from '@difuks/common';
 import { ports } from '@difuks/common/dist/constants';
+import { TransportType } from '@nestjs-modules/mailer/dist/interfaces/mailer-options.interface';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtModuleOptions } from '@nestjs/jwt';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
@@ -19,6 +20,8 @@ export class ConfigGetter extends ConfigGetterBase {
     [ErrorCode.GOOGLE_AUTH_EMAIL_NOT_FOUND]: HttpStatus.UNAUTHORIZED,
     [ErrorCode.USER_ALREADY_EXISTS]: HttpStatus.CONFLICT,
     [ErrorCode.USER_NOT_FOUND]: HttpStatus.NOT_FOUND,
+    [ErrorCode.CONFIRM_CODE_NOT_EXIST]: HttpStatus.NOT_FOUND,
+    [ErrorCode.CONFIRM_CODE_TIMEOUT]: HttpStatus.TOO_MANY_REQUESTS,
   };
 
   public constructor(systemErrorFactory: SystemErrorFactory) {
@@ -56,7 +59,41 @@ export class ConfigGetter extends ConfigGetterBase {
    * Получает clientId для Google-авторизации.
    */
   public getGoogleClientId(): string {
-    return '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com';
+    return this.isDev()
+      ? '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com'
+      : this.getEnv('FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID');
+  }
+
+  /**
+   * Конфиг для отправки почты.
+   */
+  public getMailerTransport(): TransportType {
+    return this.isDev()
+      ? {
+          host: 'mail.fuks.ru',
+          port: 465,
+          secure: true,
+          auth: {
+            user: this.getMailerFrom(),
+            pass: 'test-mailer',
+          },
+        }
+      : {
+          host: this.getEnv('MAILER_HOST'),
+          port: 465,
+          secure: true,
+          auth: {
+            user: this.getMailerFrom(),
+            pass: this.getEnv('MAILER_PASSWORD'),
+          },
+        };
+  }
+
+  /**
+   * Email для отправки почты.
+   */
+  public getMailerFrom(): string {
+    return this.isDev() ? 'test@fuks.ru' : this.getEnv('MAILER_USER');
   }
 
   private getProdTypeOrmConfig(): TypeOrmModuleOptions {

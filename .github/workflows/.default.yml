@@ -128,25 +128,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Stop docker containers
-        uses: ./.github/actions/ssh-script
-        with:
-          secret-context: ${{ toJson(secrets) }}
-          script: |            
-            docker stop fuks-blog || true
-            docker stop fuks-blog-nginx || true
-            docker stop fuks-blog-auth-postgres || true
-            docker stop fuks-blog-backend-postgres || true
-            docker rm fuks-blog || true
-            docker rm fuks-blog-nginx || true
-            docker rm fuks-blog-auth-postgres || true
-            docker rm fuks-blog-backend-postgres || true
-
-      - name: Remove docker images
+      - name: Stop and remove docker containers and remove images
         uses: ./.github/actions/ssh-script
         with:
           secret-context: ${{ toJson(secrets) }}
           script: |
+            docker container stop $(docker container ls -q --filter name='fuks-blog') || true
+            docker ps --filter name='fuks-blog' -aq | xargs docker stop | xargs docker rm || true
             docker rmi $(docker images | grep 'fuks-blog') || true
 
       - name: Pull docker containers

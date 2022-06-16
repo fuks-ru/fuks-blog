@@ -58,6 +58,7 @@ export class UsersBuilder {
       users.push({
         email: mockedUser.email,
         role: mockedUser.role,
+        isConfirmed: true,
         hashedPassword,
       });
     }

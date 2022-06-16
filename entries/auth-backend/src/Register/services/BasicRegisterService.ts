@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { EncodingService } from '@difuks/common';
 
 import { BasicRegisterRequest } from 'auth-backend/Register/dto/BasicRegisterRequest';
+import { EmailVerifyService } from 'auth-backend/EmailVerify/services/EmailVerifyService';
 import { Role, User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';
 
@@ -10,6 +11,7 @@ export class BasicRegisterService {
   public constructor(
     private readonly userService: UserService,
     private readonly encodingService: EncodingService,
+    private readonly emailVerifyService: EmailVerifyService,
   ) {}
 
   /**
@@ -26,6 +28,13 @@ export class BasicRegisterService {
     user.email = registerRequest.email;
     user.role = Role.USER;
 
-    return this.userService.addUserIfNotExists(user);
+    const createdUser = await this.userService.addUserIfNotConfirmed(user);
+
+    await this.emailVerifyService.send(
+      createdUser,
+      registerRequest.redirectFrom,
+    );
+
+    return user;
   }
 }

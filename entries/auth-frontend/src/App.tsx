@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import { ConfirmEmailPage } from 'auth-frontend/pages/ConfirmEmail/ConfirmEmailPage';
 import {
   RedirectFromContext,
   useRedirectFrom,
@@ -19,6 +20,7 @@ export const App: FC = () => {
       <Routes>
         <Route path='/' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
+        <Route path='/confirm-email' element={<ConfirmEmailPage />} />
       </Routes>
     </RedirectFromContext.Provider>
   );

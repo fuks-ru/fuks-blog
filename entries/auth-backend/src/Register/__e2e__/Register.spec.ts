@@ -99,7 +99,7 @@ describe('Register', () => {
   });
 
   describe('When a user entered an valid email and password', () => {
-    it('should return redirect and cookie', async () => {
+    it('should return ok', async () => {
       const response = await request(app.getHttpServer())
         .post('/api/register/basic')
         .send({
@@ -109,17 +109,8 @@ describe('Register', () => {
           redirectFrom: 'https://test.com',
         });
 
-      expect(response.statusCode).toEqual(HttpStatus.INTERNAL_SERVER_ERROR);
-      expect(response.body).toEqual({
-        code: CommonErrorCode.REDIRECT,
-        message: expect.any(String),
-        redirect: {
-          location: 'https://test.com',
-        },
-      });
-      expect(response.headers['set-cookie']).toEqual(
-        expect.arrayContaining([expect.stringContaining('jwtToken')]),
-      );
+      expect(response.statusCode).toEqual(HttpStatus.CREATED);
+      expect(response.body).toEqual({});
     });
 
     it('should return conflict if user exists', async () => {

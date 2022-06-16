@@ -1,7 +1,7 @@
+import { initAuthApi } from '@difuks/api-auth-backend/dist/frontend';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-import { initApi } from 'auth-frontend/common/api';
 import { App } from 'auth-frontend/App';
 
 const container = document.querySelector('#app');
@@ -11,7 +11,7 @@ if (!container) {
 }
 
 (async () => {
-  await initApi();
+  await initAuthApi();
 
   const root = createRoot(container);
 

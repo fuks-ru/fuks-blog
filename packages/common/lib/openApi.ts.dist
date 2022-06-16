@@ -39,6 +39,14 @@ export type TApiBody<Method extends keyof OperationMethods> =
     : never;
 
 /**
+ * Описания типа аргументов url'а запроса.
+ */
+export type TApiArgs<Method extends keyof OperationMethods> =
+  OperationMethods[Method] extends (...args: infer Args) => unknown
+    ? Exclude<Args[0], undefined>
+    : never;
+
+/**
  * Описание схема клиента.
  */
 export type {

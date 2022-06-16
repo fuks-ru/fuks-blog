@@ -1,4 +1,7 @@
+import { isDevelopment } from '@difuks/common/dist/constants';
 import { DataSource, DataSourceOptions } from 'typeorm';
+
+const rootDir = isDevelopment ? 'src' : 'dist/build';
 
 /**
  * Prod конфиг БД.
@@ -11,9 +14,9 @@ export const ormConfig: DataSourceOptions = {
   database: 'blog',
   username: process.env.FUKS_BLOG_BACKEND_POSTGRES_USER,
   password: process.env.FUKS_BLOG_BACKEND_POSTGRES_PASSWORD,
-  entities: ['src/**/entities/*.ts', 'dist/build/**/entities/*.js'],
+  entities: [`${rootDir}/**/entities/*.{ts,js}`],
   migrationsTableName: 'migration',
-  migrations: ['src/__migration__/*.ts', 'dist/build/__migration__/*.js'],
+  migrations: [`${rootDir}/__migration__/*.{ts,js}`],
 };
 
 const devDataSource = new DataSource(ormConfig);

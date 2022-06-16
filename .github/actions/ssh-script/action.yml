@@ -22,12 +22,17 @@ runs:
           export FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_POSTGRES_PASSWORD }}"
           export FUKS_BLOG_AUTH_POSTGRES_USER="${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_POSTGRES_USER }}"
           export FUKS_BLOG_AUTH_POSTGRES_HOST="fuks-blog-auth-postgres"
-
+          export FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID="${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID }}"
+  
           export FUKS_BLOG_BACKEND_POSTGRES_PASSWORD="${{ fromJson(inputs.secret-context).FUKS_BLOG_BACKEND_POSTGRES_PASSWORD }}"
           export FUKS_BLOG_BACKEND_POSTGRES_USER="${{ fromJson(inputs.secret-context).FUKS_BLOG_BACKEND_POSTGRES_USER }}"
           export FUKS_BLOG_BACKEND_POSTGRES_HOST="fuks-blog-backend-postgres"
   
           export PERSONAL_NPM_TOKEN="${{ fromJson(inputs.secret-context).PERSONAL_NPM_TOKEN }}"
           export FUKS_BLOG_AUTH_JWT_SECRET="${{ fromJson(inputs.secret-context).FUKS_BLOG_AUTH_JWT_SECRET }}"
+      
+          export MAILER_USER="${{ fromJson(inputs.secret-context).MAILER_USER }}"
+          export MAILER_PASSWORD="${{ fromJson(inputs.secret-context).MAILER_PASSWORD }}"
+          export MAILER_HOST="${{ fromJson(inputs.secret-context).MAILER_HOST }}"
 
           ${{inputs.script}}

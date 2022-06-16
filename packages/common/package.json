@@ -47,6 +47,7 @@
     "axios": "^0.27.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "date-fns": "^2.28.0",
     "express": "^4.17.3",
     "tslib": "^2.4.0",
     "ttypescript": "^1.5.13",
@@ -61,6 +62,7 @@
     "@nestjs/swagger": "^5.2.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "date-fns": "^2.28.0",
     "express": "^4.17.3",
     "openapi-client-axios-typegen": "^5.0.2"
   }

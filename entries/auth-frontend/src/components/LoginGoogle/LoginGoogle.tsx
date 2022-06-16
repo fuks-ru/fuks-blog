@@ -6,7 +6,6 @@ import GoogleLogin, {
 } from 'react-google-login';
 import { css } from '@linaria/core';
 
-import { GOOGLE_CLIENT_ID } from 'auth-frontend/common/constants';
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
 import { useAuthForm } from 'auth-frontend/common/api';
 
@@ -41,7 +40,7 @@ export const LoginGoogle: FC = () => {
       </Form.Item>
       <Form.Item name='accessToken'>
         <GoogleLogin
-          clientId={GOOGLE_CLIENT_ID}
+          clientId={process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID as string}
           buttonText='Войти через Google'
           onSuccess={handleGoogleResponse}
           onFailure={handleGoogleResponse}

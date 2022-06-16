@@ -23,7 +23,8 @@ export class EmailRegisterService {
     user.hashedPassword = hashedPassword;
     user.email = email;
     user.role = Role.USER;
+    user.isConfirmed = true;
 
-    return this.userService.addUserIfNotExists(user);
+    return this.userService.addUserIfNotConfirmed(user);
   }
 }

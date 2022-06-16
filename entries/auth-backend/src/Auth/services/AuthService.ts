@@ -23,7 +23,7 @@ export class AuthService {
       userVerifyRequest.jwtToken,
     );
 
-    const { hashedPassword, ...user } = await this.userService.getById(
+    const { hashedPassword, ...user } = await this.userService.getConfirmedById(
       payload.id,
     );
 

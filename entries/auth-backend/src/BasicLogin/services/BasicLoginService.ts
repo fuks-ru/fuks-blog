@@ -18,7 +18,7 @@ export class BasicLoginService {
     email: string,
     password: string,
   ): Promise<User | null> {
-    const user = await this.userService.findByEmail(email);
+    const user = await this.userService.findConfirmedByEmail(email);
 
     if (!user) {
       return null;

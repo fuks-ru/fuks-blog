@@ -25,3 +25,4 @@ export { RequestRefModule } from 'common/backend/RequestRef/RequestRefModule';
 export { RequestRefService } from 'common/backend/RequestRef/services/RequestRefService';
 export { ValidationErrorFactory } from 'common/backend/Validation/services/ValidationErrorFactory';
 export { Match } from 'common/backend/Validation/decorators/Match';
+export * as localeDate from 'common/localeDate';

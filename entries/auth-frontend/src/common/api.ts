@@ -1,12 +1,19 @@
 import {
   authApi,
-  initAuthApi,
   OperationMethods,
   TApiBody,
+  TApiArgs,
+  TApiResponse,
+  OperationResponse,
 } from '@difuks/api-auth-backend/dist/frontend';
 import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
 import { Form, FormInstance, message } from 'antd';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+
+/**
+ * Статус завершения запроса.
+ */
+export type TStatus = 'pending' | 'success' | 'failed' | 'none';
 
 /**
  * Обертка над api-client сервиса авторизации, предоставляющая инстанс
@@ -17,15 +24,28 @@ export const useAuthForm = <
   Body extends TApiBody<ApiName>,
 >(
   name: ApiName,
-): [FormInstance<Body>, (body: Body) => Promise<void>] => {
+): [
+  FormInstance<Body>,
+  (body: Body, args?: TApiArgs<ApiName>) => Promise<void>,
+  TStatus,
+] => {
   const [form] = Form.useForm<Body>();
 
+  const [status, setStatus] = useState<TStatus>('none');
+
   const onFinish = useCallback(
-    async (body: Body) => {
+    async (body: Body, args?: TApiArgs<ApiName>) => {
+      setStatus('pending');
+
       try {
         await (
-          authApi[name] as (args: unknown, body: Body) => Promise<unknown>
-        )(null, body);
+          authApi[name] as (
+            args: unknown,
+            body: Body,
+          ) => OperationResponse<TApiResponse<ApiName>>
+        )(args || null, body);
+
+        setStatus('success');
       } catch (error) {
         form.setFields(
           Object.keys(body as Record<string, unknown>).map((name) => ({
@@ -40,24 +60,80 @@ export const useAuthForm = <
           form.setFields(
             Object.entries(data).map(([name, errors]) => ({ name, errors })),
           );
+
+          setStatus('failed');
+
+          return;
         }
+
+        if (error instanceof UnknownError) {
+          await message.error(error.message);
+
+          setStatus('failed');
+
+          return;
+        }
+
+        await message.error('Неизвестная ошибка');
+
+        setStatus('failed');
       }
     },
     [name, form],
   );
 
-  return [form, onFinish];
+  return [form, onFinish, status];
 };
 
 /**
- * Инициализирует api-client сервиса авторизации.
+ * Получает метод, объект ответа и статус запроса из authApi.
  */
-export const initApi = async (): Promise<void> => {
-  await initAuthApi((error) => {
-    if (error instanceof UnknownError) {
-      void message.error(error.message);
-    }
+export const useAuthApi = <
+  ApiName extends keyof OperationMethods,
+  Body extends TApiBody<ApiName>,
+>(
+  name: ApiName,
+): [
+  (body: Body, args?: TApiArgs<ApiName>) => Promise<void>,
+  TApiResponse<ApiName> | undefined,
+  TStatus,
+] => {
+  const [responseBody, setResponseBody] = useState<TApiResponse<ApiName>>();
+  const [status, setStatus] = useState<TStatus>('none');
 
-    throw error;
-  });
+  const method = useCallback(
+    async (body: Body, args?: TApiArgs<ApiName>) => {
+      setStatus('pending');
+
+      try {
+        const apiResponse = await (
+          authApi[name] as (
+            args: unknown,
+            body: Body,
+          ) => OperationResponse<TApiResponse<ApiName>>
+        )(args || null, body);
+
+        setResponseBody(apiResponse.data);
+
+        setStatus('success');
+
+        return;
+      } catch (error) {
+        if (error instanceof ValidationError || error instanceof UnknownError) {
+          await message.error(error.message);
+
+          setStatus('failed');
+
+          return;
+        }
+
+        await message.error('Неизвестная ошибка');
+
+        setStatus('failed');
+      }
+    },
+    [name],
+  );
+
+  return [method, responseBody, status];
 };

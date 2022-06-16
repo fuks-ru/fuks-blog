@@ -1,28 +1,42 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-import { LoginService } from 'auth-backend/Login/services/LoginService';
+import { EmailVerifyService } from 'auth-backend/EmailVerify/services/EmailVerifyService';
 import { BasicRegisterRequest } from 'auth-backend/Register/dto/BasicRegisterRequest';
+import { ResendConfirmRequest } from 'auth-backend/Register/dto/ResendConfirmRequest';
 import { BasicRegisterService } from 'auth-backend/Register/services/BasicRegisterService';
+import { UserService } from 'auth-backend/User/services/UserService';
 
-@Controller()
+@Controller('/register')
 @ApiTags('Register')
 export class RegisterController {
   public constructor(
     private readonly basicRegisterService: BasicRegisterService,
-    private readonly loginService: LoginService,
+    private readonly userService: UserService,
+    private readonly emailVerifyService: EmailVerifyService,
   ) {}
 
   /**
    * Маршрут для регистрации по логину и паролю.
    */
-  @Post('/register/basic')
+  @Post('/basic')
   @ApiOperation({
     operationId: 'registerBasic',
   })
   public async basic(@Body() body: BasicRegisterRequest): Promise<void> {
-    const user = await this.basicRegisterService.register(body);
+    await this.basicRegisterService.register(body);
+  }
 
-    this.loginService.login(user, body.redirectFrom);
+  /**
+   * Повторная отправка кода подтверждения.
+   */
+  @Post('/resend-confirm')
+  @ApiOperation({
+    operationId: 'registerResendConfirm',
+  })
+  public async resend(@Body() body: ResendConfirmRequest): Promise<void> {
+    const user = await this.userService.getUnConfirmedByEmail(body.email);
+
+    await this.emailVerifyService.send(user, body.redirectFrom);
   }
 }

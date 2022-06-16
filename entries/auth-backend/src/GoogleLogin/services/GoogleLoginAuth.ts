@@ -27,7 +27,7 @@ export class GoogleLoginAuth {
     }
 
     return (
-      (await this.userService.findByEmail(tokenPayload.email)) ||
+      (await this.userService.findConfirmedByEmail(tokenPayload.email)) ||
       (await this.emailRegisterService.register(tokenPayload.email))
     );
   }
