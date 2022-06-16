@@ -5133,6 +5133,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5173,6 +5174,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@nestjs/swagger",\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/express",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
@@ -5181,6 +5183,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/openapi-client-axios-typegen",\
             "class-transformer",\
             "class-validator",\
+            "date-fns",\
             "express",\
             "openapi-client-axios-typegen"\
           ],\
@@ -5199,6 +5202,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5235,6 +5239,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
             "@types/nestjs__platform-express",\
@@ -5257,6 +5262,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5297,6 +5303,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@nestjs/swagger",\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/express",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
@@ -5305,6 +5312,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/openapi-client-axios-typegen",\
             "class-transformer",\
             "class-validator",\
+            "date-fns",\
             "express",\
             "openapi-client-axios-typegen"\
           ],\
@@ -5323,6 +5331,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5361,6 +5370,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@nestjs/core",\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
             "@types/nestjs__platform-express",\
@@ -5383,6 +5393,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5421,6 +5432,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@nestjs/core",\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/express",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
@@ -5445,6 +5457,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5485,6 +5498,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@nestjs/swagger",\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/express",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
@@ -5511,6 +5525,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5551,6 +5566,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@nestjs/swagger",\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/express",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
@@ -5577,6 +5593,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/axios", "npm:0.14.0"],\
             ["@types/class-transformer", null],\
             ["@types/class-validator", null],\
+            ["@types/date-fns", null],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/geoip-lite", "npm:1.4.1"],\
             ["@types/nestjs__common", null],\
@@ -5616,6 +5633,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@nestjs/platform-express",\
             "@types/class-transformer",\
             "@types/class-validator",\
+            "@types/date-fns",\
             "@types/express",\
             "@types/nestjs__common",\
             "@types/nestjs__core",\
