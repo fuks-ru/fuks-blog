@@ -23,7 +23,7 @@ export const ConfirmEmailPage: FC = () => {
         confirmCode,
       });
     })();
-  });
+  }, [confirmCode, confirmationConfirm]);
 
   return null;
 };
