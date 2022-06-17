@@ -11,10 +11,10 @@ interface IProps {
 }
 
 /**
- * Компонент для повторной отправки кода подтверждения.
+ * Компонент для повторной отправки сообщения для смены пароля.
  */
-export const ResendConfirmEmail: FC<IProps> = ({ email }) => {
-  const [resendConfirm, , status] = useAuthApi('registerResendConfirm');
+export const ResendForgotPassword: FC<IProps> = ({ email }) => {
+  const [sendForgotPassword, , status] = useAuthApi('forgotPasswordSend');
 
   const redirectFrom = useRedirectFromContext();
 
@@ -25,14 +25,15 @@ export const ResendConfirmEmail: FC<IProps> = ({ email }) => {
       return;
     }
 
-    await resendConfirm({ email, redirectFrom });
-  }, [email, isRunning, redirectFrom, resendConfirm]);
+    await sendForgotPassword({ email, redirectFrom });
+  }, [email, isRunning, redirectFrom, sendForgotPassword]);
 
   return (
-    <SCard title='Регистрация'>
+    <SCard title='Восстановление пароля'>
       <Space direction='vertical' size='small'>
         <Typography.Text>
-          Письмо с кодом подтверждения отправлено вам на email. Код не пришел?
+          Письмо с ссылкой на смену пароля отправлено вам на email. Письмо не
+          пришло?
         </Typography.Text>
         <Button onClick={onResendClick} disabled={isRunning}>
           {isRunning ? <>До повторной отправки {humanTimeout}</> : 'Отправить'}

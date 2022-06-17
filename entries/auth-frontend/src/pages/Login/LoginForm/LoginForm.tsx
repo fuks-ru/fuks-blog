@@ -5,7 +5,7 @@ import { css } from '@linaria/core';
 import { Link } from 'react-router-dom';
 
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
-import { useAuthForm } from 'auth-frontend/common/api';
+import { useAuthForm } from 'auth-frontend/utils/api';
 
 /**
  * Форма фхода.
@@ -34,13 +34,18 @@ export const LoginForm: FC = () => {
             placeholder='Пароль'
           />
         </Form.Item>
-        <Form.Item noStyle={true}>
+        <Form.Item>
           <Button type='primary' htmlType='submit'>
             Войти
           </Button>
           <Typography.Text>
             {' '}
             или <Link to='/register'>регистрация</Link>
+          </Typography.Text>
+        </Form.Item>
+        <Form.Item noStyle={true}>
+          <Typography.Text>
+            <Link to='/forgot-password'>Забыли пароль?</Link>
           </Typography.Text>
         </Form.Item>
       </Form>

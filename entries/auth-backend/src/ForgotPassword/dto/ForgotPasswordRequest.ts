@@ -5,6 +5,7 @@ export class ForgotPasswordRequest {
   /**
    * Email.
    */
+  @ApiProperty()
   @IsEmail(
     {},
     {

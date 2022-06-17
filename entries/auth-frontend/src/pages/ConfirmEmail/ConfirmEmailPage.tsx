@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import { FC, useEffect } from 'react';
 
-import { useAuthApi } from 'auth-frontend/common/api';
+import { useAuthApi } from 'auth-frontend/utils/api';
 import { useConfirmCode } from 'auth-frontend/pages/ConfirmEmail/hooks/useConfirmCode';
 
 /**

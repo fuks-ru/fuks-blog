@@ -5,7 +5,8 @@ import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ResendConfirmEmail } from 'auth-frontend/pages/Register/RegisterForm/ResendConfirmEmail';
-import { useAuthForm } from 'auth-frontend/common/api';
+import { useAuthForm } from 'auth-frontend/utils/api';
+import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
 
 /**
  * Форма регистрации.
@@ -15,6 +16,8 @@ export const RegisterForm: FC = () => {
 
   const [email, setEmail] = useState<string>();
 
+  const redirectFrom = useRedirectFromContext();
+
   if (status === 'success' && email) {
     return <ResendConfirmEmail email={email} />;
   }
@@ -23,12 +26,16 @@ export const RegisterForm: FC = () => {
     <Card title='Регистрация'>
       <Form
         form={form}
+        initialValues={{ redirectFrom }}
         onFinish={async (body) => {
           await onFinish(body);
 
           setEmail(body.email);
         }}
       >
+        <Form.Item name='redirectFrom' noStyle={true}>
+          <Input hidden={true} readOnly={true} />
+        </Form.Item>
         <Form.Item name='email'>
           <Input
             placeholder='Email'
