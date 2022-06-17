@@ -4,9 +4,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { SystemErrorFactory } from '@difuks/common';
 
-import { ConfirmCode } from 'auth-backend/EmailVerify/entities/ConfirmCode';
+import { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';
+import { ForgotPasswordCode } from 'auth-backend/ForgotPassword/entities/ForgotPasswordCode';
 
 @Injectable()
 export class UserService {
@@ -107,6 +108,22 @@ export class UserService {
   }
 
   /**
+   * Получает подтвержденного пользователя по email.
+   */
+  public async getConfirmedByEmail(email: string): Promise<User> {
+    const user = await this.userRepository.findOneBy({
+      email,
+      isConfirmed: true,
+    });
+
+    if (!user) {
+      throw this.getNotFoundError();
+    }
+
+    return user;
+  }
+
+  /**
    * Активирует пользователя по коду подтверждения.
    */
   public async confirmByConfirmCode(confirmCode: ConfirmCode): Promise<User> {
@@ -121,6 +138,28 @@ export class UserService {
     }
 
     user.isConfirmed = true;
+
+    return this.userRepository.save(user);
+  }
+
+  /**
+   * Меняет пароль пользователя по коду смены пароля.
+   */
+  public async changePasswordByForgotPasswordCode(
+    forgotPassword: ForgotPasswordCode,
+    hashedPassword: string,
+  ): Promise<User> {
+    const user = await this.userRepository.findOneBy({
+      forgotPassword: {
+        id: forgotPassword.id,
+      },
+    });
+
+    if (!user) {
+      throw this.getNotFoundError();
+    }
+
+    user.hashedPassword = hashedPassword;
 
     return this.userRepository.save(user);
   }

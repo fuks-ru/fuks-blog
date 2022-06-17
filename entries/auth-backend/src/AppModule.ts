@@ -19,6 +19,7 @@ import { BasicAuthModule } from 'auth-backend/BasicLogin/BasicAuthModule';
 import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
 import { GoogleLoginModule } from 'auth-backend/GoogleLogin/GoogleLoginModule';
 import { RegisterModule } from 'auth-backend/Register/RegisterModule';
+import { ForgotPasswordModule } from 'auth-backend/ForgotPassword/ForgotPasswordModule';
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import { RegisterModule } from 'auth-backend/Register/RegisterModule';
         },
       }),
     }),
+    ForgotPasswordModule,
   ],
 })
 export class AppModule {}

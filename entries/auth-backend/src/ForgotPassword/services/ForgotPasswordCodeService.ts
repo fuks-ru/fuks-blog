@@ -1,0 +1,84 @@
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { localeDate, SystemErrorFactory } from '@difuks/common';
+import { v4 } from 'uuid';
+import { differenceInSeconds, addSeconds } from 'date-fns';
+import { Injectable } from '@nestjs/common';
+
+import { ForgotPasswordCode } from 'auth-backend/ForgotPassword/entities/ForgotPasswordCode';
+import { User } from 'auth-backend/User/entities/User';
+import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
+
+@Injectable()
+export class ForgotPasswordCodeService {
+  public constructor(
+    @InjectRepository(ForgotPasswordCode)
+    private readonly forgotPasswordCodeRepository: Repository<ForgotPasswordCode>,
+    private readonly systemErrorFactory: SystemErrorFactory,
+  ) {}
+
+  /**
+   * Добавляет код подтверждения в БД. Или обновляет, если он уже существует.
+   */
+  public async addForgotPasswordCodeToUser(
+    user: User,
+    redirectFrom: string,
+  ): Promise<ForgotPasswordCode> {
+    const existCode = await this.forgotPasswordCodeRepository.findOneBy({
+      user,
+    });
+
+    const newValue = v4();
+
+    if (!existCode) {
+      const forgotPasswordCode = new ForgotPasswordCode();
+
+      forgotPasswordCode.value = newValue;
+      forgotPasswordCode.user = user;
+      forgotPasswordCode.redirectFrom = redirectFrom;
+
+      return this.forgotPasswordCodeRepository.save(forgotPasswordCode);
+    }
+
+    const lastUpdatedAtDifferenceMs = differenceInSeconds(
+      new Date(),
+      existCode.updatedAt,
+    );
+
+    const humanTimeout = localeDate.formatDistanceStrict(
+      addSeconds(existCode.updatedAt, 60),
+      new Date(),
+    );
+
+    if (lastUpdatedAtDifferenceMs < 60) {
+      throw this.systemErrorFactory.create(
+        ErrorCode.FORGOT_PASSWORD_CODE_TIMEOUT,
+        `До повторной отправки ${humanTimeout}`,
+      );
+    }
+
+    existCode.value = newValue;
+    existCode.redirectFrom = redirectFrom;
+
+    return this.forgotPasswordCodeRepository.save(existCode);
+  }
+
+  /**
+   * Получает код по его значению.
+   */
+  public async getByValue(value: string): Promise<ForgotPasswordCode> {
+    const forgotPasswordCode =
+      await this.forgotPasswordCodeRepository.findOneBy({
+        value,
+      });
+
+    if (!forgotPasswordCode) {
+      throw this.systemErrorFactory.create(
+        ErrorCode.FORGOT_PASSWORD_NOT_EXIST,
+        'Некорректный код восстановления',
+      );
+    }
+
+    return forgotPasswordCode;
+  }
+}

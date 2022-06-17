@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { EncodingModule } from '@difuks/common';
 
-import { EmailVerifyModule } from 'auth-backend/EmailVerify/EmailVerifyModule';
+import { EmailVerifyModule } from 'auth-backend/Register/modules/EmailVerify/EmailVerifyModule';
 import { RegisterController } from 'auth-backend/Register/controllers/RegisterController';
 import { BasicRegisterService } from 'auth-backend/Register/services/BasicRegisterService';
 import { EmailRegisterService } from 'auth-backend/Register/services/EmailRegisterService';

@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import qs from 'qs';
 
 import { User } from 'auth-backend/User/entities/User';
-import { ConfirmCodeService } from 'auth-backend/EmailVerify/services/ConfirmCodeService';
+import { ConfirmCodeService } from 'auth-backend/Register/modules/EmailVerify/services/ConfirmCodeService';
 
 @Injectable()
 export class EmailVerifyService {

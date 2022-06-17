@@ -1,6 +1,7 @@
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-import type { ConfirmCode } from 'auth-backend/EmailVerify/entities/ConfirmCode';
+import type { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
+import type { ForgotPasswordCode } from 'auth-backend/ForgotPassword/entities/ForgotPasswordCode';
 
 /**
  * Описывает роли пользователя.
@@ -53,4 +54,12 @@ export class User {
     onDelete: 'CASCADE',
   })
   public confirmCode?: ConfirmCode;
+
+  /**
+   * Коды восстановления пароля.
+   */
+  @OneToOne('ForgotPasswordCode', 'user', {
+    onDelete: 'CASCADE',
+  })
+  public forgotPassword?: ForgotPasswordCode;
 }

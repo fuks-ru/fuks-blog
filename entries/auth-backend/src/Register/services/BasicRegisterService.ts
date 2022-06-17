@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { EncodingService } from '@difuks/common';
 
 import { BasicRegisterRequest } from 'auth-backend/Register/dto/BasicRegisterRequest';
-import { EmailVerifyService } from 'auth-backend/EmailVerify/services/EmailVerifyService';
+import { EmailVerifyService } from 'auth-backend/Register/modules/EmailVerify/services/EmailVerifyService';
 import { Role, User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';
 
