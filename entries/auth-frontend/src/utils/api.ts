@@ -61,6 +61,8 @@ export const useAuthForm = <
             Object.entries(data).map(([name, errors]) => ({ name, errors })),
           );
 
+          await message.error(error.message);
+
           setStatus('failed');
 
           return;

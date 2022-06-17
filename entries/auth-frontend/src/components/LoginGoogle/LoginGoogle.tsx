@@ -7,7 +7,7 @@ import GoogleLogin, {
 import { css } from '@linaria/core';
 
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
-import { useAuthForm } from 'auth-frontend/common/api';
+import { useAuthForm } from 'auth-frontend/utils/api';
 
 /**
  * Страница авторизации.

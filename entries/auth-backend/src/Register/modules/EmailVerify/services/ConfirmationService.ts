@@ -1,7 +1,7 @@
 import { RedirectErrorFactory } from '@difuks/common/dist';
 import { Injectable } from '@nestjs/common';
 
-import { ConfirmCodeService } from 'auth-backend/EmailVerify/services/ConfirmCodeService';
+import { ConfirmCodeService } from 'auth-backend/Register/modules/EmailVerify/services/ConfirmCodeService';
 import { LoginService } from 'auth-backend/Login/services/LoginService';
 import { UserService } from 'auth-backend/User/services/UserService';
 

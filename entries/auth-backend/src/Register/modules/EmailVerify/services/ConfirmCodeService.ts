@@ -1,4 +1,4 @@
-import { SystemErrorFactory, localeDate } from '@difuks/common';
+import { SystemErrorFactory, localeDate } from '@difuks/common/dist';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -7,7 +7,7 @@ import { addSeconds, differenceInSeconds } from 'date-fns';
 
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';
-import { ConfirmCode } from 'auth-backend/EmailVerify/entities/ConfirmCode';
+import { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
 
 @Injectable()
 export class ConfirmCodeService {

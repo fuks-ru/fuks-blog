@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-import { EmailVerifyService } from 'auth-backend/EmailVerify/services/EmailVerifyService';
+import { EmailVerifyService } from 'auth-backend/Register/modules/EmailVerify/services/EmailVerifyService';
 import { BasicRegisterRequest } from 'auth-backend/Register/dto/BasicRegisterRequest';
 import { ResendConfirmRequest } from 'auth-backend/Register/dto/ResendConfirmRequest';
 import { BasicRegisterService } from 'auth-backend/Register/services/BasicRegisterService';

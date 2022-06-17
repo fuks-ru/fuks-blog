@@ -1,8 +1,8 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-import { ConfirmRequest } from 'auth-backend/EmailVerify/dto/ConfirmRequest';
-import { ConfirmationService } from 'auth-backend/EmailVerify/services/ConfirmationService';
+import { ConfirmRequest } from 'auth-backend/Register/modules/EmailVerify/dto/ConfirmRequest';
+import { ConfirmationService } from 'auth-backend/Register/modules/EmailVerify/services/ConfirmationService';
 
 @Controller('/confirmation')
 @ApiTags('Confirmation')

@@ -22,6 +22,8 @@ export class ConfigGetter extends ConfigGetterBase {
     [ErrorCode.USER_NOT_FOUND]: HttpStatus.NOT_FOUND,
     [ErrorCode.CONFIRM_CODE_NOT_EXIST]: HttpStatus.NOT_FOUND,
     [ErrorCode.CONFIRM_CODE_TIMEOUT]: HttpStatus.TOO_MANY_REQUESTS,
+    [ErrorCode.FORGOT_PASSWORD_NOT_EXIST]: HttpStatus.NOT_FOUND,
+    [ErrorCode.FORGOT_PASSWORD_CODE_TIMEOUT]: HttpStatus.TOO_MANY_REQUESTS,
   };
 
   public constructor(systemErrorFactory: SystemErrorFactory) {

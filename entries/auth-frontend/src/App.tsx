@@ -8,6 +8,8 @@ import {
 } from 'auth-frontend/hooks/useRedirectFrom';
 import { RegisterPage } from 'auth-frontend/pages/Register/RegisterPage';
 import { LoginPage } from 'auth-frontend/pages/Login/LoginPage';
+import { ForgotPasswordPage } from 'auth-frontend/pages/ForgotPassword/ForgotPasswordPage';
+import { ChangePasswordPage } from 'auth-frontend/pages/ChangePassword/ChangePasswordPage';
 
 /**
  * Главный компонент авторизации.
@@ -21,6 +23,8 @@ export const App: FC = () => {
         <Route path='/' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/confirm-email' element={<ConfirmEmailPage />} />
+        <Route path='/forgot-password' element={<ForgotPasswordPage />} />
+        <Route path='/change-password' element={<ChangePasswordPage />} />
       </Routes>
     </RedirectFromContext.Provider>
   );
