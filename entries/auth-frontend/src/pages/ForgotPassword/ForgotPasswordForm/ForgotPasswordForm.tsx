@@ -48,7 +48,7 @@ export const ForgotPasswordForm: FC = () => {
           </Button>
           <Typography.Text>
             {' '}
-            или <Link to='/'>Войти</Link>
+            или <Link to='/'>войти</Link>
           </Typography.Text>
         </Form.Item>
       </Form>

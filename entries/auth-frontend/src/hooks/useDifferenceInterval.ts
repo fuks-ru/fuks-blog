@@ -16,7 +16,7 @@ interface IResult {
 }
 
 /**
- * Запускает интервал с определенным временем в случае success статуса.
+ * Запускает интервал с определенным временем в случае success статуса1.
  */
 export const useDifferenceInterval = ({
   status,
