@@ -1,0 +1,10 @@
+{
+  "login": "Login",
+  "email": "Email",
+  "password": "Password",
+  "loginOrRegister": "<0>Login</0> or <2>register</2>",
+  "forgotPassword": "Forgot your password?",
+  "registration": "Registration",
+  "repeatPassword": "Repeat password",
+  "registerOrEnter": "<0>Register</0> or <2>login</2>"
+}

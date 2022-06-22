@@ -4,6 +4,8 @@ import 'antd/dist/antd.css';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
+import { LocaleSwitch } from 'auth-frontend/components/LocaleSwitch/LocaleSwitch';
+
 interface IProps {
   children: ReactNode;
 }
@@ -12,15 +14,26 @@ interface IProps {
  * Компонент шаблона.
  */
 export const Layout: FC<IProps> = ({ children }) => (
-  <SLayout>{children}</SLayout>
+  <>
+    <SHeader>
+      <LocaleSwitch />
+    </SHeader>
+    <SMain>{children}</SMain>
+  </>
 );
 
-const SLayout = styled.main`
-  width: 100%;
-  height: 100%;
+const SHeader = styled.header`
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 0;
+`;
+
+const SMain = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
 `;
 
 /**
@@ -37,13 +50,18 @@ export const globals = css`
     }
 
     body {
-      height: 100%;
-      width: 100%;
       font-weight: 300;
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    #app {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   }
 `;

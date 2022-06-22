@@ -1,0 +1,12 @@
+{
+  "login": "Вход",
+  "email": "Email",
+  "password": "Пароль",
+  "loginOrRegister": "<0>Войти</0> или <2>регистрация</2>",
+  "forgotPassword": "Забыли пароль?",
+  "registration": "Регистрация",
+  "repeatPassword": "Повторите пароль",
+  "registerOrEnter": "<0>Зарегистрироваться</0> или <2>войти</2>",
+  "confirmEmailSent": "Письмо с кодом подтверждения отправлено вам на email. Код не пришел?",
+  "confirmEmailResend": ""
+}
