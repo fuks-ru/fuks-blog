@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 import { Button, Card, Space, Typography } from 'antd';
 import { FC, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useAuthApi } from 'auth-frontend/utils/api';
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
@@ -15,6 +16,7 @@ interface IProps {
  */
 export const ResendConfirmEmail: FC<IProps> = ({ email }) => {
   const [resendConfirm, , status] = useAuthApi('registerResendConfirm');
+  const { t } = useTranslation();
 
   const redirectFrom = useRedirectFromContext();
 
@@ -29,13 +31,13 @@ export const ResendConfirmEmail: FC<IProps> = ({ email }) => {
   }, [email, isRunning, redirectFrom, resendConfirm]);
 
   return (
-    <SCard title='Регистрация'>
+    <SCard title={t('registration')}>
       <Space direction='vertical' size='small'>
-        <Typography.Text>
-          Письмо с кодом подтверждения отправлено вам на email. Код не пришел?
-        </Typography.Text>
+        <Typography.Text>{t('confirmEmailSent')}</Typography.Text>
         <Button onClick={onResendClick} disabled={isRunning}>
-          {isRunning ? <>До повторной отправки {humanTimeout}</> : 'Отправить'}
+          {isRunning
+            ? t('confirmEmailResend', { timeout: humanTimeout })
+            : t('send')}
         </Button>
       </Space>
     </SCard>

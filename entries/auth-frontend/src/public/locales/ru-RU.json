@@ -4,9 +4,10 @@
   "password": "Пароль",
   "loginOrRegister": "<0>Войти</0> или <2>регистрация</2>",
   "forgotPassword": "Забыли пароль?",
+  "confirmEmailSent": "Письмо с кодом подтверждения отправлено вам на email. Код не пришел?",
   "registration": "Регистрация",
   "repeatPassword": "Повторите пароль",
   "registerOrEnter": "<0>Зарегистрироваться</0> или <2>войти</2>",
-  "confirmEmailSent": "Письмо с кодом подтверждения отправлено вам на email. Код не пришел?",
-  "confirmEmailResend": ""
+  "confirmEmailResend": "До повторной отправки: {{timeout}}",
+  "send": "Отправить"
 }

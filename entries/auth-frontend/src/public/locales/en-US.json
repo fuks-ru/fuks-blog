@@ -6,5 +6,8 @@
   "forgotPassword": "Forgot your password?",
   "registration": "Registration",
   "repeatPassword": "Repeat password",
-  "registerOrEnter": "<0>Register</0> or <2>login</2>"
+  "registerOrEnter": "<0>Register</0> or <2>login</2>",
+  "confirmEmailSent": "An email with a confirmation code has been sent to your email. Code not received?",
+  "confirmEmailResend": "Until resubmission: {{timeout}}",
+  "send": "Send"
 }
