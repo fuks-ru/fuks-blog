@@ -1,7 +1,6 @@
 import { useBoolean, useInterval } from 'react-use';
-import { addSeconds, differenceInSeconds } from 'date-fns';
+import { differenceInSeconds } from 'date-fns';
 import { useEffect, useMemo, useState } from 'react';
-import { localeDate } from '@difuks/common/dist/frontend';
 
 import { TStatus } from 'auth-frontend/utils/api';
 
@@ -11,8 +10,8 @@ interface IParams {
 }
 
 interface IResult {
-  humanTimeout: string;
   isRunning: boolean;
+  secondsToNextSend: number;
 }
 
 /**
@@ -26,6 +25,11 @@ export const useDifferenceInterval = ({
   const [lastUpdateTime, setLastUpdateTime] = useState(lastSendTime);
   const [isRunning, setIsRunning] = useBoolean(true);
 
+  const lastUpdatedDifference = useMemo(
+    () => differenceInSeconds(lastUpdateTime, lastSendTime),
+    [lastSendTime, lastUpdateTime],
+  );
+
   useInterval(
     () => {
       setLastUpdateTime(new Date());
@@ -33,25 +37,11 @@ export const useDifferenceInterval = ({
     isRunning ? 1_000 : null,
   );
 
-  const humanTimeout = useMemo(
-    () =>
-      localeDate.formatDistanceStrict(
-        addSeconds(lastSendTime, timeout),
-        lastUpdateTime,
-      ),
-    [lastSendTime, lastUpdateTime, timeout],
-  );
-
   useEffect(() => {
-    const lastUpdatedDifference = differenceInSeconds(
-      lastUpdateTime,
-      lastSendTime,
-    );
-
     if (lastUpdatedDifference >= timeout) {
       setIsRunning(false);
     }
-  }, [lastSendTime, lastUpdateTime, setIsRunning, timeout]);
+  }, [lastUpdatedDifference, setIsRunning, timeout]);
 
   useEffect(() => {
     if (status !== 'success') {
@@ -64,7 +54,7 @@ export const useDifferenceInterval = ({
   }, [setIsRunning, status]);
 
   return {
-    humanTimeout,
     isRunning,
+    secondsToNextSend: timeout - lastUpdatedDifference,
   };
 };

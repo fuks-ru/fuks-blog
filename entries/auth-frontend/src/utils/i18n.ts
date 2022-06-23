@@ -13,6 +13,9 @@ void i18n
     backend: {
       loadPath: '/locales/{{lng}}.json',
     },
+    interpolation: {
+      escapeValue: false,
+    },
   });
 
 export { default as i18n } from 'i18next';

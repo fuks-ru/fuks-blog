@@ -59,7 +59,7 @@ export const RegisterForm: FC = () => {
           />
         </Form.Item>
         <Form.Item noStyle={true}>
-          <Trans t={t} i18nKey='registerOrEnter'>
+          <Trans t={t} i18nKey='registerOrLogin'>
             <Button
               type='primary'
               htmlType='submit'

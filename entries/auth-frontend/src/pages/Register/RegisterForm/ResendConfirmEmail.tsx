@@ -17,10 +17,9 @@ interface IProps {
 export const ResendConfirmEmail: FC<IProps> = ({ email }) => {
   const [resendConfirm, , status] = useAuthApi('registerResendConfirm');
   const { t } = useTranslation();
-
   const redirectFrom = useRedirectFromContext();
 
-  const { humanTimeout, isRunning } = useDifferenceInterval({ status });
+  const { secondsToNextSend, isRunning } = useDifferenceInterval({ status });
 
   const onResendClick = useCallback(async () => {
     if (isRunning) {
@@ -35,9 +34,7 @@ export const ResendConfirmEmail: FC<IProps> = ({ email }) => {
       <Space direction='vertical' size='small'>
         <Typography.Text>{t('confirmEmailSent')}</Typography.Text>
         <Button onClick={onResendClick} disabled={isRunning}>
-          {isRunning
-            ? t('confirmEmailResend', { timeout: humanTimeout })
-            : t('send')}
+          {isRunning ? t('resendAfter', { secondsToNextSend }) : t('send')}
         </Button>
       </Space>
     </SCard>

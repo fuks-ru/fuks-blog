@@ -2,6 +2,7 @@ import { Button, Card, Form, Input } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { FC } from 'react';
 import { css } from '@linaria/core';
+import { useTranslation } from 'react-i18next';
 
 import { useAuthForm } from 'auth-frontend/utils/api';
 import { useForgotPasswordCode } from 'auth-frontend/pages/ChangePassword/ChangePasswordForm/hooks/useForgotPasswordCode';
@@ -11,11 +12,12 @@ import { useForgotPasswordCode } from 'auth-frontend/pages/ChangePassword/Change
  */
 export const ChangePasswordForm: FC = () => {
   const [form, onFinish] = useAuthForm('forgotPasswordChange');
+  const { t } = useTranslation();
 
   const forgotPasswordCode = useForgotPasswordCode();
 
   return (
-    <Card title='Смена пароля'>
+    <Card title={t('changePassword')}>
       <Form
         form={form}
         initialValues={{ forgotPasswordCode }}
@@ -27,20 +29,20 @@ export const ChangePasswordForm: FC = () => {
         <Form.Item name='password'>
           <Input
             type='password'
-            placeholder='Пароль'
+            placeholder={t('password')}
             prefix={<LockOutlined className={opacityIcon} />}
           />
         </Form.Item>
         <Form.Item name='repeatPassword'>
           <Input
             type='password'
-            placeholder='Повторите пароль'
+            placeholder={t('repeatPassword')}
             prefix={<LockOutlined className={opacityIcon} />}
           />
         </Form.Item>
         <Form.Item noStyle={true}>
           <Button type='primary' htmlType='submit'>
-            Отправить
+            {t('send')}
           </Button>
         </Form.Item>
       </Form>

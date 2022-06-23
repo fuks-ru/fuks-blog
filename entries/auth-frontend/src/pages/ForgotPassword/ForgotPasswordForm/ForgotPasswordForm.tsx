@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
-import { Button, Card, Form, Input, Typography } from 'antd';
+import { Button, Card, Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { css } from '@linaria/core';
+import { Trans, useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import { useAuthForm } from 'auth-frontend/utils/api';
@@ -13,17 +14,16 @@ import { ResendForgotPassword } from 'auth-frontend/pages/ForgotPassword/ForgotP
  */
 export const ForgotPasswordForm: FC = () => {
   const [form, onFinish, status] = useAuthForm('forgotPasswordSend');
-
   const [email, setEmail] = useState<string>();
-
   const redirectFrom = useRedirectFromContext();
+  const { t } = useTranslation();
 
   if (status === 'success' && email) {
     return <ResendForgotPassword email={email} />;
   }
 
   return (
-    <Card title='Восстановление пароля'>
+    <Card title={t('passwordRecovery')}>
       <Form
         form={form}
         initialValues={{ redirectFrom }}
@@ -39,17 +39,16 @@ export const ForgotPasswordForm: FC = () => {
         <Form.Item name='email'>
           <Input
             prefix={<UserOutlined className={opacityIcon} />}
-            placeholder='Email'
+            placeholder={t('email')}
           />
         </Form.Item>
         <Form.Item noStyle={true}>
-          <Button type='primary' htmlType='submit'>
-            Отправить
-          </Button>
-          <Typography.Text>
-            {' '}
-            или <Link to='/'>войти</Link>
-          </Typography.Text>
+          <Trans t={t} i18nKey='sendOrLogin'>
+            <Button type='primary' htmlType='submit'>
+              Send
+            </Button>
+            or<Link to='/'>enter</Link>
+          </Trans>
         </Form.Item>
       </Form>
     </Card>

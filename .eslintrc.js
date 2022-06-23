@@ -18,59 +18,27 @@ module.exports = {
       },
     },
   },
-  rules: {
-    'jsdoc/require-throws': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      { argsIgnorePattern: '^_', ignoreRestSiblings: true },
-    ],
-    'jsdoc/require-jsdoc': [
-      'error',
-      {
-        checkConstructors: false,
-        contexts: [
-          'TSInterfaceDeclaration',
-          'TSTypeAliasDeclaration',
-          'TSPropertySignature',
-          'TSEnumDeclaration',
-          'TSMethodSignature',
-          'ExportDefaultDeclaration',
-          'ExportNamedDeclaration[declaration][declaration.declarations.0.id.name!="getServerSideProps"][declaration.type!="ClassDeclaration"]',
-          'PropertyDefinition:not([accessibility="private"])',
-          'MethodDefinition:not([accessibility="private"])',
-          'ClassProperty:not([accessibility="private"])',
-        ],
-        publicOnly: true,
-      },
-    ],
-  },
   overrides: [
     {
       files: ['*.json'],
       parserOptions: {
         project: false,
       },
+      rules: {
+        indent: ['error', 2],
+      },
     },
     {
-      files: ['*.ts', '*.tsx'],
+      // TODO временно, пока не перевел на i18n
+      files: ['entries/{blog-frontend,admin-frontend}/**/*.tsx'],
       rules: {
-        '@typescript-eslint/no-misused-promises': [
-          'error',
-          {
-            checksVoidReturn: {
-              attributes: false,
-            },
-          },
-        ],
+        'i18next/no-literal-string': ['off'],
       },
     },
     {
       files: ['*.fixture.tsx'],
       rules: {
-        'react/function-component-definition': ['off'],
-        '@typescript-eslint/explicit-module-boundary-types': ['off'],
-        '@typescript-eslint/explicit-function-return-type': ['off'],
-        'jsdoc/require-jsdoc': ['off'],
+        'i18next/no-literal-string': ['off'],
       },
     },
   ],
