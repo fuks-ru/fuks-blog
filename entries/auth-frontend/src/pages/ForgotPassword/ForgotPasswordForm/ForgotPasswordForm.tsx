@@ -3,11 +3,11 @@ import { Button, Card, Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { css } from '@linaria/core';
 import { Trans, useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 import { useAuthForm } from 'auth-frontend/utils/api';
-import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
+import { useRedirectFrom } from 'auth-frontend/components/RedirectFromProvider/hooks/useRedirectFrom';
 import { ResendForgotPassword } from 'auth-frontend/pages/ForgotPassword/ForgotPasswordForm/ResendForgotPassword';
+import { Link } from 'auth-frontend/components/Link/Link';
 
 /**
  * Форма восстановления пароля.
@@ -15,7 +15,7 @@ import { ResendForgotPassword } from 'auth-frontend/pages/ForgotPassword/ForgotP
 export const ForgotPasswordForm: FC = () => {
   const [form, onFinish, status] = useAuthForm('forgotPasswordSend');
   const [email, setEmail] = useState<string>();
-  const redirectFrom = useRedirectFromContext();
+  const redirectFrom = useRedirectFrom();
   const { t } = useTranslation();
 
   if (status === 'success' && email) {
@@ -47,7 +47,7 @@ export const ForgotPasswordForm: FC = () => {
             <Button type='primary' htmlType='submit'>
               Send
             </Button>
-            or<Link to='/'>enter</Link>
+            or<Link route='login'>login</Link>
           </Trans>
         </Form.Item>
       </Form>

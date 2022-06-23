@@ -2,7 +2,7 @@
   "login": "Login",
   "email": "Email",
   "password": "Password",
-  "loginOrRegister": "<0>Login</0> or <2>register</2>",
+  "loginOrRegister": "<0>Login</0> or <2>registration</2>",
   "forgotPassword": "Forgot your password?",
   "confirmEmailSent": "An email with a confirmation code has been sent to your email. Code not received?",
   "registration": "Registration",

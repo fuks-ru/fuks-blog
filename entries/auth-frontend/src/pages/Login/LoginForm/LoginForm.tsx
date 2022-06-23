@@ -2,20 +2,20 @@ import { Button, Card, Form, Input, Typography } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { FC } from 'react';
 import { css } from '@linaria/core';
-import { Link } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
+import { useRedirectFrom } from 'auth-frontend/components/RedirectFromProvider/hooks/useRedirectFrom';
 import { useAuthForm } from 'auth-frontend/utils/api';
+import { Link } from 'auth-frontend/components/Link/Link';
 
 /**
- * Форма фхода.
+ * Форма входа.
  */
 export const LoginForm: FC = () => {
   const [form, onFinish] = useAuthForm('loginBasic');
   const { t } = useTranslation();
 
-  const redirectFrom = useRedirectFromContext();
+  const redirectFrom = useRedirectFrom();
 
   return (
     <Card title={t('login')}>
@@ -42,12 +42,12 @@ export const LoginForm: FC = () => {
               Login
             </Button>
             or
-            <Link to='/register'>register</Link>
+            <Link route='registration'>registration</Link>
           </Trans>
         </Form.Item>
         <Form.Item noStyle={true}>
           <Typography.Text>
-            <Link to='/forgot-password'>{t('forgotPassword')}</Link>
+            <Link route='forgotPassword'>{t('forgotPassword')}</Link>
           </Typography.Text>
         </Form.Item>
       </Form>

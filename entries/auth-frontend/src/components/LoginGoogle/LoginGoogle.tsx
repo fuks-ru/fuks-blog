@@ -7,16 +7,18 @@ import GoogleLogin, {
 import { css } from '@linaria/core';
 import { useTranslation } from 'react-i18next';
 
-import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
+import { useTheme } from 'auth-frontend/components/ThemeProvider/hooks/useTheme';
+import { useRedirectFrom } from 'auth-frontend/components/RedirectFromProvider/hooks/useRedirectFrom';
 import { useAuthForm } from 'auth-frontend/utils/api';
 
 /**
  * Страница авторизации.
  */
 export const LoginGoogle: FC = () => {
-  const redirectFrom = useRedirectFromContext();
+  const redirectFrom = useRedirectFrom();
   const [form, onFinish] = useAuthForm('loginGoogle');
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   const handleGoogleResponse = useCallback(
     (response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
@@ -48,6 +50,7 @@ export const LoginGoogle: FC = () => {
           onFailure={handleGoogleResponse}
           cookiePolicy='single_host_origin'
           className={googleLogin}
+          theme={theme}
         />
       </Form.Item>
     </Form>
@@ -56,4 +59,5 @@ export const LoginGoogle: FC = () => {
 
 const googleLogin = css`
   width: 100%;
+  font-family: inherit;
 `;

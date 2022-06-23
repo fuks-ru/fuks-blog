@@ -1,12 +1,11 @@
-import { Spin } from 'antd';
 import { FC, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import { ThemeProvider } from 'auth-frontend/components/ThemeProvider/ThemeProvider';
+import { routes } from 'auth-frontend/utils/routes';
+import { RedirectFromProvider } from 'auth-frontend/components/RedirectFromProvider/RedirectFromProvider';
+import { Preloader } from 'auth-frontend/components/Preloader/Preloader';
 import { ConfirmEmailPage } from 'auth-frontend/pages/ConfirmEmail/ConfirmEmailPage';
-import {
-  RedirectFromContext,
-  useRedirectFrom,
-} from 'auth-frontend/hooks/useRedirectFrom';
 
 const RegisterPage = lazy(
   () => import('auth-frontend/pages/Register/RegisterPage'),
@@ -22,21 +21,24 @@ const ChangePasswordPage = lazy(
 /**
  * Главный компонент авторизации.
  */
-export const App: FC = () => {
-  const redirectFrom = useRedirectFrom();
-
-  return (
-    // TODO нормально стилизовать спиннер
-    <Suspense fallback={<Spin />}>
-      <RedirectFromContext.Provider value={redirectFrom}>
+export const App: FC = () => (
+  <Suspense fallback={<Preloader />}>
+    <ThemeProvider>
+      <RedirectFromProvider>
         <Routes>
-          <Route path='/' element={<LoginPage />} />
-          <Route path='/register' element={<RegisterPage />} />
-          <Route path='/confirm-email' element={<ConfirmEmailPage />} />
-          <Route path='/forgot-password' element={<ForgotPasswordPage />} />
-          <Route path='/change-password' element={<ChangePasswordPage />} />
+          <Route path={routes.login} element={<LoginPage />} />
+          <Route path={routes.registration} element={<RegisterPage />} />
+          <Route path={routes.confirmEmail} element={<ConfirmEmailPage />} />
+          <Route
+            path={routes.forgotPassword}
+            element={<ForgotPasswordPage />}
+          />
+          <Route
+            path={routes.changePassword}
+            element={<ChangePasswordPage />}
+          />
         </Routes>
-      </RedirectFromContext.Provider>
-    </Suspense>
-  );
-};
+      </RedirectFromProvider>
+    </ThemeProvider>
+  </Suspense>
+);

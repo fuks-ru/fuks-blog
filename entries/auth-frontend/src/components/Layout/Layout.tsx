@@ -1,10 +1,10 @@
 import { FC, ReactNode } from 'react';
 import 'normalize.css';
-import 'antd/dist/antd.css';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
 import { LocaleSwitch } from 'auth-frontend/components/LocaleSwitch/LocaleSwitch';
+import { ThemeSwitch } from 'auth-frontend/components/Layout/ThemeSwitch/ThemeSwitch';
 
 interface IProps {
   children: ReactNode;
@@ -16,6 +16,7 @@ interface IProps {
 export const Layout: FC<IProps> = ({ children }) => (
   <>
     <SHeader>
+      <ThemeSwitch />
       <LocaleSwitch />
     </SHeader>
     <SMain>{children}</SMain>
@@ -26,6 +27,7 @@ const SHeader = styled.header`
   display: flex;
   justify-content: flex-end;
   padding: 10px 10px 0;
+  gap: 10px;
 `;
 
 const SMain = styled.main`

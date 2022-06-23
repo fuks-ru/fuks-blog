@@ -4,7 +4,7 @@ import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAuthApi } from 'auth-frontend/utils/api';
-import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
+import { useRedirectFrom } from 'auth-frontend/components/RedirectFromProvider/hooks/useRedirectFrom';
 import { useDifferenceInterval } from 'auth-frontend/hooks/useDifferenceInterval';
 
 interface IProps {
@@ -17,7 +17,7 @@ interface IProps {
 export const ResendConfirmEmail: FC<IProps> = ({ email }) => {
   const [resendConfirm, , status] = useAuthApi('registerResendConfirm');
   const { t } = useTranslation();
-  const redirectFrom = useRedirectFromContext();
+  const redirectFrom = useRedirectFrom();
 
   const { secondsToNextSend, isRunning } = useDifferenceInterval({ status });
 

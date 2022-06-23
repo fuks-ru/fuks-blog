@@ -2,12 +2,12 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { css } from '@linaria/core';
 import { Button, Form, Input, Card } from 'antd';
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { ResendConfirmEmail } from 'auth-frontend/pages/Register/RegisterForm/ResendConfirmEmail';
 import { useAuthForm } from 'auth-frontend/utils/api';
-import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
+import { useRedirectFrom } from 'auth-frontend/components/RedirectFromProvider/hooks/useRedirectFrom';
+import { Link } from 'auth-frontend/components/Link/Link';
 
 /**
  * Форма регистрации.
@@ -18,7 +18,7 @@ export const RegisterForm: FC = () => {
 
   const [email, setEmail] = useState<string>();
 
-  const redirectFrom = useRedirectFromContext();
+  const redirectFrom = useRedirectFrom();
 
   if (status === 'success' && email) {
     return <ResendConfirmEmail email={email} />;
@@ -67,8 +67,7 @@ export const RegisterForm: FC = () => {
             >
               Register
             </Button>
-            or
-            <Link to='/'>login</Link>
+            or<Link route='login'>login</Link>
           </Trans>
         </Form.Item>
       </Form>

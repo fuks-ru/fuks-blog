@@ -18,6 +18,16 @@ module.exports = {
       },
     },
   },
+  rules: {
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: [],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['noHref', 'invalidHref', 'preferButton'],
+      },
+    ],
+  },
   overrides: [
     {
       files: ['*.json'],
