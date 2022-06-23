@@ -3,7 +3,7 @@ import 'normalize.css';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
-import { LocaleSwitch } from 'auth-frontend/components/LocaleSwitch/LocaleSwitch';
+import { LocaleSwitch } from 'auth-frontend/components/Layout/LocaleSwitch/LocaleSwitch';
 import { ThemeSwitch } from 'auth-frontend/components/Layout/ThemeSwitch/ThemeSwitch';
 
 interface IProps {

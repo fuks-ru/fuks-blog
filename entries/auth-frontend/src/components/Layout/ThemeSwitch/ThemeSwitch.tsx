@@ -41,5 +41,5 @@ const SIconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 28px;
 `;
