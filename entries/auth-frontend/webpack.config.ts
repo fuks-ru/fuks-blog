@@ -12,6 +12,7 @@ import {
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import 'webpack-dev-server';
 
@@ -28,6 +29,9 @@ const plugins: WebpackPluginInstance[] = [
   }),
   new MiniCssExtractPlugin({
     filename: `styles${isDevelopment ? '' : '-[contenthash]'}.css`,
+  }),
+  new CopyWebpackPlugin({
+    patterns: [{ from: 'src/public' }],
   }),
 ];
 
@@ -48,7 +52,7 @@ const config: Configuration = {
     clean: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     plugins: [new TsconfigPathsPlugin()],
   },
   plugins,

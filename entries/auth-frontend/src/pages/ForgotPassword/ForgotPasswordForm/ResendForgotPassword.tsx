@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 import { Button, Card, Space, Typography } from 'antd';
 import { FC, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useAuthApi } from 'auth-frontend/utils/api';
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
@@ -15,10 +16,10 @@ interface IProps {
  */
 export const ResendForgotPassword: FC<IProps> = ({ email }) => {
   const [sendForgotPassword, , status] = useAuthApi('forgotPasswordSend');
-
+  const { t } = useTranslation();
   const redirectFrom = useRedirectFromContext();
 
-  const { humanTimeout, isRunning } = useDifferenceInterval({ status });
+  const { secondsToNextSend, isRunning } = useDifferenceInterval({ status });
 
   const onResendClick = useCallback(async () => {
     if (isRunning) {
@@ -29,14 +30,11 @@ export const ResendForgotPassword: FC<IProps> = ({ email }) => {
   }, [email, isRunning, redirectFrom, sendForgotPassword]);
 
   return (
-    <SCard title='Восстановление пароля'>
+    <SCard title={t('passwordRecovery')}>
       <Space direction='vertical' size='small'>
-        <Typography.Text>
-          Письмо с ссылкой на смену пароля отправлено вам на email. Письмо не
-          пришло?
-        </Typography.Text>
+        <Typography.Text>{t('changePasswordEmailSent')}</Typography.Text>
         <Button onClick={onResendClick} disabled={isRunning}>
-          {isRunning ? <>До повторной отправки {humanTimeout}</> : 'Отправить'}
+          {isRunning ? t('resendAfter', { secondsToNextSend }) : t('send')}
         </Button>
       </Space>
     </SCard>

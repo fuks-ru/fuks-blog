@@ -1,5 +1,6 @@
 import { message } from 'antd';
 import { FC, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useAuthApi } from 'auth-frontend/utils/api';
 import { useConfirmCode } from 'auth-frontend/pages/ConfirmEmail/hooks/useConfirmCode';
@@ -10,11 +11,12 @@ import { useConfirmCode } from 'auth-frontend/pages/ConfirmEmail/hooks/useConfir
 export const ConfirmEmailPage: FC = () => {
   const confirmCode = useConfirmCode();
   const [confirmationConfirm] = useAuthApi('confirmationConfirm');
+  const { t } = useTranslation();
 
   useEffect(() => {
     (async () => {
       if (!confirmCode) {
-        await message.error('Некорректная ссылка для подтверждения');
+        await message.error(t('incorrectConfirmLink'));
 
         return;
       }
@@ -23,7 +25,7 @@ export const ConfirmEmailPage: FC = () => {
         confirmCode,
       });
     })();
-  }, [confirmCode, confirmationConfirm]);
+  }, [confirmCode, confirmationConfirm, t]);
 
   return null;
 };

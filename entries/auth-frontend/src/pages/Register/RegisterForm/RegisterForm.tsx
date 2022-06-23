@@ -1,8 +1,9 @@
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { css } from '@linaria/core';
-import { Button, Form, Input, Card, Typography } from 'antd';
+import { Button, Form, Input, Card } from 'antd';
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { ResendConfirmEmail } from 'auth-frontend/pages/Register/RegisterForm/ResendConfirmEmail';
 import { useAuthForm } from 'auth-frontend/utils/api';
@@ -13,6 +14,7 @@ import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
  */
 export const RegisterForm: FC = () => {
   const [form, onFinish, status] = useAuthForm('registerBasic');
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState<string>();
 
@@ -23,7 +25,7 @@ export const RegisterForm: FC = () => {
   }
 
   return (
-    <Card title='Регистрация'>
+    <Card title={t('registration')}>
       <Form
         form={form}
         initialValues={{ redirectFrom }}
@@ -38,36 +40,36 @@ export const RegisterForm: FC = () => {
         </Form.Item>
         <Form.Item name='email'>
           <Input
-            placeholder='Email'
+            placeholder={t('email')}
             prefix={<UserOutlined className={opacityIcon} />}
           />
         </Form.Item>
         <Form.Item name='password'>
           <Input
             type='password'
-            placeholder='Пароль'
+            placeholder={t('password')}
             prefix={<LockOutlined className={opacityIcon} />}
           />
         </Form.Item>
         <Form.Item name='repeatPassword'>
           <Input
             type='password'
-            placeholder='Повторите пароль'
+            placeholder={t('repeatPassword')}
             prefix={<LockOutlined className={opacityIcon} />}
           />
         </Form.Item>
         <Form.Item noStyle={true}>
-          <Button
-            type='primary'
-            htmlType='submit'
-            className='login-form-button'
-          >
-            Зарегистрироваться
-          </Button>
-          <Typography.Text>
-            {' '}
-            или <Link to='/'>войти</Link>
-          </Typography.Text>
+          <Trans t={t} i18nKey='registerOrLogin'>
+            <Button
+              type='primary'
+              htmlType='submit'
+              className='login-form-button'
+            >
+              Register
+            </Button>
+            or
+            <Link to='/'>login</Link>
+          </Trans>
         </Form.Item>
       </Form>
     </Card>

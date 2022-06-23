@@ -5,6 +5,7 @@ import GoogleLogin, {
   GoogleLoginResponseOffline,
 } from 'react-google-login';
 import { css } from '@linaria/core';
+import { useTranslation } from 'react-i18next';
 
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
 import { useAuthForm } from 'auth-frontend/utils/api';
@@ -15,11 +16,12 @@ import { useAuthForm } from 'auth-frontend/utils/api';
 export const LoginGoogle: FC = () => {
   const redirectFrom = useRedirectFromContext();
   const [form, onFinish] = useAuthForm('loginGoogle');
+  const { t } = useTranslation();
 
   const handleGoogleResponse = useCallback(
     (response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
       if (!('tokenId' in response)) {
-        void message.error('Нет ответа от Google Api');
+        void message.error(t('googleApiResponseError'));
 
         return;
       }
@@ -30,7 +32,7 @@ export const LoginGoogle: FC = () => {
 
       form.submit();
     },
-    [form],
+    [form, t],
   );
 
   return (
@@ -41,7 +43,7 @@ export const LoginGoogle: FC = () => {
       <Form.Item name='accessToken'>
         <GoogleLogin
           clientId={process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID as string}
-          buttonText='Войти через Google'
+          buttonText={t('loginWithGoogle')}
           onSuccess={handleGoogleResponse}
           onFailure={handleGoogleResponse}
           cookiePolicy='single_host_origin'

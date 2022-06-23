@@ -3,6 +3,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { FC } from 'react';
 import { css } from '@linaria/core';
 import { Link } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { useRedirectFromContext } from 'auth-frontend/hooks/useRedirectFrom';
 import { useAuthForm } from 'auth-frontend/utils/api';
@@ -12,11 +13,12 @@ import { useAuthForm } from 'auth-frontend/utils/api';
  */
 export const LoginForm: FC = () => {
   const [form, onFinish] = useAuthForm('loginBasic');
+  const { t } = useTranslation();
 
   const redirectFrom = useRedirectFromContext();
 
   return (
-    <Card title='Вход'>
+    <Card title={t('login')}>
       <Form form={form} initialValues={{ redirectFrom }} onFinish={onFinish}>
         <Form.Item name='redirectFrom' noStyle={true}>
           <Input hidden={true} readOnly={true} />
@@ -24,28 +26,28 @@ export const LoginForm: FC = () => {
         <Form.Item name='email'>
           <Input
             prefix={<UserOutlined className={opacityIcon} />}
-            placeholder='Email'
+            placeholder={t('email')}
           />
         </Form.Item>
         <Form.Item name='password'>
           <Input
             prefix={<LockOutlined className={opacityIcon} />}
             type='password'
-            placeholder='Пароль'
+            placeholder={t('password')}
           />
         </Form.Item>
         <Form.Item>
-          <Button type='primary' htmlType='submit'>
-            Войти
-          </Button>
-          <Typography.Text>
-            {' '}
-            или <Link to='/register'>регистрация</Link>
-          </Typography.Text>
+          <Trans t={t} i18nKey='loginOrRegister'>
+            <Button type='primary' htmlType='submit'>
+              Login
+            </Button>
+            or
+            <Link to='/register'>register</Link>
+          </Trans>
         </Form.Item>
         <Form.Item noStyle={true}>
           <Typography.Text>
-            <Link to='/forgot-password'>Забыли пароль?</Link>
+            <Link to='/forgot-password'>{t('forgotPassword')}</Link>
           </Typography.Text>
         </Form.Item>
       </Form>

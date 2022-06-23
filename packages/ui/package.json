@@ -18,9 +18,8 @@
   "scripts": {
     "dev": "rollup --config rollup.config.js -w",
     "build:lib": "rollup --config rollup.config.js --environment NODE_ENV:production",
-    "build": "yarn cosmos:export",
-    "story": "../../public/cosmos",
-    "cosmos:export": "cosmos-export"
+    "build": "yarn cosmos-export",
+    "story": "cosmos"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",

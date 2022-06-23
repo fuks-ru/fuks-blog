@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import { App } from 'auth-frontend/App';
+import 'auth-frontend/utils/i18n';
 
 const container = document.querySelector('#app');
 
