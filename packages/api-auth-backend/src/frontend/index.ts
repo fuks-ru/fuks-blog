@@ -6,3 +6,4 @@ export {
   TApiArgs,
 } from '@difuks/auth-backend';
 export { OperationResponse } from 'openapi-client-axios';
+export { AxiosRequestConfig } from 'axios';

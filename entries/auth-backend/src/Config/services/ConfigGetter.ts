@@ -4,11 +4,19 @@ import { TransportType } from '@nestjs-modules/mailer/dist/interfaces/mailer-opt
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtModuleOptions } from '@nestjs/jwt';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { GoogleRecaptchaModuleOptions } from '@nestlab/google-recaptcha';
+import { Request } from 'express';
 import * as path from 'node:path';
 import * as process from 'node:process';
 
 import { ormConfig } from 'auth-backend/Config/utils/ormconfig';
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
+
+interface IRequest extends Request {
+  headers: {
+    recaptcha?: string;
+  };
+}
 
 @Injectable()
 export class ConfigGetter extends ConfigGetterBase {
@@ -96,6 +104,23 @@ export class ConfigGetter extends ConfigGetterBase {
    */
   public getMailerFrom(): string {
     return this.isDev() ? 'test@fuks.ru' : this.getEnv('MAILER_USER');
+  }
+
+  /**
+   * Конфиг для Google Recaptcha.
+   */
+  public getRecaptchaOptions(): GoogleRecaptchaModuleOptions {
+    return this.isDev()
+      ? {
+          secretKey: '6Lel8ZcgAAAAANztX82p5f1bqQocGi1aUw_YgjTn',
+          response: (request: IRequest) => request.headers.recaptcha || '',
+          score: 0.8,
+        }
+      : {
+          secretKey: this.getEnv('GOOGLE_RECAPTCHA_SECRET_KEY'),
+          response: (request: IRequest) => request.headers.recaptcha || '',
+          score: 0.8,
+        };
   }
 
   private getProdTypeOrmConfig(): TypeOrmModuleOptions {

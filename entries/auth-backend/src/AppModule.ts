@@ -13,6 +13,7 @@ import {
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MailerModule } from '@nestjs-modules/mailer';
+import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
 
 import { AuthModule } from 'auth-backend/Auth/AuthModule';
 import { BasicAuthModule } from 'auth-backend/BasicLogin/BasicAuthModule';
@@ -51,6 +52,12 @@ import { ForgotPasswordModule } from 'auth-backend/ForgotPassword/ForgotPassword
           from: `"Fuks Blog" <${configGetter.getMailerFrom()}>`,
         },
       }),
+    }),
+    GoogleRecaptchaModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [CONFIG],
+      useFactory: (configGetter: ConfigGetter) =>
+        configGetter.getRecaptchaOptions(),
     }),
     ForgotPasswordModule,
   ],

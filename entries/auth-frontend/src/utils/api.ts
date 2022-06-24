@@ -5,10 +5,13 @@ import {
   TApiArgs,
   TApiResponse,
   OperationResponse,
+  AxiosRequestConfig,
 } from '@difuks/api-auth-backend/dist/frontend';
 import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
 import { Form, FormInstance, message } from 'antd';
 import { useCallback, useState } from 'react';
+
+import { useRecaptchaToken } from 'auth-frontend/hooks/useRecaptchaToken';
 
 /**
  * Статус завершения запроса.
@@ -32,18 +35,20 @@ export const useAuthForm = <
   const [form] = Form.useForm<Body>();
 
   const [status, setStatus] = useState<TStatus>('none');
+  const recaptcha = useRecaptchaToken();
 
   const onFinish = useCallback(
     async (body: Body, args?: TApiArgs<ApiName>) => {
       setStatus('pending');
 
       try {
-        await (
-          authApi[name] as (
-            args: unknown,
-            body: Body,
-          ) => OperationResponse<TApiResponse<ApiName>>
-        )(args || null, body);
+        const apiMethod = getApiMethod(name);
+
+        await apiMethod(args || null, body, {
+          headers: {
+            recaptcha,
+          },
+        });
 
         setStatus('success');
       } catch (error) {
@@ -81,7 +86,7 @@ export const useAuthForm = <
         setStatus('failed');
       }
     },
-    [name, form],
+    [name, recaptcha, form],
   );
 
   return [form, onFinish, status];
@@ -102,18 +107,20 @@ export const useAuthApi = <
 ] => {
   const [responseBody, setResponseBody] = useState<TApiResponse<ApiName>>();
   const [status, setStatus] = useState<TStatus>('none');
+  const recaptcha = useRecaptchaToken();
 
   const method = useCallback(
     async (body: Body, args?: TApiArgs<ApiName>) => {
       setStatus('pending');
 
       try {
-        const apiResponse = await (
-          authApi[name] as (
-            args: unknown,
-            body: Body,
-          ) => OperationResponse<TApiResponse<ApiName>>
-        )(args || null, body);
+        const apiMethod = getApiMethod(name);
+
+        const apiResponse = await apiMethod(args || null, body, {
+          headers: {
+            recaptcha,
+          },
+        });
 
         setResponseBody(apiResponse.data);
 
@@ -134,8 +141,21 @@ export const useAuthApi = <
         setStatus('failed');
       }
     },
-    [name],
+    [name, recaptcha],
   );
 
   return [method, responseBody, status];
 };
+
+const getApiMethod = <
+  ApiName extends keyof OperationMethods,
+  Body extends TApiBody<ApiName>,
+  Args extends TApiArgs<ApiName>,
+  ApiMethod extends (
+    args: Args | null,
+    body: Body,
+    config?: AxiosRequestConfig,
+  ) => OperationResponse<TApiResponse<ApiName>>,
+>(
+  name: ApiName,
+): ApiMethod => authApi[name] as ApiMethod;

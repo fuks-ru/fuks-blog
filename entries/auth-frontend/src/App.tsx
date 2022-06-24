@@ -1,6 +1,7 @@
 import { FC, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import { GoogleRecaptchaProvider } from 'auth-frontend/components/GoogleRecaptcha/GoogleRecaptchaProvider';
 import { ThemeProvider } from 'auth-frontend/components/ThemeProvider/ThemeProvider';
 import { routes } from 'auth-frontend/utils/routes';
 import { RedirectFromProvider } from 'auth-frontend/components/RedirectFromProvider/RedirectFromProvider';
@@ -22,23 +23,25 @@ const ChangePasswordPage = lazy(
  * Главный компонент авторизации.
  */
 export const App: FC = () => (
-  <Suspense fallback={<Preloader />}>
-    <ThemeProvider>
-      <RedirectFromProvider>
-        <Routes>
-          <Route path={routes.login} element={<LoginPage />} />
-          <Route path={routes.registration} element={<RegisterPage />} />
-          <Route path={routes.confirmEmail} element={<ConfirmEmailPage />} />
-          <Route
-            path={routes.forgotPassword}
-            element={<ForgotPasswordPage />}
-          />
-          <Route
-            path={routes.changePassword}
-            element={<ChangePasswordPage />}
-          />
-        </Routes>
-      </RedirectFromProvider>
-    </ThemeProvider>
-  </Suspense>
+  <GoogleRecaptchaProvider>
+    <Suspense fallback={<Preloader />}>
+      <ThemeProvider>
+        <RedirectFromProvider>
+          <Routes>
+            <Route path={routes.login} element={<LoginPage />} />
+            <Route path={routes.registration} element={<RegisterPage />} />
+            <Route path={routes.confirmEmail} element={<ConfirmEmailPage />} />
+            <Route
+              path={routes.forgotPassword}
+              element={<ForgotPasswordPage />}
+            />
+            <Route
+              path={routes.changePassword}
+              element={<ChangePasswordPage />}
+            />
+          </Routes>
+        </RedirectFromProvider>
+      </ThemeProvider>
+    </Suspense>
+  </GoogleRecaptchaProvider>
 );

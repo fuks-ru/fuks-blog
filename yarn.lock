@@ -2464,6 +2464,7 @@ __metadata:
     "@nestjs/swagger": ^5.2.1
     "@nestjs/testing": ^8.4.4
     "@nestjs/typeorm": ^8.0.3
+    "@nestlab/google-recaptcha": ^2.1.2
     "@types/cookie-parser": ^1.4.2
     "@types/express": ^4.17.13
     "@types/jest": ^27.4.1
@@ -2548,6 +2549,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.0.0
     react-google-login: ^5.2.2
+    react-google-recaptcha-v3: ^1.9.8
     react-i18next: ^11.17.2
     react-refresh: ^0.12.0
     react-router-dom: 6
@@ -3480,6 +3482,16 @@ __metadata:
     rxjs: ^7.2.0
     typeorm: ^0.2.34
   checksum: 01b1fc97f18010867805f8718a677d71bb4a757fd1e1625fd0303a356a0a32a0e7da3a7458e0a71766756f894aac8b24eaa74b7c4a625370328338c8ca3f4661
+  languageName: node
+  linkType: hard
+
+"@nestlab/google-recaptcha@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@nestlab/google-recaptcha@npm:2.1.2"
+  peerDependencies:
+    "@nestjs/common": ">=6.0.0 <9.0.0"
+    "@nestjs/core": ">=6.0.0 <9.0.0"
+  checksum: ea98c924b429be141cb2875c64913f413986c4044c92dc7cc0ed6fcfe15ac7cecc1d802bbb0fddcd41d1829caa3c492ababdfac5909f5a92d26708f779ab8b80
   languageName: node
   linkType: hard
 
@@ -9929,7 +9941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.0.0, hoist-non-react-statics@npm:^3.3.0":
+"hoist-non-react-statics@npm:^3.0.0, hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -15999,6 +16011,18 @@ __metadata:
     react: ^16 || ^17
     react-dom: ^16 || ^17
   checksum: 29199c7035c3c1070a82241dc4063628d693f35a1736d292e3db736e52da825e8a53f9287b0b12b08a50d676973ce1349a4d8243cd849ca25fed6a4284378880
+  languageName: node
+  linkType: hard
+
+"react-google-recaptcha-v3@npm:^1.9.8":
+  version: 1.9.8
+  resolution: "react-google-recaptcha-v3@npm:1.9.8"
+  dependencies:
+    hoist-non-react-statics: ^3.3.2
+  peerDependencies:
+    react: ^17.0 || ^18.0
+    react-dom: ^17.0 || ^18.0
+  checksum: 3571954dd6351e32bf2ed8e9d048943ce28cefb193603720a817bc88ca7bab1bc38ee2802779a7b7c917cdcbbf65998578688da95f83224d068916d9fceb853f
   languageName: node
   linkType: hard
 

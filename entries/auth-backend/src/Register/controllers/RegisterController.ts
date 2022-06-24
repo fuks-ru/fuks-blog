@@ -1,5 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Recaptcha } from '@nestlab/google-recaptcha';
 
 import { EmailVerifyService } from 'auth-backend/Register/modules/EmailVerify/services/EmailVerifyService';
 import { BasicRegisterRequest } from 'auth-backend/Register/dto/BasicRegisterRequest';
@@ -23,6 +24,7 @@ export class RegisterController {
   @ApiOperation({
     operationId: 'registerBasic',
   })
+  @Recaptcha()
   public async basic(@Body() body: BasicRegisterRequest): Promise<void> {
     await this.basicRegisterService.register(body);
   }
@@ -34,6 +36,7 @@ export class RegisterController {
   @ApiOperation({
     operationId: 'registerResendConfirm',
   })
+  @Recaptcha()
   public async resend(@Body() body: ResendConfirmRequest): Promise<void> {
     const user = await this.userService.getUnConfirmedByEmail(body.email);
 

@@ -4887,6 +4887,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/swagger", "virtual:0fd57661ae743193da215163360460a51883061b261a61df954d78300c329deccaa093e2ad689136e1e60899cb6ff6bb87eac4d6e679040be1e712c655ee3517#npm:5.2.1"],\
             ["@nestjs/testing", "virtual:0fd57661ae743193da215163360460a51883061b261a61df954d78300c329deccaa093e2ad689136e1e60899cb6ff6bb87eac4d6e679040be1e712c655ee3517#npm:8.4.4"],\
             ["@nestjs/typeorm", "virtual:0fd57661ae743193da215163360460a51883061b261a61df954d78300c329deccaa093e2ad689136e1e60899cb6ff6bb87eac4d6e679040be1e712c655ee3517#npm:8.0.3"],\
+            ["@nestlab/google-recaptcha", "virtual:0fd57661ae743193da215163360460a51883061b261a61df954d78300c329deccaa093e2ad689136e1e60899cb6ff6bb87eac4d6e679040be1e712c655ee3517#npm:2.1.2"],\
             ["@types/cookie-parser", "npm:1.4.2"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/jest", "npm:27.4.1"],\
@@ -4949,6 +4950,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nestjs/swagger", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:5.2.1"],\
             ["@nestjs/testing", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:8.4.4"],\
             ["@nestjs/typeorm", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:8.0.3"],\
+            ["@nestlab/google-recaptcha", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:2.1.2"],\
             ["@types/cookie-parser", "npm:1.4.2"],\
             ["@types/express", "npm:4.17.13"],\
             ["@types/jest", "npm:27.4.1"],\
@@ -5033,6 +5035,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:18.0.0"],\
             ["react-google-login", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:5.2.2"],\
+            ["react-google-recaptcha-v3", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:1.9.8"],\
             ["react-i18next", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:11.17.2"],\
             ["react-refresh", "npm:0.12.0"],\
             ["react-router-dom", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:6.3.0"],\
@@ -8043,6 +8046,51 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "reflect-metadata",\
             "rxjs",\
             "typeorm"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@nestlab/google-recaptcha", [\
+        ["npm:2.1.2", {\
+          "packageLocation": "./.yarn/cache/@nestlab-google-recaptcha-npm-2.1.2-65869e6d5a-ea98c924b4.zip/node_modules/@nestlab/google-recaptcha/",\
+          "packageDependencies": [\
+            ["@nestlab/google-recaptcha", "npm:2.1.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0fd57661ae743193da215163360460a51883061b261a61df954d78300c329deccaa093e2ad689136e1e60899cb6ff6bb87eac4d6e679040be1e712c655ee3517#npm:2.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/@nestlab-google-recaptcha-virtual-b4aee0edc5/0/cache/@nestlab-google-recaptcha-npm-2.1.2-65869e6d5a-ea98c924b4.zip/node_modules/@nestlab/google-recaptcha/",\
+          "packageDependencies": [\
+            ["@nestlab/google-recaptcha", "virtual:0fd57661ae743193da215163360460a51883061b261a61df954d78300c329deccaa093e2ad689136e1e60899cb6ff6bb87eac4d6e679040be1e712c655ee3517#npm:2.1.2"],\
+            ["@nestjs/common", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:8.4.4"],\
+            ["@nestjs/core", "virtual:0fd57661ae743193da215163360460a51883061b261a61df954d78300c329deccaa093e2ad689136e1e60899cb6ff6bb87eac4d6e679040be1e712c655ee3517#npm:8.4.4"],\
+            ["@types/nestjs__common", null],\
+            ["@types/nestjs__core", null],\
+            ["axios", "npm:0.27.2"]\
+          ],\
+          "packagePeers": [\
+            "@nestjs/common",\
+            "@nestjs/core",\
+            "@types/nestjs__common",\
+            "@types/nestjs__core"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:2.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/@nestlab-google-recaptcha-virtual-1876f60c7a/0/cache/@nestlab-google-recaptcha-npm-2.1.2-65869e6d5a-ea98c924b4.zip/node_modules/@nestlab/google-recaptcha/",\
+          "packageDependencies": [\
+            ["@nestlab/google-recaptcha", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:2.1.2"],\
+            ["@nestjs/common", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:8.4.4"],\
+            ["@nestjs/core", "virtual:a0c96c0ca6e3a4449492a5c58e22e177ae64ec0e2fe823577fc002ddbe344261e61d81482bb76f851ce943063834ef0be20c035301ab1cbfa25840260f262899#npm:8.4.4"],\
+            ["@types/nestjs__common", null],\
+            ["@types/nestjs__core", null],\
+            ["axios", "npm:0.27.2"]\
+          ],\
+          "packagePeers": [\
+            "@nestjs/common",\
+            "@nestjs/core",\
+            "@types/nestjs__common",\
+            "@types/nestjs__core"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -24573,6 +24621,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.14"],\
             ["@types/react-dom", "npm:18.0.1"],\
             ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:18.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-google-recaptcha-v3", [\
+        ["npm:1.9.8", {\
+          "packageLocation": "./.yarn/cache/react-google-recaptcha-v3-npm-1.9.8-60c1539a32-3571954dd6.zip/node_modules/react-google-recaptcha-v3/",\
+          "packageDependencies": [\
+            ["react-google-recaptcha-v3", "npm:1.9.8"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:1.9.8", {\
+          "packageLocation": "./.yarn/__virtual__/react-google-recaptcha-v3-virtual-be0b02633a/0/cache/react-google-recaptcha-v3-npm-1.9.8-60c1539a32-3571954dd6.zip/node_modules/react-google-recaptcha-v3/",\
+          "packageDependencies": [\
+            ["react-google-recaptcha-v3", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:1.9.8"],\
+            ["@types/react", "npm:18.0.14"],\
+            ["@types/react-dom", "npm:18.0.1"],\
+            ["hoist-non-react-statics", "npm:3.3.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:18.0.0"]\
           ],\
