@@ -1,7 +1,7 @@
 import { FC, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { GoogleRecaptchaProvider } from 'auth-frontend/components/GoogleRecaptchaProvider/GoogleRecaptchaProvider';
+import { GoogleRecaptchaProvider } from 'auth-frontend/components/GoogleRecaptcha/GoogleRecaptchaProvider';
 import { ThemeProvider } from 'auth-frontend/components/ThemeProvider/ThemeProvider';
 import { routes } from 'auth-frontend/utils/routes';
 import { RedirectFromProvider } from 'auth-frontend/components/RedirectFromProvider/RedirectFromProvider';
@@ -23,9 +23,9 @@ const ChangePasswordPage = lazy(
  * Главный компонент авторизации.
  */
 export const App: FC = () => (
-  <GoogleRecaptchaProvider>
-    <Suspense fallback={<Preloader />}>
-      <ThemeProvider>
+  <Suspense fallback={<Preloader />}>
+    <ThemeProvider>
+      <GoogleRecaptchaProvider>
         <RedirectFromProvider>
           <Routes>
             <Route path={routes.login} element={<LoginPage />} />
@@ -41,7 +41,7 @@ export const App: FC = () => (
             />
           </Routes>
         </RedirectFromProvider>
-      </ThemeProvider>
-    </Suspense>
-  </GoogleRecaptchaProvider>
+      </GoogleRecaptchaProvider>
+    </ThemeProvider>
+  </Suspense>
 );

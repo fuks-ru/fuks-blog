@@ -11,7 +11,7 @@ import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
 import { Form, FormInstance, message } from 'antd';
 import { useCallback, useState } from 'react';
 
-import { useRecaptchaToken } from 'auth-frontend/hooks/useRecaptchaToken';
+import { useRecaptchaToken } from 'auth-frontend/components/GoogleRecaptcha/hooks/useRecaptchaToken';
 
 /**
  * Статус завершения запроса.

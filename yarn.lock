@@ -2521,6 +2521,7 @@ __metadata:
     "@babel/preset-typescript": ^7.16.7
     "@difuks/api-auth-backend": "*"
     "@difuks/common": "*"
+    "@difuks/react-google-recaptcha-v3": ^1.9.9
     "@linaria/core": ^3.0.0-beta.20
     "@linaria/react": ^3.0.0-beta.20
     "@linaria/shaker": ^3.0.0-beta.20
@@ -2549,7 +2550,6 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.0.0
     react-google-login: ^5.2.2
-    react-google-recaptcha-v3: ^1.9.8
     react-i18next: ^11.17.2
     react-refresh: ^0.12.0
     react-router-dom: 6
@@ -2695,6 +2695,18 @@ __metadata:
     react: ^18.2.0
   languageName: unknown
   linkType: soft
+
+"@difuks/react-google-recaptcha-v3@npm:^1.9.9":
+  version: 1.9.9
+  resolution: "@difuks/react-google-recaptcha-v3@npm:1.9.9::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40difuks%2Freact-google-recaptcha-v3%2F1.9.9%2F2d47e3f18d8d62cd8ec517e90cfea75f62c4598090ad701365e5c316ce1c4ceb"
+  dependencies:
+    hoist-non-react-statics: ^3.3.2
+  peerDependencies:
+    react: ^17.0 || ^18.0
+    react-dom: ^17.0 || ^18.0
+  checksum: 223c3c1760a496c7e6f73f79f1deb11508906a86470341b1b11ce121630ee1afad6ea85c9615ad4261b4cca03054d896ba27f0a40ea7bd1593e3a06ab48635cc
+  languageName: node
+  linkType: hard
 
 "@difuks/ui@*, @difuks/ui@workspace:packages/ui":
   version: 0.0.0-use.local
@@ -16011,18 +16023,6 @@ __metadata:
     react: ^16 || ^17
     react-dom: ^16 || ^17
   checksum: 29199c7035c3c1070a82241dc4063628d693f35a1736d292e3db736e52da825e8a53f9287b0b12b08a50d676973ce1349a4d8243cd849ca25fed6a4284378880
-  languageName: node
-  linkType: hard
-
-"react-google-recaptcha-v3@npm:^1.9.8":
-  version: 1.9.8
-  resolution: "react-google-recaptcha-v3@npm:1.9.8"
-  dependencies:
-    hoist-non-react-statics: ^3.3.2
-  peerDependencies:
-    react: ^17.0 || ^18.0
-    react-dom: ^17.0 || ^18.0
-  checksum: 3571954dd6351e32bf2ed8e9d048943ce28cefb193603720a817bc88ca7bab1bc38ee2802779a7b7c917cdcbbf65998578688da95f83224d068916d9fceb853f
   languageName: node
   linkType: hard
 
