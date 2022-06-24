@@ -34,15 +34,16 @@ export const Head: FC<IProps> = ({ title, lang }) => {
 
   useEffect(() => {
     const headElement = document.head;
-    const metaElement = document.createElement('meta');
+    const metaViewportElement = document.createElement('meta');
 
-    metaElement.name = 'viewport';
-    metaElement.content = 'width=device-width, initial-scale=1';
+    metaViewportElement.name = 'viewport';
+    metaViewportElement.content =
+      'width=device-width, initial-scale=1, maximum-scale=1';
 
-    headElement.append(metaElement);
+    headElement.append(metaViewportElement);
 
     return () => {
-      metaElement.remove();
+      metaViewportElement.remove();
     };
   }, []);
 
