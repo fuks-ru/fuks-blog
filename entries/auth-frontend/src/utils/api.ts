@@ -11,7 +11,7 @@ import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
 import { Form, FormInstance, message } from 'antd';
 import { useCallback, useState } from 'react';
 
-import { useRecaptchaToken } from 'auth-frontend/components/GoogleRecaptcha/hooks/useRecaptchaToken';
+import { useExecuteRecaptcha } from 'auth-frontend/components/GoogleRecaptcha/hooks/useExecuteRecaptcha';
 
 /**
  * Статус завершения запроса.
@@ -35,7 +35,7 @@ export const useAuthForm = <
   const [form] = Form.useForm<Body>();
 
   const [status, setStatus] = useState<TStatus>('none');
-  const recaptcha = useRecaptchaToken();
+  const executeRecaptcha = useExecuteRecaptcha();
 
   const onFinish = useCallback(
     async (body: Body, args?: TApiArgs<ApiName>) => {
@@ -43,10 +43,11 @@ export const useAuthForm = <
 
       try {
         const apiMethod = getApiMethod(name);
+        const token = await executeRecaptcha();
 
         await apiMethod(args || null, body, {
           headers: {
-            recaptcha,
+            recaptcha: token,
           },
         });
 
@@ -86,7 +87,7 @@ export const useAuthForm = <
         setStatus('failed');
       }
     },
-    [name, recaptcha, form],
+    [name, executeRecaptcha, form],
   );
 
   return [form, onFinish, status];
@@ -107,7 +108,7 @@ export const useAuthApi = <
 ] => {
   const [responseBody, setResponseBody] = useState<TApiResponse<ApiName>>();
   const [status, setStatus] = useState<TStatus>('none');
-  const recaptcha = useRecaptchaToken();
+  const executeRecaptcha = useExecuteRecaptcha();
 
   const method = useCallback(
     async (body: Body, args?: TApiArgs<ApiName>) => {
@@ -116,9 +117,11 @@ export const useAuthApi = <
       try {
         const apiMethod = getApiMethod(name);
 
+        const token = await executeRecaptcha();
+
         const apiResponse = await apiMethod(args || null, body, {
           headers: {
-            recaptcha,
+            recaptcha: token,
           },
         });
 
@@ -141,7 +144,7 @@ export const useAuthApi = <
         setStatus('failed');
       }
     },
-    [name, recaptcha],
+    [executeRecaptcha, name],
   );
 
   return [method, responseBody, status];
