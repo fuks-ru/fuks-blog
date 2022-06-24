@@ -2,6 +2,7 @@ import { CONFIG, ILoggerModuleOptions } from '@difuks/common';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { GoogleRecaptchaModuleOptions } from '@nestlab/google-recaptcha';
 
 import {
   IMockedUser,
@@ -34,6 +35,16 @@ export class AppBuilder {
         synchronize: true,
         entities: ['**/entities/**/*.ts'],
         autoLoadEntities: true,
+      };
+    }
+
+    /**
+     * Выключает проверку рекапчи.
+     */
+    public override getRecaptchaOptions(): GoogleRecaptchaModuleOptions {
+      return {
+        ...super.getRecaptchaOptions(),
+        skipIf: true,
       };
     }
   };

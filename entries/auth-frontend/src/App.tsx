@@ -1,7 +1,7 @@
 import { FC, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { GoogleRecaptchaProvider } from 'auth-frontend/components/GoogleRecaptcha/GoogleRecaptchaProvider';
+import { GoogleRecaptchaProvider } from 'auth-frontend/components/GoogleRecaptchaProvider/GoogleRecaptchaProvider';
 import { ThemeProvider } from 'auth-frontend/components/ThemeProvider/ThemeProvider';
 import { routes } from 'auth-frontend/utils/routes';
 import { RedirectFromProvider } from 'auth-frontend/components/RedirectFromProvider/RedirectFromProvider';
