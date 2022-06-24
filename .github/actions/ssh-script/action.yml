@@ -35,7 +35,6 @@ runs:
           export MAILER_PASSWORD="${{ fromJson(inputs.secret-context).MAILER_PASSWORD }}"
           export MAILER_HOST="${{ fromJson(inputs.secret-context).MAILER_HOST }}"
 
-          export GOOGLE_RECAPTCHA_CLIENT_KEY="${{ fromJson(inputs.secret-context).GOOGLE_RECAPTCHA_CLIENT_KEY }}"
           export GOOGLE_RECAPTCHA_SECRET_KEY="${{ fromJson(inputs.secret-context).GOOGLE_RECAPTCHA_SECRET_KEY }}"
 
           ${{inputs.script}}

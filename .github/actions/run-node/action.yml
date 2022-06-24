@@ -33,7 +33,6 @@ runs:
           -e MAILER_USER="${MAILER_USER}" \
           -e MAILER_PASSWORD="${MAILER_PASSWORD}" \
           -e MAILER_HOST="${MAILER_HOST}" \
-          -e GOOGLE_RECAPTCHA_CLIENT_KEY="${GOOGLE_RECAPTCHA_CLIENT_KEY}" \
           -e GOOGLE_RECAPTCHA_SECRET_KEY="${GOOGLE_RECAPTCHA_SECRET_KEY}" \
           -v "/fuks-blog/var/auth-backend":/app/entries/auth-backend/var \
           -v "/fuks-blog/var/blog-backend":/app/entries/blog-backend/var \
