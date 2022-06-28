@@ -2,6 +2,7 @@ import { HttpStatus, INestApplication } from '@nestjs/common';
 import request from 'supertest';
 import { CommonErrorCode } from '@difuks/common/dist';
 
+import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { AppBuilder } from 'auth-backend/__e2e__/dsl/TestAppModuleCreator';
 import { IMockedUser } from 'auth-backend/__e2e__/dsl/UsersBuilder';
 import { Role } from 'auth-backend/User/entities/User';
@@ -49,7 +50,7 @@ describe('BasicLogin', () => {
         .send(body);
 
       expect(response.body).toEqual({
-        code: CommonErrorCode.UNAUTHORIZED,
+        code: ErrorCode.UNAUTHORIZED,
         message: expect.any(String),
       });
       expect(response.statusCode).toEqual(HttpStatus.UNAUTHORIZED);
