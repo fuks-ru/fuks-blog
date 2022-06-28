@@ -10,6 +10,7 @@ import {
   RedirectModule,
   CookieSetterModule,
   RequestRefModule,
+  I18nModule,
 } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -36,6 +37,7 @@ import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
     RedirectModule,
     CookieSetterModule,
     RequestRefModule,
+    I18nModule,
   ],
 })
 export class AppModule {}
