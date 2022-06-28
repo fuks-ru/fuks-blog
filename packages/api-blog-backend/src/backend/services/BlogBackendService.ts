@@ -23,15 +23,15 @@ export class BlogBackendService {
    * Получить клиента.
    */
   public getClient(): Client {
+    const request = this.requestRefService.getRequest();
+
+    this.client.defaults.headers.common.cookie = request.headers.cookie || '';
+
     return this.client;
   }
 
   private async init(): Promise<void> {
     this.client = await getApi(urls.BLOG_BACKEND_URL);
-
-    const request = this.requestRefService.getRequest();
-
-    this.client.defaults.headers.common.cookie = request.headers.cookie || '';
 
     this.client.interceptors.response.use(
       undefined,

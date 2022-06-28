@@ -53,7 +53,7 @@ export class ContractGenerator {
   );
 
   /**
-   * Генерацию файлов контракта.
+   * Генерация файлов контракта.
    */
   public async generateContractLib(document: OpenAPIObject): Promise<void> {
     this.createCachePathIfNotExist();

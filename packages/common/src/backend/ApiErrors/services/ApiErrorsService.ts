@@ -23,14 +23,14 @@ export class ApiErrorsService {
   ) {}
 
   /**
-   * Интерцептор для api-клиентов для взаимодейтсвия с другим сервисом.
+   * Интерцептор для api-клиентов для взаимодействия с другим сервисом.
    */
   public async interceptor(
     error: AxiosError<IErrorResponse> | Error,
   ): Promise<never> {
     const i18n = await this.i18nResolver.resolve();
 
-    if (!('response' in error)) {
+    if (!('response' in error) || !error.response) {
       throw this.systemErrorFactory.create(
         CommonErrorCode.REMOTE_HOST_ERROR,
         i18n.t('remoteHostError'),
@@ -38,7 +38,7 @@ export class ApiErrorsService {
       );
     }
 
-    const { data } = error.response as AxiosResponse<IErrorResponse>;
+    const { data } = error.response;
 
     if (data.code === CommonErrorCode.VALIDATION) {
       throw await this.validationErrorFactory.createFromData(
