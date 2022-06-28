@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AxiosError, AxiosResponse } from 'axios';
+import { AxiosError } from 'axios';
 import qs from 'qs';
 
 import { I18nResolver } from 'common/backend/I18n/services/I18nResolver';
