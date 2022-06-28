@@ -19,6 +19,7 @@ export const initAuthApi = async (
   authApi = await getApi(urls.AUTH_BACKEND_URL);
 
   authApi.interceptors.response.use(undefined, errorInterceptor);
+  authApi.defaults.headers.common.i18next = navigator.language;
 
   if (customErrorInterceptor) {
     authApi.interceptors.response.use(undefined, customErrorInterceptor);

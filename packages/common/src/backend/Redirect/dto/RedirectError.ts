@@ -10,6 +10,6 @@ export interface IRedirectData {
 
 export class RedirectError extends Error {
   public constructor(public readonly data: IRedirectData) {
-    super('Редирект.');
+    super('Redirect');
   }
 }

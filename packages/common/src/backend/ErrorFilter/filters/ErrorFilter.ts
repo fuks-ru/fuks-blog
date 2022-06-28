@@ -5,7 +5,6 @@ import {
   Inject,
   Injectable,
   NotFoundException,
-  UnauthorizedException,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 
@@ -41,7 +40,7 @@ export class ErrorFilter implements ExceptionFilter<Error> {
     this.cookieResponseSetter.set(response);
 
     if (!request.url.includes('_next')) {
-      this.logger.error('Произошла ошибка', {
+      this.logger.error('An error has occurred', {
         extra: {
           error: exception,
           stack: exception.stack,
@@ -90,16 +89,6 @@ export class ErrorFilter implements ExceptionFilter<Error> {
           exception.data,
         ),
         status: this.resolveStatus(exception.code),
-      };
-    }
-
-    if (exception instanceof UnauthorizedException) {
-      return {
-        errorResponse: this.formatResponse(
-          CommonErrorCode.UNAUTHORIZED,
-          'Неверный логин или пароль.',
-        ),
-        status: this.resolveStatus(CommonErrorCode.UNAUTHORIZED),
       };
     }
 

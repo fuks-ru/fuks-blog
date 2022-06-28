@@ -1,9 +1,9 @@
-import { SystemErrorFactory, localeDate } from '@difuks/common/dist';
+import { SystemErrorFactory, I18nResolver } from '@difuks/common';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { v4 } from 'uuid';
-import { addSeconds, differenceInSeconds } from 'date-fns';
+import { differenceInSeconds } from 'date-fns';
 
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';
@@ -15,6 +15,7 @@ export class ConfirmCodeService {
     @InjectRepository(ConfirmCode)
     private readonly confirmCodeRepository: Repository<ConfirmCode>,
     private readonly systemErrorFactory: SystemErrorFactory,
+    private readonly i18nResolver: I18nResolver,
   ) {}
 
   /**
@@ -40,20 +41,21 @@ export class ConfirmCodeService {
       return this.confirmCodeRepository.save(confirmCode);
     }
 
-    const lastUpdatedAtDifferenceMs = differenceInSeconds(
+    const lastUpdatedAtDifference = differenceInSeconds(
       new Date(),
       existCode.updatedAt,
     );
 
-    const humanTimeout = localeDate.formatDistanceStrict(
-      addSeconds(existCode.updatedAt, 60),
-      new Date(),
-    );
+    if (lastUpdatedAtDifference < 60) {
+      const i18n = await this.i18nResolver.resolve();
 
-    if (lastUpdatedAtDifferenceMs < 60) {
       throw this.systemErrorFactory.create(
         ErrorCode.CONFIRM_CODE_TIMEOUT,
-        `До повторной отправки ${humanTimeout}`,
+        i18n.t('beforeResending', {
+          args: {
+            seconds: 60 - lastUpdatedAtDifference,
+          },
+        }),
       );
     }
 
@@ -72,9 +74,11 @@ export class ConfirmCodeService {
     });
 
     if (!confirmCode) {
+      const i18n = await this.i18nResolver.resolve();
+
       throw this.systemErrorFactory.create(
         ErrorCode.CONFIRM_CODE_NOT_EXIST,
-        'Некорректный код подтверждения',
+        i18n.t('confirmationCodeNotExist'),
       );
     }
 

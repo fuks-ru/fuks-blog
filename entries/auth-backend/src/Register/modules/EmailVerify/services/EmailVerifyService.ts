@@ -1,3 +1,4 @@
+import { I18nResolver } from '@difuks/common/dist';
 import { urls } from '@difuks/common/dist/constants';
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
@@ -11,6 +12,7 @@ export class EmailVerifyService {
   public constructor(
     private readonly mailerService: MailerService,
     private readonly confirmCodeService: ConfirmCodeService,
+    private readonly i18nResolver: I18nResolver,
   ) {}
 
   /**
@@ -29,10 +31,16 @@ export class EmailVerifyService {
       confirmCode: confirmCode.value,
     })}`;
 
+    const i18n = await this.i18nResolver.resolve();
+
     await this.mailerService.sendMail({
       to: user.email,
-      subject: 'Добро пожаловать на fuks.ru!',
-      text: `Для подтверждения перейдите по ссылке: ${confirmUrl}`,
+      subject: i18n.t('welcome'),
+      text: i18n.t('toConfirm', {
+        args: {
+          link: confirmUrl,
+        },
+      }),
     });
   }
 }

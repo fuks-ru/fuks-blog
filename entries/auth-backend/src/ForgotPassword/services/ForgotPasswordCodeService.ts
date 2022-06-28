@@ -1,8 +1,8 @@
+import { I18nResolver, SystemErrorFactory } from '@difuks/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { localeDate, SystemErrorFactory } from '@difuks/common';
 import { v4 } from 'uuid';
-import { differenceInSeconds, addSeconds } from 'date-fns';
+import { differenceInSeconds } from 'date-fns';
 import { Injectable } from '@nestjs/common';
 
 import { ForgotPasswordCode } from 'auth-backend/ForgotPassword/entities/ForgotPasswordCode';
@@ -15,6 +15,7 @@ export class ForgotPasswordCodeService {
     @InjectRepository(ForgotPasswordCode)
     private readonly forgotPasswordCodeRepository: Repository<ForgotPasswordCode>,
     private readonly systemErrorFactory: SystemErrorFactory,
+    private readonly i18nResolver: I18nResolver,
   ) {}
 
   /**
@@ -40,20 +41,21 @@ export class ForgotPasswordCodeService {
       return this.forgotPasswordCodeRepository.save(forgotPasswordCode);
     }
 
-    const lastUpdatedAtDifferenceMs = differenceInSeconds(
+    const lastUpdatedAtDifference = differenceInSeconds(
       new Date(),
       existCode.updatedAt,
     );
 
-    const humanTimeout = localeDate.formatDistanceStrict(
-      addSeconds(existCode.updatedAt, 60),
-      new Date(),
-    );
+    if (lastUpdatedAtDifference < 60) {
+      const i18n = await this.i18nResolver.resolve();
 
-    if (lastUpdatedAtDifferenceMs < 60) {
       throw this.systemErrorFactory.create(
         ErrorCode.FORGOT_PASSWORD_CODE_TIMEOUT,
-        `До повторной отправки ${humanTimeout}`,
+        i18n.t('beforeResending', {
+          args: {
+            seconds: 60 - lastUpdatedAtDifference,
+          },
+        }),
       );
     }
 
@@ -73,9 +75,11 @@ export class ForgotPasswordCodeService {
       });
 
     if (!forgotPasswordCode) {
+      const i18n = await this.i18nResolver.resolve();
+
       throw this.systemErrorFactory.create(
         ErrorCode.FORGOT_PASSWORD_NOT_EXIST,
-        'Некорректный код восстановления',
+        i18n.t('forgotPasswordCodeNotExist'),
       );
     }
 

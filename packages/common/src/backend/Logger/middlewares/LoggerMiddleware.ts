@@ -43,7 +43,7 @@ export class LoggerMiddleware implements NestMiddleware {
 
     const geo = lookup(req.ip);
 
-    this.logger.info('Новый входящий запрос', {
+    this.logger.info('New incoming request', {
       extra: {
         url: req.url,
         method: req.method,
@@ -55,7 +55,7 @@ export class LoggerMiddleware implements NestMiddleware {
     });
 
     res.on('finish', () => {
-      this.logger.info('Совершен ответ от сервера', {
+      this.logger.info('Completed response from the server', {
         extra: {
           url: req.url,
           statusCode: res.statusCode,

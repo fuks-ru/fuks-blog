@@ -2484,6 +2484,7 @@ __metadata:
     express: ^4.17.3
     google-auth-library: ^7.14.1
     jest: ^27.5.1
+    nestjs-i18n: ^9.1.3
     nodemailer: ^6.7.5
     openapi-client-axios: ^5.1.2
     openapi-client-axios-typegen: ^5.0.2
@@ -2667,6 +2668,7 @@ __metadata:
     express: ^4.17.3
     geoip-lite: ^1.4.4
     nest-winston: ^1.6.2
+    nestjs-i18n: ^9.1.3
     qs: ^6.10.5
     react: ^18.2.0
     reflect-metadata: ^0.1.13
@@ -2691,6 +2693,7 @@ __metadata:
     class-validator: ^0.13.2
     date-fns: ^2.28.0
     express: ^4.17.3
+    nestjs-i18n: ^9.1.3
     openapi-client-axios-typegen: ^5.0.2
     react: ^18.2.0
   languageName: unknown
@@ -4876,6 +4879,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"accept-language-parser@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "accept-language-parser@npm:1.5.0"
+  checksum: e32124e500f67d30da7dd15462b3ff7a718df327ff8bd1c97ae02d8ee5cf0917a3f600bf3b171965b1f95fef480b96d36752f674eff2cb0069c276d9783d32f6
+  languageName: node
+  linkType: hard
+
 "accepts@npm:~1.3.4, accepts@npm:~1.3.5, accepts@npm:~1.3.8":
   version: 1.3.8
   resolution: "accepts@npm:1.3.8"
@@ -6899,7 +6909,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.4.2":
+"cookie@npm:0.4.2, cookie@npm:^0.4.1":
   version: 0.4.2
   resolution: "cookie@npm:0.4.2"
   checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
@@ -8302,9 +8312,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-fuks@npm:^1.6.6":
-  version: 1.6.6
-  resolution: "eslint-config-fuks@npm:1.6.6"
+"eslint-config-fuks@npm:^1.6.7":
+  version: 1.6.7
+  resolution: "eslint-config-fuks@npm:1.6.7"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.8.1
     "@typescript-eslint/parser": ^5.8.1
@@ -8333,7 +8343,7 @@ __metadata:
     eslint: ^8.5.0
     prettier: ^2.5.0
     typescript: ^4.6.3
-  checksum: 421dce403bb38cbd41204328168d596c8b4bc4dd193b37bc55a7f8b69c610a6febfaf921921966842ba3decaa166995b1186e38d2bcc9776fae73eac4cd0cbb4
+  checksum: 16f6e2114342c410d929658f5389e0218480a5021ae3e6b05eb96bab001be1f1c7fbcd195e3c6447dfef20024e36e217c2ed49f97abed7f665c03232210f1df6
   languageName: node
   linkType: hard
 
@@ -9468,7 +9478,7 @@ __metadata:
   dependencies:
     "@rushstack/eslint-patch": ^1.1.3
     eslint: ^8.13.0
-    eslint-config-fuks: ^1.6.6
+    eslint-config-fuks: ^1.6.7
     typedoc: ^0.22.15
     typedoc-theme-hierarchy: ^1.2.1
     typescript: ^4.6.3
@@ -10958,7 +10968,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iterare@npm:1.2.1":
+"iterare@npm:1.2.1, iterare@npm:^1.2.1":
   version: 1.2.1
   resolution: "iterare@npm:1.2.1"
   checksum: 70bc80038e3718aa9072bc63b3a0135166d7120bde46bfcaf80a88d11005dcef1b2d69cd353849f87a3f58ba8f546a8c6e6983408236ff01fa50b52339ee5223
@@ -13228,6 +13238,25 @@ __metadata:
     "@nestjs/common": ^5.0.0 || ^6.6.0 || ^7.0.0 || ^8.0.0
     winston: ^3.0.0
   checksum: 59fbf53b79ee2a962acb8e3c6f8eb1685d05f4798d109188c002d2ac37611388d535657a4ea58206c959a087dee3d2c6e6a49bd831cc336d66d45b4391ad4078
+  languageName: node
+  linkType: hard
+
+"nestjs-i18n@npm:^9.1.3":
+  version: 9.1.3
+  resolution: "nestjs-i18n@npm:9.1.3"
+  dependencies:
+    accept-language-parser: ^1.5.0
+    chokidar: ^3.5.3
+    cookie: ^0.4.1
+    iterare: ^1.2.1
+    js-yaml: ^4.1.0
+    string-format: ^2.0.0
+  peerDependencies:
+    "@nestjs/common": "*"
+    "@nestjs/core": "*"
+    class-validator: ~0.13
+    rxjs: "*"
+  checksum: 6a360d389202c8c30138fabb1be3e129d09c4e1602074dca295fb45b2ef06a25861da7baad3217c0c855403ef3129a71d69bfd3374e3b30427a9e073d2ef8804
   languageName: node
   linkType: hard
 
@@ -17556,6 +17585,13 @@ __metadata:
   version: 0.2.1
   resolution: "string-convert@npm:0.2.1"
   checksum: 1098b1d8e3712c72d0a0b0b7f5c36c98af93e7660b5f0f14019e41bcefe55bfa79214d5e03e74d98a7334a0b9bf2b7f4c6889c8c24801aa2ae2f9ebe1d8a1ef9
+  languageName: node
+  linkType: hard
+
+"string-format@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "string-format@npm:2.0.0"
+  checksum: dada2ef95f6d36c66562c673d95315f80457fa7dce2f3609a2e75d1190b98c88319028cf0a5b6c043d01c18d581b2641579f79480584ba030d6ac6fceb30bc55
   languageName: node
   linkType: hard
 

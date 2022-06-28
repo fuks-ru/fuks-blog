@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, MinLength, ValidateIf, IsOptional } from 'class-validator';
 import { Match } from '@difuks/common';
+import { i18nValidationMessage } from 'nestjs-i18n';
 
 export class BasicRegisterRequest {
   /**
@@ -10,7 +11,7 @@ export class BasicRegisterRequest {
   @IsEmail(
     {},
     {
-      message: 'Введите корректный email',
+      message: i18nValidationMessage('incorrectEmailFormat'),
     },
   )
   public email!: string;
@@ -20,7 +21,7 @@ export class BasicRegisterRequest {
    */
   @ApiProperty()
   @MinLength(8, {
-    message: 'Минимальная длина пароля: $constraint1 символов',
+    message: i18nValidationMessage('minLength'),
   })
   public password!: string;
 
@@ -33,7 +34,7 @@ export class BasicRegisterRequest {
       !!o.password && o.password.length >= 8,
   )
   @Match('password', {
-    message: 'Пароли должны совпадать',
+    message: i18nValidationMessage('passwordEqual'),
   })
   public repeatPassword!: string;
 

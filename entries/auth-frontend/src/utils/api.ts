@@ -152,11 +152,9 @@ export const useAuthApi = <
 
 const getApiMethod = <
   ApiName extends keyof OperationMethods,
-  Body extends TApiBody<ApiName>,
-  Args extends TApiArgs<ApiName>,
   ApiMethod extends (
-    args: Args | null,
-    body: Body,
+    args: TApiArgs<ApiName> | null,
+    body: TApiBody<ApiName>,
     config?: AxiosRequestConfig,
   ) => OperationResponse<TApiResponse<ApiName>>,
 >(

@@ -5,10 +5,10 @@ import {
   RequestRefService,
 } from '@difuks/common';
 import { urls } from '@difuks/common/dist/constants';
-import { Injectable, Scope } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { AxiosError } from 'axios';
 
-@Injectable({ scope: Scope.REQUEST })
+@Injectable()
 export class BlogBackendService {
   private client!: Client;
 

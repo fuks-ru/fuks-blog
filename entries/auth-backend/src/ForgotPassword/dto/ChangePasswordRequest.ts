@@ -1,13 +1,14 @@
 import { Match } from '@difuks/common/dist';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MinLength, ValidateIf } from 'class-validator';
+import { i18nValidationMessage } from 'nestjs-i18n';
 
 export class ChangePasswordRequest {
   /**
    * Код восстановления пароля.
    */
   @IsString({
-    message: 'Некорректный код восстановления',
+    message: i18nValidationMessage('incorrectForgotPasswordCode'),
   })
   public forgotPasswordCode!: string;
 
@@ -16,7 +17,7 @@ export class ChangePasswordRequest {
    */
   @ApiProperty()
   @MinLength(8, {
-    message: 'Минимальная длина пароля: $constraint1 символов',
+    message: i18nValidationMessage('minLength'),
   })
   public password!: string;
 
@@ -29,7 +30,7 @@ export class ChangePasswordRequest {
       !!o.password && o.password.length >= 8,
   )
   @Match('password', {
-    message: 'Пароли должны совпадать',
+    message: i18nValidationMessage('passwordEqual'),
   })
   public repeatPassword!: string;
 }

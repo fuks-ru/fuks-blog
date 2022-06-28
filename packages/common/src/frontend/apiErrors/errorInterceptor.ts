@@ -23,7 +23,7 @@ export const errorInterceptor = (error: AxiosError<IErrorResponse>): void => {
   if (response.data.code === CommonErrorCode.VALIDATION) {
     const data = response.data.data as Record<string, string[]>;
 
-    throw new ValidationError(data);
+    throw new ValidationError(data, response.data.message);
   }
 
   if (response.data.code === CommonErrorCode.REDIRECT) {

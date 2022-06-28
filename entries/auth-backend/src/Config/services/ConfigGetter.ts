@@ -8,9 +8,12 @@ import { GoogleRecaptchaModuleOptions } from '@nestlab/google-recaptcha';
 import { Request } from 'express';
 import * as path from 'node:path';
 import * as process from 'node:process';
+import { I18nTranslation } from 'nestjs-i18n';
 
 import { ormConfig } from 'auth-backend/Config/utils/ormconfig';
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
+import enUs from 'auth-backend/__i18n__/enUS.json';
+import ruRU from 'auth-backend/__i18n__/ruRU.json';
 
 interface IRequest extends Request {
   headers: {
@@ -32,6 +35,7 @@ export class ConfigGetter extends ConfigGetterBase {
     [ErrorCode.CONFIRM_CODE_TIMEOUT]: HttpStatus.TOO_MANY_REQUESTS,
     [ErrorCode.FORGOT_PASSWORD_NOT_EXIST]: HttpStatus.NOT_FOUND,
     [ErrorCode.FORGOT_PASSWORD_CODE_TIMEOUT]: HttpStatus.TOO_MANY_REQUESTS,
+    [ErrorCode.UNAUTHORIZED]: HttpStatus.UNAUTHORIZED,
   };
 
   public constructor(systemErrorFactory: SystemErrorFactory) {
@@ -121,6 +125,25 @@ export class ConfigGetter extends ConfigGetterBase {
           response: (request: IRequest) => request.headers.recaptcha || '',
           score: 0.8,
         };
+  }
+
+  /**
+   * Возвращает переводы.
+   */
+  public override getTranslations(): {
+    /**
+     * Английские переводы.
+     */
+    'en-US': I18nTranslation;
+    /**
+     * Русские переводы.
+     */
+    'ru-RU': I18nTranslation;
+  } {
+    return {
+      'en-US': enUs,
+      'ru-RU': ruRU,
+    };
   }
 
   private getProdTypeOrmConfig(): TypeOrmModuleOptions {

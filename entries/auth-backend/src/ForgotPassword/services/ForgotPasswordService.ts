@@ -1,3 +1,4 @@
+import { I18nResolver } from '@difuks/common';
 import { urls } from '@difuks/common/dist/constants';
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
@@ -11,6 +12,7 @@ export class ForgotPasswordService {
   public constructor(
     private readonly mailerService: MailerService,
     private readonly forgotPasswordCodeService: ForgotPasswordCodeService,
+    private readonly i18nResolver: I18nResolver,
   ) {}
 
   /**
@@ -32,10 +34,16 @@ export class ForgotPasswordService {
       forgotPasswordCode: forgotPasswordCode.value,
     })}`;
 
+    const i18n = await this.i18nResolver.resolve();
+
     await this.mailerService.sendMail({
       to: user.email,
-      subject: 'Восстановления пароля',
-      text: `Для восстановления пароля перейдите по ссылке: ${changePasswordUrl}`,
+      subject: i18n.t('passwordRecovery'),
+      text: i18n.t('toChangePassword', {
+        args: {
+          link: changePasswordUrl,
+        },
+      }),
     });
   }
 }

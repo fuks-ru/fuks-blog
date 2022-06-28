@@ -1,4 +1,9 @@
-import { Global, Module, ValidationPipe } from '@nestjs/common';
+import {
+  Global,
+  Module,
+  ValidationError,
+  ValidationPipe,
+} from '@nestjs/common';
 import { APP_PIPE } from '@nestjs/core';
 
 import { ValidationErrorFactory } from 'common/backend/Validation/services/ValidationErrorFactory';
@@ -11,9 +16,9 @@ import { ValidationErrorFactory } from 'common/backend/Validation/services/Valid
       provide: APP_PIPE,
       useFactory: (validationErrorFactory: ValidationErrorFactory) =>
         new ValidationPipe({
-          exceptionFactory:
-            validationErrorFactory.createFromNestValidationErrors.bind(
-              validationErrorFactory,
+          exceptionFactory: (validationError: ValidationError[]) =>
+            validationErrorFactory.createFromNestValidationErrors(
+              validationError,
             ),
           whitelist: true,
           transform: true,

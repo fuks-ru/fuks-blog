@@ -2,7 +2,7 @@ import { SystemError } from '@difuks/common/dist/backend/SystemError/dto/SystemE
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { SystemErrorFactory } from '@difuks/common';
+import { I18nResolver, SystemErrorFactory } from '@difuks/common';
 
 import { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
@@ -14,6 +14,7 @@ export class UserService {
   public constructor(
     @InjectRepository(User) private readonly userRepository: Repository<User>,
     private readonly systemErrorFactory: SystemErrorFactory,
+    private readonly i18nResolver: I18nResolver,
   ) {}
 
   /**
@@ -23,9 +24,11 @@ export class UserService {
     const existUser = await this.findByEmail(user.email);
 
     if (existUser?.isConfirmed) {
+      const i18n = await this.i18nResolver.resolve();
+
       throw this.systemErrorFactory.create(
         ErrorCode.USER_ALREADY_EXISTS,
-        'Пользователь уже существует',
+        i18n.t('userAlreadyExists'),
       );
     }
 
@@ -85,7 +88,7 @@ export class UserService {
     });
 
     if (!user) {
-      throw this.getNotFoundError();
+      throw await this.getNotFoundError();
     }
 
     return user;
@@ -101,7 +104,7 @@ export class UserService {
     });
 
     if (!user) {
-      throw this.getNotFoundError();
+      throw await this.getNotFoundError();
     }
 
     return user;
@@ -117,7 +120,7 @@ export class UserService {
     });
 
     if (!user) {
-      throw this.getNotFoundError();
+      throw await this.getNotFoundError();
     }
 
     return user;
@@ -134,7 +137,7 @@ export class UserService {
     });
 
     if (!user) {
-      throw this.getNotFoundError();
+      throw await this.getNotFoundError();
     }
 
     user.isConfirmed = true;
@@ -156,7 +159,7 @@ export class UserService {
     });
 
     if (!user) {
-      throw this.getNotFoundError();
+      throw await this.getNotFoundError();
     }
 
     user.hashedPassword = hashedPassword;
@@ -164,10 +167,12 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  private getNotFoundError(): SystemError {
+  private async getNotFoundError(): Promise<SystemError> {
+    const i18n = await this.i18nResolver.resolve();
+
     return this.systemErrorFactory.create(
       ErrorCode.USER_NOT_FOUND,
-      'Пользователь не найден',
+      i18n.t('userNotFound'),
     );
   }
 }

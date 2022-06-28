@@ -25,4 +25,5 @@ export { RequestRefModule } from 'common/backend/RequestRef/RequestRefModule';
 export { RequestRefService } from 'common/backend/RequestRef/services/RequestRefService';
 export { ValidationErrorFactory } from 'common/backend/Validation/services/ValidationErrorFactory';
 export { Match } from 'common/backend/Validation/decorators/Match';
-export * as localeDate from 'common/localeDate';
+export { I18nModule } from 'common/backend/I18n/I18nModule';
+export { I18nResolver } from 'common/backend/I18n/services/I18nResolver';

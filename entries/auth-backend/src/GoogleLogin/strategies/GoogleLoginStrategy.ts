@@ -2,6 +2,7 @@ import {
   CONFIG,
   SystemErrorFactory,
   ValidationErrorFactory,
+  I18nResolver,
 } from '@difuks/common';
 import { Inject, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
@@ -29,6 +30,7 @@ export class GoogleLoginStrategy extends PassportStrategy(Strategy, 'google') {
     @Inject(CONFIG)
     private readonly configGetter: ConfigGetter,
     private readonly validationErrorFactory: ValidationErrorFactory,
+    private readonly i18nResolver: I18nResolver,
   ) {
     super();
 
@@ -41,9 +43,11 @@ export class GoogleLoginStrategy extends PassportStrategy(Strategy, 'google') {
    * Валидация по token.
    */
   private async validate({ body }: IRequest): Promise<User> {
+    const i18n = await this.i18nResolver.resolve();
+
     if (!body.accessToken) {
-      throw this.validationErrorFactory.createFromData({
-        accessToken: ['Отсутствует токен'],
+      throw await this.validationErrorFactory.createFromData({
+        accessToken: [i18n.t('emptyToken')],
       });
     }
 
@@ -56,7 +60,7 @@ export class GoogleLoginStrategy extends PassportStrategy(Strategy, 'google') {
     if (!payload) {
       throw this.systemErrorFactory.create(
         ErrorCode.GOOGLE_AUTH_PAYLOAD_EMPTY,
-        'Нет ответа от Google API',
+        i18n.t('googleApiEmptyResponse'),
       );
     }
 

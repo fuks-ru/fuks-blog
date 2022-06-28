@@ -66,7 +66,7 @@ export class ContractGenerator {
 
     await this.rollupBundle();
 
-    console.log('Сборка контрактов завершена');
+    console.log('Contracts build completed');
   }
 
   private createCachePathIfNotExist(): void {

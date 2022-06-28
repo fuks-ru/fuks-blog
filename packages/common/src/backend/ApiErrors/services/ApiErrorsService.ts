@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { AxiosError, AxiosResponse } from 'axios';
 import qs from 'qs';
 
+import { I18nResolver } from 'common/backend/I18n/services/I18nResolver';
 import { IRedirectData } from 'common/backend/Redirect/dto/RedirectError';
 import { RequestRefService } from 'common/backend/RequestRef/services/RequestRefService';
 import { ValidationErrorFactory } from 'common/backend/Validation/services/ValidationErrorFactory';
@@ -18,16 +19,21 @@ export class ApiErrorsService {
     private readonly systemErrorFactory: SystemErrorFactory,
     private readonly validationErrorFactory: ValidationErrorFactory,
     private readonly requestRefService: RequestRefService,
+    private readonly i18nResolver: I18nResolver,
   ) {}
 
   /**
    * Интерцептор для api-клиентов для взаимодейтсвия с другим сервисом.
    */
-  public interceptor(error: AxiosError<IErrorResponse> | Error): never {
+  public async interceptor(
+    error: AxiosError<IErrorResponse> | Error,
+  ): Promise<never> {
+    const i18n = await this.i18nResolver.resolve();
+
     if (!('response' in error)) {
       throw this.systemErrorFactory.create(
         CommonErrorCode.REMOTE_HOST_ERROR,
-        'Произошла ошибка на удаленном хосте.',
+        i18n.t('remoteHostError'),
         error.message,
       );
     }
@@ -35,7 +41,7 @@ export class ApiErrorsService {
     const { data } = error.response as AxiosResponse<IErrorResponse>;
 
     if (data.code === CommonErrorCode.VALIDATION) {
-      throw this.validationErrorFactory.createFromData(
+      throw await this.validationErrorFactory.createFromData(
         data.data as Record<string, string[]>,
       );
     }
@@ -60,7 +66,7 @@ export class ApiErrorsService {
 
     throw this.systemErrorFactory.create(
       CommonErrorCode.REMOTE_HOST_ERROR,
-      'Произошла ошибка на удаленном хосте.',
+      i18n.t('remoteHostError'),
       data.data,
     );
   }

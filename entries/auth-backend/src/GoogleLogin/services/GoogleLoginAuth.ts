@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { TokenPayload } from 'google-auth-library';
-import { SystemErrorFactory } from '@difuks/common';
+import { SystemErrorFactory, I18nResolver } from '@difuks/common';
 
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';
@@ -13,16 +13,19 @@ export class GoogleLoginAuth {
     private readonly systemErrorFactory: SystemErrorFactory,
     private readonly userService: UserService,
     private readonly emailRegisterService: EmailRegisterService,
+    private readonly i18nResolver: I18nResolver,
   ) {}
 
   /**
    * Авторизуют пользователя по google профилю.
    */
   public async auth(tokenPayload: TokenPayload): Promise<User> {
+    const i18n = await this.i18nResolver.resolve();
+
     if (!tokenPayload.email) {
       throw this.systemErrorFactory.create(
         ErrorCode.GOOGLE_AUTH_EMAIL_NOT_FOUND,
-        'Email не найдет',
+        i18n.t('emailNotFound'),
       );
     }
 

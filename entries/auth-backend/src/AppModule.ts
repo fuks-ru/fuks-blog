@@ -9,6 +9,7 @@ import {
   ConfigModule,
   RequestRefModule,
   RedirectModule,
+  I18nModule,
 } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -60,6 +61,7 @@ import { ForgotPasswordModule } from 'auth-backend/ForgotPassword/ForgotPassword
         configGetter.getRecaptchaOptions(),
     }),
     ForgotPasswordModule,
+    I18nModule,
   ],
 })
 export class AppModule {}

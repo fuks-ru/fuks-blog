@@ -1,4 +1,5 @@
 import { HttpStatus } from '@nestjs/common';
+import { I18nTranslation } from 'nestjs-i18n';
 
 import { API_PAGE_PREFIX, API_PREFIX } from 'common/constants';
 import { IErrorFilterModuleOptions } from 'common/backend/ErrorFilter/types/IErrorFilterModuleOptions';
@@ -25,7 +26,7 @@ export abstract class ConfigGetterBase {
 
     throw this.systemErrorFactory.create(
       CommonErrorCode.CONFIG_NOT_FOUND,
-      `Не найден ${name} конфиг параметр`,
+      `Config parameter "${name}" not found`,
     );
   }
 
@@ -52,7 +53,6 @@ export abstract class ConfigGetterBase {
       statusResolver: {
         [CommonErrorCode.NOT_FOUND_ROUTE]: HttpStatus.NOT_FOUND,
         [CommonErrorCode.FORBIDDEN]: HttpStatus.FORBIDDEN,
-        [CommonErrorCode.UNAUTHORIZED]: HttpStatus.UNAUTHORIZED,
         [CommonErrorCode.VALIDATION]: HttpStatus.UNPROCESSABLE_ENTITY,
         ...this.statusResolver,
       },
@@ -79,5 +79,21 @@ export abstract class ConfigGetterBase {
       isToConsoleDisable: false,
       isToFileDisable: this.isDev(),
     };
+  }
+
+  /**
+   * Получает дополнительные lang-фразы.
+   */
+  public getTranslations(): {
+    /**
+     * Английские переводы.
+     */
+    'en-US': I18nTranslation;
+    /**
+     * Русские переводы.
+     */
+    'ru-RU': I18nTranslation;
+  } {
+    return { 'en-US': {}, 'ru-RU': {} };
   }
 }
