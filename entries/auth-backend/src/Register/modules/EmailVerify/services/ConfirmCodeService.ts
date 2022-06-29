@@ -86,7 +86,7 @@ export class ConfirmCodeService {
   }
 
   /**
-   * Получает код по ID.
+   * Удаляет код по ID.
    */
   public async removeById(id: string): Promise<void> {
     await this.confirmCodeRepository.delete({

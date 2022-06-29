@@ -33,6 +33,8 @@ export class ChangePasswordService {
       hashedPassword,
     );
 
+    await this.forgotPasswordCodeService.removeById(forgotPasswordCode.id);
+
     throw this.redirectErrorFactory.create({
       location: forgotPasswordCode.redirectFrom,
     });

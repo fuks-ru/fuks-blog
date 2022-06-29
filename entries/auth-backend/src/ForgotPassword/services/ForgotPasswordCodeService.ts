@@ -85,4 +85,13 @@ export class ForgotPasswordCodeService {
 
     return forgotPasswordCode;
   }
+
+  /**
+   * Удаляет код по ID.
+   */
+  public async removeById(id: string): Promise<void> {
+    await this.forgotPasswordCodeRepository.delete({
+      id,
+    });
+  }
 }
