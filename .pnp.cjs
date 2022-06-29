@@ -81,7 +81,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rushstack/eslint-patch", "npm:1.1.3"],\
             ["eslint", "npm:8.13.0"],\
             ["eslint-config-fuks", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.6.7"],\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15"],\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.2"],\
             ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.2.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
@@ -15839,7 +15839,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rushstack/eslint-patch", "npm:1.1.3"],\
             ["eslint", "npm:8.13.0"],\
             ["eslint-config-fuks", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.6.7"],\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15"],\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.2"],\
             ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.2.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
@@ -19159,10 +19159,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["marked", [\
-        ["npm:4.0.16", {\
-          "packageLocation": "./.yarn/cache/marked-npm-4.0.16-1c7fe7ec7b-c0ef780bf5.zip/node_modules/marked/",\
+        ["npm:4.0.17", {\
+          "packageLocation": "./.yarn/cache/marked-npm-4.0.17-d85fa63152-33a3c43a20.zip/node_modules/marked/",\
           "packageDependencies": [\
-            ["marked", "npm:4.0.16"]\
+            ["marked", "npm:4.0.17"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19779,6 +19779,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/minimatch-npm-5.0.1-612724f6f0-b34b98463d.zip/node_modules/minimatch/",\
           "packageDependencies": [\
             ["minimatch", "npm:5.0.1"],\
+            ["brace-expansion", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.1.0", {\
+          "packageLocation": "./.yarn/cache/minimatch-npm-5.1.0-34f6240621-15ce53d31a.zip/node_modules/minimatch/",\
+          "packageDependencies": [\
+            ["minimatch", "npm:5.1.0"],\
             ["brace-expansion", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
@@ -28081,22 +28089,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typedoc", [\
-        ["npm:0.22.15", {\
-          "packageLocation": "./.yarn/cache/typedoc-npm-0.22.15-9a9a433051-3f5f1cb928.zip/node_modules/typedoc/",\
+        ["npm:0.23.2", {\
+          "packageLocation": "./.yarn/cache/typedoc-npm-0.23.2-2d55e2c634-2c93349b5f.zip/node_modules/typedoc/",\
           "packageDependencies": [\
-            ["typedoc", "npm:0.22.15"]\
+            ["typedoc", "npm:0.23.2"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15", {\
-          "packageLocation": "./.yarn/__virtual__/typedoc-virtual-16cdaf75f8/0/cache/typedoc-npm-0.22.15-9a9a433051-3f5f1cb928.zip/node_modules/typedoc/",\
+        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.2", {\
+          "packageLocation": "./.yarn/__virtual__/typedoc-virtual-b63e344549/0/cache/typedoc-npm-0.23.2-2d55e2c634-2c93349b5f.zip/node_modules/typedoc/",\
           "packageDependencies": [\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15"],\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.2"],\
             ["@types/typescript", null],\
-            ["glob", "npm:7.2.0"],\
             ["lunr", "npm:2.3.9"],\
-            ["marked", "npm:4.0.16"],\
-            ["minimatch", "npm:5.0.1"],\
+            ["marked", "npm:4.0.17"],\
+            ["minimatch", "npm:5.1.0"],\
             ["shiki", "npm:0.10.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
@@ -28121,7 +28128,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.2.1"],\
             ["@types/typedoc", null],\
             ["fs-extra", "npm:10.0.1"],\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.22.15"]\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.2"]\
           ],\
           "packagePeers": [\
             "@types/typedoc",\
