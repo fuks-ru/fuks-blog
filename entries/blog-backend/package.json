@@ -26,7 +26,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "@difuks/auth-backend": "workspace:1.1.9",
+    "@difuks/auth-backend": "workspace:1.2.0",
     "@difuks/common": "workspace:1.4.1",
     "@nestjs/common": "^8.4.4",
     "@nestjs/core": "^8.4.4",

@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@difuks/auth-backend": "workspace:1.1.9",
+    "@difuks/auth-backend": "workspace:1.2.0",
     "@difuks/common": "workspace:1.4.1",
     "@difuks/react-google-recaptcha-v3": "^1.9.9",
     "@linaria/core": "^3.0.0-beta.20",

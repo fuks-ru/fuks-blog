@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@difuks/auth-backend": "workspace:1.1.9",
+    "@difuks/auth-backend": "workspace:1.2.0",
     "@difuks/common": "workspace:1.4.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@types/react": "^18.0.5",
