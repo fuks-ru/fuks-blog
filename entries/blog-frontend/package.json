@@ -1,5 +1,6 @@
 {
   "name": "@difuks/blog-frontend",
+  "version": "1.0.1",
   "description": "My blog frontend",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "private": true,
