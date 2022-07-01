@@ -37,6 +37,19 @@ jobs:
       - name: Build typedoc
         run: yarn typedoc
 
+      - name: Check packages versions
+        run: yarn version check
+
+      - name: Apply versions
+        run: yarn version apply --all
+
+      - name: Publish packages
+        run: yarn workspaces foreach --interlaced --verbose npm publish
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'ci: Release packages'
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
