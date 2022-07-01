@@ -9,7 +9,7 @@ import { IRedirectData } from 'common/backend/Redirect/dto/RedirectError';
 import { CommonErrorCode } from 'common/backend/SystemError/enums/CommonErrorCode';
 
 /**
- * Добавляет интерцептор для работы с api на фронте.
+ * Добавляет интерцептор для работы с api.
  */
 export const errorInterceptor = (error: AxiosError<IErrorResponse>): void => {
   const { response } = error;
