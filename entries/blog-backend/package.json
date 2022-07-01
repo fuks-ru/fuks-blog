@@ -26,10 +26,11 @@
     "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "@difuks/api-auth-backend": "*",
+    "@difuks/auth-backend": "*",
     "@difuks/common": "*",
     "@nestjs/common": "^8.4.4",
     "@nestjs/core": "^8.4.4",
+    "@nestjs/passport": "^8.2.2",
     "@nestjs/platform-express": "^8.4.4",
     "@nestjs/swagger": "^5.2.1",
     "@nestjs/typeorm": "^8.0.3",
@@ -45,6 +46,8 @@
     "lodash": "^4.17.21",
     "openapi-client-axios": "^5.1.2",
     "openapi-client-axios-typegen": "^5.0.2",
+    "passport": "^0.6.0",
+    "passport-custom": "^1.1.1",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.5",
@@ -60,6 +63,7 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "peerDependencies": {
+    "axios": "^0.27.2",
     "openapi-client-axios": "^5.1.2"
   }
 }

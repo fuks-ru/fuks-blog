@@ -61,18 +61,6 @@ jobs:
           package-dir: entries/auth-backend
           package-name: auth-backend
 
-      - name: Publish api-auth-backend package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: packages/api-auth-backend
-          package-name: api-auth-backend
-
-      - name: Publish api-blog-backend package
-        uses: ./.github/actions/publish-package
-        with:
-          package-dir: packages/api-blog-backend
-          package-name: api-blog-backend
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 

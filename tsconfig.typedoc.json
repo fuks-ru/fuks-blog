@@ -5,8 +5,6 @@
     "paths": {
       "ui/*": ["./packages/ui/src/*"],
       "common/*": ["./packages/common/src/*"],
-      "api-blog-backend/*": ["./packages/api-blog-backend/src/*"],
-      "api-auth-backend/*": ["./packages/api-auth-backend/src/*"],
 
       "blog-frontend/*": ["./entries/blog-frontend/src/*"],
       "blog-backend/*": ["./entries/blog-backend/src/*"],

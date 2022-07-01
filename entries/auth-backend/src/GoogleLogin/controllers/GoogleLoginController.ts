@@ -4,6 +4,7 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { GoogleRecaptchaGuard } from '@nestlab/google-recaptcha';
 import { Request as ExpressRequest } from 'express';
 
+import { Public } from 'auth-backend/Auth/decorators/Public';
 import { GoogleLoginRequest } from 'auth-backend/GoogleLogin/dto/GoogleLoginRequest';
 import { LoginService } from 'auth-backend/Login/services/LoginService';
 import { User } from 'auth-backend/User/entities/User';
@@ -25,6 +26,7 @@ export class GoogleLoginController {
   @ApiOperation({
     operationId: 'loginGoogle',
   })
+  @Public()
   @UseGuards(GoogleRecaptchaGuard, AuthGuard('google'))
   public auth(
     @Request() { user, body }: IRequest,

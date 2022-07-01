@@ -4,6 +4,7 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { GoogleRecaptchaGuard } from '@nestlab/google-recaptcha';
 import { Request as ExpressRequest } from 'express';
 
+import { Public } from 'auth-backend/Auth/decorators/Public';
 import { BasicLoginRequest } from 'auth-backend/BasicLogin/dto/BasicLoginRequest';
 import { LoginService } from 'auth-backend/Login/services/LoginService';
 import { User as UserEntity } from 'auth-backend/User/entities/User';
@@ -26,6 +27,7 @@ export class BasicLoginController {
     operationId: 'loginBasic',
   })
   @UseGuards(GoogleRecaptchaGuard, AuthGuard('local'))
+  @Public()
   public login(
     @Request() { user, body }: IRequest,
     @Body() _: BasicLoginRequest,

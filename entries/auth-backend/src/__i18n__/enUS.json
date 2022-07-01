@@ -17,5 +17,7 @@
   "toConfirm": "To confirm, follow the link: {link}",
   "forgotPasswordCodeNotExist": "Forgot password code not exist",
   "passwordRecovery": "Password recovery",
-  "toChangePassword": "To change password, follow the link: {link}"
+  "toChangePassword": "To change password, follow the link: {link}",
+  "jwtTokenEmpty": "Jwt token empty",
+  "authError": "Authentication error"
 }

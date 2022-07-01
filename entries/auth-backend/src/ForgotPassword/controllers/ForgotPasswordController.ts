@@ -2,6 +2,7 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Recaptcha } from '@nestlab/google-recaptcha';
 
+import { Public } from 'auth-backend/Auth/decorators/Public';
 import { ForgotPasswordService } from 'auth-backend/ForgotPassword/services/ForgotPasswordService';
 import { ChangePasswordService } from 'auth-backend/ForgotPassword/services/ChangePasswordService';
 import { ForgotPasswordRequest } from 'auth-backend/ForgotPassword/dto/ForgotPasswordRequest';
@@ -25,6 +26,7 @@ export class ForgotPasswordController {
     operationId: 'forgotPasswordSend',
   })
   @Recaptcha()
+  @Public()
   public async send(@Body() body: ForgotPasswordRequest): Promise<void> {
     const user = await this.userService.getConfirmedByEmail(body.email);
 
@@ -39,6 +41,7 @@ export class ForgotPasswordController {
     operationId: 'forgotPasswordChange',
   })
   @Recaptcha()
+  @Public()
   public async change(@Body() body: ChangePasswordRequest): Promise<void> {
     await this.changePasswordService.change(body);
   }

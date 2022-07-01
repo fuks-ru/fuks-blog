@@ -167,6 +167,13 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
+  /**
+   * Получает список всех пользователей.
+   */
+  public async getList(): Promise<User[]> {
+    return this.userRepository.find();
+  }
+
   private async getNotFoundError(): Promise<SystemError> {
     const i18n = await this.i18nResolver.resolve();
 

@@ -18,8 +18,6 @@ export { CONFIG } from 'common/constants';
 export { ConfigModule } from 'common/backend/Config/ConfigModule';
 export { RedirectModule } from 'common/backend/Redirect/RedirectModule';
 export { RedirectErrorFactory } from 'common/backend/Redirect/services/RedirectErrorFactory';
-export { ApiErrorsService } from 'common/backend/ApiErrors/services/ApiErrorsService';
-export { ApiErrorsModule } from 'common/backend/ApiErrors/ApiErrorsModule';
 export { IErrorFilterModuleOptions } from 'common/backend/ErrorFilter/types/IErrorFilterModuleOptions';
 export { RequestRefModule } from 'common/backend/RequestRef/RequestRefModule';
 export { RequestRefService } from 'common/backend/RequestRef/services/RequestRefService';

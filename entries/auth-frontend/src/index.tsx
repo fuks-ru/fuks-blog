@@ -1,7 +1,7 @@
-import { initAuthApi } from '@difuks/api-auth-backend/dist/frontend';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import { initAuthApi } from 'auth-frontend/utils/api';
 import { App } from 'auth-frontend/App';
 import 'auth-frontend/utils/i18n';
 

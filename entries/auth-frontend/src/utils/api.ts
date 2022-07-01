@@ -1,14 +1,20 @@
 import {
-  authApi,
+  getApi,
   OperationMethods,
   TApiBody,
   TApiArgs,
   TApiResponse,
-  OperationResponse,
-  AxiosRequestConfig,
-} from '@difuks/api-auth-backend/dist/frontend';
-import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
+  Client,
+} from '@difuks/auth-backend';
+import { urls } from '@difuks/common/dist/constants';
+import {
+  errorInterceptor,
+  UnknownError,
+  ValidationError,
+} from '@difuks/common/dist/frontend';
 import { Form, FormInstance, message } from 'antd';
+import { AxiosRequestConfig } from 'axios';
+import { OperationResponse } from 'openapi-client-axios';
 import { useCallback, useState } from 'react';
 
 import { useExecuteRecaptcha } from 'auth-frontend/components/GoogleRecaptcha/hooks/useExecuteRecaptcha';
@@ -17,6 +23,22 @@ import { useExecuteRecaptcha } from 'auth-frontend/components/GoogleRecaptcha/ho
  * Статус завершения запроса.
  */
 export type TStatus = 'pending' | 'success' | 'failed' | 'none';
+
+/**
+ * Клиент для работы с AuthApi.
+ */
+// eslint-disable-next-line import/no-mutable-exports
+export let authApi: Client;
+
+/**
+ * Инициализирует Api.
+ */
+export const initAuthApi = async (): Promise<void> => {
+  authApi = await getApi(urls.AUTH_BACKEND_URL);
+
+  authApi.interceptors.response.use(undefined, errorInterceptor);
+  authApi.defaults.headers.common.i18next = navigator.language;
+};
 
 /**
  * Обертка над api-client сервиса авторизации, предоставляющая инстанс

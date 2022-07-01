@@ -1,4 +1,3 @@
-import { BlogBackendModule } from '@difuks/api-blog-backend/dist/backend';
 import {
   ValidationModule,
   LoggerModule,
@@ -15,6 +14,7 @@ import { Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
 
+import { BlogBackendModule } from 'blog-frontend/server/BlogBackend/BlogBackendModule';
 import { PagesModule } from 'blog-frontend/server/Pages/PagesModule';
 import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter';
 

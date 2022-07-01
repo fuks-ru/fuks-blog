@@ -16,8 +16,8 @@ export class CookieResponseSetter {
       this.cookieSetterRef.getCookies(),
     )) {
       response.cookie(name, value, {
+        domain: domainUrl,
         ...options,
-        domain: `.${domainUrl}`,
       });
     }
   }

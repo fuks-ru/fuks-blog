@@ -1,4 +1,3 @@
-import { AuthModule } from '@difuks/api-auth-backend/dist/backend';
 import {
   LoggerModule,
   SwaggerModule,
@@ -15,6 +14,7 @@ import {
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import { AuthModule } from 'blog-backend/Auth/AuthModule';
 import { CategoryModule } from 'blog-backend/Category/CategoryModule';
 import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 

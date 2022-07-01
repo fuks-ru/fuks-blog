@@ -1,5 +1,5 @@
-import { Client, getApi, TApiResponse } from '@difuks/auth-backend/dist/lib';
-import { CommonErrorCode, SystemErrorFactory } from '@difuks/common';
+import { Client, getApi, TApiResponse } from '@difuks/auth-backend';
+import { CommonErrorCode, SystemErrorFactory } from '@difuks/common/dist';
 import { urls } from '@difuks/common/dist/constants';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
@@ -34,8 +34,6 @@ export class AuthBackendStrategy extends PassportStrategy(
   ): Promise<TApiResponse<'authVerify'>> {
     const { jwtToken } = request.cookies;
 
-    this.authApi.defaults.headers.common.cookie = request.headers.cookie || '';
-
     if (!jwtToken) {
       throw this.systemErrorFactory.create(
         CommonErrorCode.FORBIDDEN,
@@ -44,6 +42,9 @@ export class AuthBackendStrategy extends PassportStrategy(
     }
 
     try {
+      this.authApi.defaults.headers.common.cookie =
+        request.headers.cookie || '';
+
       const response = await this.authApi.authVerify(null, {
         jwtToken,
       });

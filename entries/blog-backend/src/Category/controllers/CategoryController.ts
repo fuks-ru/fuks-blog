@@ -1,4 +1,3 @@
-import { Public } from '@difuks/api-auth-backend/dist/backend';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
   ApiCreatedResponse,
@@ -8,6 +7,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
+import { Public } from 'blog-backend/Auth/decorators/Public';
 import { Category } from 'blog-backend/Category/entities/Category';
 import { CategoryService } from 'blog-backend/Category/services/CategoryService';
 

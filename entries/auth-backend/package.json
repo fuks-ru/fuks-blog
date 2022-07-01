@@ -44,6 +44,7 @@
     "@types/nodemailer": "^6.4.4",
     "@types/passport-jwt": "^3.0.6",
     "@types/passport-local": "^1.0.34",
+    "@types/qs": "^6.9.7",
     "@types/supertest": "^2.0.12",
     "@types/uuid": "^8.3.4",
     "argon2": "^0.28.5",
@@ -63,6 +64,7 @@
     "passport": "^0.5.2",
     "passport-custom": "^1.1.1",
     "pg": "^8.7.3",
+    "qs": "^6.10.5",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.5",
     "sqlite3": "^5.0.5",
@@ -79,10 +81,7 @@
     "uuid": "^8.3.2"
   },
   "peerDependencies": {
+    "axios": "^0.27.2",
     "openapi-client-axios": "^5.1.2"
-  },
-  "dependencies": {
-    "@types/qs": "^6.9.7",
-    "qs": "^6.10.5"
   }
 }
