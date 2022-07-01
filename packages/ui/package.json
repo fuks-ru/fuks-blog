@@ -1,6 +1,6 @@
 {
   "name": "@difuks/ui",
-  "version": "1.2.5",
+  "version": "0.0.1",
   "description": "My blog ui",
   "main": "dist/index.js",
   "module": "dist/index.js",
