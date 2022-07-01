@@ -55,7 +55,7 @@ const config: Configuration = {
     clean: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js'],
     plugins: [new TsconfigPathsPlugin()],
   },
   plugins,

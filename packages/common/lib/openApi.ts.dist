@@ -47,7 +47,7 @@ export type TApiArgs<Method extends keyof OperationMethods> =
     : never;
 
 /**
- * Описание схема клиента.
+ * Описание схемы клиента.
  */
 export type {
   Client,

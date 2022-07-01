@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';
@@ -15,6 +15,10 @@ export class UserController {
   @Get('/user/get')
   @ApiOperation({
     operationId: 'userList',
+  })
+  @ApiOkResponse({
+    type: User,
+    isArray: true,
   })
   public async list(): Promise<User[]> {
     return this.userService.getList();

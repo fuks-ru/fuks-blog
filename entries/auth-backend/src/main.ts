@@ -10,7 +10,7 @@ import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: {
-      origin: urls.AUTH_FRONTEND_URL,
+      origin: [urls.AUTH_FRONTEND_URL, urls.ADMIN_FRONTEND_URL],
       credentials: true,
     },
   });

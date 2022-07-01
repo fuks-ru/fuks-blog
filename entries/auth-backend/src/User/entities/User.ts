@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import type { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
@@ -17,6 +18,7 @@ export class User {
    * ID.
    */
   @PrimaryGeneratedColumn('uuid')
+  @ApiProperty()
   public id!: string;
 
   /**
@@ -25,6 +27,7 @@ export class User {
   @Column({
     unique: true,
   })
+  @ApiProperty()
   public email!: string;
 
   /**
@@ -33,18 +36,21 @@ export class User {
   @Column({
     default: false,
   })
+  @ApiProperty()
   public isConfirmed!: boolean;
 
   /**
    * Захешированный пароль.
    */
   @Column()
+  @ApiProperty()
   public hashedPassword!: string;
 
   /**
    * Роль.
    */
   @Column()
+  @ApiProperty()
   public role!: Role;
 
   /**
@@ -53,6 +59,7 @@ export class User {
   @OneToOne('ConfirmCode', 'user', {
     onDelete: 'CASCADE',
   })
+  @ApiProperty()
   public confirmCode?: ConfirmCode;
 
   /**
@@ -61,5 +68,6 @@ export class User {
   @OneToOne('ForgotPasswordCode', 'user', {
     onDelete: 'CASCADE',
   })
+  @ApiProperty()
   public forgotPassword?: ForgotPasswordCode;
 }
