@@ -3,7 +3,6 @@
   "version": "1.0.1",
   "description": "My blog auth",
   "repository": "https://github.com/DiFuks/fuks-blog",
-  "private": true,
   "author": "Dmitry Fuks",
   "license": "ISC",
   "scripts": {
