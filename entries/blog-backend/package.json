@@ -20,7 +20,7 @@
   },
   "files": [
     "dist/lib",
-    "readme.md"
+    "README.md"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
