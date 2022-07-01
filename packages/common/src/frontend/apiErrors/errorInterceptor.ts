@@ -10,8 +10,6 @@ import { CommonErrorCode } from 'common/backend/SystemError/enums/CommonErrorCod
 
 /**
  * Добавляет интерцептор для работы с api на фронте.
- *
- * @throws Error.
  */
 export const errorInterceptor = (error: AxiosError<IErrorResponse>): void => {
   const { response } = error;
