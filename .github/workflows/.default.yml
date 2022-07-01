@@ -43,12 +43,12 @@ jobs:
       - name: Apply versions
         run: yarn version apply --all
 
-      - name: Publish packages
-        run: yarn workspaces foreach --include "@difuks/{common,ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
-
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'ci: Release packages'
+
+      - name: Publish packages
+        run: yarn workspaces foreach --include "@difuks/{common,ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
