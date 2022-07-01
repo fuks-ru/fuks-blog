@@ -44,7 +44,7 @@ jobs:
         run: yarn version apply --all
 
       - name: Publish packages
-        run: yarn workspaces foreach --interlaced --verbose npm publish
+        run: yarn workspaces foreach --interlaced --verbose npm publish --tolerate-republish
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
