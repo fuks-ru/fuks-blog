@@ -5,3 +5,6 @@ releases:
   "@difuks/blog-backend": patch
   "@difuks/blog-frontend": patch
   "@difuks/common": patch
+
+declined:
+  - fuks
