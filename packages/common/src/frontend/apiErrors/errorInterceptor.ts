@@ -17,7 +17,7 @@ export const errorInterceptor = (error: AxiosError<IErrorResponse>): void => {
   const { response } = error;
 
   if (!response) {
-    throw new UnknownError('Empty response from Backend.');
+    throw new UnknownError('Empty response from Backend!!.');
   }
 
   if (response.data.code === CommonErrorCode.VALIDATION) {
