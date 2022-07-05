@@ -10,6 +10,8 @@
     "**/dist/**/*",
     "**/node_modules/**/*",
     "**/.next/**/*",
-    "**/.rollup.cache/**/*"
+    "**/.rollup.cache/**/*",
+    "**/*.spec.ts",
+    "**/*.d.ts"
   ]
 }
