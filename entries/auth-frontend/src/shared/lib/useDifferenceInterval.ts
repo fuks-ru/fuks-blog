@@ -1,7 +1,8 @@
-import { TStatus } from 'auth-frontend/shared/api/initAuthApi';
 import { useBoolean, useInterval } from 'react-use';
 import { differenceInSeconds } from 'date-fns';
 import { useEffect, useMemo, useState } from 'react';
+
+import { TStatus } from 'auth-frontend/shared/api/initAuthApi';
 
 interface IParams {
   status: TStatus;

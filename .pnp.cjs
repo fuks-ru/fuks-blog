@@ -5036,6 +5036,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-use", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:17.4.0"],\
             ["regenerator-runtime", "npm:0.13.9"],\
             ["ts-node", "virtual:88841c9d5995e65a1ff2888b6ecbb40b3ab1e4a4df9571faf02d75335f13a7afca26a51678ba66d1e741bca44e318b895bfeabb5ee8f2abe19380d93b2e6d74b#npm:10.7.0"],\
+            ["tsconfig-paths", "npm:4.0.0"],\
             ["tsconfig-paths-webpack-plugin", "npm:3.5.2"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["webpack", "virtual:a2d8aca69467a2cf71c575405a5c32ea65ba1030068c810e5fb03f3dfa264eb5632aac09ddb673926c1cedf1a3e5619a2212ffe179db7b94195566369b0988b2#npm:5.72.0"],\
@@ -28247,6 +28248,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsconfig-paths", "npm:3.14.1"],\
             ["@types/json5", "npm:0.0.29"],\
             ["json5", "npm:1.0.1"],\
+            ["minimist", "npm:1.2.6"],\
+            ["strip-bom", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/tsconfig-paths-npm-4.0.0-15297da77a-a8cf746ffe.zip/node_modules/tsconfig-paths/",\
+          "packageDependencies": [\
+            ["tsconfig-paths", "npm:4.0.0"],\
+            ["json5", "npm:2.2.1"],\
             ["minimist", "npm:1.2.6"],\
             ["strip-bom", "npm:3.0.0"]\
           ],\

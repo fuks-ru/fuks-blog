@@ -1,8 +1,8 @@
 import { Form, Input, message } from 'antd';
 import { FC, useCallback } from 'react';
 import GoogleLogin, {
-	GoogleLoginResponse,
-	GoogleLoginResponseOffline,
+  GoogleLoginResponse,
+  GoogleLoginResponseOffline,
 } from 'react-google-login';
 import { css } from '@linaria/core';
 import { useTranslation } from 'react-i18next';
@@ -15,46 +15,46 @@ import { useRedirectFrom } from 'auth-frontend/entities/redirectFrom';
  * Страница авторизации.
  */
 export const LoginGoogle: FC = () => {
-	const redirectFrom = useRedirectFrom();
-	const [form, onFinish] = useAuthForm('loginGoogle');
-	const { t } = useTranslation();
-	const { theme } = useTheme();
+  const redirectFrom = useRedirectFrom();
+  const [form, onFinish] = useAuthForm('loginGoogle');
+  const { t } = useTranslation();
+  const { theme } = useTheme();
 
-	const handleGoogleResponse = useCallback(
-		(response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-			if (!('tokenId' in response)) {
-				void message.error(t('googleApiResponseError'));
+  const handleGoogleResponse = useCallback(
+    (response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+      if (!('tokenId' in response)) {
+        void message.error(t('googleApiResponseError'));
 
-				return;
-			}
+        return;
+      }
 
-			form.setFieldsValue({
-				accessToken: response.tokenId,
-			});
+      form.setFieldsValue({
+        accessToken: response.tokenId,
+      });
 
-			form.submit();
-		},
-		[form, t],
-	);
+      form.submit();
+    },
+    [form, t],
+  );
 
-	return (
-		<Form form={form} initialValues={{ redirectFrom }} onFinish={onFinish}>
-			<Form.Item name='redirectFrom' hidden={true}>
-				<Input hidden={true} readOnly={true} />
-			</Form.Item>
-			<Form.Item name='accessToken'>
-				<GoogleLogin
-					clientId={process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID as string}
-					buttonText={t('loginWithGoogle')}
-					onSuccess={handleGoogleResponse}
-					onFailure={handleGoogleResponse}
-					cookiePolicy='single_host_origin'
-					className={googleLogin}
-					theme={theme}
-				/>
-			</Form.Item>
-		</Form>
-	);
+  return (
+    <Form form={form} initialValues={{ redirectFrom }} onFinish={onFinish}>
+      <Form.Item name='redirectFrom' hidden={true}>
+        <Input hidden={true} readOnly={true} />
+      </Form.Item>
+      <Form.Item name='accessToken'>
+        <GoogleLogin
+          clientId={process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID as string}
+          buttonText={t('loginWithGoogle')}
+          onSuccess={handleGoogleResponse}
+          onFailure={handleGoogleResponse}
+          cookiePolicy='single_host_origin'
+          className={googleLogin}
+          theme={theme}
+        />
+      </Form.Item>
+    </Form>
+  );
 };
 
 const googleLogin = css`

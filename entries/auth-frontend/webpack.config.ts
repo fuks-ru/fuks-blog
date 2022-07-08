@@ -14,6 +14,8 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
+import { env } from 'auth-frontend/shared/config/env';
+
 import 'webpack-dev-server';
 
 const plugins: WebpackPluginInstance[] = [
@@ -21,20 +23,12 @@ const plugins: WebpackPluginInstance[] = [
     template: './src/app/index.html',
   }),
   new NodePolyfillPlugin(),
-  new EnvironmentPlugin({
-    NODE_ENV: process.env.NODE_ENV,
-    FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID: isDevelopment
-      ? '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com'
-      : process.env.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID,
-    GOOGLE_RECAPTCHA_CLIENT_KEY: isDevelopment
-      ? '6Lel8ZcgAAAAAC25K_C-zciG8AM8kmVvm8f1_P09'
-      : process.env.GOOGLE_RECAPTCHA_CLIENT_KEY,
-  }),
+  new EnvironmentPlugin(env),
   new MiniCssExtractPlugin({
     filename: `styles${isDevelopment ? '' : '-[contenthash]'}.css`,
   }),
   new CopyWebpackPlugin({
-    patterns: [{ from: 'src/shared/public' }],
+    patterns: [{ from: 'src/shared/assets' }],
   }),
 ];
 

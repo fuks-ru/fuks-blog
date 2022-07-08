@@ -1,7 +1,7 @@
-import { initAuthApi } from 'auth-frontend/shared/api/initAuthApi';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import { initAuthApi } from 'auth-frontend/shared/api/initAuthApi';
 import { App } from 'auth-frontend/app/App';
 import 'auth-frontend/shared/config/i18n';
 
