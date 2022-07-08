@@ -71,8 +71,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rushstack/eslint-patch", "npm:1.1.3"],\
             ["eslint", "npm:8.19.0"],\
             ["eslint-config-fuks", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.8.1"],\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.5"],\
-            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:2.0.5"],\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.6"],\
+            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:3.0.0"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
@@ -16201,8 +16201,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rushstack/eslint-patch", "npm:1.1.3"],\
             ["eslint", "npm:8.19.0"],\
             ["eslint-config-fuks", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:1.8.1"],\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.5"],\
-            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:2.0.5"],\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.6"],\
+            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:3.0.0"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
@@ -28483,17 +28483,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typedoc", [\
-        ["npm:0.23.5", {\
-          "packageLocation": "./.yarn/cache/typedoc-npm-0.23.5-8ea31d5c06-a8c0aed855.zip/node_modules/typedoc/",\
+        ["npm:0.23.6", {\
+          "packageLocation": "./.yarn/cache/typedoc-npm-0.23.6-9193e4d92c-74db2eedec.zip/node_modules/typedoc/",\
           "packageDependencies": [\
-            ["typedoc", "npm:0.23.5"]\
+            ["typedoc", "npm:0.23.6"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.5", {\
-          "packageLocation": "./.yarn/__virtual__/typedoc-virtual-1f4430c6f6/0/cache/typedoc-npm-0.23.5-8ea31d5c06-a8c0aed855.zip/node_modules/typedoc/",\
+        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.6", {\
+          "packageLocation": "./.yarn/__virtual__/typedoc-virtual-fef2a1acfe/0/cache/typedoc-npm-0.23.6-9193e4d92c-74db2eedec.zip/node_modules/typedoc/",\
           "packageDependencies": [\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.5"],\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.6"],\
             ["@types/typescript", null],\
             ["lunr", "npm:2.3.9"],\
             ["marked", "npm:4.0.17"],\
@@ -28509,20 +28509,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typedoc-theme-hierarchy", [\
-        ["npm:2.0.5", {\
-          "packageLocation": "./.yarn/cache/typedoc-theme-hierarchy-npm-2.0.5-3650608489-0fca4ff37f.zip/node_modules/typedoc-theme-hierarchy/",\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/typedoc-theme-hierarchy-npm-3.0.0-e6055a12cb-70295d5b9a.zip/node_modules/typedoc-theme-hierarchy/",\
           "packageDependencies": [\
-            ["typedoc-theme-hierarchy", "npm:2.0.5"]\
+            ["typedoc-theme-hierarchy", "npm:3.0.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:2.0.5", {\
-          "packageLocation": "./.yarn/__virtual__/typedoc-theme-hierarchy-virtual-f61e2e71e3/0/cache/typedoc-theme-hierarchy-npm-2.0.5-3650608489-0fca4ff37f.zip/node_modules/typedoc-theme-hierarchy/",\
+        ["virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:3.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/typedoc-theme-hierarchy-virtual-f840632235/0/cache/typedoc-theme-hierarchy-npm-3.0.0-e6055a12cb-70295d5b9a.zip/node_modules/typedoc-theme-hierarchy/",\
           "packageDependencies": [\
-            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:2.0.5"],\
+            ["typedoc-theme-hierarchy", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:3.0.0"],\
             ["@types/typedoc", null],\
             ["fs-extra", "npm:10.0.1"],\
-            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.5"]\
+            ["typedoc", "virtual:04f078c5c04fa843aba023491ed25e8c6161b78073545c8329ceeb3dfa670d28addc1f73590cf8b8ba2915d614d67bd1a0803c5011b90687e1974c1804e9a66a#npm:0.23.6"]\
           ],\
           "packagePeers": [\
             "@types/typedoc",\
