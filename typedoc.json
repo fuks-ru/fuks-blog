@@ -1,6 +1,6 @@
 {
   "entryPoints": ["entries", "packages"],
-  "entryPointStrategy": "Expand",
+  "entryPointStrategy": "expand",
   "out": "public/docs",
   "plugin": ["typedoc-theme-hierarchy"],
   "theme": "hierarchy",
@@ -12,6 +12,7 @@
     "**/.next/**/*",
     "**/.rollup.cache/**/*",
     "**/*.spec.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "**/public/**/*"
   ]
 }

@@ -13,6 +13,5 @@
       "admin-frontend/*": ["./entries/admin-frontend/src/*"]
     },
     "isolatedModules": false
-  },
-  "exclude": ["./entries/**/*.spec.ts", "./public/**/*.*"]
+  }
 }
