@@ -4,6 +4,7 @@ import {
   TApiArgs,
   TApiBody,
   OperationMethods,
+  TApiResponse,
 } from '@difuks/auth-backend';
 import { urls } from '@difuks/common/dist/constants';
 import {
@@ -11,6 +12,10 @@ import {
   UnknownError,
   ValidationError,
 } from '@difuks/common/dist/frontend';
+import {
+  EndpointBuilder,
+  QueryDefinition,
+} from '@reduxjs/toolkit/dist/query/endpointDefinitions';
 import { BaseQueryFn } from '@reduxjs/toolkit/query';
 import { message } from 'antd';
 
@@ -64,3 +69,38 @@ export const authBaseQuery = (): BaseQueryFn<IQueryArgs> => async (args) => {
     };
   }
 };
+
+/**
+ * Генерирует rtk query endpoint'ы для Api.
+ */
+export const getEndpoints =
+  <Methods extends keyof OperationMethods>(
+    methods: Array<{
+      name: Methods;
+    }>,
+  ): ((build: EndpointBuilder<BaseQueryFn<IQueryArgs>, string, string>) => {
+    [key in Methods]: QueryDefinition<
+      void,
+      BaseQueryFn<IQueryArgs>,
+      never,
+      TApiResponse<key>,
+      string
+    >;
+  }) =>
+  (build) =>
+    Object.fromEntries(
+      methods.map((method) => [
+        method.name,
+        build.query<TApiResponse<Methods>, void>({
+          query: () => ({ method: method.name }),
+        }),
+      ]),
+    ) as {
+      [key in Methods]: QueryDefinition<
+        void,
+        BaseQueryFn<IQueryArgs>,
+        never,
+        TApiResponse<key>,
+        string
+      >;
+    };

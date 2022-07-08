@@ -1,7 +1,6 @@
-import { TApiResponse } from '@difuks/auth-backend/dist/lib';
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import { authBaseQuery } from 'admin-frontend/shared/api/authApi';
+import { authBaseQuery, getEndpoints } from 'admin-frontend/shared/api/authApi';
 
 /**
  * Апи для работы с пользователями.
@@ -9,9 +8,5 @@ import { authBaseQuery } from 'admin-frontend/shared/api/authApi';
 export const userApi = createApi({
   reducerPath: 'users',
   baseQuery: authBaseQuery(),
-  endpoints: (build) => ({
-    getList: build.query<TApiResponse<'userList'>, void>({
-      query: () => ({ method: 'userList' }),
-    }),
-  }),
+  endpoints: getEndpoints([{ name: 'userList' }]),
 });

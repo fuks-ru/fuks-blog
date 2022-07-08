@@ -33,7 +33,7 @@ interface IResult {
  * Получает данные для отрисовки таблицы пользователей.
  */
 export const useUserTableData = (): IResult => {
-  const { data } = userApi.useGetListQuery();
+  const { data } = userApi.useUserListQuery();
 
   const dataSource = useMemo(
     () => data?.map((item) => ({ ...item, key: item.id })) || [],
