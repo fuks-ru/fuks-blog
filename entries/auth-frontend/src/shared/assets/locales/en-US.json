@@ -17,5 +17,6 @@
   "changePasswordEmailSent": "An email with a link to change password has been sent to your email. Email not received?",
   "googleApiResponseError": "Google API response error",
   "loginWithGoogle": "Login with Google",
-  "authTitle": "{{ title }} | Fuks Blog | Auth"
+  "authTitle": "{{ title }} | Fuks Blog | Auth",
+  "unknownError": "Unknown error"
 }

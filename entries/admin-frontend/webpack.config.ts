@@ -11,16 +11,20 @@ import {
 } from 'webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import 'webpack-dev-server';
 
 const plugins: WebpackPluginInstance[] = [
   new HtmlWebpackPlugin({
-    template: './src/index.html',
+    template: './src/app/index.html',
   }),
   new NodePolyfillPlugin(),
   new EnvironmentPlugin({
     NODE_ENV: process.env.NODE_ENV,
+  }),
+  new MiniCssExtractPlugin({
+    filename: `styles${isDevelopment ? '' : '-[contenthash]'}.css`,
   }),
 ];
 
@@ -34,7 +38,7 @@ if (!isDevelopment) {
 
 const config: Configuration = {
   mode: isDevelopment ? 'development' : 'production',
-  entry: './src/index.tsx',
+  entry: './src/app/index.tsx',
   output: {
     path: path.resolve(process.cwd(), '../../public/admin'),
     clean: true,
@@ -52,6 +56,20 @@ const config: Configuration = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
     ],
   },

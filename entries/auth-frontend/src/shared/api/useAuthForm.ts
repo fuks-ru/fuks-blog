@@ -2,6 +2,7 @@ import { OperationMethods, TApiArgs, TApiBody } from '@difuks/auth-backend';
 import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
 import { Form, FormInstance, message } from 'antd';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useExecuteRecaptcha } from 'auth-frontend/shared/lib/useExecuteRecaptcha';
 import { getApiMethod, TStatus } from 'auth-frontend/shared/api/initAuthApi';
@@ -24,6 +25,7 @@ export const useAuthForm = <
 
   const [status, setStatus] = useState<TStatus>('none');
   const executeRecaptcha = useExecuteRecaptcha();
+  const { t } = useTranslation();
 
   const onFinish = useCallback(
     async (body: Body, args?: TApiArgs<ApiName>) => {
@@ -70,12 +72,12 @@ export const useAuthForm = <
           return;
         }
 
-        await message.error('Неизвестная ошибка');
+        await message.error(t('unknownError'));
 
         setStatus('failed');
       }
     },
-    [name, executeRecaptcha, form],
+    [name, executeRecaptcha, form, t],
   );
 
   return [form, onFinish, status];

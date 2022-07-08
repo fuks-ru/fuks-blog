@@ -17,5 +17,6 @@
   "changePasswordEmailSent": "Письмо с ссылкой на смену пароля отправлено вам на email. Письмо не пришло?",
   "googleApiResponseError": "Нет ответа от Google API",
   "loginWithGoogle": "Войти через Google",
-  "authTitle": "{{ title }} | Блог Димы Фукса | Авторизация"
+  "authTitle": "{{ title }} | Блог Димы Фукса | Авторизация",
+  "unknownError": "Неизвестная ошибка"
 }

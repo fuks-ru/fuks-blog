@@ -7,6 +7,7 @@ import {
 import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
 import { message } from 'antd';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useExecuteRecaptcha } from 'auth-frontend/shared/lib/useExecuteRecaptcha';
 import { getApiMethod, TStatus } from 'auth-frontend/shared/api/initAuthApi';
@@ -27,6 +28,7 @@ export const useAuthApi = <
   const [responseBody, setResponseBody] = useState<TApiResponse<ApiName>>();
   const [status, setStatus] = useState<TStatus>('none');
   const executeRecaptcha = useExecuteRecaptcha();
+  const { t } = useTranslation();
 
   const method = useCallback(
     async (body: Body, args?: TApiArgs<ApiName>) => {
@@ -57,12 +59,12 @@ export const useAuthApi = <
           return;
         }
 
-        await message.error('Неизвестная ошибка');
+        await message.error(t('unknownError'));
 
         setStatus('failed');
       }
     },
-    [executeRecaptcha, name],
+    [executeRecaptcha, name, t],
   );
 
   return [method, responseBody, status];

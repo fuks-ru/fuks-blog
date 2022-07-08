@@ -1,5 +1,5 @@
 import { FC, ReactNode, Suspense } from 'react';
-import { Routes } from 'react-router-dom';
+import { BrowserRouter, Routes } from 'react-router-dom';
 
 import { GoogleRecaptchaProvider } from 'auth-frontend/app/providers/GoogleRecaptchaProvider';
 import { RedirectFromProvider } from 'auth-frontend/app/providers/RedirectFromProvider';
@@ -14,13 +14,15 @@ interface IProps {
  * Провайдер для всего приложения.
  */
 export const AppProvider: FC<IProps> = ({ children }) => (
-  <Suspense fallback={<Preloader />}>
-    <ThemeProvider>
-      <GoogleRecaptchaProvider>
-        <RedirectFromProvider>
-          <Routes>{children}</Routes>
-        </RedirectFromProvider>
-      </GoogleRecaptchaProvider>
-    </ThemeProvider>
-  </Suspense>
+  <BrowserRouter>
+    <Suspense fallback={<Preloader />}>
+      <ThemeProvider>
+        <GoogleRecaptchaProvider>
+          <RedirectFromProvider>
+            <Routes>{children}</Routes>
+          </RedirectFromProvider>
+        </GoogleRecaptchaProvider>
+      </ThemeProvider>
+    </Suspense>
+  </BrowserRouter>
 );

@@ -44,4 +44,4 @@ export const getApiMethod = <
   ) => OperationResponse<TApiResponse<ApiName>>,
 >(
   name: ApiName,
-): ApiMethod => authApi[name] as ApiMethod;
+): ApiMethod => authApi[name].bind(authApi) as ApiMethod;
