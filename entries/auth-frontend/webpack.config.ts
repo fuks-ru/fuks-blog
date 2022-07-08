@@ -18,7 +18,7 @@ import 'webpack-dev-server';
 
 const plugins: WebpackPluginInstance[] = [
   new HtmlWebpackPlugin({
-    template: './src/index.html',
+    template: './src/app/index.html',
   }),
   new NodePolyfillPlugin(),
   new EnvironmentPlugin({
@@ -34,7 +34,7 @@ const plugins: WebpackPluginInstance[] = [
     filename: `styles${isDevelopment ? '' : '-[contenthash]'}.css`,
   }),
   new CopyWebpackPlugin({
-    patterns: [{ from: 'src/public' }],
+    patterns: [{ from: 'src/shared/public' }],
   }),
 ];
 
@@ -48,7 +48,7 @@ if (!isDevelopment) {
 
 const config: Configuration = {
   mode: isDevelopment ? 'development' : 'production',
-  entry: './src/index.tsx',
+  entry: './src/app/index.tsx',
   output: {
     path: path.resolve(process.cwd(), '../../public/auth'),
     filename: `[name]${isDevelopment ? '' : '-[contenthash]'}.js`,

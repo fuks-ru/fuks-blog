@@ -1,0 +1,69 @@
+import {
+  OperationMethods,
+  TApiArgs,
+  TApiBody,
+  TApiResponse,
+} from '@difuks/auth-backend';
+import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
+import { message } from 'antd';
+import { useCallback, useState } from 'react';
+
+import { useExecuteRecaptcha } from 'auth-frontend/shared/lib/useExecuteRecaptcha';
+import { getApiMethod, TStatus } from 'auth-frontend/shared/api/initAuthApi';
+
+/**
+ * Получает метод, объект ответа и статус запроса из authApi.
+ */
+export const useAuthApi = <
+  ApiName extends keyof OperationMethods,
+  Body extends TApiBody<ApiName>,
+>(
+  name: ApiName,
+): [
+  (body: Body, args?: TApiArgs<ApiName>) => Promise<void>,
+  TApiResponse<ApiName> | undefined,
+  TStatus,
+] => {
+  const [responseBody, setResponseBody] = useState<TApiResponse<ApiName>>();
+  const [status, setStatus] = useState<TStatus>('none');
+  const executeRecaptcha = useExecuteRecaptcha();
+
+  const method = useCallback(
+    async (body: Body, args?: TApiArgs<ApiName>) => {
+      setStatus('pending');
+
+      try {
+        const apiMethod = getApiMethod(name);
+
+        const token = await executeRecaptcha();
+
+        const apiResponse = await apiMethod(args || null, body, {
+          headers: {
+            recaptcha: token,
+          },
+        });
+
+        setResponseBody(apiResponse.data);
+
+        setStatus('success');
+
+        return;
+      } catch (error) {
+        if (error instanceof ValidationError || error instanceof UnknownError) {
+          await message.error(error.message);
+
+          setStatus('failed');
+
+          return;
+        }
+
+        await message.error('Неизвестная ошибка');
+
+        setStatus('failed');
+      }
+    },
+    [executeRecaptcha, name],
+  );
+
+  return [method, responseBody, status];
+};
