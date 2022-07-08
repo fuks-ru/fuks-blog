@@ -14,5 +14,5 @@
     },
     "isolatedModules": false
   },
-  "exclude": ["./entries/**/*.spec.ts"]
+  "exclude": ["./entries/**/*.spec.ts", "./public/**/*.*"]
 }
