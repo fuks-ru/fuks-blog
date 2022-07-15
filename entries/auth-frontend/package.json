@@ -1,6 +1,6 @@
 {
   "name": "@difuks/auth-frontend",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "My blog auth",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "author": "Dmitry Fuks",
@@ -15,8 +15,8 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@difuks/auth-backend": "workspace:0.1.1",
-    "@difuks/common": "workspace:0.0.2",
+    "@difuks/auth-backend": "workspace:0.2.0",
+    "@difuks/common": "workspace:0.1.0",
     "@difuks/react-google-recaptcha-v3": "^1.9.9",
     "@linaria/core": "^3.0.0-beta.20",
     "@linaria/react": "^3.0.0-beta.20",
