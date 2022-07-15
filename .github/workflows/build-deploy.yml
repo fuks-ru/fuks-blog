@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          fetch-depth: 0
 
       - name: Install modules
         run: yarn install
@@ -45,7 +48,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'ci: Release packages'
-          token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Publish packages
         run: yarn workspaces foreach --include "@difuks/{common,ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
