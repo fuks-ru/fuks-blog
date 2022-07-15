@@ -10,9 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GOOGLE_RECAPTCHA_CLIENT_KEY: ${{ secrets.GOOGLE_RECAPTCHA_CLIENT_KEY }}
-      PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_NPM_TOKEN }}
+      PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
       FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID: ${{ secrets.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID }}
 
     steps:
@@ -46,6 +45,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'ci: Release packages'
+          token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Publish packages
         run: yarn workspaces foreach --include "@difuks/{common,ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
