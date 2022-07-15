@@ -1,0 +1,8 @@
+releases:
+  "@difuks/admin-frontend": minor
+  "@difuks/auth-backend": minor
+  "@difuks/auth-frontend": patch
+  "@difuks/blog-backend": patch
+  "@difuks/blog-frontend": patch
+  "@difuks/common": minor
+  fuks: patch

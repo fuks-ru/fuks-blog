@@ -1,7 +1,7 @@
 import { SystemError } from '@difuks/common/dist/backend/SystemError/dto/SystemError';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeepPartial, Repository } from 'typeorm';
 import { I18nResolver, SystemErrorFactory } from '@difuks/common';
 
 import { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
@@ -44,10 +44,19 @@ export class UserService {
   }
 
   /**
-   * Добавляет пользователя в БД.
+   * Добавляет или обновляет пользователя в БД.
    */
-  public addOrUpdateUser(user: User): Promise<User> {
+  public addOrUpdateUser(user: DeepPartial<User>): Promise<User> {
     return this.userRepository.save(user);
+  }
+
+  /**
+   * Удаляет пользователя в БД по id.
+   */
+  public async deleteById(id: string): Promise<void> {
+    await this.userRepository.delete({
+      id,
+    });
   }
 
   /**

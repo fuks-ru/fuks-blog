@@ -15,7 +15,6 @@ export class ConfigGetter extends ConfigGetterBase {
    */
   protected readonly statusResolver: Record<ErrorCode, HttpStatus> = {
     [ErrorCode.CATEGORY_NOT_FOUND]: HttpStatus.NOT_FOUND,
-    [ErrorCode.JWT_TOKEN_EMPTY]: HttpStatus.FORBIDDEN,
   };
 
   public constructor(systemErrorFactory: SystemErrorFactory) {

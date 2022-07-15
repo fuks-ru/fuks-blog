@@ -36,7 +36,7 @@ export class AuthBackendStrategy extends PassportStrategy(
 
     if (!jwtToken) {
       throw this.systemErrorFactory.create(
-        CommonErrorCode.FORBIDDEN,
+        CommonErrorCode.UNAUTHORIZED,
         'Отсутствует токен авторизации.',
       );
     }
@@ -52,7 +52,7 @@ export class AuthBackendStrategy extends PassportStrategy(
       return response.data;
     } catch {
       throw this.systemErrorFactory.create(
-        CommonErrorCode.FORBIDDEN,
+        CommonErrorCode.UNAUTHORIZED,
         'Ошибка авторизации.',
       );
     }

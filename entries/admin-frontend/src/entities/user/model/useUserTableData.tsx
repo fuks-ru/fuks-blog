@@ -1,44 +1,56 @@
-import { Checkbox } from 'antd';
-import { ColumnsType } from 'antd/lib/table';
 import { Components } from '@difuks/auth-backend';
 import { useMemo } from 'react';
 
+import { IEnumOption, TColumnTypes } from 'admin-frontend/shared/ui/Table';
 import { userApi } from 'admin-frontend/entities/user/model/userApi';
 
-const columns: ColumnsType<Components.Schemas.User> = [
+const getColumns = (
+  roles: IEnumOption[],
+): TColumnTypes<Components.Schemas.UserResponse> => [
   {
     title: 'Email',
     dataIndex: 'email',
-    key: 'email',
+    editable: true,
+    metadata: {
+      type: 'string',
+    },
   },
   {
     title: 'Role',
     dataIndex: 'role',
-    key: 'role',
+    metadata: {
+      type: 'enum',
+      options: roles,
+    },
+    editable: true,
   },
   {
     title: 'Is confirmed',
     dataIndex: 'isConfirmed',
-    key: 'isConfirmed',
-    render: (value: boolean) => <Checkbox checked={value} disabled={true} />,
+    metadata: {
+      type: 'boolean',
+    },
+    editable: true,
   },
 ];
 
 interface IResult {
-  columns: ColumnsType<Components.Schemas.User>;
-  dataSource: Components.Schemas.User[];
+  columns: TColumnTypes<Components.Schemas.UserResponse>;
+  dataSource: Array<Components.Schemas.UserResponse & { key: string }>;
 }
 
 /**
- * Получает данные для отрисовки таблицы пользователей.
+ * Возвращает данные для отрисовки таблицы пользователей.
  */
-export const useUserTableData = (): IResult => {
+export const useUserTableData = (roles: IEnumOption[]): IResult => {
   const { data } = userApi.useUserListQuery();
 
   const dataSource = useMemo(
     () => data?.map((item) => ({ ...item, key: item.id })) || [],
     [data],
   );
+
+  const columns = useMemo(() => getColumns(roles), [roles]);
 
   return { columns, dataSource };
 };

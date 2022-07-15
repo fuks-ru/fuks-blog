@@ -64,6 +64,7 @@ export const Register: FC = () => {
               type='primary'
               htmlType='submit'
               className='login-form-button'
+              disabled={status === 'pending'}
             >
               Register
             </Button>
