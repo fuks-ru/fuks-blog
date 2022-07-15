@@ -1,6 +1,7 @@
 import OpenAPIClientAxios, {
   Document,
   OperationResponse,
+  Parameters,
 } from 'openapi-client-axios';
 
 import { Client, defaultBaseUrl, OperationMethods } from './client';
@@ -41,10 +42,12 @@ export type TApiBody<Method extends keyof OperationMethods> =
 /**
  * Описания типа аргументов url'а запроса.
  */
-export type TApiArgs<Method extends keyof OperationMethods> =
-  OperationMethods[Method] extends (...args: infer Args) => unknown
-    ? Exclude<Args[0], undefined>
-    : never;
+export declare type TApiArgs<Method extends keyof OperationMethods> =
+	OperationMethods[Method] extends (...args: infer Args) => unknown
+		? Exclude<Args[0], undefined | null> extends Parameters<infer Params>
+			? Params
+			: never
+		: never;
 
 /**
  * Описание схемы клиента.

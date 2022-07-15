@@ -32,7 +32,7 @@ export const errorInterceptor = (error: AxiosError<IErrorResponse>): void => {
     return;
   }
 
-  if (response.data.code === CommonErrorCode.FORBIDDEN) {
+  if (response.data.code === CommonErrorCode.UNAUTHORIZED) {
     window.location.assign(
       `${urls.AUTH_FRONTEND_URL}?${qs.stringify({
         redirectFrom: window.location.href,

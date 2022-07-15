@@ -1,6 +1,6 @@
 {
   "name": "@difuks/admin-frontend",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "My blog admin",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "private": true,
@@ -15,8 +15,8 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@difuks/auth-backend": "workspace:0.1.1",
-    "@difuks/common": "workspace:0.0.2",
+    "@difuks/auth-backend": "workspace:0.2.0",
+    "@difuks/common": "workspace:0.1.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@reduxjs/toolkit": "^1.8.3",
     "@types/react": "^18.0.5",

@@ -34,7 +34,9 @@ export class ForgotPasswordCode {
   /**
    * Пользователь.
    */
-  @OneToOne('User', 'forgotPassword')
+  @OneToOne('User', 'forgotPassword', {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   public user!: User;
 

@@ -1,12 +1,13 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
-
-import { authBaseQuery, getEndpoints } from 'admin-frontend/shared/api/authApi';
+import { createAuthApi } from 'admin-frontend/shared/api/authApi';
 
 /**
- * Апи для работы с пользователями.
+ * Возвращает хуки и редьюсер для работы с пользователями.
  */
-export const userApi = createApi({
-  reducerPath: 'users',
-  baseQuery: authBaseQuery(),
-  endpoints: getEndpoints([{ name: 'userList' }]),
+export const userApi = createAuthApi({
+  reducerPath: 'user',
+  methods: {
+    userList: { type: 'getList' },
+    userUpdate: { type: 'update' },
+    userDelete: { type: 'delete' },
+  },
 });
