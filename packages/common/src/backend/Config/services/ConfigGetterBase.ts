@@ -52,8 +52,9 @@ export abstract class ConfigGetterBase {
       apiPrefix: this.getApiPrefix(),
       statusResolver: {
         [CommonErrorCode.NOT_FOUND_ROUTE]: HttpStatus.NOT_FOUND,
-        [CommonErrorCode.FORBIDDEN]: HttpStatus.FORBIDDEN,
+        [CommonErrorCode.UNAUTHORIZED]: HttpStatus.UNAUTHORIZED,
         [CommonErrorCode.VALIDATION]: HttpStatus.UNPROCESSABLE_ENTITY,
+        [CommonErrorCode.FORBIDDEN]: HttpStatus.FORBIDDEN,
         ...this.statusResolver,
       },
     };

@@ -12,12 +12,17 @@
   "userAlreadyExists": "Пользователь уже существует",
   "userNotFound": "Пользователь не найден",
   "confirmationCodeNotExist": "Некорректный код подтверждения",
-  "beforeResending": "До повторной отправки {seconds} с",
+  "beforeResending": "До повторной отправки {seconds}с",
   "welcome": "Добро пожаловать на fuks.ru!",
   "toConfirm": "Для подтверждения перейдите по ссылке: {link}",
   "forgotPasswordCodeNotExist": "Некорректный код восстановления",
   "passwordRecovery": "Восстановления пароля",
   "toChangePassword": "Для восстановления пароля перейдите по ссылке: {link}",
   "jwtTokenEmpty": "Отсутствует токен авторизации",
-  "authError": "Ошибка авторизации"
+  "authError": "Ошибка авторизации",
+  "incorrectRole": "Некорректная роль",
+  "mustBeBoolean": "Должен быть boolean",
+  "noRights": "Нет прав",
+  "admin": "Админ",
+  "user": "Пользователь"
 }

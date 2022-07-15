@@ -55,7 +55,7 @@ export class BlogBackendService {
 
         const { data } = error.response;
 
-        if (data.code === CommonErrorCode.FORBIDDEN) {
+        if (data.code === CommonErrorCode.UNAUTHORIZED) {
           const request = this.requestRefService.getRequest();
 
           const redirectFrom = `//${

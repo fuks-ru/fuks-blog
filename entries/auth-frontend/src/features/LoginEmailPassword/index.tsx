@@ -12,7 +12,7 @@ import { Link } from 'auth-frontend/shared/ui/Link';
  * Форма входа.
  */
 export const LoginEmailPassword: FC = () => {
-  const [form, onFinish] = useAuthForm('loginBasic');
+  const [form, onFinish, status] = useAuthForm('loginBasic');
   const { t } = useTranslation();
 
   const redirectFrom = useRedirectFrom();
@@ -38,7 +38,11 @@ export const LoginEmailPassword: FC = () => {
         </Form.Item>
         <Form.Item>
           <Trans t={t} i18nKey='loginOrRegister'>
-            <Button type='primary' htmlType='submit'>
+            <Button
+              type='primary'
+              htmlType='submit'
+              disabled={status === 'pending'}
+            >
               Login
             </Button>
             or

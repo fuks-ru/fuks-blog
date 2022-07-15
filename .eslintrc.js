@@ -18,35 +18,16 @@ module.exports = {
       },
     },
   },
-  rules: {
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: [],
-        specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['noHref', 'invalidHref', 'preferButton'],
-      },
-    ],
-  },
   overrides: [
     {
       files: ['*.json'],
       parserOptions: {
         project: false,
       },
-      rules: {
-        indent: ['error', 2],
-      },
     },
     {
       // TODO временно, пока не перевел на i18n
       files: ['entries/{blog-frontend,admin-frontend}/**/*.tsx'],
-      rules: {
-        'i18next/no-literal-string': ['off'],
-      },
-    },
-    {
-      files: ['*.fixture.tsx'],
       rules: {
         'i18next/no-literal-string': ['off'],
       },

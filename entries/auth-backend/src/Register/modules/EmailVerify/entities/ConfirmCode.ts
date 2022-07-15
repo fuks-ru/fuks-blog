@@ -34,7 +34,9 @@ export class ConfirmCode {
   /**
    * Пользователь.
    */
-  @OneToOne('User', 'confirmCode')
+  @OneToOne('User', 'confirmCode', {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   public user!: User;
 

@@ -1,5 +1,11 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 import type { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
 import type { ForgotPasswordCode } from 'auth-backend/ForgotPassword/entities/ForgotPasswordCode';
@@ -18,7 +24,6 @@ export class User {
    * ID.
    */
   @PrimaryGeneratedColumn('uuid')
-  @ApiProperty()
   public id!: string;
 
   /**
@@ -27,7 +32,6 @@ export class User {
   @Column({
     unique: true,
   })
-  @ApiProperty()
   public email!: string;
 
   /**
@@ -36,38 +40,41 @@ export class User {
   @Column({
     default: false,
   })
-  @ApiProperty()
   public isConfirmed!: boolean;
 
   /**
    * Захешированный пароль.
    */
   @Column()
-  @ApiProperty()
   public hashedPassword!: string;
 
   /**
    * Роль.
    */
   @Column()
-  @ApiProperty()
   public role!: Role;
 
   /**
    * Коды подтверждения.
    */
-  @OneToOne('ConfirmCode', 'user', {
-    onDelete: 'CASCADE',
-  })
-  @ApiProperty()
+  @OneToOne('ConfirmCode', 'user')
   public confirmCode?: ConfirmCode;
 
   /**
    * Коды восстановления пароля.
    */
-  @OneToOne('ForgotPasswordCode', 'user', {
-    onDelete: 'CASCADE',
-  })
-  @ApiProperty()
+  @OneToOne('ForgotPasswordCode', 'user')
   public forgotPassword?: ForgotPasswordCode;
+
+  /**
+   * Время обновления.
+   */
+  @UpdateDateColumn()
+  public updatedAt!: Date;
+
+  /**
+   * Время добавления.
+   */
+  @CreateDateColumn()
+  public createdAt!: Date;
 }
