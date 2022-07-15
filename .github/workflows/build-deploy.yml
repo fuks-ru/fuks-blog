@@ -196,9 +196,8 @@ jobs:
             token: ${{ secrets.TELEGRAM_TOKEN }}
             format: markdown
             message: |
+              Build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}* Deploy *${{ needs.deploy.result == 'success' && '✅' || '⛔️' }}*
+
               *${{ github.actor }}* created [commit](${{ env.COMMIT_URL }})
   
               [Build and deploy](${{ env.COMMIT_URL }}/checks)
-  
-              Build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
-              Deploy *${{ needs.deploy.result == 'success' && '✅' || '⛔️' }}*
