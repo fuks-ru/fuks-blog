@@ -49,8 +49,8 @@ jobs:
 
     steps:
       - name: Pull Request URL
-        uses: kceb/pull-request-url-action@v2
-        id: pr-url
+        uses: 8BitJonny/gh-get-current-pr@2.1.0
+        id: PR
 
       - name: Send telegram message
         uses: appleboy/telegram-action@master
@@ -63,4 +63,4 @@ jobs:
           message: |
             [Build](${{ env.COMMIT_URL }}/checks) *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
 
-            *${{ github.actor }}* created [PR](${{ steps.pr-url.outputs.url }})
+            *${{ github.actor }}* created [PR](${{ steps.PR.outputs.pr_url }})
