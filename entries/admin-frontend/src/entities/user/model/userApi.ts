@@ -6,8 +6,9 @@ import { createAuthApi } from 'admin-frontend/shared/api/authApi';
 export const userApi = createAuthApi({
   reducerPath: 'user',
   methods: {
+    userGet: { type: 'get' },
     userList: { type: 'getList' },
     userUpdate: { type: 'update' },
     userDelete: { type: 'delete' },
-  },
+  } as const,
 });

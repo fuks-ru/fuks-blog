@@ -11,6 +11,7 @@
     "dev": "cross-env NODE_ENV=development webpack serve --mode development"
   },
   "devDependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
@@ -22,7 +23,7 @@
     "@types/react": "^18.0.5",
     "@types/react-dom": "^18.0.1",
     "@types/webpack": "^5.28.0",
-    "antd": "^4.21.5",
+    "antd": "^4.21.7",
     "axios": "^0.26.1",
     "babel-loader": "^8.2.4",
     "core-js": "^3.22.0",
@@ -32,6 +33,7 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "node-polyfill-webpack-plugin": "^1.1.4",
+    "rc-util": "^5.22.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-google-login": "^5.2.2",

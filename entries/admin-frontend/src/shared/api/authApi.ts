@@ -78,26 +78,28 @@ export const authBaseQuery = (): BaseQueryFn<IQueryArgs> => async (args) => {
  * Генерирует rtk query endpoint'ы для Api.
  */
 
-type TMethodData = { type: 'update' | 'getList' | 'delete' };
-
-type IEndpoints<
-  Methods extends Partial<Record<keyof OperationMethods, TMethodData>>,
+type TMethodData<
+  Type extends 'update' | 'getList' | 'delete' | 'get' =
+    | 'update'
+    | 'getList'
+    | 'delete'
+    | 'get',
 > = {
-  [key in keyof Methods]: Methods[key] extends TMethodData
+  type: Type;
+};
+
+type IEndpoints<Methods> = {
+  [key in keyof Methods]: Methods[key] extends TMethodData<infer Type>
     ? key extends keyof OperationMethods
-      ? Methods[key]['type'] extends 'getList'
-        ? TApiResponse<key> extends
-            | Array<{ id: string }>
-            | Array<{ id: number }>
-          ? QueryDefinition<
-              void,
-              BaseQueryFn<IQueryArgs>,
-              never,
-              TApiResponse<key>,
-              string
-            >
-          : never
-        : Methods[key]['type'] extends 'delete'
+      ? Type extends 'getList'
+        ? QueryDefinition<
+            void,
+            BaseQueryFn<IQueryArgs>,
+            never,
+            TApiResponse<key>,
+            string
+          >
+        : Type extends 'delete'
         ? MutationDefinition<
             string,
             BaseQueryFn<IQueryArgs>,
@@ -105,12 +107,20 @@ type IEndpoints<
             TApiResponse<key>,
             string
           >
-        : TApiArgs<key> extends { id: string }
+        : Type extends 'update'
         ? MutationDefinition<
             {
               body: TApiBody<key>;
               params: TApiArgs<key>;
             },
+            BaseQueryFn<IQueryArgs>,
+            never,
+            TApiResponse<key>,
+            string
+          >
+        : Type extends 'get'
+        ? QueryDefinition<
+            string,
             BaseQueryFn<IQueryArgs>,
             never,
             TApiResponse<key>,
@@ -129,23 +139,30 @@ type IApi<ReducerPath extends string> = Api<
   typeof reactHooksModuleName | typeof coreModuleName
 >;
 
-interface IOptions<
-  Methods extends Partial<Record<keyof OperationMethods, TMethodData>>,
-  ReducerPath extends string,
-> {
-  methods: Methods;
-  reducerPath: ReducerPath;
-}
+type IMethods = {
+  [key in keyof OperationMethods]?: TApiResponse<key> extends
+    | { id: string }
+    | { id: number }
+    ? TApiArgs<key> extends { id: string } | { id: number }
+      ? { type: 'update' } | { type: 'get' }
+      : never
+    : TApiResponse<key> extends Array<{ id: string }> | Array<{ id: number }>
+    ? { type: 'getList' }
+    : TApiArgs<key> extends { id: string } | { id: number }
+    ? { type: 'delete' }
+    : never;
+};
 
 /**
  * Возвращает rtk-query API для работы с API авторизацией.
  */
 export const createAuthApi = <
-  Methods extends Partial<Record<keyof OperationMethods, TMethodData>>,
   ReducerPath extends string,
->(
-  options: IOptions<Methods, ReducerPath>,
-): Api<
+  Methods extends IMethods,
+>(options: {
+  methods: Methods;
+  reducerPath: ReducerPath;
+}): Api<
   BaseQueryFn<IQueryArgs>,
   IEndpoints<Methods>,
   ReducerPath,
@@ -176,7 +193,7 @@ export const createAuthApi = <
         { dispatch, queryFulfilled },
       ) => {
         const listFunction = Object.entries(options.methods).find(
-          ([, data]) => data.type === 'getList',
+          ([, data]) => (data as TMethodData).type === 'getList',
         )?.[0];
 
         if (!listFunction) {
@@ -234,7 +251,7 @@ export const createAuthApi = <
       }),
       onQueryStarted: async (id: string, { dispatch, queryFulfilled }) => {
         const listFunction = Object.entries(options.methods).find(
-          ([, data]) => data.type === 'getList',
+          ([, data]) => (data as TMethodData).type === 'getList',
         )?.[0];
 
         if (!listFunction) {
@@ -273,7 +290,9 @@ export const createAuthApi = <
     ) => IEndpoints<Methods>) =>
     (build) =>
       Object.fromEntries(
-        Object.entries(methods).map(([method, { type }]) => {
+        Object.entries(methods).map(([method, data]) => {
+          const { type } = data as TMethodData;
+
           if (type === 'update') {
             return updateMutation(method, build);
           }
@@ -284,8 +303,11 @@ export const createAuthApi = <
 
           return [
             method,
-            build.query<TApiResponse<keyof OperationMethods>, void>({
-              query: () => ({ method: method as keyof OperationMethods }),
+            build.query<TApiResponse<keyof OperationMethods>, string>({
+              query: (id: string) => ({
+                method: method as keyof OperationMethods,
+                params: { id },
+              }),
             }),
           ];
         }),

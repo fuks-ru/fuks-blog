@@ -2355,6 +2355,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@difuks/admin-frontend@workspace:entries/admin-frontend"
   dependencies:
+    "@ant-design/icons": ^4.7.0
     "@babel/core": ^7.17.9
     "@babel/preset-env": ^7.16.11
     "@babel/preset-react": ^7.16.7
@@ -2366,7 +2367,7 @@ __metadata:
     "@types/react": ^18.0.5
     "@types/react-dom": ^18.0.1
     "@types/webpack": ^5.28.0
-    antd: ^4.21.5
+    antd: ^4.21.7
     axios: ^0.26.1
     babel-loader: ^8.2.4
     core-js: ^3.22.0
@@ -2376,6 +2377,7 @@ __metadata:
     html-webpack-plugin: ^5.5.0
     mini-css-extract-plugin: ^2.6.1
     node-polyfill-webpack-plugin: ^1.1.4
+    rc-util: ^5.22.5
     react: ^18.0.0
     react-dom: ^18.0.0
     react-google-login: ^5.2.2
@@ -5154,9 +5156,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd@npm:^4.21.5":
-  version: 4.21.5
-  resolution: "antd@npm:4.21.5"
+"antd@npm:^4.21.7":
+  version: 4.21.7
+  resolution: "antd@npm:4.21.7"
   dependencies:
     "@ant-design/colors": ^6.0.0
     "@ant-design/icons": ^4.7.0
@@ -5178,7 +5180,7 @@ __metadata:
     rc-image: ~5.7.0
     rc-input: ~0.0.1-alpha.5
     rc-input-number: ~7.3.0
-    rc-mentions: ~1.8.0
+    rc-mentions: ~1.9.0
     rc-menu: ~9.6.0
     rc-motion: ^2.5.1
     rc-notification: ~4.6.0
@@ -5192,10 +5194,10 @@ __metadata:
     rc-slider: ~10.0.0
     rc-steps: ~4.1.0
     rc-switch: ~3.2.0
-    rc-table: ~7.24.0
+    rc-table: ~7.25.0
     rc-tabs: ~11.16.0
     rc-textarea: ~0.3.0
-    rc-tooltip: ~5.1.1
+    rc-tooltip: ~5.2.0
     rc-tree: ~5.6.5
     rc-tree-select: ~5.4.0
     rc-trigger: ^5.2.10
@@ -5205,7 +5207,7 @@ __metadata:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: 7f17973a265fd16cd76fb516a77f96303d1db94e40ecbf1e5f0ddd31c6a7c0cd5a7b50b110cbfe27b280a13f9fd6bc2bb9a1f00cc4af8de00574d3073876f6eb
+  checksum: b52603725de760f1ccbade32da404ecb1ef5edcbb4caf35193995437ee7721de663f4f4419cebb4eb5e2be19d0fba4e66b10dc92fdda7d41893e983d2358450c
   languageName: node
   linkType: hard
 
@@ -6488,7 +6490,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.3, classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.1":
+"classnames@npm:*, classnames@npm:2.x, classnames@npm:^2.2.1, classnames@npm:^2.2.3, classnames@npm:^2.2.5, classnames@npm:^2.2.6, classnames@npm:^2.3.1":
   version: 2.3.1
   resolution: "classnames@npm:2.3.1"
   checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
@@ -15262,6 +15264,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-mentions@npm:~1.9.0":
+  version: 1.9.0
+  resolution: "rc-mentions@npm:1.9.0"
+  dependencies:
+    "@babel/runtime": ^7.10.1
+    classnames: ^2.2.6
+    rc-menu: ~9.6.0
+    rc-textarea: ^0.3.0
+    rc-trigger: ^5.0.4
+    rc-util: ^5.22.5
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 40b0af494e83f09910bdc22e60b971eb2599b1afd52fe6ffe2be1390bb14a7c912e92d6c926cabe307702d8f5e850d9272f380ae9f4295c3830b2906c54f150c
+  languageName: node
+  linkType: hard
+
 "rc-menu@npm:~9.6.0":
   version: 9.6.0
   resolution: "rc-menu@npm:9.6.0"
@@ -15506,6 +15525,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rc-table@npm:~7.25.0":
+  version: 7.25.2
+  resolution: "rc-table@npm:7.25.2"
+  dependencies:
+    "@babel/runtime": ^7.10.1
+    classnames: ^2.2.5
+    rc-resize-observer: ^1.1.0
+    rc-util: ^5.14.0
+    shallowequal: ^1.1.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: 4f36ae0baba2091b380013affa859813b5438b8518514a92c5c468af747781b36ab9931f39edaf505fac93ed9c780bf3193f1490ecaa61c45db866a29f91fd2e
+  languageName: node
+  linkType: hard
+
 "rc-tabs@npm:~11.16.0":
   version: 11.16.0
   resolution: "rc-tabs@npm:11.16.0"
@@ -15549,6 +15584,19 @@ __metadata:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
   checksum: e65b175c28356cee101db56217d02a1eb1d96e727620bb1f6551f98e3ab49d3ec4381f1d408d19054b46349cba0e89056a4b4f09eeebbe70a1013733ad0e1fc9
+  languageName: node
+  linkType: hard
+
+"rc-tooltip@npm:~5.2.0":
+  version: 5.2.1
+  resolution: "rc-tooltip@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+    rc-trigger: ^5.0.0
+  peerDependencies:
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  checksum: a0bbee568c5b04f35436afae5d8e3ed5cc59dd2bd901c9a1ea73fb68f0e7d7f7d654f83b11d2c71afe003a56b0b247829861592d7fbd9d2b0e7318c6be2a9329
   languageName: node
   linkType: hard
 

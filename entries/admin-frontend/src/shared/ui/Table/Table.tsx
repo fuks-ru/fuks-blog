@@ -1,5 +1,6 @@
 import { Button, Table as TableBase, TableProps } from 'antd';
 import { ReactElement, ThHTMLAttributes, useMemo } from 'react';
+import { DeleteOutlined, EyeOutlined } from '@ant-design/icons';
 
 import { EditableCell } from 'admin-frontend/shared/ui/Table/EditableCell/EditableCell';
 import { EditableRow } from 'admin-frontend/shared/ui/Table/EditableRow/EditableRow';
@@ -17,6 +18,7 @@ interface IProps<RecordType extends object>
   columns: TColumnTypes<RecordType>;
   handleSave?: (data: RecordType) => void | Promise<void>;
   handleDelete?: (id: string) => void | Promise<void>;
+  handleDetail?: (id: string) => void | Promise<void>;
   dataSource: Array<RecordType & { key: string }>;
 }
 
@@ -27,6 +29,7 @@ export const Table = <RecordType extends object>({
   columns: defaultColumns,
   handleSave,
   handleDelete,
+  handleDetail,
   dataSource,
   ...props
 }: IProps<RecordType>): ReactElement => {
@@ -46,31 +49,42 @@ export const Table = <RecordType extends object>({
       };
     });
 
-    if (handleDelete) {
-      return [
-        ...result,
-        {
-          title: 'Delete',
-          render: (
-            _: unknown,
-            record: RecordType & {
-              key: string;
-            },
-          ) => (
-            <Button
-              onClick={() => {
-                void handleDelete(record.key);
-              }}
-            >
-              Delete
-            </Button>
-          ),
-        },
-      ];
+    if (!handleDelete && !handleDetail) {
+      return result;
     }
 
-    return result;
-  }, [defaultColumns, handleDelete]);
+    return [
+      ...result,
+      {
+        title: 'Actions',
+        render: (
+          _: unknown,
+          record: RecordType & {
+            key: string;
+          },
+        ) => (
+          <>
+            {handleDetail && (
+              <Button
+                onClick={() => {
+                  void handleDetail(record.key);
+                }}
+                icon={<EyeOutlined />}
+              />
+            )}
+            {handleDelete && (
+              <Button
+                onClick={() => {
+                  void handleDelete(record.key);
+                }}
+                icon={<DeleteOutlined />}
+              />
+            )}
+          </>
+        ),
+      },
+    ];
+  }, [defaultColumns, handleDelete, handleDetail]);
 
   const onRow = (record: RecordType): ThHTMLAttributes<unknown> =>
     ({

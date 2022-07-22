@@ -79,6 +79,21 @@ export class UserService {
   }
 
   /**
+   * Получает пользователя по id.
+   */
+  public async getById(id: string): Promise<User> {
+    const user = await this.userRepository.findOneBy({
+      id,
+    });
+
+    if (!user) {
+      throw await this.getNotFoundError();
+    }
+
+    return user;
+  }
+
+  /**
    * Ищет пользователя по id.
    */
   public findById(id: string): Promise<User | null> {
