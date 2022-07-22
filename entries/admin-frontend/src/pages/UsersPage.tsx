@@ -30,7 +30,7 @@ export const UsersPage: FC = () => {
           void getDetailUser(id);
         }}
       />
-      <Modal visible={true} title='Hello'>
+      <Modal visible={!!data} title='Hello'>
         {data?.email}
       </Modal>
     </>
