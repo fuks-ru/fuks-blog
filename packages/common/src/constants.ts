@@ -3,7 +3,7 @@
  */
 export const CONFIG = 'common-config';
 
-const prodDomainUrl = 'new.fuks.ru';
+const prodDomainUrl = 'fuks.ru';
 const devDomainUrl = 'localhost';
 
 /**
@@ -41,7 +41,7 @@ export const urls = {
 
   BLOG_BACKEND_URL: isDevelopment
     ? `http://${devDomainUrl}:${ports.BLOG_BACKEND_PORT}`
-    : `https://backend.${prodDomainUrl}`,
+    : `https://blog-backend.${prodDomainUrl}`,
 
   BLOG_FRONTEND_URL: isDevelopment
     ? `http://${devDomainUrl}:${ports.BLOG_FRONTEND_PORT}`
