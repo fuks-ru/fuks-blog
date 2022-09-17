@@ -1,16 +1,16 @@
 import { I18nResolver } from '@difuks/common/dist';
 import { urls } from '@difuks/common/dist/constants';
-import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
 import qs from 'qs';
 
 import { User } from 'auth-backend/User/entities/User';
 import { ConfirmCodeService } from 'auth-backend/Register/modules/EmailVerify/services/ConfirmCodeService';
+import { MailerServiceMock } from 'auth-backend/__mock__/MailerServiceMock';
 
 @Injectable()
 export class EmailVerifyService {
   public constructor(
-    private readonly mailerService: MailerService,
+    private readonly mailerService: MailerServiceMock,
     private readonly confirmCodeService: ConfirmCodeService,
     private readonly i18nResolver: I18nResolver,
   ) {}

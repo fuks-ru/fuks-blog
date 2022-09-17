@@ -1,16 +1,16 @@
 import { I18nResolver } from '@difuks/common';
 import { urls } from '@difuks/common/dist/constants';
-import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
 import qs from 'qs';
 
 import { User } from 'auth-backend/User/entities/User';
 import { ForgotPasswordCodeService } from 'auth-backend/ForgotPassword/services/ForgotPasswordCodeService';
+import { MailerServiceMock } from 'auth-backend/__mock__/MailerServiceMock';
 
 @Injectable()
 export class ForgotPasswordService {
   public constructor(
-    private readonly mailerService: MailerService,
+    private readonly mailerService: MailerServiceMock,
     private readonly forgotPasswordCodeService: ForgotPasswordCodeService,
     private readonly i18nResolver: I18nResolver,
   ) {}

@@ -45,16 +45,16 @@ import { RoleModule } from 'auth-backend/Role/RoleModule';
     RedirectModule,
     RequestRefModule,
     AuthModule,
-    MailerModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [CONFIG],
-      useFactory: (configGetter: ConfigGetter) => ({
-        transport: configGetter.getMailerTransport(),
-        defaults: {
-          from: `"Fuks Blog" <${configGetter.getMailerFrom()}>`,
-        },
-      }),
-    }),
+    // MailerModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   inject: [CONFIG],
+    //   useFactory: (configGetter: ConfigGetter) => ({
+    //     transport: configGetter.getMailerTransport(),
+    //     defaults: {
+    //       from: `"Fuks Blog" <${configGetter.getMailerFrom()}>`,
+    //     },
+    //   }),
+    // }),
     GoogleRecaptchaModule.forRootAsync({
       imports: [ConfigModule],
       inject: [CONFIG],

@@ -9,7 +9,7 @@ import { UserModule } from 'auth-backend/User/UserModule';
 
 @Module({
   imports: [EncodingModule, UserModule, EmailVerifyModule],
-  providers: [BasicRegisterService, EmailRegisterService],
+  providers: [BasicRegisterService, EmailRegisterService, ],
   controllers: [RegisterController],
   exports: [EmailRegisterService],
 })
