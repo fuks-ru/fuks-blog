@@ -13,7 +13,6 @@ import {
 } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MailerModule } from '@nestjs-modules/mailer';
 import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
 
 import { AuthModule } from 'auth-backend/Auth/AuthModule';
