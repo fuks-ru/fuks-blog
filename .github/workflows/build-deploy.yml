@@ -108,6 +108,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Stop and remove docker containers and remove images
         uses: ./.github/actions/ssh-script
         with:
