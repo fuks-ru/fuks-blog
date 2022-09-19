@@ -34,9 +34,9 @@ runs:
           -e MAILER_PASSWORD="${MAILER_PASSWORD}" \
           -e MAILER_HOST="${MAILER_HOST}" \
           -e GOOGLE_RECAPTCHA_SECRET_KEY="${GOOGLE_RECAPTCHA_SECRET_KEY}" \
-          -v "/server/fuks_ru/auth-backend/var":/app/entries/auth-backend/var \
-          -v "/server/fuks_ru/blog-backend/var":/app/entries/blog-backend/var \
-          -v "/server/fuks_ru/blog-frontend/var":/app/entries/blog-frontend/var \
-          --network="my-blog" \
+          -v "/server/fuks_ru/auth.fuks.ru/var":/app/entries/auth-backend/var \
+          -v "/server/fuks_ru/blog-backend.fuks.ru/var":/app/entries/blog-backend/var \
+          -v "/server/fuks_ru/fuks.ru/var":/app/entries/blog-frontend/var \
+          --network="fuks-ru" \
           difuks/fuks-blog \
           ${{ inputs.script }}
