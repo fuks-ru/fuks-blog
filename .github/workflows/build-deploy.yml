@@ -181,7 +181,11 @@ jobs:
         with:
           secret-context: ${{ toJson(secrets) }}
           script: |
-            docker run --name fuks-blog-nginx --rm --network="fuks-ru" -d difuks/fuks-blog-nginx
+            docker run --name fuks-blog-nginx \ 
+            --rm -d \
+            --network="fuks-ru" \
+            -v "/server/fuks-blog/fuks.ru/certs":/etc/certs/fuks.ru \
+            difuks/fuks-blog-nginx
 
   notification:
       name: Notification

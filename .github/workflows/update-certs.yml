@@ -34,4 +34,4 @@ jobs:
             -v "/server/fuks-blog/${{ github.event.inputs.domain }}/certs/:/etc/letsencrypt/live/${{ github.event.inputs.domain }}" \
             -v "/server/fuks-blog/${{ github.event.inputs.domain }}/var/logs/letsencrypt/:/var/log/letsencrypt/" \
             -p 80:80 \
-            certbot/certbot certonly -n -m difuks@gmail.com --standalone -d ${{ github.event.inputs.domain }}
+            certbot/certbot certonly -n -m difuks@gmail.com --standalone --agree-tos -d ${{ github.event.inputs.domain }}
