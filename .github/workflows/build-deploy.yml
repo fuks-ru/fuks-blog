@@ -184,7 +184,7 @@ jobs:
             docker run --name fuks-blog-nginx \ 
             --rm -d \
             --network="fuks-ru" \
-            -v "/server/fuks-blog/fuks.ru/certs":/etc/certs/fuks.ru \
+            -v "/server/fuks-blog/fuks.ru/letsencrypt":/etc/fuks.ru/letsencrypt \
             difuks/fuks-blog-nginx
 
   notification:
