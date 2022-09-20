@@ -24,14 +24,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Update certs
-        uses: ./.github/actions/ssh-script
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             docker run --rm \
-            -v "/server/fuks-blog/${{ github.event.inputs.domain }}/certs/:/etc/letsencrypt/live/${{ github.event.inputs.domain }}" \
+            -v "/server/fuks-blog/${{ github.event.inputs.domain }}/letsencrypt/:/etc/letsencrypt" \
             -v "/server/fuks-blog/${{ github.event.inputs.domain }}/var/logs/letsencrypt/:/var/log/letsencrypt/" \
             -p 80:80 \
-            certbot/certbot certonly -n -m difuks@gmail.com --standalone --agree-tos -d ${{ github.event.inputs.domain }}
+            certbot/certbot certonly -n -m difuks@gmail.com --standalone --agree-tos ${{ github.event.inputs.domain }}
