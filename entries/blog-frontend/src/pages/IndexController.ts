@@ -12,7 +12,6 @@ export class IndexController {
   public index(): IIndexPageProps {
     return {
       title: 'Главная страница',
-      message: 'Добро пожаловать в разрабатываемый блог Димы Фукса!',
     };
   }
 }
