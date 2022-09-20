@@ -185,6 +185,11 @@ jobs:
             --rm -d \
             --network="fuks-ru" \
             -v "/server/fuks-blog/fuks.ru/letsencrypt":"/etc/fuks.ru/letsencrypt" \
+            -v "/server/fuks-blog/blog-backend.fuks.ru/letsencrypt":"/etc/blog-backend.fuks.ru/letsencrypt" \
+            -v "/server/fuks-blog/auth.fuks.ru/letsencrypt":"/etc/auth.fuks.ru/letsencrypt" \
+            -v "/server/fuks-blog/admin.fuks.ru/letsencrypt":"/etc/admin.fuks.ru/letsencrypt" \
+            -v "/server/fuks-blog/story.fuks.ru/letsencrypt":"/etc/story.fuks.ru/letsencrypt" \
+            -v "/server/fuks-blog/docs.fuks.ru/letsencrypt":"/etc/docs.fuks.ru/letsencrypt" \
             difuks/fuks-blog-nginx
 
   notification:
