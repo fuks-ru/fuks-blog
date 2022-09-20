@@ -139,7 +139,7 @@ jobs:
             -e POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
             -e POSTGRES_DB=auth \
             -e PGDATA=/var/lib/postgresql/data/pgdata \
-            -v "/server/fuks_ru/auth-backend-postgres/var":/var/lib/postgresql/data \
+            -v "/server/fuks-blog/auth-backend-postgres/var":/var/lib/postgresql/data \
             --network="fuks-ru" \
             postgres:14.2-alpine
 
@@ -154,7 +154,7 @@ jobs:
             -e POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
             -e POSTGRES_DB=blog \
             -e PGDATA=/var/lib/postgresql/data/pgdata \
-            -v "/server/fuks_ru/blog-backend-postgres/var":/var/lib/postgresql/data \
+            -v "/server/fuks-blog/blog-backend-postgres/var":/var/lib/postgresql/data \
             --network="fuks-ru" \
             postgres:14.2-alpine
 

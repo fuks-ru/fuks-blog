@@ -26,10 +26,12 @@ jobs:
       - name: Update certs
         uses: ./.github/actions/ssh-script
         with:
-          secret-context: ${{ toJson(secrets) }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             docker run --rm \
-            -v "/server/fuks_ru/${{ github.event.inputs.domain }}/certs/:/etc/letsencrypt/live/${{ github.event.inputs.domain }}" \
-            -v "/server/fuks_ru/${{ github.event.inputs.domain }}/var/logs/letsencrypt/:/var/log/letsencrypt/" \
+            -v "/server/fuks-blog/${{ github.event.inputs.domain }}/certs/:/etc/letsencrypt/live/${{ github.event.inputs.domain }}" \
+            -v "/server/fuks-blog/${{ github.event.inputs.domain }}/var/logs/letsencrypt/:/var/log/letsencrypt/" \
             -p 80:80 \
             certbot/certbot certonly -n -m difuks@gmail.com --standalone -d ${{ github.event.inputs.domain }}
