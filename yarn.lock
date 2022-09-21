@@ -7416,9 +7416,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-fuks@portal:../eslint-config-fuks::locator=fuks%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "eslint-config-fuks@portal:../eslint-config-fuks::locator=fuks%40workspace%3A."
+"eslint-config-fuks@npm:^1.8.2":
+  version: 1.8.2
+  resolution: "eslint-config-fuks@npm:1.8.2"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.38.0
     "@typescript-eslint/parser": ^5.38.0
@@ -7447,8 +7447,9 @@ __metadata:
     eslint: ^8.5.0
     prettier: ^2.5.0
     typescript: ^4.6.3
+  checksum: c5dfbd09916a245bc06e9baf67fe2915f03223fbb98954f5a2e3a8ecfae70d4c6df51f8520f514c3821462ab958376806f9d2f18dfff5a830647e21eb0cf3f4a
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "eslint-config-prettier@npm:^8.5.0":
   version: 8.5.0
@@ -8504,7 +8505,7 @@ __metadata:
   dependencies:
     "@rushstack/eslint-patch": ^1.2.0
     eslint: ^8.23.1
-    eslint-config-fuks: "portal:../eslint-config-fuks"
+    eslint-config-fuks: ^1.8.2
     typedoc: ^0.23.15
     typedoc-theme-hierarchy: ^3.0.0
     typescript: ^4.8.3
