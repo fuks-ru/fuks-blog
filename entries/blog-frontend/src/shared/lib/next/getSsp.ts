@@ -6,11 +6,11 @@ import {
   GetServerSidePropsResult,
   PreviewData,
 } from 'next/types';
-import { IErrorResponse } from '@difuks/common';
+import { IErrorResponse } from '@difuks/common/dist';
 import { API_PAGE_PREFIX } from '@difuks/common/dist/constants';
 
-import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
-import { api } from 'blog-frontend/common/api/api';
+import { IPageProps } from 'blog-frontend/shared/types/page/IPageProps';
+import { api } from 'blog-frontend/shared/api/api';
 
 /**
  * Описание кастомной функции getServerSideProps.

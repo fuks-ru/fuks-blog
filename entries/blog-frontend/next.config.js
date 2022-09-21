@@ -6,6 +6,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   pageExtensions: ['page.tsx'],
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 module.exports = nextConfig;

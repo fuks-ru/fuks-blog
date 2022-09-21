@@ -2,8 +2,9 @@ import { FC } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
+import { IPageProps } from 'blog-frontend/shared/types/page/IPageProps';
 import { ErrorPage } from 'blog-frontend/pages/_500/index.page';
+import { GlobalStyle } from 'blog-frontend/shared/ui/GlobalStyles';
 
 const App: FC<
   Omit<AppProps<IPageProps>, 'pageProps'> & { pageProps: IPageProps }
@@ -69,6 +70,7 @@ const App: FC<
       <meta name='msapplication-TileImage' content='/ms-icon-144x144.png' />
       <meta name='theme-color' content='#ffffff' />
     </Head>
+    <GlobalStyle />
     {pageProps.error ? (
       // eslint-disable-next-line react/jsx-props-no-spreading
       <ErrorPage {...pageProps} />

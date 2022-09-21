@@ -1,6 +1,8 @@
-import { IPage } from 'blog-frontend/common/types/page/IPage';
-import { getSsp } from 'blog-frontend/common/utils/next/getSsp';
-import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
+import styled from 'styled-components';
+
+import { IPage } from 'blog-frontend/shared/types/page/IPage';
+import { getSsp } from 'blog-frontend/shared/lib/next/getSsp';
+import { IPageProps } from 'blog-frontend/shared/types/page/IPageProps';
 
 /**
  * Пропсы для главной страницы.
@@ -8,16 +10,7 @@ import { IPageProps } from 'blog-frontend/common/types/page/IPageProps';
 export type IIndexPageProps = IPageProps;
 
 const Index: IPage<IIndexPageProps> = () => (
-  <div
-    style={{
-      display: 'flex',
-      height: 50,
-      paddingTop: 10,
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-    }}
-  >
+  <SWrapper>
     <div>Coming soon!</div>
     <div>
       Or send me telegram message:{' '}
@@ -25,8 +18,22 @@ const Index: IPage<IIndexPageProps> = () => (
         https://t.me/difuks
       </a>
     </div>
-  </div>
+  </SWrapper>
 );
+
+const SWrapper = styled.div`
+  display: flex;
+  padding-top: 10px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: sans-serif;
+  color: #e8d8d8;
+  line-height: 50px;
+  font-size: 25px;
+  height: 100%;
+  text-align: center;
+`;
 
 export const getServerSideProps = getSsp();
 

@@ -11,7 +11,7 @@ export class IndexController {
   @Page()
   public index(): IIndexPageProps {
     return {
-      title: 'Главная страница',
+      title: 'Fuks blog',
     };
   }
 }

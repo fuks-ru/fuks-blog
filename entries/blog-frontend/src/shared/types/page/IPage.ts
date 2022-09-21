@@ -1,6 +1,6 @@
 import { NextComponentType } from 'next/dist/shared/lib/utils';
 
-import { IPageContext } from 'blog-frontend/common/types/page/IPageContext';
+import { IPageContext } from 'blog-frontend/shared/types/page/IPageContext';
 
 /**
  * Расширяет стандартную Next-страницу кастомным контекстом.

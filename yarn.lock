@@ -1795,6 +1795,7 @@ __metadata:
     "@types/node": ^18.7.18
     "@types/qs": ^6.9.7
     "@types/react": 18.0.20
+    "@types/styled-components": ^5.1.26
     axios: ^0.27.2
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
@@ -1809,6 +1810,8 @@ __metadata:
     react-dom: ^18.2.0
     reflect-metadata: ^0.1.13
     rxjs: ^7.5.6
+    styled-components: ^5.3.5
+    styled-normalize: ^8.0.7
     ts-node-dev: ^2.0.0
     tsconfig-paths: ^4.1.0
     ttypescript: ^1.5.13
@@ -15163,6 +15166,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-is@npm:*, react-is@npm:^18.0.0":
+  version: 18.2.0
+  resolution: "react-is@npm:18.2.0"
+  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
+  languageName: node
+  linkType: hard
+
 "react-is@npm:17.0.2, react-is@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
@@ -15174,13 +15184,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
-  languageName: node
-  linkType: hard
-
-"react-is@npm:^18.0.0":
-  version: 18.2.0
-  resolution: "react-is@npm:18.2.0"
-  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
   languageName: node
   linkType: hard
 
@@ -16823,6 +16826,15 @@ __metadata:
     babel-plugin-macros:
       optional: true
   checksum: 61959993915f4b1662a682dbbefb3512de9399cf6901969bcadd26ba5441d2b5ca5c1021b233bbd573da2541b41efb45d56c6f618dbc8d88a381ebc62461fefe
+  languageName: node
+  linkType: hard
+
+"styled-normalize@npm:^8.0.7":
+  version: 8.0.7
+  resolution: "styled-normalize@npm:8.0.7"
+  peerDependencies:
+    styled-components: ^4.0.0 || ^5.0.0
+  checksum: afdb450407ec4dcd41b4806a1193060e128f617fbbb6c14cc8679f9a651b93afc54bd13035c84aec3c298a7ae0084aef4a8a651c082c9bf209843b17cfc73305
   languageName: node
   linkType: hard
 
