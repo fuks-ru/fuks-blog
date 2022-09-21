@@ -3322,7 +3322,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],\
             ["nest-next", "virtual:e2d44e6fc442a8e1c352dc660fd0147e9be5e01262f5fafd147ba4761d0c5596163a87776502938bf6212d0bec4c5c01207e894f7a22eb0827eec6251d315fd4#npm:10.0.0"],\
             ["next", "virtual:e2d44e6fc442a8e1c352dc660fd0147e9be5e01262f5fafd147ba4761d0c5596163a87776502938bf6212d0bec4c5c01207e894f7a22eb0827eec6251d315fd4#npm:12.3.1"],\
-            ["next-compose-plugins", "npm:2.2.1"],\
             ["qs", "npm:6.11.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:88841c9d5995e65a1ff2888b6ecbb40b3ab1e4a4df9571faf02d75335f13a7afca26a51678ba66d1e741bca44e318b895bfeabb5ee8f2abe19380d93b2e6d74b#npm:18.2.0"],\
@@ -18674,15 +18673,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "react-dom",\
             "react",\
             "sass"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["next-compose-plugins", [\
-        ["npm:2.2.1", {\
-          "packageLocation": "./.yarn/cache/next-compose-plugins-npm-2.2.1-a9c8f4fdca-771762fda2.zip/node_modules/next-compose-plugins/",\
-          "packageDependencies": [\
-            ["next-compose-plugins", "npm:2.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\

@@ -1,8 +1,11 @@
-const withPlugins = require('next-compose-plugins');
-
-module.exports = withPlugins([], {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
   pageExtensions: ['page.tsx'],
-});
+};
+
+module.exports = nextConfig;
