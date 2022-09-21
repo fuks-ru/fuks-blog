@@ -43,7 +43,7 @@ export class WinstonOptionsFactory {
       }),
       format.printf(
         ({ level, message, timestamp }) =>
-          `${timestamp as string} [${level}]: ${message}`,
+          `${timestamp as string} [${level}]: ${message as string}`,
       ),
     );
 
