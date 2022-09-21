@@ -24,7 +24,8 @@ class MatchConstraint implements ValidatorConstraintInterface {
 }
 
 /**
- * Декоратор class-validator, проверяющий соответствие одного свойства класса другому.
+ * Декоратор class-validator, проверяющий соответствие одного свойства класса
+ * другому.
  */
 export const Match =
   (property: string, validationOptions?: ValidationOptions) =>

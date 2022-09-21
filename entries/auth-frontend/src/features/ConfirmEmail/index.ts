@@ -6,7 +6,8 @@ import { useAuthApi } from 'auth-frontend/shared/api';
 import { useConfirmCode } from 'auth-frontend/features/ConfirmEmail/model/useConfirmCode';
 
 /**
- * Страница для отправки данных для активации пользователя по коду подтверждения.
+ * Страница для отправки данных для активации пользователя по коду
+ * подтверждения.
  */
 export const ConfirmEmail: FC = () => {
   const confirmCode = useConfirmCode();

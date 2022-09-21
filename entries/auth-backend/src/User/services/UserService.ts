@@ -18,7 +18,8 @@ export class UserService {
   ) {}
 
   /**
-   * Добавляет пользователя, если он не существует. Или обновляет, если не подтвержден.
+   * Добавляет пользователя, если он не существует. Или обновляет, если не
+   * подтвержден.
    */
   public async addUserIfNotConfirmed(user: User): Promise<User> {
     const existUser = await this.findByEmail(user.email);

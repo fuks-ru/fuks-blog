@@ -27,7 +27,8 @@ export class LoggerMiddleware implements NestMiddleware {
    * Логирует входящие и исходящие запросы.
    *
    * Устанавливает уникальный request id для запроса и куку для уникальной
-   * сессии. С целью объединения нескольких логов в рамках одного запроса и сессии.
+   * сессии. С целью объединения нескольких логов в рамках одного запроса и
+   * сессии.
    */
   public use(req: IRequest, res: Response, next: NextFunction): void {
     requestContext.set(`${REQUEST_CONTEXT_ID}:${REQUEST_ID_KEY}`, v4());

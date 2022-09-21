@@ -9,7 +9,8 @@ interface IProps {
 }
 
 /**
- * Провайдер, предоставляющий контекст для получения query-параметра redirectFrom.
+ * Провайдер, предоставляющий контекст для получения query-параметра
+ * redirectFrom.
  */
 export const RedirectFromProvider: FC<IProps> = ({ children }) => {
   const [searchParams] = useSearchParams();

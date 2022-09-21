@@ -50,7 +50,8 @@ abstract class FormatPageResponseInterceptor implements NestInterceptor {
 }
 
 /**
- * Определяет, нужно ли рендерить html страницу средствами next или просто отдать json.
+ * Определяет, нужно ли рендерить html страницу средствами next или просто
+ * отдать json.
  */
 export const makeFormatPageResponseInterceptor = (page: string): Type =>
   mixin(
