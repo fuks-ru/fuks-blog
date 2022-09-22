@@ -14,6 +14,7 @@ import {
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
+import { MailerModule } from '@nestjs-modules/mailer';
 
 import { AuthModule } from 'auth-backend/Auth/AuthModule';
 import { BasicAuthModule } from 'auth-backend/BasicLogin/BasicAuthModule';
@@ -44,16 +45,16 @@ import { RoleModule } from 'auth-backend/Role/RoleModule';
     RedirectModule,
     RequestRefModule,
     AuthModule,
-    // MailerModule.forRootAsync({
-    //   imports: [ConfigModule],
-    //   inject: [CONFIG],
-    //   useFactory: (configGetter: ConfigGetter) => ({
-    //     transport: configGetter.getMailerTransport(),
-    //     defaults: {
-    //       from: `"Fuks Blog" <${configGetter.getMailerFrom()}>`,
-    //     },
-    //   }),
-    // }),
+    MailerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [CONFIG],
+      useFactory: (configGetter: ConfigGetter) => ({
+        transport: configGetter.getMailerTransport(),
+        defaults: {
+          from: `"Fuks Blog" <${configGetter.getMailerFrom()}>`,
+        },
+      }),
+    }),
     GoogleRecaptchaModule.forRootAsync({
       imports: [ConfigModule],
       inject: [CONFIG],

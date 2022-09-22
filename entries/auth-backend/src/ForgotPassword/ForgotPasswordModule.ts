@@ -8,7 +8,6 @@ import { ForgotPasswordCodeService } from 'auth-backend/ForgotPassword/services/
 import { UserModule } from 'auth-backend/User/UserModule';
 import { ChangePasswordService } from 'auth-backend/ForgotPassword/services/ChangePasswordService';
 import { ForgotPasswordController } from 'auth-backend/ForgotPassword/controllers/ForgotPasswordController';
-import { MailerServiceMock } from 'auth-backend/__mock__/MailerServiceMock';
 
 @Module({
   imports: [
@@ -20,7 +19,6 @@ import { MailerServiceMock } from 'auth-backend/__mock__/MailerServiceMock';
     ForgotPasswordService,
     ForgotPasswordCodeService,
     ChangePasswordService,
-    MailerServiceMock,
   ],
   controllers: [ForgotPasswordController],
 })

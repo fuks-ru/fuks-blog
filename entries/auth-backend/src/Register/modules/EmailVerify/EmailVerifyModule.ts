@@ -8,16 +8,10 @@ import { ConfirmCodeService } from 'auth-backend/Register/modules/EmailVerify/se
 import { EmailVerifyService } from 'auth-backend/Register/modules/EmailVerify/services/EmailVerifyService';
 import { LoginModule } from 'auth-backend/Login/LoginModule';
 import { UserModule } from 'auth-backend/User/UserModule';
-import { MailerServiceMock } from 'auth-backend/__mock__/MailerServiceMock';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ConfirmCode]), UserModule, LoginModule],
-  providers: [
-    EmailVerifyService,
-    ConfirmCodeService,
-    ConfirmationService,
-    MailerServiceMock,
-  ],
+  providers: [EmailVerifyService, ConfirmCodeService, ConfirmationService],
   controllers: [ConfirmationController],
   exports: [EmailVerifyService],
 })

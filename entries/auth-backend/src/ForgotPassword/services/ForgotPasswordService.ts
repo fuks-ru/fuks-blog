@@ -2,15 +2,15 @@ import { I18nResolver } from '@difuks/common';
 import { urls } from '@difuks/common/dist/constants';
 import { Injectable } from '@nestjs/common';
 import qs from 'qs';
+import { MailerService } from '@nestjs-modules/mailer';
 
 import { User } from 'auth-backend/User/entities/User';
 import { ForgotPasswordCodeService } from 'auth-backend/ForgotPassword/services/ForgotPasswordCodeService';
-import { MailerServiceMock } from 'auth-backend/__mock__/MailerServiceMock';
 
 @Injectable()
 export class ForgotPasswordService {
   public constructor(
-    private readonly mailerService: MailerServiceMock,
+    private readonly mailerService: MailerService,
     private readonly forgotPasswordCodeService: ForgotPasswordCodeService,
     private readonly i18nResolver: I18nResolver,
   ) {}
