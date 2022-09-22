@@ -38,7 +38,7 @@
     "@nestjs/swagger": "^6.1.2",
     "@nestjs/testing": "^9.1.1",
     "@nestjs/typeorm": "^9.0.1",
-    "@nestlab/google-recaptcha": "^3.1.7",
+    "@nestlab/google-recaptcha": "^3.1.8",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.14",
     "@types/jest": "^29.0.3",

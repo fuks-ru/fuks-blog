@@ -57,9 +57,8 @@ import { RoleModule } from 'auth-backend/Role/RoleModule';
     GoogleRecaptchaModule.forRootAsync({
       imports: [ConfigModule],
       inject: [CONFIG],
-      // TODO https://github.com/chvarkov/google-recaptcha/issues/99
-      useFactory: (configGetter: unknown) =>
-        (configGetter as ConfigGetter).getRecaptchaOptions(),
+      useFactory: (configGetter: ConfigGetter) =>
+        configGetter.getRecaptchaOptions(),
     }),
     ForgotPasswordModule,
     I18nModule,
