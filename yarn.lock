@@ -1602,7 +1602,7 @@ __metadata:
     react-google-login: ^5.2.2
     react-redux: ^8.0.2
     react-refresh: ^0.14.0
-    react-router-dom: ^6.4.0
+    react-router-dom: ^6.4.1
     regenerator-runtime: ^0.13.9
     ts-node: ^10.9.1
     tsconfig-paths-webpack-plugin: ^4.0.0
@@ -1620,15 +1620,15 @@ __metadata:
     "@difuks/common": "workspace:0.1.2"
     "@nestjs-modules/mailer": ^1.8.1
     "@nestjs/axios": ^0.1.0
-    "@nestjs/common": ^9.1.1
-    "@nestjs/core": ^9.1.1
+    "@nestjs/common": ^9.1.2
+    "@nestjs/core": ^9.1.2
     "@nestjs/jwt": ^9.0.0
     "@nestjs/passport": ^9.0.0
-    "@nestjs/platform-express": ^9.1.1
+    "@nestjs/platform-express": ^9.1.2
     "@nestjs/swagger": ^6.1.2
-    "@nestjs/testing": ^9.1.1
+    "@nestjs/testing": ^9.1.2
     "@nestjs/typeorm": ^9.0.1
-    "@nestlab/google-recaptcha": ^3.1.8
+    "@nestlab/google-recaptcha": ^3.1.9
     "@types/cookie-parser": ^1.4.3
     "@types/express": ^4.17.14
     "@types/jest": ^29.0.3
@@ -1720,7 +1720,7 @@ __metadata:
     react-google-login: ^5.2.2
     react-i18next: ^11.18.6
     react-refresh: ^0.14.0
-    react-router-dom: 6.4.0
+    react-router-dom: 6.4.1
     react-use: ^17.4.0
     regenerator-runtime: ^0.13.9
     ts-node: ^10.9.1
@@ -1739,10 +1739,10 @@ __metadata:
   dependencies:
     "@difuks/auth-backend": "workspace:0.2.2"
     "@difuks/common": "workspace:0.1.2"
-    "@nestjs/common": ^9.1.1
-    "@nestjs/core": ^9.1.1
+    "@nestjs/common": ^9.1.2
+    "@nestjs/core": ^9.1.2
     "@nestjs/passport": ^9.0.0
-    "@nestjs/platform-express": ^9.1.1
+    "@nestjs/platform-express": ^9.1.2
     "@nestjs/swagger": ^6.1.2
     "@nestjs/typeorm": ^9.0.1
     "@types/cookie-parser": ^1.4.3
@@ -1785,9 +1785,9 @@ __metadata:
     "@difuks/blog-backend": "workspace:0.0.5"
     "@difuks/common": "workspace:0.1.2"
     "@difuks/ui": "workspace:0.0.2"
-    "@nestjs/common": ^9.1.1
-    "@nestjs/core": ^9.1.1
-    "@nestjs/platform-express": ^9.1.1
+    "@nestjs/common": ^9.1.2
+    "@nestjs/core": ^9.1.2
+    "@nestjs/platform-express": ^9.1.2
     "@types/cookie-parser": ^1.4.3
     "@types/express": ^4.17.14
     "@types/lodash": ^4.14.185
@@ -1824,9 +1824,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@difuks/common@workspace:packages/common"
   dependencies:
-    "@nestjs/common": ^9.1.1
-    "@nestjs/core": ^9.1.1
-    "@nestjs/platform-express": ^9.1.1
+    "@nestjs/common": ^9.1.2
+    "@nestjs/core": ^9.1.2
+    "@nestjs/platform-express": ^9.1.2
     "@nestjs/swagger": ^6.1.2
     "@rollup/plugin-json": ^4.1.0
     "@types/argon2": ^0.15.0
@@ -1849,7 +1849,7 @@ __metadata:
     react: ^18.2.0
     reflect-metadata: ^0.1.13
     request-context: ^2.0.0
-    rollup: ^2.79.0
+    rollup: ^2.79.1
     rollup-plugin-typescript2: ^0.34.0
     rxjs: ^7.5.6
     tslib: ^2.4.0
@@ -1906,7 +1906,7 @@ __metadata:
     react: ^18.2.0
     react-cosmos: ^5.7.2
     react-dom: ^18.2.0
-    rollup: ^2.79.0
+    rollup: ^2.79.1
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-typescript2: ^0.34.0
     styled-components: ^5.3.5
@@ -2595,9 +2595,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "@nestjs/common@npm:9.1.1"
+"@nestjs/common@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "@nestjs/common@npm:9.1.2"
   dependencies:
     iterare: 1.2.1
     tslib: 2.4.0
@@ -2615,13 +2615,13 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: a118a524fc51344c8bd930d4982701211f1e1a4d67b691b488ac9f72da085d36622a20e12a522adf4f35f40b609f209e349de4e5467a9ec4dd9484ecb2809300
+  checksum: 70857597b4703113f1fd8e38a4905eec48a4fd2caa21b46a7e58a8dc5259f56066228690e3840fbdfe9697db8785368f4a614a404adcb5cf6031dcc465650b21
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "@nestjs/core@npm:9.1.1"
+"@nestjs/core@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "@nestjs/core@npm:9.1.2"
   dependencies:
     "@nuxtjs/opencollective": 0.3.2
     fast-safe-stringify: 2.1.1
@@ -2644,7 +2644,7 @@ __metadata:
       optional: true
     "@nestjs/websockets":
       optional: true
-  checksum: f2b8065616904f8f4f0490f2f6a91c8bc32dbf880585daa1a588a7fd3f93a1e73693b6b3a65c30108fa8dfebe0d29ca6c65a37ecdceac8f1294ca3fd323eabde
+  checksum: fe5cbe04c4393abc47e12373dd4a98ef3b1412bd2627710d72b96b907d5a0c22aa9278e1b3569fc9b90964619b13f5d9248a4f833bdf51876ca027ff3ed328f6
   languageName: node
   linkType: hard
 
@@ -2687,9 +2687,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "@nestjs/platform-express@npm:9.1.1"
+"@nestjs/platform-express@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "@nestjs/platform-express@npm:9.1.2"
   dependencies:
     body-parser: 1.20.0
     cors: 2.8.5
@@ -2699,7 +2699,7 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^9.0.0
     "@nestjs/core": ^9.0.0
-  checksum: 3ac9798e6e5619916ca71e843a4dae6662e936678d0c43e4ba24708b437a1599e84ba5ecdd4f8bd3ec92b0805cc659d6d9d506230777d67324bf18852bde6261
+  checksum: f203af9589baefdb2cde2df9363c8931418b0b9b58fb557ff4bf9130ed2943da67f558caa733e61f10c359a66c97af4321764f4ef64e4a7e9d6564196d2c168a
   languageName: node
   linkType: hard
 
@@ -2724,9 +2724,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/testing@npm:^9.1.1":
-  version: 9.1.1
-  resolution: "@nestjs/testing@npm:9.1.1"
+"@nestjs/testing@npm:^9.1.2":
+  version: 9.1.2
+  resolution: "@nestjs/testing@npm:9.1.2"
   dependencies:
     tslib: 2.4.0
   peerDependencies:
@@ -2739,7 +2739,7 @@ __metadata:
       optional: true
     "@nestjs/platform-express":
       optional: true
-  checksum: 68b20c088ace8f80fe1af9326e79fd8a5576bcfdf58bfe42da53753dc70a8a6cc5f99a06ccc0e26e057fa7073ca3d6cd6013f942f6c9e0bc3013ea7995be82e8
+  checksum: e13639c821104f87e7f1a66a05b2c480741c0c016d64f7f63aa85c9d230fb7611ed4112c2cb5fbdb37ff744dab75c2d6f2e9ff111fd8f35005b9f15dcd756d16
   languageName: node
   linkType: hard
 
@@ -2758,18 +2758,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestlab/google-recaptcha@npm:^3.1.8":
-  version: 3.1.8
-  resolution: "@nestlab/google-recaptcha@npm:3.1.8"
+"@nestlab/google-recaptcha@npm:^3.1.9":
+  version: 3.1.9
+  resolution: "@nestlab/google-recaptcha@npm:3.1.9"
   peerDependencies:
     "@nestjs/axios": ">=0.0.1 <1.0.0"
     "@nestjs/common": ">=8.0.0 <10.0.0"
     "@nestjs/core": ">=8.0.0 <10.0.0"
+    axios: ">=0.21.0 <0.28.0"
     rxjs: ">=7.0.0 <8.0.0"
   peerDependenciesMeta:
     "@nestjs/graphql":
       optional: true
-  checksum: fc3b00146e2797c37f55d3265fe54cc4b93760cc375719eff73a4882a885180c600b8812e48c826a40dbcb9209e1e3c4dfbd7de1437a6d6f2ad4765eda7afa58
+  checksum: 4026cfc8b1ef9f01e1f28a680a74d346357ab75dc0d567069c7f0371fce7c9f265dfe788178327c37e6613283b910262760715f8f86cebc4f2f5c463c2ae748e
   languageName: node
   linkType: hard
 
@@ -3031,10 +3032,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:*, @remix-run/router@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@remix-run/router@npm:1.0.0"
-  checksum: 2e7543c71432c49bc0e6cab287ce561c56bf33ad91f929cdbf4c9bd08636bc676f2bf6b048a95fc1f5c74c40600ab59ce248d1de34a1acb7c2e43f567b0e96b5
+"@remix-run/router@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@remix-run/router@npm:1.0.1"
+  checksum: c12a5c14e8af06fe69d5237f77c852bfc6ab8969dd3fb306b9ed6c8e987ae126738a89c454d28f5b3e158bbfd950587a50ed4533e24b613f1abfa7bc9e6bfd1d
   languageName: node
   linkType: hard
 
@@ -15227,26 +15228,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:6.4.0, react-router-dom@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "react-router-dom@npm:6.4.0"
+"react-router-dom@npm:6.4.1, react-router-dom@npm:^6.4.1":
+  version: 6.4.1
+  resolution: "react-router-dom@npm:6.4.1"
   dependencies:
-    react-router: 6.4.0
+    "@remix-run/router": 1.0.1
+    react-router: 6.4.1
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 5595bb168ce4a67ff72c1e3c1a9509bd1931da00f19c29d325b68a5a189577342d071a3c25f7c11dc7b489bcd48144206e4bc65e5be15ee9bc92515f0c1a0737
+  checksum: 006a38590d182483edb33d32cc4524a81cb6113c8c9896768d6cab05ab4dfafb2bbccefef9bea6d57dd71ece4438e5e1d9c53894d958f0cdd30ff5c862f08ebc
   languageName: node
   linkType: hard
 
-"react-router@npm:6.4.0":
-  version: 6.4.0
-  resolution: "react-router@npm:6.4.0"
+"react-router@npm:6.4.1":
+  version: 6.4.1
+  resolution: "react-router@npm:6.4.1"
   dependencies:
-    "@remix-run/router": 1.0.0
+    "@remix-run/router": 1.0.1
   peerDependencies:
     react: ">=16.8"
-  checksum: d2bc04f9a5a931256f35217cbbb0da7047bb5368831d300153155222b2994c9a263f598fe2ef213d530663b86cef59a9bef1912f60bd11779214794164fa290c
+  checksum: 71a6ba76d5b3664f3bd2201e9340444d1613425d647d1c72391b6c5d3bb05650c37de425103edd2bec95991836bb603f1a7fbe2c7abbe8d77e1ef83f6f65771a
   languageName: node
   linkType: hard
 
@@ -15788,9 +15790,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.79.0":
-  version: 2.79.0
-  resolution: "rollup@npm:2.79.0"
+"rollup@npm:^2.79.1":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -15798,7 +15800,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 166f1ffea1898e157003920065b3a328e7012ea6808860ee8fe5d1ce94804fcce9985c95a3c0f7fe9c611aff0d09a70f073f1d6f715c8faba28e4e40f71ee3bb
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
 

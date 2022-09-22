@@ -13,6 +13,7 @@
     "e2e": "yarn workspaces foreach --interlaced --verbose --parallel run e2e",
     "dev:auth": "yarn workspaces foreach --include \"@difuks/{admin-frontend,common,auth-backend,auth-frontend}\" --interlaced --verbose --parallel run dev",
     "dev:blog": "yarn workspaces foreach --include \"@difuks/{blog-frontend,blog-backend,common,ui}\" --interlaced --verbose --parallel run dev",
+    "dev:admin": "yarn workspaces foreach --include \"@difuks/{auth-frontend,auth-backend,admin-frontend}\" --interlaced --verbose --parallel run dev",
     "prod": "yarn workspaces foreach --interlaced --verbose --jobs=unlimited --parallel run prod",
     "story": "yarn workspaces foreach --interlaced --verbose --parallel run story",
     "build": "yarn workspaces foreach --interlaced --verbose --topological-dev --parallel run build",

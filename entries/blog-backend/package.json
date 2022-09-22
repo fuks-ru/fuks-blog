@@ -28,10 +28,10 @@
   "devDependencies": {
     "@difuks/auth-backend": "workspace:0.2.2",
     "@difuks/common": "workspace:0.1.2",
-    "@nestjs/common": "^9.1.1",
-    "@nestjs/core": "^9.1.1",
+    "@nestjs/common": "^9.1.2",
+    "@nestjs/core": "^9.1.2",
     "@nestjs/passport": "^9.0.0",
-    "@nestjs/platform-express": "^9.1.1",
+    "@nestjs/platform-express": "^9.1.2",
     "@nestjs/swagger": "^6.1.2",
     "@nestjs/typeorm": "^9.0.1",
     "@types/cookie-parser": "^1.4.3",
