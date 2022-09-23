@@ -1872,6 +1872,7 @@ __metadata:
     nestjs-i18n: ^9.1.3
     openapi-client-axios-typegen: ^5.0.2
     react: ^18.2.0
+    ttypescript: ^1.5.13
   languageName: unknown
   linkType: soft
 

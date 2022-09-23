@@ -3332,7 +3332,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["styled-normalize", "virtual:e2d44e6fc442a8e1c352dc660fd0147e9be5e01262f5fafd147ba4761d0c5596163a87776502938bf6212d0bec4c5c01207e894f7a22eb0827eec6251d315fd4#npm:8.0.7"],\
             ["ts-node-dev", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:2.0.0"],\
             ["tsconfig-paths", "npm:4.1.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"]\
           ],\
@@ -3364,6 +3364,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/openapi-client-axios-typegen", null],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.20"],\
+            ["@types/ttypescript", null],\
             ["@types/uuid", "npm:8.3.4"],\
             ["argon2", "npm:0.29.1"],\
             ["axios", "npm:0.27.2"],\
@@ -3383,7 +3384,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3406,12 +3407,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/nestjs__platform-express",\
             "@types/nestjs__swagger",\
             "@types/openapi-client-axios-typegen",\
+            "@types/ttypescript",\
             "class-transformer",\
             "class-validator",\
             "date-fns",\
             "express",\
             "nestjs-i18n",\
-            "openapi-client-axios-typegen"\
+            "openapi-client-axios-typegen",\
+            "ttypescript"\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -3439,6 +3442,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/openapi-client-axios-typegen", null],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.20"],\
+            ["@types/ttypescript", null],\
             ["@types/uuid", "npm:8.3.4"],\
             ["argon2", "npm:0.29.1"],\
             ["axios", "npm:0.27.2"],\
@@ -3458,7 +3462,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3477,6 +3481,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/nestjs__swagger",\
             "@types/openapi-client-axios-typegen",\
             "@types/react",\
+            "@types/ttypescript",\
             "openapi-client-axios-typegen",\
             "react"\
           ],\
@@ -3506,6 +3511,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/openapi-client-axios-typegen", null],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.20"],\
+            ["@types/ttypescript", null],\
             ["@types/uuid", "npm:8.3.4"],\
             ["argon2", "npm:0.29.1"],\
             ["axios", "npm:0.27.2"],\
@@ -3525,7 +3531,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3548,12 +3554,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/nestjs__platform-express",\
             "@types/nestjs__swagger",\
             "@types/openapi-client-axios-typegen",\
+            "@types/ttypescript",\
             "class-transformer",\
             "class-validator",\
             "date-fns",\
             "express",\
             "nestjs-i18n",\
-            "openapi-client-axios-typegen"\
+            "openapi-client-axios-typegen",\
+            "ttypescript"\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -3581,6 +3589,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/openapi-client-axios-typegen", null],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.20"],\
+            ["@types/ttypescript", null],\
             ["@types/uuid", "npm:8.3.4"],\
             ["argon2", "npm:0.29.1"],\
             ["axios", "npm:0.27.2"],\
@@ -3600,7 +3609,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3623,12 +3632,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/nestjs__platform-express",\
             "@types/nestjs__swagger",\
             "@types/openapi-client-axios-typegen",\
+            "@types/ttypescript",\
             "class-transformer",\
             "class-validator",\
             "date-fns",\
             "express",\
             "nestjs-i18n",\
-            "openapi-client-axios-typegen"\
+            "openapi-client-axios-typegen",\
+            "ttypescript"\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -3656,6 +3667,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/openapi-client-axios-typegen", null],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.20"],\
+            ["@types/ttypescript", null],\
             ["@types/uuid", "npm:8.3.4"],\
             ["argon2", "npm:0.29.1"],\
             ["axios", "npm:0.27.2"],\
@@ -3675,7 +3687,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3698,10 +3710,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/nestjs__platform-express",\
             "@types/nestjs__swagger",\
             "@types/openapi-client-axios-typegen",\
+            "@types/ttypescript",\
             "class-transformer",\
             "class-validator",\
             "express",\
-            "openapi-client-axios-typegen"\
+            "openapi-client-axios-typegen",\
+            "ttypescript"\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -3729,6 +3743,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/openapi-client-axios-typegen", null],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.20"],\
+            ["@types/ttypescript", null],\
             ["@types/uuid", "npm:8.3.4"],\
             ["argon2", "npm:0.29.1"],\
             ["axios", "npm:0.27.2"],\
@@ -3748,7 +3763,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3771,10 +3786,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/nestjs__platform-express",\
             "@types/nestjs__swagger",\
             "@types/openapi-client-axios-typegen",\
+            "@types/ttypescript",\
             "class-transformer",\
             "class-validator",\
             "express",\
-            "openapi-client-axios-typegen"\
+            "openapi-client-axios-typegen",\
+            "ttypescript"\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -3802,6 +3819,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/openapi-client-axios-typegen", null],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.20"],\
+            ["@types/ttypescript", null],\
             ["@types/uuid", "npm:8.3.4"],\
             ["argon2", "npm:0.29.1"],\
             ["axios", "npm:0.27.2"],\
@@ -3821,7 +3839,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3844,11 +3862,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/nestjs__swagger",\
             "@types/openapi-client-axios-typegen",\
             "@types/react",\
+            "@types/ttypescript",\
             "class-transformer",\
             "class-validator",\
             "express",\
             "openapi-client-axios-typegen",\
-            "react"\
+            "react",\
+            "ttypescript"\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -3885,7 +3905,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["rxjs", "npm:7.5.6"],\
             ["tslib", "npm:2.4.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["uuid", "npm:9.0.0"],\
@@ -3948,7 +3968,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["styled-components", "virtual:e2d44e6fc442a8e1c352dc660fd0147e9be5e01262f5fafd147ba4761d0c5596163a87776502938bf6212d0bec4c5c01207e894f7a22eb0827eec6251d315fd4#npm:5.3.5"],\
             ["tsconfig-paths-webpack-plugin", "npm:4.0.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["webpack", "virtual:0dc39cc4ef61d567603f290f8f6843eb6bb61bf7f813e471f2f9de7908c2b1d306c65b6fa7bbd8b0f136e208f43b13693ebd7f95d78e78267b51265185927418#npm:5.74.0"]\
@@ -3983,7 +4003,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup-plugin-typescript2", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:0.34.0"],\
             ["styled-components", "virtual:e2d44e6fc442a8e1c352dc660fd0147e9be5e01262f5fafd147ba4761d0c5596163a87776502938bf6212d0bec4c5c01207e894f7a22eb0827eec6251d315fd4#npm:5.3.5"],\
             ["tsconfig-paths-webpack-plugin", "npm:4.0.0"],\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=a1c5e5"],\
             ["typescript-transform-paths", "virtual:573f53cb2bcbad547797ddef34ab6ef08f9006d917af0fe1c8df0f46c4634e1afb59cbc6934762c59729d6d0aff37bb7eb08699f13408816b08fcd8e51c768ec#npm:3.3.1"],\
             ["webpack", "virtual:0dc39cc4ef61d567603f290f8f6843eb6bb61bf7f813e471f2f9de7908c2b1d306c65b6fa7bbd8b0f136e208f43b13693ebd7f95d78e78267b51265185927418#npm:5.74.0"]\
@@ -24816,10 +24836,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13", {\
-          "packageLocation": "./.yarn/__virtual__/ttypescript-virtual-c4c6a8d298/0/cache/ttypescript-npm-1.5.13-219eabee3b-bd97f05852.zip/node_modules/ttypescript/",\
+        ["virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13", {\
+          "packageLocation": "./.yarn/__virtual__/ttypescript-virtual-5ca559bf09/0/cache/ttypescript-npm-1.5.13-219eabee3b-bd97f05852.zip/node_modules/ttypescript/",\
           "packageDependencies": [\
-            ["ttypescript", "virtual:cf89bddb80c8f2ea3c90e08ef7594947e04ceb8bde03c958762bd442c4b647d6b89f86241ec649f71a532df06278dafe14234fd11afff8d45850b80644d6d710#npm:1.5.13"],\
+            ["ttypescript", "virtual:998f64fab4d9b737150c34a15991c72c21231033d9d09928960d518b80f48c66af483d63af4eabf671075512331898d061eb62efbd8141656c9ce98bf0c20b92#npm:1.5.13"],\
             ["@types/ts-node", null],\
             ["@types/typescript", null],\
             ["resolve", "patch:resolve@npm%3A1.22.1#~builtin<compat/resolve>::version=1.22.1&hash=07638b"],\
