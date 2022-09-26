@@ -2,7 +2,7 @@
   "name": "@difuks/common",
   "packageManager": "yarn@3.2.0",
   "description": "My blog common",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
