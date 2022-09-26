@@ -3,7 +3,6 @@ import { DynamicModule, Module, Type } from '@nestjs/common';
 import { ConfigGetterBase } from 'common/backend/Config/services/ConfigGetterBase';
 import { ConfigModule } from 'common/backend/Config/ConfigModule';
 import { CookieSetterModule } from 'common/backend/CookieSetter/CookieSetterModule';
-import { EncodingModule } from 'common/backend/Encoding/EncodingModule';
 import { ErrorFilterModule } from 'common/backend/ErrorFilter/ErrorFilterModule';
 import { I18nModule } from 'common/backend/I18n/I18nModule';
 import { LoggerModule } from 'common/backend/Logger/LoggerModule';
