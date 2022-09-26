@@ -1,4 +1,4 @@
-import { CONFIG, SwaggerModule, SwaggerService } from '@difuks/common';
+import { CONFIG, SwaggerService } from '@difuks/common';
 import { urls } from '@difuks/common/dist/constants';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
@@ -16,7 +16,7 @@ import { ConfigGetter } from 'auth-backend/Config/services/ConfigGetter';
   });
 
   const configGetter = await app.resolve<ConfigGetter>(CONFIG);
-  const swaggerService = app.select(SwaggerModule).get(SwaggerService);
+  const swaggerService = app.get(SwaggerService);
 
   app.use(cookieParser());
   app.setGlobalPrefix(configGetter.getApiPrefix());

@@ -1,4 +1,4 @@
-import { CONFIG, SwaggerModule, SwaggerService } from '@difuks/common';
+import { CONFIG, SwaggerService } from '@difuks/common';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
@@ -9,7 +9,7 @@ import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configGetter = await app.resolve<ConfigGetter>(CONFIG);
-  const swaggerService = app.select(SwaggerModule).get(SwaggerService);
+  const swaggerService = app.get(SwaggerService);
 
   app.use(cookieParser());
   app.setGlobalPrefix(configGetter.getApiPrefix());

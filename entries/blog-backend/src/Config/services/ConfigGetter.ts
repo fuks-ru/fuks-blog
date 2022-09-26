@@ -2,6 +2,7 @@ import { SystemErrorFactory, ConfigGetterBase } from '@difuks/common';
 import { ports } from '@difuks/common/dist/constants';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { I18nTranslation } from 'nestjs-i18n';
 import path from 'node:path';
 import process from 'node:process';
 
@@ -35,6 +36,25 @@ export class ConfigGetter extends ConfigGetterBase {
     return this.isDev()
       ? this.getDevTypeOrmConfig()
       : this.getProdTypeOrmConfig();
+  }
+
+  /**
+   * Получает lang-фразы.
+   */
+  protected getTranslations(): {
+    /**
+     * Английские переводы.
+     */
+    'en-US': I18nTranslation;
+    /**
+     * Русские переводы.
+     */
+    'ru-RU': I18nTranslation;
+  } {
+    return {
+      'ru-RU': {},
+      'en-US': {},
+    };
   }
 
   private getProdTypeOrmConfig(): TypeOrmModuleOptions {

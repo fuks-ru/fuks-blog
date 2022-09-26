@@ -1,16 +1,4 @@
-import {
-  CONFIG,
-  LoggerModule,
-  SwaggerModule,
-  CookieSetterModule,
-  SystemErrorModule,
-  ValidationModule,
-  ErrorFilterModule,
-  ConfigModule,
-  RequestRefModule,
-  RedirectModule,
-  I18nModule,
-} from '@difuks/common';
+import { CONFIG, CommonModule } from '@difuks/common';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
@@ -26,27 +14,17 @@ import { RoleModule } from 'auth-backend/Role/RoleModule';
 
 @Module({
   imports: [
-    SystemErrorModule,
-    LoggerModule,
+    CommonModule.forRoot(ConfigGetter),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
       inject: [CONFIG],
       useFactory: (configGetter: ConfigGetter) =>
         configGetter.getTypeOrmConfig(),
     }),
-    ErrorFilterModule,
-    ConfigModule.forRoot(ConfigGetter),
     GoogleLoginModule,
-    SwaggerModule,
     RegisterModule,
-    CookieSetterModule,
     BasicAuthModule,
-    ValidationModule,
-    RedirectModule,
-    RequestRefModule,
     AuthModule,
     MailerModule.forRootAsync({
-      imports: [ConfigModule],
       inject: [CONFIG],
       useFactory: (configGetter: ConfigGetter) => ({
         transport: configGetter.getMailerTransport(),
@@ -56,13 +34,11 @@ import { RoleModule } from 'auth-backend/Role/RoleModule';
       }),
     }),
     GoogleRecaptchaModule.forRootAsync({
-      imports: [ConfigModule],
       inject: [CONFIG],
       useFactory: (configGetter: ConfigGetter) =>
         configGetter.getRecaptchaOptions(),
     }),
     ForgotPasswordModule,
-    I18nModule,
     RoleModule,
   ],
 })

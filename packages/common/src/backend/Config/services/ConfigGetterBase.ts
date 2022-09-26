@@ -1,11 +1,13 @@
 import { HttpStatus } from '@nestjs/common';
-import { I18nTranslation } from 'nestjs-i18n';
+import { I18nOptionsWithoutResolvers, I18nTranslation } from 'nestjs-i18n';
 
 import { API_PAGE_PREFIX, API_PREFIX } from 'common/constants';
 import { IErrorFilterModuleOptions } from 'common/backend/ErrorFilter/types/IErrorFilterModuleOptions';
 import { ILoggerModuleOptions } from 'common/backend/Logger/types/ILoggerModuleOptions';
 import { CommonErrorCode } from 'common/backend/SystemError/enums/CommonErrorCode';
 import { SystemErrorFactory } from 'common/backend/SystemError/services/SystemErrorFactory';
+import enUS from 'common/backend/__i18n__/enUS.json';
+import ruRU from 'common/backend/__i18n__/ruRU.json';
 
 export abstract class ConfigGetterBase {
   protected abstract readonly statusResolver: Record<string, HttpStatus>;
@@ -61,6 +63,24 @@ export abstract class ConfigGetterBase {
   }
 
   /**
+   * Получает конфиг для модуля i18n.
+   */
+  public getI18Config(): I18nOptionsWithoutResolvers {
+    const translations = this.getTranslations();
+
+    return {
+      fallbackLanguage: 'en-US',
+      loaderOptions: {
+        languages: ['en-US', 'ru-RU'],
+        translations: {
+          'en-US': { ...enUS, ...translations['en-US'] },
+          'ru-RU': { ...ruRU, ...translations['ru-RU'] },
+        },
+      },
+    };
+  }
+
+  /**
    * Получает порт для апи.
    */
   public abstract getApiPort(): number;
@@ -85,7 +105,7 @@ export abstract class ConfigGetterBase {
   /**
    * Получает дополнительные lang-фразы.
    */
-  public getTranslations(): {
+  protected abstract getTranslations(): {
     /**
      * Английские переводы.
      */
@@ -94,7 +114,5 @@ export abstract class ConfigGetterBase {
      * Русские переводы.
      */
     'ru-RU': I18nTranslation;
-  } {
-    return { 'en-US': {}, 'ru-RU': {} };
-  }
+  };
 }
