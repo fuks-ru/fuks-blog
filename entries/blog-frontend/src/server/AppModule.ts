@@ -26,7 +26,7 @@ import { ConfigModule } from 'blog-frontend/server/Config/ConfigModule';
       useFactory: (configGetter: ConfigGetter) => ({
         statusResolver: configGetter.statusResolver,
         translations: configGetter.getTranslations(),
-        errorPageName: '500',
+        errorPageName: '_500',
         domain: configGetter.getDomain(),
         apiPrefix: configGetter.getApiPrefix(),
       }),
