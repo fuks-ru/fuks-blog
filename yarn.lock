@@ -1579,7 +1579,7 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@difuks/auth-backend": "workspace:0.2.4"
+    "@difuks/auth-backend": "workspace:0.3.0"
     "@difuks/common-frontend": "workspace:0.0.1"
     "@difuks/constants": "workspace:0.0.1"
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.7
@@ -1616,7 +1616,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/auth-backend@workspace:0.2.4, @difuks/auth-backend@workspace:entries/auth-backend":
+"@difuks/auth-backend@workspace:0.3.0, @difuks/auth-backend@workspace:entries/auth-backend":
   version: 0.0.0-use.local
   resolution: "@difuks/auth-backend@workspace:entries/auth-backend"
   dependencies:
@@ -1690,7 +1690,7 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@difuks/auth-backend": "workspace:0.2.4"
+    "@difuks/auth-backend": "workspace:0.3.0"
     "@difuks/common-frontend": "workspace:0.0.1"
     "@difuks/constants": "workspace:0.0.1"
     "@linaria/core": ^4.1.2
@@ -1739,11 +1739,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/blog-backend@workspace:0.0.7, @difuks/blog-backend@workspace:entries/blog-backend":
+"@difuks/blog-backend@workspace:0.1.0, @difuks/blog-backend@workspace:entries/blog-backend":
   version: 0.0.0-use.local
   resolution: "@difuks/blog-backend@workspace:entries/blog-backend"
   dependencies:
-    "@difuks/auth-backend": "workspace:0.2.4"
+    "@difuks/auth-backend": "workspace:0.3.0"
     "@difuks/common": "workspace:0.0.1"
     "@difuks/common-backend": "workspace:0.0.1"
     "@difuks/constants": "workspace:0.0.1"
@@ -1791,7 +1791,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@difuks/blog-frontend@workspace:entries/blog-frontend"
   dependencies:
-    "@difuks/blog-backend": "workspace:0.0.7"
+    "@difuks/blog-backend": "workspace:0.1.0"
     "@difuks/common": "workspace:0.0.1"
     "@difuks/common-backend": "workspace:0.0.1"
     "@difuks/constants": "workspace:0.0.1"

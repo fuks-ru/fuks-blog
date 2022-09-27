@@ -1,6 +1,6 @@
 {
   "name": "@difuks/blog-backend",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "My blog backend",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "author": "Dmitry Fuks",
@@ -26,7 +26,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "@difuks/auth-backend": "workspace:0.2.4",
+    "@difuks/auth-backend": "workspace:0.3.0",
     "@difuks/common": "workspace:0.0.1",
     "@difuks/common-backend": "workspace:0.0.1",
     "@difuks/constants": "workspace:0.0.1",

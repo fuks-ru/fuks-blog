@@ -1,6 +1,6 @@
 {
   "name": "@difuks/blog-frontend",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "My blog frontend",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "private": true,
@@ -13,7 +13,7 @@
     "prod": "cross-env NODE_ENV=production node ./dist/server/main.js"
   },
   "devDependencies": {
-    "@difuks/blog-backend": "workspace:0.0.7",
+    "@difuks/blog-backend": "workspace:0.1.0",
     "@difuks/common": "workspace:0.0.1",
     "@difuks/common-backend": "workspace:0.0.1",
     "@difuks/constants": "workspace:0.0.1",
