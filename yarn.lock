@@ -1803,6 +1803,7 @@ __metadata:
     "@types/express": ^4.17.14
     "@types/lodash": ^4.14.185
     "@types/next": ^9.0.0
+    "@types/node": ^18.7.22
     "@types/qs": ^6.9.7
     "@types/react": 18.0.21
     "@types/styled-components": ^5.1.26
@@ -3638,7 +3639,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.7.23":
+"@types/node@npm:^18.7.22, @types/node@npm:^18.7.23":
   version: 18.7.23
   resolution: "@types/node@npm:18.7.23"
   checksum: 2c8df0830d8345e5cd1ca17feb9cf43fa667aae749888e0a068c5c1b35eaedd2f9b24ed987a0758078395edf7a03681e5e0b7790a518ff7afe1ff6d8459f7b4a

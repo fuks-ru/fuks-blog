@@ -25,6 +25,7 @@
     "@types/express": "^4.17.14",
     "@types/lodash": "^4.14.185",
     "@types/next": "^9.0.0",
+    "@types/node": "^18.7.22",
     "@types/qs": "^6.9.7",
     "@types/react": "18.0.21",
     "@types/styled-components": "^5.1.26",

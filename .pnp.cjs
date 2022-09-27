@@ -3343,6 +3343,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.14"],\
             ["@types/lodash", "npm:4.14.185"],\
             ["@types/next", "npm:9.0.0"],\
+            ["@types/node", "npm:18.7.23"],\
             ["@types/qs", "npm:6.9.7"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/styled-components", "npm:5.1.26"],\
