@@ -1,16 +1,26 @@
-import { CONFIG, CommonModule } from '@difuks/common';
+import { CommonModule } from '@difuks/common-backend';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AuthModule } from 'blog-backend/Auth/AuthModule';
 import { CategoryModule } from 'blog-backend/Category/CategoryModule';
 import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
+import { ConfigModule } from 'blog-backend/Config/ConfigModule';
 
 @Module({
   imports: [
-    CommonModule.forRoot(ConfigGetter),
+    ConfigModule,
+    CommonModule.forRootAsync({
+      inject: [ConfigGetter],
+      useFactory: (configGetter: ConfigGetter) => ({
+        statusResolver: configGetter.statusResolver,
+        translations: configGetter.getTranslations(),
+        domain: configGetter.getDomain(),
+        apiPrefix: configGetter.getApiPrefix(),
+      }),
+    }),
     TypeOrmModule.forRootAsync({
-      inject: [CONFIG],
+      inject: [ConfigGetter],
       useFactory: (configGetter: ConfigGetter) =>
         configGetter.getTypeOrmConfig(),
     }),

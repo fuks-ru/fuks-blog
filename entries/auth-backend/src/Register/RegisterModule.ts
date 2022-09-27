@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { EncodingModule } from '@difuks/common';
+import { EncodingModule } from '@difuks/common-backend';
 
 import { EmailVerifyModule } from 'auth-backend/Register/modules/EmailVerify/EmailVerifyModule';
 import { RegisterController } from 'auth-backend/Register/controllers/RegisterController';

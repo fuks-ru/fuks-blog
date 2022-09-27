@@ -1,4 +1,3 @@
-import { CONFIG } from '@difuks/common/dist';
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
@@ -14,7 +13,7 @@ import { UserModule } from 'auth-backend/User/UserModule';
 @Module({
   imports: [
     JwtModule.registerAsync({
-      inject: [CONFIG],
+      inject: [ConfigGetter],
       useFactory: (configGetter: ConfigGetter) => configGetter.getJwtConfig(),
     }),
     UserModule,

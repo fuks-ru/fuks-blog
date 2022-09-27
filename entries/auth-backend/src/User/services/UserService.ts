@@ -1,8 +1,11 @@
-import { SystemError } from '@difuks/common/dist/backend/SystemError/dto/SystemError';
+import {
+  SystemError,
+  I18nResolver,
+  SystemErrorFactory,
+} from '@difuks/common-backend';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeepPartial, Repository } from 'typeorm';
-import { I18nResolver, SystemErrorFactory } from '@difuks/common';
 
 import { ConfirmCode } from 'auth-backend/Register/modules/EmailVerify/entities/ConfirmCode';
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
@@ -35,6 +38,7 @@ export class UserService {
 
     if (existUser && !existUser.isConfirmed) {
       existUser.hashedPassword = user.hashedPassword;
+      existUser.isConfirmed = user.isConfirmed;
 
       return this.addOrUpdateUser({
         ...existUser,

@@ -5,6 +5,9 @@
     "paths": {
       "ui/*": ["./packages/ui/src/*"],
       "common/*": ["./packages/common/src/*"],
+      "common-frontend/*": ["./packages/common-frontend/src/*"],
+      "common-backend/*": ["./packages/common-backend/src/*"],
+      "constants/*": ["./packages/constants/src/*"],
 
       "blog-frontend/*": ["./entries/blog-frontend/src/*"],
       "blog-backend/*": ["./entries/blog-backend/src/*"],
@@ -14,5 +17,5 @@
     },
     "isolatedModules": false
   },
-  "exclude": ["./entries/**/*.spec.ts", "./public/**/*"]
+  "exclude": ["**/*.spec.ts", "./public/**/*"]
 }

@@ -1,7 +1,7 @@
 import { applyDecorators, Get, UseInterceptors } from '@nestjs/common';
-import { API_PAGE_PREFIX } from '@difuks/common/dist/constants';
 
 import { makeFormatPageResponseInterceptor } from 'blog-frontend/server/Pages/interceptors/FormatPageResponseInterceptor';
+import { API_PAGE_PREFIX } from 'blog-frontend/shared/lib/constants';
 
 /**
  * Декоратор для отображения next-страницы. В Spa режиме отдает только json. В

@@ -1,4 +1,4 @@
-import { urls } from '@difuks/common/dist/constants';
+import { urls } from '@difuks/constants';
 import { FC, ReactNode, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 

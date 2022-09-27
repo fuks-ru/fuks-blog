@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { GoogleReCaptchaProvider as GoogleReCaptchaProviderBase } from '@difuks/react-google-recaptcha-v3';
+import { GoogleReCaptchaProvider as GoogleReCaptchaProviderBase } from 'react-google-recaptcha-v3';
 import { useTranslation } from 'react-i18next';
 
 import { useTheme } from 'auth-frontend/entities/theme';

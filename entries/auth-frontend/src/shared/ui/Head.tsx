@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Head as HeadBase } from '@difuks/common/dist/frontend';
+import { Head as HeadBase } from '@difuks/common-frontend';
 
 interface IProps {
   title: string;

@@ -1,4 +1,4 @@
-import { isDevelopment } from '@difuks/common/dist/constants';
+import { isDevelopment } from '@difuks/constants';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 const rootDir = isDevelopment ? 'src' : 'dist/build';

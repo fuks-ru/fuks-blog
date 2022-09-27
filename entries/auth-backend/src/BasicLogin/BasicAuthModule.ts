@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { EncodingModule } from '@difuks/common';
+import { EncodingModule } from '@difuks/common-backend';
 
 import { BasicLoginController } from 'auth-backend/BasicLogin/controllers/BasicLoginController';
 import { BasicLoginService } from 'auth-backend/BasicLogin/services/BasicLoginService';

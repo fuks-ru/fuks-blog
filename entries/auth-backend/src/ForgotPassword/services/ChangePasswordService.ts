@@ -1,4 +1,4 @@
-import { EncodingService, RedirectErrorFactory } from '@difuks/common';
+import { EncodingService, RedirectErrorFactory } from '@difuks/common-backend';
 import { Injectable } from '@nestjs/common';
 
 import { ChangePasswordRequest } from 'auth-backend/ForgotPassword/dto/ChangePasswordRequest';

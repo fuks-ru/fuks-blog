@@ -1,6 +1,6 @@
 import { HttpStatus, INestApplication } from '@nestjs/common';
 import request from 'supertest';
-import { CommonErrorCode } from '@difuks/common/dist';
+import { CommonErrorCode } from '@difuks/common';
 
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { AppBuilder } from 'auth-backend/__e2e__/dsl/TestAppModuleCreator';

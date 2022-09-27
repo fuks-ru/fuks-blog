@@ -1,4 +1,3 @@
-import { CONFIG } from '@difuks/common';
 import {
   Injectable,
   NestInterceptor,
@@ -6,7 +5,6 @@ import {
   CallHandler,
   mixin,
   Type,
-  Inject,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -18,9 +16,7 @@ import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter'
 abstract class FormatPageResponseInterceptor implements NestInterceptor {
   protected abstract readonly pageFileName: string;
 
-  public constructor(
-    @Inject(CONFIG) private readonly configGetter: ConfigGetter,
-  ) {}
+  public constructor(private readonly configGetter: ConfigGetter) {}
 
   /**
    * Перехватчик запроса, определяющий нужно ли отдать страницу и json.

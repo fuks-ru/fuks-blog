@@ -1,7 +1,4 @@
-/**
- * Префикс API-запросов.
- */
-export const API_PREFIX = '/api';
+import { API_PREFIX } from '@difuks/constants';
 
 /**
  * Префикс API-запросов за состоянием страницы.

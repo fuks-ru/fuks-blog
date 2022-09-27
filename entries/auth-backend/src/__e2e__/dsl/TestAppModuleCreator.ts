@@ -1,4 +1,4 @@
-import { CONFIG, ILoggerModuleOptions } from '@difuks/common';
+import { ILoggerModuleOptions } from '@difuks/common-backend';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
@@ -18,7 +18,7 @@ export class AppBuilder {
     /**
      * Выключает логирование в консоль и файлы во время тестов.
      */
-    public override getLoggerConfig(): ILoggerModuleOptions {
+    public override getLoggerOptions(): ILoggerModuleOptions {
       return {
         isToConsoleDisable: true,
         isToFileDisable: true,
@@ -70,13 +70,13 @@ export class AppBuilder {
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule],
     })
-      .overrideProvider(CONFIG)
+      .overrideProvider(ConfigGetter)
       .useClass(this.config)
       .compile();
 
     const app = moduleRef.createNestApplication();
 
-    const configGetter = await moduleRef.resolve<ConfigGetter>(CONFIG);
+    const configGetter = moduleRef.get(ConfigGetter);
 
     app.setGlobalPrefix(configGetter.getApiPrefix());
 

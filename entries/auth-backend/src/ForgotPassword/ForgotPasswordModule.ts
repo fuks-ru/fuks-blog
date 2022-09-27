@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { EncodingModule } from '@difuks/common';
+import { EncodingModule } from '@difuks/common-backend';
 
 import { ForgotPasswordCode } from 'auth-backend/ForgotPassword/entities/ForgotPasswordCode';
 import { ForgotPasswordService } from 'auth-backend/ForgotPassword/services/ForgotPasswordService';

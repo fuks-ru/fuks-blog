@@ -1,4 +1,3 @@
-import { CONFIG } from '@difuks/common';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import path from 'node:path';
@@ -11,7 +10,7 @@ import { AppModule } from 'blog-frontend/server/AppModule';
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true,
   });
-  const configGetter = await app.resolve<ConfigGetter>(CONFIG);
+  const configGetter = app.get(ConfigGetter);
 
   app.use(cookieParser());
 

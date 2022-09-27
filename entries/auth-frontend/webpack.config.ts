@@ -1,4 +1,4 @@
-import { ports, isDevelopment } from '@difuks/common/dist/constants';
+import { ports, isDevelopment } from '@difuks/constants';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
 import * as path from 'node:path';

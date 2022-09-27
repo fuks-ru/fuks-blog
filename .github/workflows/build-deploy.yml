@@ -53,7 +53,7 @@ jobs:
             [skip ci]
 
       - name: Publish packages
-        run: yarn workspaces foreach --include "@difuks/{common,ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
+        run: yarn workspaces foreach --include "@difuks/{common,common-backend,common-frontend,ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1

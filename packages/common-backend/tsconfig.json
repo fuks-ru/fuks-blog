@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.packages.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "dist",
+    "declaration": true,
+    "noEmit": false,
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "common-backend/*": ["./src/*"]
+    },
+    "plugins": [
+      { "transform": "typescript-transform-paths", "useRootDirs": true },
+      {
+        "transform": "typescript-transform-paths",
+        "useRootDirs": true,
+        "afterDeclarations": true
+      }
+    ]
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+}

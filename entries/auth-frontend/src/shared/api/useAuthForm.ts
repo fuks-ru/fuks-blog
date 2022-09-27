@@ -1,5 +1,5 @@
 import { OperationMethods, TApiArgs, TApiBody } from '@difuks/auth-backend';
-import { UnknownError, ValidationError } from '@difuks/common/dist/frontend';
+import { UnknownError, ValidationError } from '@difuks/common-frontend';
 import { Form, FormInstance, message } from 'antd';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';

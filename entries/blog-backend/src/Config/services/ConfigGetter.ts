@@ -1,5 +1,5 @@
-import { SystemErrorFactory, ConfigGetterBase } from '@difuks/common';
-import { ports } from '@difuks/common/dist/constants';
+import { EnvGetter } from '@difuks/common-backend';
+import { API_PREFIX, domainUrl, ports } from '@difuks/constants';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { I18nTranslation } from 'nestjs-i18n';
@@ -10,17 +10,15 @@ import { ormConfig } from 'blog-backend/Config/utils/ormconfig';
 import { ErrorCode } from 'blog-backend/Config/enums/ErrorCode';
 
 @Injectable()
-export class ConfigGetter extends ConfigGetterBase {
+export class ConfigGetter {
   /**
    * Соответствие между ошибками и статус-кодами ответов.
    */
-  protected readonly statusResolver: Record<ErrorCode, HttpStatus> = {
+  public readonly statusResolver: Record<ErrorCode, HttpStatus> = {
     [ErrorCode.CATEGORY_NOT_FOUND]: HttpStatus.NOT_FOUND,
   };
 
-  public constructor(systemErrorFactory: SystemErrorFactory) {
-    super(systemErrorFactory);
-  }
+  public constructor(private readonly envGetter: EnvGetter) {}
 
   /**
    * Получает порт для апи.
@@ -33,15 +31,22 @@ export class ConfigGetter extends ConfigGetterBase {
    * Возвращает конфиг для подключения к БД.
    */
   public getTypeOrmConfig(): TypeOrmModuleOptions {
-    return this.isDev()
+    return this.envGetter.isDev()
       ? this.getDevTypeOrmConfig()
       : this.getProdTypeOrmConfig();
   }
 
   /**
+   * Получает префикс API.
+   */
+  public getApiPrefix(): string {
+    return API_PREFIX;
+  }
+
+  /**
    * Получает lang-фразы.
    */
-  protected getTranslations(): {
+  public getTranslations(): {
     /**
      * Английские переводы.
      */
@@ -55,6 +60,13 @@ export class ConfigGetter extends ConfigGetterBase {
       'ru-RU': {},
       'en-US': {},
     };
+  }
+
+  /**
+   * Получает корневой домен.
+   */
+  public getDomain(): string {
+    return domainUrl;
   }
 
   private getProdTypeOrmConfig(): TypeOrmModuleOptions {

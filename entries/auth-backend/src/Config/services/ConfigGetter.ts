@@ -1,5 +1,5 @@
-import { SystemErrorFactory, ConfigGetterBase } from '@difuks/common';
-import { ports } from '@difuks/common/dist/constants';
+import { EnvGetter, ILoggerModuleOptions } from '@difuks/common-backend';
+import { API_PREFIX, ports, domainUrl } from '@difuks/constants';
 import { TransportType } from '@nestjs-modules/mailer/dist/interfaces/mailer-options.interface';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtModuleOptions } from '@nestjs/jwt';
@@ -22,11 +22,11 @@ interface IRequest extends Request {
 }
 
 @Injectable()
-export class ConfigGetter extends ConfigGetterBase {
+export class ConfigGetter {
   /**
    * Соответствие между ошибками и статус-кодами ответов.
    */
-  protected readonly statusResolver: Record<ErrorCode, HttpStatus> = {
+  public readonly statusResolver: Record<ErrorCode, HttpStatus> = {
     [ErrorCode.GOOGLE_AUTH_PAYLOAD_EMPTY]: HttpStatus.UNAUTHORIZED,
     [ErrorCode.GOOGLE_AUTH_EMAIL_NOT_FOUND]: HttpStatus.UNAUTHORIZED,
     [ErrorCode.USER_ALREADY_EXISTS]: HttpStatus.CONFLICT,
@@ -38,9 +38,7 @@ export class ConfigGetter extends ConfigGetterBase {
     [ErrorCode.UNAUTHORIZED]: HttpStatus.UNAUTHORIZED,
   };
 
-  public constructor(systemErrorFactory: SystemErrorFactory) {
-    super(systemErrorFactory);
-  }
+  public constructor(private readonly envGetter: EnvGetter) {}
 
   /**
    * Получает порт для апи.
@@ -50,10 +48,17 @@ export class ConfigGetter extends ConfigGetterBase {
   }
 
   /**
+   * Получает префикс API.
+   */
+  public getApiPrefix(): string {
+    return API_PREFIX;
+  }
+
+  /**
    * Возвращает конфиг для подключения к БД.
    */
   public getTypeOrmConfig(): TypeOrmModuleOptions {
-    return this.isDev()
+    return this.envGetter.isDev()
       ? this.getDevTypeOrmConfig()
       : this.getProdTypeOrmConfig();
   }
@@ -63,9 +68,9 @@ export class ConfigGetter extends ConfigGetterBase {
    */
   public getJwtConfig(): JwtModuleOptions {
     return {
-      secret: this.isDev()
+      secret: this.envGetter.isDev()
         ? 'dev-jwt-secret'
-        : this.getEnv('FUKS_BLOG_AUTH_JWT_SECRET'),
+        : this.envGetter.getEnv('FUKS_BLOG_AUTH_JWT_SECRET'),
     };
   }
 
@@ -73,16 +78,16 @@ export class ConfigGetter extends ConfigGetterBase {
    * Получает clientId для Google-авторизации.
    */
   public getGoogleClientId(): string {
-    return this.isDev()
+    return this.envGetter.isDev()
       ? '14083046227-pseubj6r7te7mtl1t831jsgnaak1cn47.apps.googleusercontent.com'
-      : this.getEnv('FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID');
+      : this.envGetter.getEnv('FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID');
   }
 
   /**
    * Конфиг для отправки почты.
    */
   public getMailerTransport(): TransportType {
-    return this.isDev()
+    return this.envGetter.isDev()
       ? {
           host: 'mail.fuks.ru',
           port: 465,
@@ -93,12 +98,12 @@ export class ConfigGetter extends ConfigGetterBase {
           },
         }
       : {
-          host: this.getEnv('MAILER_HOST'),
+          host: this.envGetter.getEnv('MAILER_HOST'),
           port: 465,
           secure: true,
           auth: {
             user: this.getMailerFrom(),
-            pass: this.getEnv('MAILER_PASSWORD'),
+            pass: this.envGetter.getEnv('MAILER_PASSWORD'),
           },
         };
   }
@@ -107,21 +112,23 @@ export class ConfigGetter extends ConfigGetterBase {
    * Email для отправки почты.
    */
   public getMailerFrom(): string {
-    return this.isDev() ? 'test@fuks.ru' : this.getEnv('MAILER_USER');
+    return this.envGetter.isDev()
+      ? 'test@fuks.ru'
+      : this.envGetter.getEnv('MAILER_USER');
   }
 
   /**
    * Конфиг для Google Recaptcha.
    */
   public getRecaptchaOptions(): GoogleRecaptchaModuleOptions {
-    return this.isDev()
+    return this.envGetter.isDev()
       ? {
           secretKey: '6Lel8ZcgAAAAANztX82p5f1bqQocGi1aUw_YgjTn',
           response: (request: IRequest) => request.headers.recaptcha || '',
           score: 0.8,
         }
       : {
-          secretKey: this.getEnv('GOOGLE_RECAPTCHA_SECRET_KEY'),
+          secretKey: this.envGetter.getEnv('GOOGLE_RECAPTCHA_SECRET_KEY'),
           response: (request: IRequest) => request.headers.recaptcha || '',
           score: 0.8,
         };
@@ -130,7 +137,7 @@ export class ConfigGetter extends ConfigGetterBase {
   /**
    * Возвращает переводы.
    */
-  public override getTranslations(): {
+  public getTranslations(): {
     /**
      * Английские переводы.
      */
@@ -144,6 +151,23 @@ export class ConfigGetter extends ConfigGetterBase {
       'en-US': enUs,
       'ru-RU': ruRU,
     };
+  }
+
+  /**
+   * Получает конфиг для логгера.
+   */
+  public getLoggerOptions(): ILoggerModuleOptions {
+    return {
+      isToConsoleDisable: false,
+      isToFileDisable: false,
+    };
+  }
+
+  /**
+   * Получает корневой домен.
+   */
+  public getDomain(): string {
+    return domainUrl;
   }
 
   private getProdTypeOrmConfig(): TypeOrmModuleOptions {

@@ -6,8 +6,8 @@ import {
   TApiBody,
   TApiResponse,
 } from '@difuks/auth-backend';
-import { urls } from '@difuks/common/dist/constants';
-import { errorInterceptor } from '@difuks/common/dist/frontend';
+import { urls } from '@difuks/constants';
+import { errorInterceptor } from '@difuks/common-frontend';
 import { AxiosRequestConfig } from 'axios';
 import { OperationResponse } from 'openapi-client-axios';
 

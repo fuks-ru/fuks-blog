@@ -6,12 +6,13 @@ import {
   OperationMethods,
   TApiResponse,
 } from '@difuks/auth-backend';
-import { urls } from '@difuks/common/dist/constants';
+import { urls } from '@difuks/constants';
 import {
   errorInterceptor,
+  UnauthorizedError,
   UnknownError,
   ValidationError,
-} from '@difuks/common/dist/frontend';
+} from '@difuks/common-frontend';
 import { coreModuleName } from '@reduxjs/toolkit/dist/query/core/module';
 import {
   EndpointBuilder,
@@ -22,6 +23,7 @@ import { reactHooksModuleName } from '@reduxjs/toolkit/dist/query/react/module';
 import { Api, BaseQueryFn } from '@reduxjs/toolkit/query';
 import { message } from 'antd';
 import { createApi as createApiBase } from '@reduxjs/toolkit/query/react';
+import qs from 'qs';
 
 /**
  * Клиент для работы с AuthApi.
@@ -58,6 +60,18 @@ export const authBaseQuery = (): BaseQueryFn<IQueryArgs> => async (args) => {
       data: response.data,
     };
   } catch (error) {
+    if (error instanceof UnauthorizedError) {
+      window.location.assign(
+        `${urls.AUTH_FRONTEND_URL}?${qs.stringify({
+          redirectFrom: window.location.href,
+        })}`,
+      );
+
+      return {
+        error: error.message,
+      };
+    }
+
     if (error instanceof ValidationError || error instanceof UnknownError) {
       await message.error(error.message);
 

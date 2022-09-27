@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { DeepPartial, Repository } from 'typeorm';
-import { EncodingModule, EncodingService } from '@difuks/common';
+import { EncodingModule, EncodingService } from '@difuks/common-backend';
 
 import { Role, User } from 'auth-backend/User/entities/User';
 import { UserModule } from 'auth-backend/User/UserModule';

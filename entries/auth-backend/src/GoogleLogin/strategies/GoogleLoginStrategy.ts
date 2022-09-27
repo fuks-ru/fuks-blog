@@ -1,10 +1,9 @@
 import {
-  CONFIG,
   SystemErrorFactory,
   ValidationErrorFactory,
   I18nResolver,
-} from '@difuks/common';
-import { Inject, Injectable } from '@nestjs/common';
+} from '@difuks/common-backend';
+import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Request as ExpressRequest } from 'express';
 import { OAuth2Client } from 'google-auth-library';
@@ -27,7 +26,6 @@ export class GoogleLoginStrategy extends PassportStrategy(Strategy, 'google') {
   public constructor(
     private readonly googleAuth: GoogleLoginAuth,
     private readonly systemErrorFactory: SystemErrorFactory,
-    @Inject(CONFIG)
     private readonly configGetter: ConfigGetter,
     private readonly validationErrorFactory: ValidationErrorFactory,
     private readonly i18nResolver: I18nResolver,

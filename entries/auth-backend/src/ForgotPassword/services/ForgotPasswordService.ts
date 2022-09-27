@@ -1,5 +1,5 @@
-import { I18nResolver } from '@difuks/common';
-import { urls } from '@difuks/common/dist/constants';
+import { I18nResolver } from '@difuks/common-backend';
+import { urls } from '@difuks/constants';
 import { Injectable } from '@nestjs/common';
 import qs from 'qs';
 import { MailerService } from '@nestjs-modules/mailer';

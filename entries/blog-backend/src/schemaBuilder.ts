@@ -1,4 +1,4 @@
-import { SwaggerService, CONFIG } from '@difuks/common';
+import { SwaggerService } from '@difuks/common-backend';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
@@ -8,7 +8,7 @@ import { AppModule } from 'blog-backend/AppModule';
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const swaggerService = app.get(SwaggerService);
-  const configGetter = await app.resolve<ConfigGetter>(CONFIG);
+  const configGetter = app.get(ConfigGetter);
 
   app.setGlobalPrefix(configGetter.getApiPrefix());
 

@@ -1,0 +1,37 @@
+{
+  "name": "@difuks/common-frontend",
+  "packageManager": "yarn@3.2.0",
+  "description": "Frontend helpers",
+  "version": "0.0.1",
+  "repository": "https://github.com/DiFuks/fuks-blog",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "ttsc --watch",
+    "build:lib": "ttsc"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@difuks/common": "workspaces:0.0.1",
+    "@types/axios": "^0.14.0",
+    "@types/react": "^18.0.21",
+    "axios": "^0.27.2",
+    "react": "^18.2.0",
+    "tslib": "^2.4.0",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.8.3",
+    "typescript-transform-paths": "^3.3.1"
+  },
+  "peerDependencies": {
+    "@difuks/common": "*",
+    "axios": "^0.27.2",
+    "react": "^18.2.0"
+  }
+}

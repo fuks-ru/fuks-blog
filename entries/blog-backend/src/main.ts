@@ -1,4 +1,4 @@
-import { CONFIG, SwaggerService } from '@difuks/common';
+import { SwaggerService, EnvGetter } from '@difuks/common-backend';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
@@ -8,8 +8,9 @@ import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  const configGetter = await app.resolve<ConfigGetter>(CONFIG);
+  const configGetter = app.get(ConfigGetter);
   const swaggerService = app.get(SwaggerService);
+  const envGetter = app.get(EnvGetter);
 
   app.use(cookieParser());
   app.setGlobalPrefix(configGetter.getApiPrefix());
@@ -18,7 +19,7 @@ import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
 
   swaggerService.setupRoute(configGetter.getApiPrefix(), app, document);
 
-  if (configGetter.isDev()) {
+  if (envGetter.isDev()) {
     void swaggerService.generateApiContract(document);
   }
 

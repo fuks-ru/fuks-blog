@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useGoogleReCaptcha } from '@difuks/react-google-recaptcha-v3';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 /**
  * Возвращает токен верификации Google капчи.

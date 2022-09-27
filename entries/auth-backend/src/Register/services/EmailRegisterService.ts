@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { v4 } from 'uuid';
-import { EncodingService } from '@difuks/common';
+import { EncodingService } from '@difuks/common-backend';
 
 import { Role, User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';

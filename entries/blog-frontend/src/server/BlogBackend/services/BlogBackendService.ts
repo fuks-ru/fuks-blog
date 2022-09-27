@@ -1,16 +1,17 @@
 import { Client, getApi } from '@difuks/blog-backend';
 import {
-  IErrorResponse,
   RequestRefService,
-  CommonErrorCode,
   I18nResolver,
   RedirectErrorFactory,
   SystemErrorFactory,
-} from '@difuks/common';
-import { API_PAGE_PREFIX, urls } from '@difuks/common/dist/constants';
+} from '@difuks/common-backend';
+import { urls } from '@difuks/constants';
+import { CommonErrorCode, IErrorResponse } from '@difuks/common';
 import { Injectable } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import qs from 'qs';
+
+import { API_PAGE_PREFIX } from 'blog-frontend/shared/lib/constants';
 
 @Injectable()
 export class BlogBackendService {

@@ -1,5 +1,5 @@
 import process from 'node:process';
-import { isDevelopment } from '@difuks/common/dist/constants';
+import { isDevelopment } from '@difuks/constants';
 
 /**
  * Переменные окружение, прокидываемые при сборке в приложение.

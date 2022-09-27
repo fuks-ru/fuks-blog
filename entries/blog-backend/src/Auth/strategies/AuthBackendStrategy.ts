@@ -1,6 +1,7 @@
 import { Client, getApi, TApiResponse } from '@difuks/auth-backend';
-import { CommonErrorCode, SystemErrorFactory } from '@difuks/common/dist';
-import { urls } from '@difuks/common/dist/constants';
+import { SystemErrorFactory } from '@difuks/common-backend';
+import { urls } from '@difuks/constants';
+import { CommonErrorCode } from '@difuks/common';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Request as ExpressRequest } from 'express';

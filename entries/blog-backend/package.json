@@ -27,7 +27,9 @@
   },
   "devDependencies": {
     "@difuks/auth-backend": "workspace:0.2.3",
-    "@difuks/common": "workspace:0.1.4",
+    "@difuks/common": "workspace:0.0.1",
+    "@difuks/common-backend": "workspace:0.0.1",
+    "@difuks/constants": "workspace:0.0.1",
     "@nestjs/common": "^9.1.2",
     "@nestjs/core": "^9.1.2",
     "@nestjs/passport": "^9.0.0",

@@ -1,24 +1,16 @@
-import { ports } from '@difuks/common/dist/constants';
-import {
-  IErrorFilterModuleOptions,
-  ConfigGetterBase,
-  SystemErrorFactory,
-} from '@difuks/common';
+import { API_PREFIX, domainUrl, ports } from '@difuks/constants';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { I18nTranslation } from 'nestjs-i18n';
 
 import { ErrorCode } from 'blog-frontend/server/Config/enums/ErrorCode';
+import { API_PAGE_PREFIX } from 'blog-frontend/shared/lib/constants';
 
 @Injectable()
-export class ConfigGetter extends ConfigGetterBase {
+export class ConfigGetter {
   /**
    * Соответствие между ошибками и статус-кодами ответов.
    */
-  protected readonly statusResolver: Record<ErrorCode, HttpStatus> = {};
-
-  public constructor(systemErrorFactory: SystemErrorFactory) {
-    super(systemErrorFactory);
-  }
+  public readonly statusResolver: Record<ErrorCode, HttpStatus> = {};
 
   /**
    * Получает порт для апи.
@@ -28,19 +20,30 @@ export class ConfigGetter extends ConfigGetterBase {
   }
 
   /**
-   * Получает порт для апи.
+   * Получает префикс для API страниц.
    */
-  public override getErrorFilterConfig(): IErrorFilterModuleOptions {
-    return {
-      ...super.getErrorFilterConfig(),
-      errorPageName: '_500',
-    };
+  public getApiPagePrefix(): string {
+    return API_PAGE_PREFIX;
+  }
+
+  /**
+   * Получает корневой домен.
+   */
+  public getDomain(): string {
+    return domainUrl;
+  }
+
+  /**
+   * Получает префикс API.
+   */
+  public getApiPrefix(): string {
+    return API_PREFIX;
   }
 
   /**
    * Получает lang-фразы.
    */
-  protected getTranslations(): {
+  public getTranslations(): {
     /**
      * Английские переводы.
      */
