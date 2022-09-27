@@ -1,6 +1,6 @@
 {
   "name": "@difuks/auth-frontend",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "My blog auth",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "author": "Dmitry Fuks",
@@ -15,7 +15,7 @@
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
-    "@difuks/auth-backend": "workspace:0.2.3",
+    "@difuks/auth-backend": "workspace:0.2.4",
     "@difuks/common-frontend": "workspace:0.0.1",
     "@difuks/constants": "workspace:0.0.1",
     "@linaria/core": "^4.1.2",
