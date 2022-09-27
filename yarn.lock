@@ -1579,9 +1579,9 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@difuks/auth-backend": "workspace:0.3.0"
+    "@difuks/auth-backend": "workspace:0.3.1"
     "@difuks/common-frontend": "workspace:0.0.1"
-    "@difuks/constants": "workspace:0.0.1"
+    "@difuks/constants": "workspace:0.0.2"
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.7
     "@reduxjs/toolkit": ^1.8.5
     "@types/qs": ^6.9.7
@@ -1616,13 +1616,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/auth-backend@workspace:0.3.0, @difuks/auth-backend@workspace:entries/auth-backend":
+"@difuks/auth-backend@workspace:0.3.1, @difuks/auth-backend@workspace:entries/auth-backend":
   version: 0.0.0-use.local
   resolution: "@difuks/auth-backend@workspace:entries/auth-backend"
   dependencies:
     "@difuks/common": "workspace:0.0.1"
     "@difuks/common-backend": "workspace:0.0.1"
-    "@difuks/constants": "workspace:0.0.1"
+    "@difuks/constants": "workspace:0.0.2"
     "@nestjs-modules/mailer": ^1.8.1
     "@nestjs/axios": ^0.1.0
     "@nestjs/common": ^9.1.2
@@ -1690,9 +1690,9 @@ __metadata:
     "@babel/preset-env": ^7.19.1
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@difuks/auth-backend": "workspace:0.3.0"
+    "@difuks/auth-backend": "workspace:0.3.1"
     "@difuks/common-frontend": "workspace:0.0.1"
-    "@difuks/constants": "workspace:0.0.1"
+    "@difuks/constants": "workspace:0.0.2"
     "@linaria/core": ^4.1.2
     "@linaria/react": ^4.1.3
     "@linaria/shaker": ^4.2.0
@@ -1739,14 +1739,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/blog-backend@workspace:0.1.0, @difuks/blog-backend@workspace:entries/blog-backend":
+"@difuks/blog-backend@workspace:0.1.1, @difuks/blog-backend@workspace:entries/blog-backend":
   version: 0.0.0-use.local
   resolution: "@difuks/blog-backend@workspace:entries/blog-backend"
   dependencies:
-    "@difuks/auth-backend": "workspace:0.3.0"
+    "@difuks/auth-backend": "workspace:0.3.1"
     "@difuks/common": "workspace:0.0.1"
     "@difuks/common-backend": "workspace:0.0.1"
-    "@difuks/constants": "workspace:0.0.1"
+    "@difuks/constants": "workspace:0.0.2"
     "@nestjs/common": ^9.1.2
     "@nestjs/core": ^9.1.2
     "@nestjs/passport": ^9.0.0
@@ -1791,10 +1791,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@difuks/blog-frontend@workspace:entries/blog-frontend"
   dependencies:
-    "@difuks/blog-backend": "workspace:0.1.0"
+    "@difuks/blog-backend": "workspace:0.1.1"
     "@difuks/common": "workspace:0.0.1"
     "@difuks/common-backend": "workspace:0.0.1"
-    "@difuks/constants": "workspace:0.0.1"
+    "@difuks/constants": "workspace:0.0.2"
     "@difuks/ui": "workspace:0.0.3"
     "@nestjs/common": ^9.1.2
     "@nestjs/core": ^9.1.2
@@ -1916,7 +1916,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@difuks/constants@workspace:0.0.1, @difuks/constants@workspace:packages/constants":
+"@difuks/constants@workspace:0.0.2, @difuks/constants@workspace:packages/constants":
   version: 0.0.0-use.local
   resolution: "@difuks/constants@workspace:packages/constants"
   dependencies:

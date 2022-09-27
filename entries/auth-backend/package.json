@@ -1,6 +1,6 @@
 {
   "name": "@difuks/auth-backend",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "My blog admin",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "author": "Dmitry Fuks",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@difuks/common": "workspace:0.0.1",
     "@difuks/common-backend": "workspace:0.0.1",
-    "@difuks/constants": "workspace:0.0.1",
+    "@difuks/constants": "workspace:0.0.2",
     "@nestjs-modules/mailer": "^1.8.1",
     "@nestjs/axios": "^0.1.0",
     "@nestjs/common": "^9.1.2",

@@ -1,6 +1,6 @@
 {
   "name": "@difuks/blog-frontend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "My blog frontend",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "private": true,
@@ -13,10 +13,10 @@
     "prod": "cross-env NODE_ENV=production node ./dist/server/main.js"
   },
   "devDependencies": {
-    "@difuks/blog-backend": "workspace:0.1.0",
+    "@difuks/blog-backend": "workspace:0.1.1",
     "@difuks/common": "workspace:0.0.1",
     "@difuks/common-backend": "workspace:0.0.1",
-    "@difuks/constants": "workspace:0.0.1",
+    "@difuks/constants": "workspace:0.0.2",
     "@difuks/ui": "workspace:0.0.3",
     "@nestjs/common": "^9.1.2",
     "@nestjs/core": "^9.1.2",
