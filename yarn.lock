@@ -1917,7 +1917,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fuks-ru/common-backend@workspace:packages/common-backend"
   dependencies:
-    "@fuks-ru/common": "workspaces:0.0.1"
+    "@fuks-ru/common": "workspace:0.0.1"
     "@nestjs/common": ^9.1.2
     "@nestjs/core": ^9.1.2
     "@nestjs/platform-express": ^9.1.2
@@ -1970,7 +1970,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fuks-ru/common-frontend@workspace:packages/common-frontend"
   dependencies:
-    "@fuks-ru/common": "workspaces:0.0.1"
+    "@fuks-ru/common": "workspace:0.0.1"
     "@types/axios": ^0.14.0
     "@types/react": ^18.0.21
     axios: ^0.27.2
@@ -1986,7 +1986,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fuks-ru/common@workspace:0.0.1, @fuks-ru/common@workspace:packages/common, @fuks-ru/common@workspaces:0.0.1":
+"@fuks-ru/common@workspace:0.0.1, @fuks-ru/common@workspace:packages/common":
   version: 0.0.0-use.local
   resolution: "@fuks-ru/common@workspace:packages/common"
   dependencies:
