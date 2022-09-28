@@ -1,6 +1,6 @@
 {
   "name": "@fuks-ru/blog-frontend",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "My blog frontend",
   "repository": "https://github.com/fuks-ru/fuks-blog",
   "private": true,
@@ -13,11 +13,11 @@
     "prod": "cross-env NODE_ENV=production node ./dist/server/main.js"
   },
   "devDependencies": {
-    "@fuks-ru/blog-backend": "workspace:0.1.3",
-    "@fuks-ru/common": "workspace:0.0.1",
-    "@fuks-ru/common-backend": "workspace:0.1.3",
-    "@fuks-ru/constants": "workspace:0.0.2",
-    "@fuks-ru/ui": "workspace:0.0.3",
+    "@fuks-ru/blog-backend": "workspace:0.1.4",
+    "@fuks-ru/common": "workspace:0.0.2",
+    "@fuks-ru/common-backend": "workspace:0.1.4",
+    "@fuks-ru/constants": "workspace:0.0.3",
+    "@fuks-ru/ui": "workspace:0.0.4",
     "@nestjs/common": "^9.1.2",
     "@nestjs/core": "^9.1.2",
     "@nestjs/platform-express": "^9.1.2",
