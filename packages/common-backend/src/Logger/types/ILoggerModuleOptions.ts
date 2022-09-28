@@ -18,6 +18,10 @@ export interface ILoggerModuleOptions {
    * Отключает логирование в файл.
    */
   isToFileDisable?: boolean;
+  /**
+   * Корневой домен для установки кук сессии.
+   */
+  domain: string;
 }
 /**
  * Описывает асинхронный конфиг модуля логирования.

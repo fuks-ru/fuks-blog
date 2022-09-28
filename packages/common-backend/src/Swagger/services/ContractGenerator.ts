@@ -83,7 +83,7 @@ export class ContractGenerator {
 
   private async generateClientTs(): Promise<void> {
     await exec(
-      `yarn typegen ${this.swaggerSchemaCachePath} > ${this.clientTsCachePath} && echo "const defaultBaseUrl = '/';\\nexport { defaultBaseUrl, Components };" >> ${this.clientTsCachePath}`,
+      `yarn typegen ${this.swaggerSchemaCachePath} > ${this.clientTsCachePath} && echo "const defaultBaseUrl = '/';\\nexport { defaultBaseUrl, Components, Paths };" >> ${this.clientTsCachePath}`,
     );
   }
 

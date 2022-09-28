@@ -2,7 +2,7 @@
   "name": "@difuks/common-backend",
   "packageManager": "yarn@3.2.0",
   "description": "Backend helpers",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

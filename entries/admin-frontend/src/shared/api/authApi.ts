@@ -3,8 +3,8 @@ import {
   Client,
   TApiArgs,
   TApiBody,
-  OperationMethods,
   TApiResponse,
+  TMethods,
 } from '@difuks/auth-backend';
 import { urls } from '@difuks/constants';
 import {
@@ -42,9 +42,9 @@ export const initAuthApi = async (): Promise<void> => {
 };
 
 interface IQueryArgs {
-  method: keyof OperationMethods;
-  params?: TApiArgs<keyof OperationMethods>;
-  body?: TApiBody<keyof OperationMethods>;
+  method: TMethods;
+  params?: TApiArgs;
+  body?: TApiBody;
 }
 
 /**
@@ -104,7 +104,7 @@ type TMethodData<
 
 type IEndpoints<Methods> = {
   [key in keyof Methods]: Methods[key] extends TMethodData<infer Type>
-    ? key extends keyof OperationMethods
+    ? key extends TMethods
       ? Type extends 'getList'
         ? QueryDefinition<
             void,
@@ -147,16 +147,14 @@ type IEndpoints<Methods> = {
 
 type IApi<ReducerPath extends string> = Api<
   BaseQueryFn<IQueryArgs>,
-  IEndpoints<Record<keyof OperationMethods, TMethodData>>,
+  IEndpoints<Record<TMethods, TMethodData>>,
   ReducerPath,
   never,
   typeof reactHooksModuleName | typeof coreModuleName
 >;
 
 type IMethods = {
-  [key in keyof OperationMethods]?: TApiResponse<key> extends
-    | { id: string }
-    | { id: number }
+  [key in TMethods]?: TApiResponse<key> extends { id: string } | { id: number }
     ? TApiArgs<key> extends { id: string } | { id: number }
       ? { type: 'update' } | { type: 'get' }
       : never
@@ -190,14 +188,14 @@ export const createAuthApi = <
   ) => [
     method,
     build.mutation<
-      TApiResponse<keyof OperationMethods>,
+      TApiResponse,
       {
-        body: TApiBody<keyof OperationMethods>;
-        params: TApiArgs<keyof OperationMethods>;
+        body: TApiBody;
+        params: TApiArgs;
       }
     >({
       query: ({ body, params }) => ({
-        method: method as keyof OperationMethods,
+        method: method as TMethods,
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         body,
         params,
@@ -257,7 +255,7 @@ export const createAuthApi = <
     method,
     build.mutation<void, string>({
       query: (id: string) => ({
-        method: method as keyof OperationMethods,
+        method: method as TMethods,
         body: {},
         params: {
           id,
@@ -317,9 +315,9 @@ export const createAuthApi = <
 
           return [
             method,
-            build.query<TApiResponse<keyof OperationMethods>, string>({
+            build.query<TApiResponse, string>({
               query: (id: string) => ({
-                method: method as keyof OperationMethods,
+                method: method as TMethods,
                 params: { id },
               }),
             }),

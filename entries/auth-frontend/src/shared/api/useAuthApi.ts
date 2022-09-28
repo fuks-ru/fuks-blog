@@ -1,5 +1,5 @@
 import {
-  OperationMethods,
+  TMethods,
   TApiArgs,
   TApiBody,
   TApiResponse,
@@ -16,7 +16,7 @@ import { getApiMethod, TStatus } from 'auth-frontend/shared/api/initAuthApi';
  * Получает метод, объект ответа и статус запроса из authApi.
  */
 export const useAuthApi = <
-  ApiName extends keyof OperationMethods,
+  ApiName extends TMethods,
   Body extends TApiBody<ApiName>,
 >(
   name: ApiName,

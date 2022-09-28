@@ -67,7 +67,10 @@ export class CommonModule {
         I18nModule.forRoot({
           translations: options.translations,
         }),
-        LoggerModule.forRoot(options.logger || {}),
+        LoggerModule.forRoot({
+          ...options.logger,
+          domain: options.domain,
+        }),
         CookieSetterModule.forRoot({
           domain: options.domain,
         }),
@@ -116,7 +119,10 @@ export class CommonModule {
           useFactory: async (...args: unknown[]) => {
             const result = await options.useFactory(...args);
 
-            return result.logger || {};
+            return {
+              ...result.logger,
+              domain: result.domain,
+            };
           },
         }),
         CookieSetterModule.forRootAsync({

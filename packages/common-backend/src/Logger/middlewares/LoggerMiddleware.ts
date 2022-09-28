@@ -1,4 +1,4 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Inject, Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { v4 } from 'uuid';
 import requestContext from 'request-context';
@@ -10,6 +10,7 @@ import {
   REQUEST_SESSION_ID_KEY,
 } from 'common-backend/Logger/utils/constants';
 import { Logger } from 'common-backend/Logger/services/Logger';
+import { ILoggerModuleOptions } from 'common-backend/Logger/types/ILoggerModuleOptions';
 
 interface ICookie {
   sessionId: string;
@@ -21,7 +22,11 @@ interface IRequest extends Omit<Request, 'cookies'> {
 
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {
-  public constructor(private readonly logger: Logger) {}
+  public constructor(
+    private readonly logger: Logger,
+    @Inject('LOGGER_MODULE_OPTIONS')
+    private readonly options: ILoggerModuleOptions,
+  ) {}
 
   /**
    * Логирует входящие и исходящие запросы.
@@ -35,7 +40,9 @@ export class LoggerMiddleware implements NestMiddleware {
 
     const sessionId = req.cookies?.sessionId || v4();
 
-    res.cookie('sessionId', sessionId);
+    res.cookie('sessionId', sessionId, {
+      domain: this.options.domain,
+    });
 
     requestContext.set(
       `${REQUEST_CONTEXT_ID}:${REQUEST_SESSION_ID_KEY}`,

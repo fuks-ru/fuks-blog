@@ -1,4 +1,4 @@
-import { Components } from '@difuks/auth-backend';
+import { Schemas } from '@difuks/auth-backend';
 import { useMemo } from 'react';
 
 import { IEnumOption, TColumnTypes } from 'admin-frontend/shared/ui/Table';
@@ -6,7 +6,7 @@ import { userApi } from 'admin-frontend/entities/user/model/userApi';
 
 const getColumns = (
   roles: IEnumOption[],
-): TColumnTypes<Components.Schemas.UserResponse> => [
+): TColumnTypes<Schemas.UserResponse> => [
   {
     title: 'Email',
     dataIndex: 'email',
@@ -35,8 +35,8 @@ const getColumns = (
 ];
 
 interface IResult {
-  columns: TColumnTypes<Components.Schemas.UserResponse>;
-  dataSource: Array<Components.Schemas.UserResponse & { key: string }>;
+  columns: TColumnTypes<Schemas.UserResponse>;
+  dataSource: Array<Schemas.UserResponse & { key: string }>;
 }
 
 /**

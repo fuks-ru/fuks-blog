@@ -1,7 +1,7 @@
 import {
   Client,
   getApi,
-  OperationMethods,
+  TMethods,
   TApiArgs,
   TApiBody,
   TApiResponse,
@@ -36,7 +36,7 @@ export const initAuthApi = async (): Promise<void> => {
  * Получает конкретный api метод.
  */
 export const getApiMethod = <
-  ApiName extends keyof OperationMethods,
+  ApiName extends TMethods,
   ApiMethod extends (
     args: TApiArgs<ApiName> | null,
     body: TApiBody<ApiName>,

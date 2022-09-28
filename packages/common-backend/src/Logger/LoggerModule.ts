@@ -32,7 +32,14 @@ export class LoggerModule implements NestModule {
             optionsFactory.create(options),
         }),
       ],
-      providers: [Logger, WinstonOptionsFactory],
+      providers: [
+        Logger,
+        WinstonOptionsFactory,
+        {
+          provide: 'LOGGER_MODULE_OPTIONS',
+          useValue: options,
+        },
+      ],
       exports: [Logger, WinstonOptionsFactory],
     };
   }
@@ -62,7 +69,15 @@ export class LoggerModule implements NestModule {
           },
         }),
       ],
-      providers: [Logger, WinstonOptionsFactory],
+      providers: [
+        Logger,
+        WinstonOptionsFactory,
+        {
+          provide: 'LOGGER_MODULE_OPTIONS',
+          inject: options.inject,
+          useFactory: options.useFactory,
+        },
+      ],
       exports: [Logger, WinstonOptionsFactory],
     };
   }

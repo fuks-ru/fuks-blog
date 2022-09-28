@@ -1,4 +1,4 @@
-import { OperationMethods, TApiArgs, TApiBody } from '@difuks/auth-backend';
+import { TMethods, TApiArgs, TApiBody } from '@difuks/auth-backend';
 import { UnknownError, ValidationError } from '@difuks/common-frontend';
 import { Form, FormInstance, message } from 'antd';
 import { useCallback, useState } from 'react';
@@ -12,7 +12,7 @@ import { getApiMethod, TStatus } from 'auth-frontend/shared/api/initAuthApi';
  * antd-формы и callback onFinish.
  */
 export const useAuthForm = <
-  ApiName extends keyof OperationMethods,
+  ApiName extends TMethods,
   Body extends TApiBody<ApiName>,
 >(
   name: ApiName,

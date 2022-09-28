@@ -1,6 +1,6 @@
 {
   "name": "@difuks/blog-backend",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "My blog backend",
   "repository": "https://github.com/DiFuks/fuks-blog",
   "author": "Dmitry Fuks",
@@ -26,9 +26,9 @@
     "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "@difuks/auth-backend": "workspace:0.3.1",
+    "@difuks/auth-backend": "workspace:0.3.2",
     "@difuks/common": "workspace:0.0.1",
-    "@difuks/common-backend": "workspace:0.0.1",
+    "@difuks/common-backend": "workspace:0.1.2",
     "@difuks/constants": "workspace:0.0.2",
     "@nestjs/common": "^9.1.2",
     "@nestjs/core": "^9.1.2",
