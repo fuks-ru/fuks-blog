@@ -1,6 +1,0 @@
-undecided:
-  - "@difuks/admin-frontend"
-  - "@difuks/auth-backend"
-  - "@difuks/auth-frontend"
-  - "@difuks/blog-backend"
-  - "@difuks/blog-frontend"
