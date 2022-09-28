@@ -12,7 +12,7 @@ export type TMethods = keyof OperationMethods;
 /**
  * Получает api-контракт для работы с blog-backend.
  */
-export const getApi = (baseURL = defaultBaseUrl): Promise<Client> => {
+export const getApi = async (baseURL = defaultBaseUrl): Promise<Client> => {
   const api = new OpenAPIClientAxios({
     definition: schema as Document,
     axiosConfigDefaults: {
@@ -21,7 +21,15 @@ export const getApi = (baseURL = defaultBaseUrl): Promise<Client> => {
     },
   });
 
-  return api.init<Client>();
+  const apiInstance = await api.init<Client>();
+
+  apiInstance.defaults.headers.common.i18next = navigator.language;
+  apiInstance.defaults.headers.patch['Content-Type'] = 'application/json';
+  apiInstance.defaults.headers.post['Content-Type'] = 'application/json';
+  apiInstance.defaults.headers.put['Content-Type'] = 'application/json';
+  apiInstance.defaults.headers.delete['Content-Type'] = 'application/json';
+
+  return apiInstance;
 };
 
 /**
