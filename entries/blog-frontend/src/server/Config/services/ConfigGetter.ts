@@ -1,4 +1,4 @@
-import { API_PREFIX, domainUrl, ports } from '@difuks/constants';
+import { API_PREFIX, domainUrl, ports } from '@fuks-ru/constants';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { I18nTranslation } from 'nestjs-i18n';
 

@@ -3,8 +3,8 @@ import {
   TApiArgs,
   TApiBody,
   TApiResponse,
-} from '@difuks/auth-backend';
-import { UnknownError, ValidationError } from '@difuks/common-frontend';
+} from '@fuks-ru/auth-backend';
+import { UnknownError, ValidationError } from '@fuks-ru/common-frontend';
 import { message } from 'antd';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';

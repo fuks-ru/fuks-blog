@@ -1,9 +1,9 @@
 {
-  "name": "@difuks/common",
+  "name": "@fuks-ru/common",
   "packageManager": "yarn@3.2.0",
   "description": "Common helpers",
   "version": "0.0.1",
-  "repository": "https://github.com/DiFuks/fuks-blog",
+  "repository": "https://github.com/fuks-ru/fuks-blog",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

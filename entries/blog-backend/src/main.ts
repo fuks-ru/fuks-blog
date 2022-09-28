@@ -1,4 +1,4 @@
-import { SwaggerService, EnvGetter } from '@difuks/common-backend';
+import { SwaggerService, EnvGetter } from '@fuks-ru/common-backend';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';

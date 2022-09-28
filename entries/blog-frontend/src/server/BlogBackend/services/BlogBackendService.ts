@@ -1,12 +1,12 @@
-import { Client, getApi } from '@difuks/blog-backend';
+import { Client, getApi } from '@fuks-ru/blog-backend';
 import {
   RequestRefService,
   I18nResolver,
   RedirectErrorFactory,
   SystemErrorFactory,
-} from '@difuks/common-backend';
-import { urls } from '@difuks/constants';
-import { CommonErrorCode, IErrorResponse } from '@difuks/common';
+} from '@fuks-ru/common-backend';
+import { urls } from '@fuks-ru/constants';
+import { CommonErrorCode, IErrorResponse } from '@fuks-ru/common';
 import { Injectable } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import qs from 'qs';

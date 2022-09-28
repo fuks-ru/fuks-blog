@@ -1,4 +1,4 @@
-import { SystemErrorFactory } from '@difuks/common-backend';
+import { SystemErrorFactory } from '@fuks-ru/common-backend';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';

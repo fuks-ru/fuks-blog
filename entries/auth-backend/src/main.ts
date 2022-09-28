@@ -1,5 +1,5 @@
-import { EnvGetter, SwaggerService } from '@difuks/common-backend';
-import { urls } from '@difuks/constants';
+import { EnvGetter, SwaggerService } from '@fuks-ru/common-backend';
+import { urls } from '@fuks-ru/constants';
 import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';

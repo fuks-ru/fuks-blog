@@ -5,14 +5,14 @@ import {
   TApiBody,
   TApiResponse,
   TMethods,
-} from '@difuks/auth-backend';
-import { urls } from '@difuks/constants';
+} from '@fuks-ru/auth-backend';
+import { urls } from '@fuks-ru/constants';
 import {
   errorInterceptor,
   UnauthorizedError,
   UnknownError,
   ValidationError,
-} from '@difuks/common-frontend';
+} from '@fuks-ru/common-frontend';
 import { coreModuleName } from '@reduxjs/toolkit/dist/query/core/module';
 import {
   EndpointBuilder,

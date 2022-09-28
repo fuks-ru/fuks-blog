@@ -5,9 +5,9 @@ import {
   TApiArgs,
   TApiBody,
   TApiResponse,
-} from '@difuks/auth-backend';
-import { urls } from '@difuks/constants';
-import { errorInterceptor } from '@difuks/common-frontend';
+} from '@fuks-ru/auth-backend';
+import { urls } from '@fuks-ru/constants';
+import { errorInterceptor } from '@fuks-ru/common-frontend';
 import { AxiosRequestConfig } from 'axios';
 import { OperationResponse } from 'openapi-client-axios';
 

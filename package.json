@@ -1,7 +1,7 @@
 {
   "name": "fuks",
   "description": "My blog",
-  "repository": "https://github.com/DiFuks/fuks-blog",
+  "repository": "https://github.com/fuks-ru/fuks-blog",
   "private": true,
   "author": "Dmitry Fuks",
   "workspaces": [
@@ -11,9 +11,9 @@
   "scripts": {
     "dev": "yarn workspaces foreach --interlaced --verbose --jobs=unlimited --parallel run dev",
     "e2e": "yarn workspaces foreach --interlaced --verbose --parallel run e2e",
-    "dev:auth": "yarn workspaces foreach --include \"@difuks/{admin-frontend,common,common-frontend,common-backend,auth-backend,auth-frontend}\" --interlaced --verbose --parallel run dev",
-    "dev:blog": "yarn workspaces foreach --include \"@difuks/{blog-frontend,blog-backend,common,common-frontend,common-backend,ui}\" --interlaced --verbose --parallel run dev",
-    "dev:admin": "yarn workspaces foreach --include \"@difuks/{auth-frontend,auth-backend,admin-frontend,common,common-frontend,common-backend}\" --interlaced --verbose --parallel run dev",
+    "dev:auth": "yarn workspaces foreach --include \"@fuks-ru/{admin-frontend,common,common-frontend,common-backend,auth-backend,auth-frontend}\" --interlaced --verbose --parallel run dev",
+    "dev:blog": "yarn workspaces foreach --include \"@fuks-ru/{blog-frontend,blog-backend,common,common-frontend,common-backend,ui}\" --interlaced --verbose --parallel run dev",
+    "dev:admin": "yarn workspaces foreach --include \"@fuks-ru/{auth-frontend,auth-backend,admin-frontend,common,common-frontend,common-backend}\" --interlaced --verbose --parallel run dev",
     "prod": "yarn workspaces foreach --interlaced --verbose --jobs=unlimited --parallel run prod",
     "story": "yarn workspaces foreach --interlaced --verbose --parallel run story",
     "build": "yarn workspaces foreach --interlaced --verbose --topological-dev --parallel run build",

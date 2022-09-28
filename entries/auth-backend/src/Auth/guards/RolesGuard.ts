@@ -1,7 +1,7 @@
-import { SystemErrorFactory, I18nResolver } from '@difuks/common-backend';
+import { SystemErrorFactory, I18nResolver } from '@fuks-ru/common-backend';
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { CommonErrorCode } from '@difuks/common';
+import { CommonErrorCode } from '@fuks-ru/common';
 
 import { UserVerifyResponse } from 'auth-backend/Auth/dto/UserVerifyResponse';
 import { Role } from 'auth-backend/User/entities/User';

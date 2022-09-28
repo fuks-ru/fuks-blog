@@ -1,4 +1,4 @@
-import { API_PREFIX } from '@difuks/constants';
+import { API_PREFIX } from '@fuks-ru/constants';
 
 /**
  * Префикс API-запросов за состоянием страницы.

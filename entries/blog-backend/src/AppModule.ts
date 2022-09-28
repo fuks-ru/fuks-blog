@@ -1,4 +1,4 @@
-import { CommonModule } from '@difuks/common-backend';
+import { CommonModule } from '@fuks-ru/common-backend';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 

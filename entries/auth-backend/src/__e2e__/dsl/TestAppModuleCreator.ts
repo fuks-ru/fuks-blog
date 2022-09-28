@@ -1,4 +1,4 @@
-import { ICommonModuleOptions } from '@difuks/common-backend';
+import { ICommonModuleOptions } from '@fuks-ru/common-backend';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';

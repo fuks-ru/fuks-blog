@@ -1,4 +1,4 @@
-import { IRedirectData } from '@difuks/common';
+import { IRedirectData } from '@fuks-ru/common';
 
 export class RedirectError extends Error {
   public constructor(public readonly data: IRedirectData) {

@@ -1,9 +1,9 @@
-import { I18nResolver, SystemErrorFactory } from '@difuks/common-backend';
+import { I18nResolver, SystemErrorFactory } from '@fuks-ru/common-backend';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Request as ExpressRequest } from 'express';
 import { Strategy } from 'passport-custom';
-import { CommonErrorCode } from '@difuks/common';
+import { CommonErrorCode } from '@fuks-ru/common';
 
 import { UserVerifyResponse } from 'auth-backend/Auth/dto/UserVerifyResponse';
 import { AuthService } from 'auth-backend/Auth/services/AuthService';

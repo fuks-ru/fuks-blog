@@ -6,7 +6,7 @@ import {
   GetServerSidePropsResult,
   PreviewData,
 } from 'next/types';
-import { IErrorResponse } from '@difuks/common';
+import { IErrorResponse } from '@fuks-ru/common';
 
 import { IPageProps } from 'blog-frontend/shared/types/page/IPageProps';
 import { api } from 'blog-frontend/shared/api/api';

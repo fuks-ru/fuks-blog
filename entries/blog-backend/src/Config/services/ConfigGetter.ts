@@ -1,5 +1,5 @@
-import { EnvGetter } from '@difuks/common-backend';
-import { API_PREFIX, domainUrl, ports } from '@difuks/constants';
+import { EnvGetter } from '@fuks-ru/common-backend';
+import { API_PREFIX, domainUrl, ports } from '@fuks-ru/constants';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { I18nTranslation } from 'nestjs-i18n';

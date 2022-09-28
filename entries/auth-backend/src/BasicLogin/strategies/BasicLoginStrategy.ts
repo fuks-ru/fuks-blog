@@ -1,7 +1,7 @@
 import {
   SystemErrorFactory,
   ValidationErrorFactory,
-} from '@difuks/common-backend';
+} from '@fuks-ru/common-backend';
 import { Injectable } from '@nestjs/common';
 import { ContextIdFactory, ModuleRef } from '@nestjs/core';
 import { PassportStrategy } from '@nestjs/passport';

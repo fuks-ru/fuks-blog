@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, MinLength, ValidateIf, IsOptional } from 'class-validator';
-import { Match } from '@difuks/common-backend';
+import { Match } from '@fuks-ru/common-backend';
 import { i18nValidationMessage } from 'nestjs-i18n';
 
 export class BasicRegisterRequest {

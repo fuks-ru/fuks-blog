@@ -1,4 +1,4 @@
-import { SwaggerService } from '@difuks/common-backend';
+import { SwaggerService } from '@fuks-ru/common-backend';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 

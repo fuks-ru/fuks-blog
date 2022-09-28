@@ -2,7 +2,7 @@ import {
   SystemErrorFactory,
   ValidationErrorFactory,
   I18nResolver,
-} from '@difuks/common-backend';
+} from '@fuks-ru/common-backend';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Request as ExpressRequest } from 'express';

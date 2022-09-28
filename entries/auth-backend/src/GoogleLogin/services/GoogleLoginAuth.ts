@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { TokenPayload } from 'google-auth-library';
-import { SystemErrorFactory, I18nResolver } from '@difuks/common-backend';
+import { SystemErrorFactory, I18nResolver } from '@fuks-ru/common-backend';
 
 import { ErrorCode } from 'auth-backend/Config/enums/ErrorCode';
 import { User } from 'auth-backend/User/entities/User';

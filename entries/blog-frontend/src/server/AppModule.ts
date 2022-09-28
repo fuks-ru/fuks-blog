@@ -1,5 +1,5 @@
-import { CommonModule } from '@difuks/common-backend';
-import { isDevelopment } from '@difuks/constants';
+import { CommonModule } from '@fuks-ru/common-backend';
+import { isDevelopment } from '@fuks-ru/constants';
 import { Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';

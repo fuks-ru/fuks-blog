@@ -7,7 +7,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { CommonErrorCode, IErrorResponse, IRedirectData } from '@difuks/common';
+import { CommonErrorCode, IErrorResponse, IRedirectData } from '@fuks-ru/common';
 
 import { CookieResponseSetter } from 'common-backend/CookieSetter/services/CookieResponseSetter';
 import { RedirectError } from 'common-backend/Redirect/dto/RedirectError';

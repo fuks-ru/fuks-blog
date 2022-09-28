@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { EncodingService } from '@difuks/common-backend';
+import { EncodingService } from '@fuks-ru/common-backend';
 
 import { User } from 'auth-backend/User/entities/User';
 import { UserService } from 'auth-backend/User/services/UserService';

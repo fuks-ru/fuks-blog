@@ -1,11 +1,11 @@
-# @difuks/blog-backend
+# @fuks-ru/blog-backend
 
 В npm пакете содержится open api-контракт для работы с бэкендом
 
 Пример
 
 ```ts
-import { getApi, TApiResponse } from '@difuks/blog-backend';
+import { getApi, TApiResponse } from '@fuks-ru/blog-backend';
 
 const [categories, setCategories] = useState<TApiResponse<'categoryList'>>(
 	[],

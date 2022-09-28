@@ -1,5 +1,5 @@
-import { EnvGetter, ICommonModuleOptions } from '@difuks/common-backend';
-import { API_PREFIX, ports, domainUrl } from '@difuks/constants';
+import { EnvGetter, ICommonModuleOptions } from '@fuks-ru/common-backend';
+import { API_PREFIX, ports, domainUrl } from '@fuks-ru/constants';
 import { TransportType } from '@nestjs-modules/mailer/dist/interfaces/mailer-options.interface';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { JwtModuleOptions } from '@nestjs/jwt';

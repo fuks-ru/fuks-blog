@@ -1,4 +1,4 @@
-import { urls } from '@difuks/constants';
+import { urls } from '@fuks-ru/constants';
 import { FC, ReactNode, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 

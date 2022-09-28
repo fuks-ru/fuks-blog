@@ -2,7 +2,7 @@ import {
   SystemError,
   I18nResolver,
   SystemErrorFactory,
-} from '@difuks/common-backend';
+} from '@fuks-ru/common-backend';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeepPartial, Repository } from 'typeorm';

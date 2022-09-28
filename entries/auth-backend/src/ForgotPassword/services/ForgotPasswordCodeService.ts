@@ -1,4 +1,4 @@
-import { I18nResolver, SystemErrorFactory } from '@difuks/common-backend';
+import { I18nResolver, SystemErrorFactory } from '@fuks-ru/common-backend';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { v4 } from 'uuid';

@@ -1,9 +1,9 @@
 {
-  "name": "@difuks/common-frontend",
+  "name": "@fuks-ru/common-frontend",
   "packageManager": "yarn@3.2.0",
   "description": "Frontend helpers",
   "version": "0.0.1",
-  "repository": "https://github.com/DiFuks/fuks-blog",
+  "repository": "https://github.com/fuks-ru/fuks-blog",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -19,7 +19,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "@difuks/common": "workspaces:0.0.1",
+    "@fuks-ru/common": "workspaces:0.0.1",
     "@types/axios": "^0.14.0",
     "@types/react": "^18.0.21",
     "axios": "^0.27.2",
@@ -30,7 +30,7 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "peerDependencies": {
-    "@difuks/common": "*",
+    "@fuks-ru/common": "*",
     "axios": "^0.27.2",
     "react": "^18.2.0"
   }

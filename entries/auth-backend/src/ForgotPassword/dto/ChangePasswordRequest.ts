@@ -1,4 +1,4 @@
-import { Match } from '@difuks/common-backend';
+import { Match } from '@fuks-ru/common-backend';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MinLength, ValidateIf } from 'class-validator';
 import { i18nValidationMessage } from 'nestjs-i18n';

@@ -1,4 +1,4 @@
-import { urls } from '@difuks/constants';
+import { urls } from '@fuks-ru/constants';
 import axios, { AxiosInstance } from 'axios';
 
 class Api {

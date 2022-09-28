@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { IRedirectData } from '@difuks/common';
+import { IRedirectData } from '@fuks-ru/common';
 
 import { RedirectError } from 'common-backend/Redirect/dto/RedirectError';
 

@@ -1,4 +1,4 @@
-import { CommonErrorCode } from '@difuks/common';
+import { CommonErrorCode } from '@fuks-ru/common';
 
 import { SystemError } from 'common-backend/SystemError/dto/SystemError';
 

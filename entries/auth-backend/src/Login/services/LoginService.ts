@@ -1,8 +1,8 @@
 import {
   RedirectErrorFactory,
   CookieSetterService,
-} from '@difuks/common-backend';
-import { urls } from '@difuks/constants';
+} from '@fuks-ru/common-backend';
+import { urls } from '@fuks-ru/constants';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 

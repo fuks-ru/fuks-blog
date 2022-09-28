@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Segmented } from 'antd';
 import { useTranslation } from 'react-i18next';
 import cookies from 'js-cookie';
-import { domainUrl } from '@difuks/constants';
+import { domainUrl } from '@fuks-ru/constants';
 
 /**
  * Компонент для смены текущего языка.

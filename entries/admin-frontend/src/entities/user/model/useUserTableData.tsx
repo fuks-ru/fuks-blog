@@ -1,4 +1,4 @@
-import { Schemas } from '@difuks/auth-backend';
+import { Schemas } from '@fuks-ru/auth-backend';
 import { useMemo } from 'react';
 
 import { IEnumOption, TColumnTypes } from 'admin-frontend/shared/ui/Table';
