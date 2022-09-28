@@ -20,15 +20,36 @@ import { ValidationModule } from 'common-backend/Validation/ValidationModule';
 import { ILoggerModuleOptions } from 'common-backend/Logger/types/ILoggerModuleOptions';
 import { EnvModule } from 'common-backend/Env/EnvModule';
 
-interface ICommonModuleOptions {
+/**
+ * Настройки основного модуля.
+ */
+export interface ICommonModuleOptions {
+  /**
+   * Маппер, определяющий соответствие между кодами ошибок и http статусами.
+   */
   statusResolver?: Record<string, HttpStatus>;
+  /**
+   * Переводы.
+   */
   translations?: {
     'en-US'?: I18nTranslation;
     'ru-RU'?: I18nTranslation;
   };
+  /**
+   * Страница, отображаемая в случае ошибки.
+   */
   errorPageName?: string;
-  logger?: ILoggerModuleOptions;
+  /**
+   * Настройки логгера.
+   */
+  logger?: Omit<ILoggerModuleOptions, 'domain'>;
+  /**
+   * Корневой домен для кук.
+   */
   domain: string;
+  /**
+   * Префикс для api.
+   */
   apiPrefix: string;
 }
 

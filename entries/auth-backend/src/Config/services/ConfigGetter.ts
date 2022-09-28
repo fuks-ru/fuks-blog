@@ -1,4 +1,4 @@
-import { EnvGetter, ILoggerModuleOptions } from '@difuks/common-backend';
+import { EnvGetter, ICommonModuleOptions } from '@difuks/common-backend';
 import { API_PREFIX, ports, domainUrl } from '@difuks/constants';
 import { TransportType } from '@nestjs-modules/mailer/dist/interfaces/mailer-options.interface';
 import { HttpStatus, Injectable } from '@nestjs/common';
@@ -156,7 +156,7 @@ export class ConfigGetter {
   /**
    * Получает конфиг для логгера.
    */
-  public getLoggerOptions(): ILoggerModuleOptions {
+  public getLoggerOptions(): ICommonModuleOptions['logger'] {
     return {
       isToConsoleDisable: false,
       isToFileDisable: false,
