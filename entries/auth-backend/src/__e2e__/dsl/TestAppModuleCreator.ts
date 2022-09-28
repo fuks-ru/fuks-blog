@@ -1,4 +1,4 @@
-import { ILoggerModuleOptions } from '@difuks/common-backend';
+import { ICommonModuleOptions } from '@difuks/common-backend';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
@@ -18,7 +18,7 @@ export class AppBuilder {
     /**
      * Выключает логирование в консоль и файлы во время тестов.
      */
-    public override getLoggerOptions(): ILoggerModuleOptions {
+    public override getLoggerOptions(): ICommonModuleOptions['logger'] {
       return {
         isToConsoleDisable: true,
         isToFileDisable: true,
