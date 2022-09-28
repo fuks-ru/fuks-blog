@@ -16,8 +16,8 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "dev": "rollup --config rollup.config.js -w",
     "build:lib": "rollup --config rollup.config.js --environment NODE_ENV:production",
+    "dev": "rollup --config rollup.config.js -w",
     "build": "yarn cosmos-export",
     "story": "cosmos"
   },

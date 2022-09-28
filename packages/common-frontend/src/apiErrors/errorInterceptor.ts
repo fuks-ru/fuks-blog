@@ -1,5 +1,9 @@
 import type { AxiosError } from 'axios';
-import { IErrorResponse, IRedirectData, CommonErrorCode } from '@fuks-ru/common';
+import {
+  IErrorResponse,
+  IRedirectData,
+  CommonErrorCode,
+} from '@fuks-ru/common';
 
 import { ValidationError } from 'common-frontend/apiErrors/ValidationError';
 import { UnknownError } from 'common-frontend/apiErrors/UnknownError';
