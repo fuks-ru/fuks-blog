@@ -25,8 +25,8 @@ runs:
           -e POSTGRES_USER="${POSTGRES_USER}" \
           -e POSTGRES_HOST="${POSTGRES_HOST}" \
           -e PERSONAL_NPM_TOKEN="${PERSONAL_NPM_TOKEN}" \
-          -v "/server/fuks-blog/blog-backend.fuks.ru/var":/app/entries/backend/var \
-          -v "/server/fuks-blog/fuks.ru/var":/app/entries/frontend/var \
+          -v "/server/fuks-blog/backend/var":/app/entries/backend/var \
+          -v "/server/fuks-blog/frontend/var":/app/entries/frontend/var \
           --network="fuks-ru" \
           difuks/fuks-blog \
           ${{ inputs.script }}
