@@ -16,7 +16,7 @@ COPY packages/ui/package.json /app/packages/ui/package.json
 COPY entries/backend/package.json /app/entries/backend/package.json
 COPY entries/frontend/package.json /app/entries/frontend/package.json
 
-COPY entries/blog-frontend/public /app/entries/frontend/public
+COPY entries/frontend/public /app/entries/frontend/public
 
 COPY packages/constants/dist /app/packages/constants/dist
 COPY packages/ui/dist /app/packages/ui/dist
