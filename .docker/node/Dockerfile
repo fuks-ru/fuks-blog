@@ -13,17 +13,17 @@ COPY package.json /app/package.json
 COPY packages/constants/package.json /app/packages/constants/package.json
 COPY packages/ui/package.json /app/packages/ui/package.json
 
-COPY entries/blog-backend/package.json /app/entries/blog-backend/package.json
-COPY entries/blog-frontend/package.json /app/entries/blog-frontend/package.json
+COPY entries/backend/package.json /app/entries/backend/package.json
+COPY entries/frontend/package.json /app/entries/frontend/package.json
 
-COPY entries/blog-frontend/public /app/entries/blog-frontend/public
+COPY entries/frontend/public /app/entries/frontend/public
 
 COPY packages/constants/dist /app/packages/constants/dist
 COPY packages/ui/dist /app/packages/ui/dist
 
-COPY entries/blog-backend/dist /app/entries/blog-backend/dist
-COPY entries/blog-frontend/dist /app/entries/blog-frontend/dist
-COPY entries/blog-frontend/.next /app/entries/blog-frontend/.next
+COPY entries/backend/dist /app/entries/backend/dist
+COPY entries/admin/dist /app/entries/admin/dist
+COPY entries/frontend/.next /app/entries/frontend/.next
 
 RUN chown -R node:node /app
 

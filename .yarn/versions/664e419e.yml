@@ -1,6 +1,0 @@
-releases:
-  "@fuks-ru/blog-admin": patch
-  "@fuks-ru/fuks-blog-backend": patch
-  "@fuks-ru/fuks-blog-constants": patch
-  "@fuks-ru/fuks-blog-frontend": patch
-  "@fuks-ru/ui": patch
