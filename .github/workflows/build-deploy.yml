@@ -200,6 +200,7 @@ jobs:
           uses: appleboy/telegram-action@master
           env:
             COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
+            ACTION_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           with:
             to: ${{ secrets.TELEGRAM_TO }}
             token: ${{ secrets.TELEGRAM_TOKEN }}
@@ -209,4 +210,4 @@ jobs:
 
               *${{ github.actor }}* created [commit](${{ env.COMMIT_URL }})
   
-              [Build and deploy](${{ env.COMMIT_URL }}/checks)
+              [Build and deploy](${{ env.ACTION_URL }})

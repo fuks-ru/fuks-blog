@@ -56,11 +56,12 @@ jobs:
         uses: appleboy/telegram-action@master
         env:
           COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
+          ACTION_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            [Build](${{ env.COMMIT_URL }}/checks) *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
+            [Build](${{ env.ACTION_URL }}) *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
 
             *${{ github.actor }}* created [PR](${{ steps.PR.outputs.pr_url }})
