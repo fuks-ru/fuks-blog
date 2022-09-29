@@ -24,9 +24,6 @@ jobs:
       - name: Eslint
         run: yarn lint
 
-      - name: E2E tests
-        run: yarn e2e
-
       - name: Build entries
         run: yarn build
 
