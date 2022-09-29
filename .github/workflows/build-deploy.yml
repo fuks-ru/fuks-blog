@@ -190,9 +190,12 @@ jobs:
             to: ${{ secrets.TELEGRAM_TO }}
             token: ${{ secrets.TELEGRAM_TOKEN }}
             format: markdown
+            disable_web_page_preview: true
             message: |
-              Build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}* Deploy *${{ needs.deploy.result == 'success' && '✅' || '⛔️' }}*
-
-              *${{ github.actor }}* created [commit](${{ env.COMMIT_URL }})
-  
-              [Build and deploy](${{ env.ACTION_URL }})
+              *fuks-blog*
+              
+              [build and deploy](${{ env.ACTION_URL }}) by *${{ github.actor }}*
+              
+              steps: build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}* deploy *${{ needs.deploy.result == 'success' && '✅' || '⛔️' }}*
+              
+              [commit](${{ env.COMMIT_URL }})

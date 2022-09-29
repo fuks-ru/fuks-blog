@@ -50,13 +50,17 @@ jobs:
       - name: Send telegram message
         uses: appleboy/telegram-action@master
         env:
-          COMMIT_URL: ${{ github.server_url }}/${{ github.repository }}/commit/${{github.sha}}
           ACTION_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
+          disable_web_page_preview: true
           message: |
-            [Build](${{ env.ACTION_URL }}) *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
+            *fuks-blog*
 
-            *${{ github.actor }}* created [PR](${{ steps.PR.outputs.pr_url }})
+            [check build](${{ env.ACTION_URL }}) by *${{ github.actor }}*
+            
+            steps: build *${{ needs.build.result == 'success' && '✅' || '⛔️' }}*
+
+            [PR](${{ steps.PR.outputs.pr_url }})
