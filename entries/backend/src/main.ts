@@ -3,8 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import cookieParser from 'cookie-parser';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
-import { AppModule } from 'blog-backend/AppModule';
-import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
+import { AppModule } from 'backend/AppModule';
+import { ConfigGetter } from 'backend/Config/services/ConfigGetter';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);

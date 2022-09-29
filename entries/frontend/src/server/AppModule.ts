@@ -4,10 +4,10 @@ import { Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
 
-import { BlogBackendModule } from 'blog-frontend/server/BlogBackend/BlogBackendModule';
-import { PagesModule } from 'blog-frontend/server/Pages/PagesModule';
-import { ConfigGetter } from 'blog-frontend/server/Config/services/ConfigGetter';
-import { ConfigModule } from 'blog-frontend/server/Config/ConfigModule';
+import { BlogBackendModule } from 'frontend/server/BlogBackend/BlogBackendModule';
+import { PagesModule } from 'frontend/server/Pages/PagesModule';
+import { ConfigGetter } from 'frontend/server/Config/services/ConfigGetter';
+import { ConfigModule } from 'frontend/server/Config/ConfigModule';
 
 @Module({
   imports: [

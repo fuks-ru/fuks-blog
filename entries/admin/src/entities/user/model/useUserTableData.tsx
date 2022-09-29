@@ -1,8 +1,8 @@
 import { Schemas } from '@fuks-ru/auth-backend';
 import { useMemo } from 'react';
 
-import { IEnumOption, TColumnTypes } from 'admin-frontend/shared/ui/Table';
-import { userApi } from 'admin-frontend/entities/user/model/userApi';
+import { IEnumOption, TColumnTypes } from 'admin/shared/ui/Table';
+import { userApi } from 'admin/entities/user/model/userApi';
 
 const getColumns = (
   roles: IEnumOption[],

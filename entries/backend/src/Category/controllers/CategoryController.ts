@@ -7,9 +7,9 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 
-import { Public } from 'blog-backend/Auth/decorators/Public';
-import { Category } from 'blog-backend/Category/entities/Category';
-import { CategoryService } from 'blog-backend/Category/services/CategoryService';
+import { Public } from 'backend/Auth/decorators/Public';
+import { Category } from 'backend/Category/entities/Category';
+import { CategoryService } from 'backend/Category/services/CategoryService';
 
 @Controller('/category')
 @ApiTags('category')

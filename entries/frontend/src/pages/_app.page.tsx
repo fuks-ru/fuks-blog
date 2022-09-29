@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import { IPageProps } from 'blog-frontend/shared/types/page/IPageProps';
-import { ErrorPage } from 'blog-frontend/pages/_500/index.page';
-import { GlobalStyle } from 'blog-frontend/shared/ui/GlobalStyles';
+import { IPageProps } from 'frontend/shared/types/page/IPageProps';
+import { ErrorPage } from 'frontend/pages/_500/index.page';
+import { GlobalStyle } from 'frontend/shared/ui/GlobalStyles';
 
 const App: FC<
   Omit<AppProps<IPageProps>, 'pageProps'> & { pageProps: IPageProps }

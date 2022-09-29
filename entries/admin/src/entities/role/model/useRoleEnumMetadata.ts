@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
-import { IEnumOption } from 'admin-frontend/shared/ui/Table';
-import { roleApi } from 'admin-frontend/entities/role/model/roleApi';
+import { IEnumOption } from 'admin/shared/ui/Table';
+import { roleApi } from 'admin/entities/role/model/roleApi';
 
 /**
  * Возвращает данные для отрисовки ролей в виде опций селекта.

@@ -3,8 +3,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { ErrorCode } from 'blog-backend/Config/enums/ErrorCode';
-import { Category } from 'blog-backend/Category/entities/Category';
+import { ErrorCode } from 'backend/Config/enums/ErrorCode';
+import { Category } from 'backend/Category/entities/Category';
 
 @Injectable()
 export class CategoryService {

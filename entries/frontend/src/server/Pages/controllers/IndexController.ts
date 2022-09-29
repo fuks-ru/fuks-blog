@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 
-import type { IIndexPageProps } from 'blog-frontend/pages/index.page';
-import { Page } from 'blog-frontend/server/Pages/decorators/Page';
+import type { IIndexPageProps } from 'frontend/pages/index.page';
+import { Page } from 'frontend/server/Pages/decorators/Page';
 
 @Controller()
 export class IndexController {

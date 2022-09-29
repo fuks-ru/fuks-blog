@@ -11,7 +11,7 @@ import { Injectable } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import qs from 'qs';
 
-import { API_PAGE_PREFIX } from 'blog-frontend/shared/lib/constants';
+import { API_PAGE_PREFIX } from 'frontend/shared/lib/constants';
 
 @Injectable()
 export class BlogBackendService {

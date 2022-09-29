@@ -1,9 +1,9 @@
 import { Modal } from 'antd';
 import { FC } from 'react';
 
-import { Table } from 'admin-frontend/shared/ui/Table/Table';
-import { useRoleEnumMetadata } from 'admin-frontend/entities/role';
-import { userApi, useUserTableData } from 'admin-frontend/entities/user';
+import { Table } from 'admin/shared/ui/Table/Table';
+import { useRoleEnumMetadata } from 'admin/entities/role';
+import { userApi, useUserTableData } from 'admin/entities/user';
 
 /**
  * Страница пользователей.

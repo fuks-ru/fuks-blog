@@ -2,9 +2,9 @@ import { Button, Table as TableBase, TableProps } from 'antd';
 import { ReactElement, ThHTMLAttributes, useMemo } from 'react';
 import { DeleteOutlined, EyeOutlined } from '@ant-design/icons';
 
-import { EditableCell } from 'admin-frontend/shared/ui/Table/EditableCell/EditableCell';
-import { EditableRow } from 'admin-frontend/shared/ui/Table/EditableRow/EditableRow';
-import { TColumnTypes } from 'admin-frontend/shared/ui/Table/types/TColumnTypes';
+import { EditableCell } from 'admin/shared/ui/Table/EditableCell/EditableCell';
+import { EditableRow } from 'admin/shared/ui/Table/EditableRow/EditableRow';
+import { TColumnTypes } from 'admin/shared/ui/Table/types/TColumnTypes';
 
 const components = {
   body: {

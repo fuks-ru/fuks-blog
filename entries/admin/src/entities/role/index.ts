@@ -1,2 +1,2 @@
-export { roleApi } from 'admin-frontend/entities/role/model/roleApi';
-export { useRoleEnumMetadata } from 'admin-frontend/entities/role/model/useRoleEnumMetadata';
+export { roleApi } from 'admin/entities/role/model/roleApi';
+export { useRoleEnumMetadata } from 'admin/entities/role/model/useRoleEnumMetadata';

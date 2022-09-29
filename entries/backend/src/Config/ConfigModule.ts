@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 
-import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
+import { ConfigGetter } from 'backend/Config/services/ConfigGetter';
 
 @Global()
 @Module({

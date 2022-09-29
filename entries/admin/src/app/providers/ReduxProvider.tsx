@@ -2,8 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 
-import { roleApi } from 'admin-frontend/entities/role';
-import { userApi } from 'admin-frontend/entities/user';
+import { roleApi } from 'admin/entities/role';
+import { userApi } from 'admin/entities/user';
 
 const store = configureStore({
   reducer: {

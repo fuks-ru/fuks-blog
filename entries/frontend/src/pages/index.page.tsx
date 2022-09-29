@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { IPage } from 'blog-frontend/shared/types/page/IPage';
-import { getSsp } from 'blog-frontend/shared/lib/next/getSsp';
-import { IPageProps } from 'blog-frontend/shared/types/page/IPageProps';
+import { IPage } from 'frontend/shared/types/page/IPage';
+import { getSsp } from 'frontend/shared/lib/next/getSsp';
+import { IPageProps } from 'frontend/shared/types/page/IPageProps';
 
 /**
  * Пропсы для главной страницы.

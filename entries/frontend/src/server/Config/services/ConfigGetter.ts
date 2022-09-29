@@ -2,8 +2,8 @@ import { API_PREFIX, domainUrl, ports } from '@fuks-ru/fuks-blog-constants';
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { I18nTranslation } from 'nestjs-i18n';
 
-import { ErrorCode } from 'blog-frontend/server/Config/enums/ErrorCode';
-import { API_PAGE_PREFIX } from 'blog-frontend/shared/lib/constants';
+import { ErrorCode } from 'frontend/server/Config/enums/ErrorCode';
+import { API_PAGE_PREFIX } from 'frontend/shared/lib/constants';
 
 @Injectable()
 export class ConfigGetter {

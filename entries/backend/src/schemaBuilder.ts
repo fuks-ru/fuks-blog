@@ -2,8 +2,8 @@ import { SwaggerService } from '@fuks-ru/common-backend';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
-import { ConfigGetter } from 'blog-backend/Config/services/ConfigGetter';
-import { AppModule } from 'blog-backend/AppModule';
+import { ConfigGetter } from 'backend/Config/services/ConfigGetter';
+import { AppModule } from 'backend/AppModule';
 
 (async () => {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);

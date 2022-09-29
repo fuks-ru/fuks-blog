@@ -8,9 +8,9 @@ import {
 } from 'next/types';
 import { IErrorResponse } from '@fuks-ru/common';
 
-import { IPageProps } from 'blog-frontend/shared/types/page/IPageProps';
-import { api } from 'blog-frontend/shared/api/api';
-import { API_PAGE_PREFIX } from 'blog-frontend/shared/lib/constants';
+import { IPageProps } from 'frontend/shared/types/page/IPageProps';
+import { api } from 'frontend/shared/api/api';
+import { API_PAGE_PREFIX } from 'frontend/shared/lib/constants';
 
 /**
  * Описание кастомной функции getServerSideProps.

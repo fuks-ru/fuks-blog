@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "blog-backend/*": ["./src/*"]
+      "backend/*": ["./src/*"]
     }
   }
 }

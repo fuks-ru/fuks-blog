@@ -6,8 +6,8 @@ import { I18nTranslation } from 'nestjs-i18n';
 import path from 'node:path';
 import process from 'node:process';
 
-import { ormConfig } from 'blog-backend/Config/utils/ormconfig';
-import { ErrorCode } from 'blog-backend/Config/enums/ErrorCode';
+import { ormConfig } from 'backend/Config/utils/ormconfig';
+import { ErrorCode } from 'backend/Config/enums/ErrorCode';
 
 @Injectable()
 export class ConfigGetter {
@@ -79,7 +79,7 @@ export class ConfigGetter {
   private getDevTypeOrmConfig(): TypeOrmModuleOptions {
     return {
       type: 'sqlite',
-      database: path.join(process.cwd(), './var/fuks-blog-backend-sqlite'),
+      database: path.join(process.cwd(), './var/fuks-backend-sqlite'),
       synchronize: true,
       entities: ['**/entities/**/*.ts'],
       autoLoadEntities: true,

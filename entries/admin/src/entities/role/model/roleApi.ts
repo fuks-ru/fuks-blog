@@ -1,4 +1,4 @@
-import { createAuthApi } from 'admin-frontend/shared/api/authApi';
+import { createAuthApi } from 'admin/shared/api/authApi';
 
 /**
  * Возвращает хуки и редьюсер для работы с ролями.

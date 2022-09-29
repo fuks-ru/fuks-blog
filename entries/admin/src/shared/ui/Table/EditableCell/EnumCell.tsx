@@ -1,7 +1,7 @@
 import { Form, Select } from 'antd';
 import { FC } from 'react';
 
-import { IEnumOption } from 'admin-frontend/shared/ui/Table/types/IEnumOption';
+import { IEnumOption } from 'admin/shared/ui/Table/types/IEnumOption';
 
 interface IProps {
   dataIndex: string;

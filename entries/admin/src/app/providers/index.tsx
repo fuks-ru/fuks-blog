@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { BrowserRouter, Routes } from 'react-router-dom';
 
-import { ReduxProvider } from 'admin-frontend/app/providers/ReduxProvider';
+import { ReduxProvider } from 'admin/app/providers/ReduxProvider';
 
 interface IProps {
   children: ReactNode;

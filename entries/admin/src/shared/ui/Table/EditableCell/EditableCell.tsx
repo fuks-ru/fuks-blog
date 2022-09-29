@@ -1,10 +1,10 @@
 import { FC, ReactNode, useContext } from 'react';
 
-import { IEnumOption } from 'admin-frontend/shared/ui/Table/types/IEnumOption';
-import { EnumCell } from 'admin-frontend/shared/ui/Table/EditableCell/EnumCell';
-import { BooleanCell } from 'admin-frontend/shared/ui/Table/EditableCell/BooleanCell';
-import { StringCell } from 'admin-frontend/shared/ui/Table/EditableCell/StringCell';
-import { EditableContext } from 'admin-frontend/shared/ui/Table/EditableRow/EditableRow';
+import { IEnumOption } from 'admin/shared/ui/Table/types/IEnumOption';
+import { EnumCell } from 'admin/shared/ui/Table/EditableCell/EnumCell';
+import { BooleanCell } from 'admin/shared/ui/Table/EditableCell/BooleanCell';
+import { StringCell } from 'admin/shared/ui/Table/EditableCell/StringCell';
+import { EditableContext } from 'admin/shared/ui/Table/EditableRow/EditableRow';
 
 /**
  * Описывает дополнительные данные для редактируемой ячейки.
