@@ -8,12 +8,12 @@ const rootDir = isDevelopment ? 'src' : 'dist/build';
  */
 export const ormConfig: DataSourceOptions = {
   type: 'postgres',
-  host: process.env.FUKS_BLOG_POSTGRES_HOST,
+  host: process.env.POSTGRES_HOST,
   port: 5_432,
   synchronize: false,
   database: 'blog',
-  username: process.env.FUKS_BLOG_POSTGRES_USER,
-  password: process.env.FUKS_BLOG_POSTGRES_PASSWORD,
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
   entities: [`${rootDir}/**/entities/*.{ts,js}`],
   migrationsTableName: 'migration',
   migrations: [`${rootDir}/__migration__/*.{ts,js}`],

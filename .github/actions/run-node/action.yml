@@ -21,13 +21,12 @@ runs:
         script: |
           docker run --name fuks-blog \
           --rm ${{ inputs.detached && '-d' }} \
-          -e FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID="${FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID}" \
-          -e FUKS_BLOG_POSTGRES_PASSWORD="${FUKS_BLOG_POSTGRES_PASSWORD}" \
-          -e FUKS_BLOG_POSTGRES_USER="${FUKS_BLOG_POSTGRES_USER}" \
-          -e FUKS_BLOG_POSTGRES_HOST="${FUKS_BLOG_POSTGRES_HOST}" \
+          -e POSTGRES_PASSWORD="${POSTGRES_PASSWORD}" \
+          -e POSTGRES_USER="${POSTGRES_USER}" \
+          -e POSTGRES_HOST="${POSTGRES_HOST}" \
           -e PERSONAL_NPM_TOKEN="${PERSONAL_NPM_TOKEN}" \
-          -v "/server/fuks-blog/blog-backend.fuks.ru/var":/app/entries/blog-backend/var \
-          -v "/server/fuks-blog/fuks.ru/var":/app/entries/blog-frontend/var \
+          -v "/server/fuks-blog/blog-backend.fuks.ru/var":/app/entries/backend/var \
+          -v "/server/fuks-blog/fuks.ru/var":/app/entries/frontend/var \
           --network="fuks-ru" \
           difuks/fuks-blog \
           ${{ inputs.script }}

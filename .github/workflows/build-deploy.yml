@@ -135,8 +135,8 @@ jobs:
           script: |
             docker run --name fuks-blog-postgres \
             --rm -d \
-            -e POSTGRES_PASSWORD="${FUKS_BLOG_POSTGRES_PASSWORD}" \
-            -e POSTGRES_USER="${FUKS_BLOG_POSTGRES_USER}" \
+            -e POSTGRES_PASSWORD="${POSTGRES_PASSWORD}" \
+            -e POSTGRES_USER="${POSTGRES_USER}" \
             -e POSTGRES_DB=blog \
             -e PGDATA=/var/lib/postgresql/data/pgdata \
             -v "/server/fuks-blog/blog-backend-postgres/var":/var/lib/postgresql/data \

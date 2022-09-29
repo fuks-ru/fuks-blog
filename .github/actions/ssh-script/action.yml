@@ -15,13 +15,13 @@ runs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ fromJson(inputs.secret-context).SSH_HOST }}
-        username: ${{ fromJson(inputs.secret-context).SSH_USERNAME }}
-        key: ${{ fromJson(inputs.secret-context).SSH_PRIVATE_KEY }}
+        username: ${{ fromJson(inputs.secret-context).SSH_NODE_USERNAME }}
+        key: ${{ fromJson(inputs.secret-context).SSH_NODE_PRIVATE_KEY }}
         script_stop: true
         script: |
-          export FUKS_BLOG_POSTGRES_PASSWORD="${{ fromJson(inputs.secret-context).FUKS_BLOG_POSTGRES_PASSWORD }}"
-          export FUKS_BLOG_POSTGRES_USER="${{ fromJson(inputs.secret-context).FUKS_BLOG_POSTGRES_USER }}"
-          export FUKS_BLOG_POSTGRES_HOST="fuks-blog-postgres"
+          export POSTGRES_PASSWORD="${{ fromJson(inputs.secret-context).POSTGRES_PASSWORD }}"
+          export POSTGRES_USER="${{ fromJson(inputs.secret-context).POSTGRES_USER }}"
+          export POSTGRES_HOST="fuks-blog-postgres"
   
           export PERSONAL_NPM_TOKEN="${{ fromJson(inputs.secret-context).PERSONAL_NPM_TOKEN }}"
 
