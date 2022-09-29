@@ -4,9 +4,6 @@
     "baseUrl": ".",
     "paths": {
       "ui/*": ["./packages/ui/src/*"],
-      "common/*": ["./packages/common/src/*"],
-      "common-frontend/*": ["./packages/common-frontend/src/*"],
-      "common-backend/*": ["./packages/common-backend/src/*"],
       "constants/*": ["./packages/constants/src/*"],
 
       "blog-frontend/*": ["./entries/blog-frontend/src/*"],

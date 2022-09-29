@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@fuks-ru/auth-backend": "workspace:0.3.4",
-    "@fuks-ru/common": "workspace:0.0.2",
-    "@fuks-ru/common-backend": "workspace:0.1.4",
+    "@fuks-ru/common": "0.0.4",
+    "@fuks-ru/common-backend": "0.1.6",
     "@fuks-ru/constants": "workspace:0.0.3",
     "@nestjs/common": "^9.1.2",
     "@nestjs/core": "^9.1.2",

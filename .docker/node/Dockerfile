@@ -10,9 +10,6 @@ COPY .pnp.cjs /app/.pnp.cjs
 COPY .pnp.loader.mjs /app/.pnp.loader.mjs
 COPY package.json /app/package.json
 
-COPY packages/common/package.json /app/packages/common/package.json
-COPY packages/common-backend/package.json /app/packages/common-backend/package.json
-COPY packages/common-frontend/package.json /app/packages/common-frontend/package.json
 COPY packages/constants/package.json /app/packages/constants/package.json
 COPY packages/ui/package.json /app/packages/ui/package.json
 
@@ -22,9 +19,6 @@ COPY entries/auth-backend/package.json /app/entries/auth-backend/package.json
 
 COPY entries/blog-frontend/public /app/entries/blog-frontend/public
 
-COPY packages/common/dist /app/packages/common/dist
-COPY packages/common-frontend/dist /app/packages/common-frontend/dist
-COPY packages/common-backend/dist /app/packages/common-backend/dist
 COPY packages/constants/dist /app/packages/constants/dist
 COPY packages/ui/dist /app/packages/ui/dist
 

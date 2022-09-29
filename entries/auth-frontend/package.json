@@ -16,7 +16,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
     "@fuks-ru/auth-backend": "workspace:0.3.4",
-    "@fuks-ru/common-frontend": "workspace:0.0.2",
+    "@fuks-ru/common-frontend": "0.0.4",
     "@fuks-ru/constants": "workspace:0.0.3",
     "@linaria/core": "^4.1.2",
     "@linaria/react": "^4.1.3",

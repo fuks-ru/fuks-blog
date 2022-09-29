@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "@fuks-ru/blog-backend": "workspace:0.1.4",
-    "@fuks-ru/common": "workspace:0.0.2",
-    "@fuks-ru/common-backend": "workspace:0.1.4",
+    "@fuks-ru/common": "0.0.4",
+    "@fuks-ru/common-backend": "0.1.6",
     "@fuks-ru/constants": "workspace:0.0.3",
     "@fuks-ru/ui": "workspace:0.0.4",
     "@nestjs/common": "^9.1.2",

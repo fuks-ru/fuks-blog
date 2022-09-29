@@ -1661,7 +1661,7 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@fuks-ru/auth-backend": "workspace:0.3.4"
-    "@fuks-ru/common-frontend": "workspace:0.0.2"
+    "@fuks-ru/common-frontend": 0.0.4
     "@fuks-ru/constants": "workspace:0.0.3"
     "@pmmmwh/react-refresh-webpack-plugin": ^0.5.7
     "@reduxjs/toolkit": ^1.8.5
@@ -1701,8 +1701,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@fuks-ru/auth-backend@workspace:entries/auth-backend"
   dependencies:
-    "@fuks-ru/common": "workspace:0.0.2"
-    "@fuks-ru/common-backend": "workspace:0.1.4"
+    "@fuks-ru/common": 0.0.4
+    "@fuks-ru/common-backend": 0.1.6
     "@fuks-ru/constants": "workspace:0.0.3"
     "@nestjs-modules/mailer": ^1.8.1
     "@nestjs/axios": ^0.1.0
@@ -1772,7 +1772,7 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@fuks-ru/auth-backend": "workspace:0.3.4"
-    "@fuks-ru/common-frontend": "workspace:0.0.2"
+    "@fuks-ru/common-frontend": 0.0.4
     "@fuks-ru/constants": "workspace:0.0.3"
     "@linaria/core": ^4.1.2
     "@linaria/react": ^4.1.3
@@ -1825,8 +1825,8 @@ __metadata:
   resolution: "@fuks-ru/blog-backend@workspace:entries/blog-backend"
   dependencies:
     "@fuks-ru/auth-backend": "workspace:0.3.4"
-    "@fuks-ru/common": "workspace:0.0.2"
-    "@fuks-ru/common-backend": "workspace:0.1.4"
+    "@fuks-ru/common": 0.0.4
+    "@fuks-ru/common-backend": 0.1.6
     "@fuks-ru/constants": "workspace:0.0.3"
     "@nestjs/common": ^9.1.2
     "@nestjs/core": ^9.1.2
@@ -1873,8 +1873,8 @@ __metadata:
   resolution: "@fuks-ru/blog-frontend@workspace:entries/blog-frontend"
   dependencies:
     "@fuks-ru/blog-backend": "workspace:0.1.4"
-    "@fuks-ru/common": "workspace:0.0.2"
-    "@fuks-ru/common-backend": "workspace:0.1.4"
+    "@fuks-ru/common": 0.0.4
+    "@fuks-ru/common-backend": 0.1.6
     "@fuks-ru/constants": "workspace:0.0.3"
     "@fuks-ru/ui": "workspace:0.0.4"
     "@nestjs/common": ^9.1.2
@@ -1913,43 +1913,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@fuks-ru/common-backend@workspace:0.1.4, @fuks-ru/common-backend@workspace:packages/common-backend":
-  version: 0.0.0-use.local
-  resolution: "@fuks-ru/common-backend@workspace:packages/common-backend"
+"@fuks-ru/common-backend@npm:0.1.6":
+  version: 0.1.6
+  resolution: "@fuks-ru/common-backend@npm:0.1.6::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40fuks-ru%2Fcommon-backend%2F0.1.6%2F481a2f4c52229accb0e7a9f2f333f314577155c4"
   dependencies:
-    "@fuks-ru/common": "workspace:0.0.2"
-    "@nestjs/common": ^9.1.2
-    "@nestjs/core": ^9.1.2
-    "@nestjs/platform-express": ^9.1.2
-    "@nestjs/swagger": ^6.1.2
     "@rollup/plugin-json": ^4.1.0
     "@types/argon2": ^0.15.0
-    "@types/axios": ^0.14.0
-    "@types/express": ^4.17.14
-    "@types/geoip-lite": ^1.4.1
-    "@types/uuid": ^8.3.4
     argon2: ^0.29.1
-    axios: ^0.27.2
-    class-transformer: ^0.5.1
-    class-validator: ^0.13.2
-    date-fns: ^2.29.3
-    express: ^4.18.1
     geoip-lite: ^1.4.6
     nest-winston: ^1.7.0
-    nestjs-i18n: ^9.1.10
     reflect-metadata: ^0.1.13
     request-context: ^2.0.0
     rollup: ^2.79.1
     rollup-plugin-typescript2: ^0.34.0
     rxjs: ^7.5.7
-    tslib: ^2.4.0
-    ttypescript: ^1.5.13
-    typescript: ^4.8.3
-    typescript-transform-paths: ^3.3.1
     uuid: ^9.0.0
     winston: ^3.8.2
     winston-daily-rotate-file: ^4.7.1
-    winston-transport: ^4.5.0
   peerDependencies:
     "@fuks-ru/common": "*"
     "@nestjs/common": ^8.4.4
@@ -1963,39 +1943,27 @@ __metadata:
     nestjs-i18n: ^9.1.3
     openapi-client-axios-typegen: ^5.0.2
     ttypescript: ^1.5.13
-  languageName: unknown
-  linkType: soft
+  checksum: 61d3166f556fb9baa9786259b8962a5b74e5d28380e8c0cad0f3950779a189a6af6c192a278529be1b1f722a5d279a25ee21b03ac96818d9e3a4b7efb80556ae
+  languageName: node
+  linkType: hard
 
-"@fuks-ru/common-frontend@workspace:0.0.2, @fuks-ru/common-frontend@workspace:packages/common-frontend":
-  version: 0.0.0-use.local
-  resolution: "@fuks-ru/common-frontend@workspace:packages/common-frontend"
-  dependencies:
-    "@fuks-ru/common": "workspace:0.0.2"
-    "@types/axios": ^0.14.0
-    "@types/react": ^18.0.21
-    axios: ^0.27.2
-    react: ^18.2.0
-    tslib: ^2.4.0
-    ttypescript: ^1.5.13
-    typescript: ^4.8.3
-    typescript-transform-paths: ^3.3.1
+"@fuks-ru/common-frontend@npm:0.0.4":
+  version: 0.0.4
+  resolution: "@fuks-ru/common-frontend@npm:0.0.4::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40fuks-ru%2Fcommon-frontend%2F0.0.4%2F5040ba338bb5ded73aa16ecd35628fa005a7b4c0"
   peerDependencies:
     "@fuks-ru/common": "*"
     axios: ^0.27.2
     react: ^18.2.0
-  languageName: unknown
-  linkType: soft
+  checksum: 219b408cf084b7fbac8dbae2bb60c9e1b05dc7f9373557326d3757a5858c6e63010a77718a3b088815629642d9cc98f634ca504e9aeeaf158bd7418086747fc8
+  languageName: node
+  linkType: hard
 
-"@fuks-ru/common@workspace:0.0.2, @fuks-ru/common@workspace:packages/common":
-  version: 0.0.0-use.local
-  resolution: "@fuks-ru/common@workspace:packages/common"
-  dependencies:
-    tslib: ^2.4.0
-    ttypescript: ^1.5.13
-    typescript: ^4.8.3
-    typescript-transform-paths: ^3.3.1
-  languageName: unknown
-  linkType: soft
+"@fuks-ru/common@npm:0.0.4":
+  version: 0.0.4
+  resolution: "@fuks-ru/common@npm:0.0.4::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40fuks-ru%2Fcommon%2F0.0.4%2Fdb4580da2f26673fecf24cc058a04d43ac66ca1b"
+  checksum: 76df83c6948eac42ff372dd880adce5ed4ed3adf08486d83007073b2db836fdf2a5d88f768d71c5f2874f96f23ed0781d422ca7092014cc2e053a35a3d0856f7
+  languageName: node
+  linkType: hard
 
 "@fuks-ru/constants@workspace:0.0.3, @fuks-ru/constants@workspace:packages/constants":
   version: 0.0.0-use.local
@@ -3268,15 +3236,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/axios@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "@types/axios@npm:0.14.0"
-  dependencies:
-    axios: "*"
-  checksum: 12a230b9404055d81804cb57fe4739b2317111b28a39e2477b2513250e8b85725e6f6ce509fc2a9494a6da60facb8d80df875fcd747f62f6c3abebc7db60ae66
-  languageName: node
-  linkType: hard
-
 "@types/babel__core@npm:^7.1.14":
   version: 7.1.19
   resolution: "@types/babel__core@npm:7.1.19"
@@ -3458,13 +3417,6 @@ __metadata:
     "@types/qs": "*"
     "@types/serve-static": "*"
   checksum: 15c1af46d02de834e4a225eccaa9d85c0370fdbb3ed4e1bc2d323d24872309961542b993ae236335aeb3e278630224a6ea002078d39e651d78a3b0356b1eaa79
-  languageName: node
-  linkType: hard
-
-"@types/geoip-lite@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@types/geoip-lite@npm:1.4.1"
-  checksum: fe6807d61d3f6b6abcd28641b35a0b4bcca02440ba9613e31765b3a874616cfd537e415ed8405126fd6a03eca27727f168b28d22bec1e82b197c1266423a66c9
   languageName: node
   linkType: hard
 
@@ -4830,7 +4782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:*, axios@npm:0.27.2, axios@npm:^0.27.2":
+"axios@npm:0.27.2, axios@npm:^0.27.2":
   version: 0.27.2
   resolution: "axios@npm:0.27.2"
   dependencies:

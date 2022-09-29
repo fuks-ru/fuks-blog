@@ -46,7 +46,7 @@ jobs:
         run: yarn version apply --all
 
       - name: Publish packages
-        run: yarn workspaces foreach --include "@fuks-ru/{common,common-backend,common-frontend,ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
+        run: yarn workspaces foreach --include "@fuks-ru/{ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
