@@ -10,16 +10,12 @@
   ],
   "scripts": {
     "dev": "yarn workspaces foreach --interlaced --verbose --jobs=unlimited --parallel run dev",
-    "e2e": "yarn workspaces foreach --interlaced --verbose --parallel run e2e",
-    "dev:auth": "yarn workspaces foreach --include \"@fuks-ru/{auth-backend,auth-frontend}\" --interlaced --verbose --parallel run dev",
-    "dev:blog": "yarn workspaces foreach --include \"@fuks-ru/{blog-frontend,blog-backend,ui}\" --interlaced --verbose --parallel run dev",
-    "dev:admin": "yarn workspaces foreach --include \"@fuks-ru/{auth-frontend,auth-backend,admin-frontend}\" --interlaced --verbose --parallel run dev",
     "prod": "yarn workspaces foreach --interlaced --verbose --jobs=unlimited --parallel run prod",
     "story": "yarn workspaces foreach --interlaced --verbose --parallel run story",
     "build": "yarn workspaces foreach --interlaced --verbose --topological-dev --parallel run build",
     "build:lib": "yarn workspaces foreach --interlaced --verbose --topological-dev --parallel run build:lib",
     "prod:migration:run": "yarn workspaces foreach --interlaced --verbose --parallel run prod:migration:run",
-    "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json,mdx}\"",
+    "lint": "eslint \"{**/*,*}.{ts,tsx,js,jsx,json}\"",
     "lint:fix": "yarn run lint --fix",
     "typedoc": "typedoc"
   },
@@ -30,7 +26,12 @@
     "eslint-config-fuks": "^1.8.2",
     "typedoc": "^0.23.15",
     "typedoc-theme-hierarchy": "^3.0.0",
-    "typescript": "^4.8.3"
+    "typescript": "4.8.3"
   },
-  "packageManager": "yarn@3.2.3"
+  "packageManager": "yarn@3.2.3",
+  "dependenciesMeta": {
+    "@fuks-ru/auth-backend@0.3.6": {
+      "unplugged": true
+    }
+  }
 }

@@ -18,18 +18,15 @@ module.exports = {
       },
     },
   },
+  rules: {
+    // TODO временно, пока не перевел на i18n
+    'i18next/no-literal-string': ['off'],
+  },
   overrides: [
     {
       files: ['*.json'],
       parserOptions: {
         project: false,
-      },
-    },
-    {
-      // TODO временно, пока не перевел на i18n
-      files: ['entries/{blog-frontend,admin-frontend}/**/*.tsx'],
-      rules: {
-        'i18next/no-literal-string': ['off'],
       },
     },
   ],

@@ -21,20 +21,11 @@ runs:
         script: |
           docker run --name fuks-blog \
           --rm ${{ inputs.detached && '-d' }} \
-          -e FUKS_BLOG_AUTH_POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
-          -e FUKS_BLOG_AUTH_POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
-          -e FUKS_BLOG_AUTH_POSTGRES_HOST="${FUKS_BLOG_AUTH_POSTGRES_HOST}" \
           -e FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID="${FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID}" \
-          -e FUKS_BLOG_BACKEND_POSTGRES_PASSWORD="${FUKS_BLOG_BACKEND_POSTGRES_PASSWORD}" \
-          -e FUKS_BLOG_BACKEND_POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
-          -e FUKS_BLOG_BACKEND_POSTGRES_HOST="${FUKS_BLOG_BACKEND_POSTGRES_HOST}" \
-          -e FUKS_BLOG_AUTH_JWT_SECRET="${FUKS_BLOG_AUTH_JWT_SECRET}" \
+          -e FUKS_BLOG_POSTGRES_PASSWORD="${FUKS_BLOG_POSTGRES_PASSWORD}" \
+          -e FUKS_BLOG_POSTGRES_USER="${FUKS_BLOG_POSTGRES_USER}" \
+          -e FUKS_BLOG_POSTGRES_HOST="${FUKS_BLOG_POSTGRES_HOST}" \
           -e PERSONAL_NPM_TOKEN="${PERSONAL_NPM_TOKEN}" \
-          -e MAILER_USER="${MAILER_USER}" \
-          -e MAILER_PASSWORD="${MAILER_PASSWORD}" \
-          -e MAILER_HOST="${MAILER_HOST}" \
-          -e GOOGLE_RECAPTCHA_SECRET_KEY="${GOOGLE_RECAPTCHA_SECRET_KEY}" \
-          -v "/server/fuks-blog/auth.fuks.ru/var":/app/entries/auth-backend/var \
           -v "/server/fuks-blog/blog-backend.fuks.ru/var":/app/entries/blog-backend/var \
           -v "/server/fuks-blog/fuks.ru/var":/app/entries/blog-frontend/var \
           --network="fuks-ru" \

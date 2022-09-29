@@ -10,9 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GOOGLE_RECAPTCHA_CLIENT_KEY: ${{ secrets.GOOGLE_RECAPTCHA_CLIENT_KEY }}
       PERSONAL_NPM_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-      FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID: ${{ secrets.FUKS_BLOG_AUTH_GOOGLE_CLIENT_ID }}
 
     steps:
       - name: Checkout
@@ -46,7 +44,7 @@ jobs:
         run: yarn version apply --all
 
       - name: Publish packages
-        run: yarn workspaces foreach --include "@fuks-ru/{ui,auth-backend,blog-backend}" --interlaced --verbose npm publish --tolerate-republish
+        run: yarn workspaces foreach --include "@fuks-ru/{ui,fuks-blog-backend,fuks-blog-constants}" --interlaced --verbose npm publish --tolerate-republish
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
@@ -116,9 +114,14 @@ jobs:
         with:
           secret-context: ${{ toJson(secrets) }}
           script: |
-            docker container stop $(docker container ls -q --filter name='fuks-blog') || true
-            docker ps --filter name='fuks-blog' -aq | xargs docker stop | xargs docker rm || true
-            docker rmi $(docker images | grep 'fuks-blog') || true
+            docker container stop fuks-blog || true
+            docker container stop fuks-blog-nginx || true
+            docker container stop fuks-blog-postgres || true
+            docker rm fuks-blog || true
+            docker rm fuks-blog-nginx || true
+            docker rm fuks-blog-postgres || true
+            docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog || true
+            docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/fuks-blog-nginx || true
 
       - name: Pull docker containers
         uses: ./.github/actions/ssh-script
@@ -128,30 +131,15 @@ jobs:
             docker pull difuks/fuks-blog
             docker pull difuks/fuks-blog-nginx
 
-      - name: Run auth database
+      - name: Run blog database
         uses: ./.github/actions/ssh-script
         with:
           secret-context: ${{ toJson(secrets) }}
           script: |
-            docker run --name fuks-blog-auth-postgres \
+            docker run --name fuks-blog-postgres \
             --rm -d \
-            -e POSTGRES_PASSWORD="${FUKS_BLOG_AUTH_POSTGRES_PASSWORD}" \
-            -e POSTGRES_USER="${FUKS_BLOG_AUTH_POSTGRES_USER}" \
-            -e POSTGRES_DB=auth \
-            -e PGDATA=/var/lib/postgresql/data/pgdata \
-            -v "/server/fuks-blog/auth-backend-postgres/var":/var/lib/postgresql/data \
-            --network="fuks-ru" \
-            postgres:14.2-alpine
-
-      - name: Run blog backend database
-        uses: ./.github/actions/ssh-script
-        with:
-          secret-context: ${{ toJson(secrets) }}
-          script: |
-            docker run --name fuks-blog-backend-postgres \
-            --rm -d \
-            -e POSTGRES_PASSWORD="${FUKS_BLOG_BACKEND_POSTGRES_PASSWORD}" \
-            -e POSTGRES_USER="${FUKS_BLOG_BACKEND_POSTGRES_USER}" \
+            -e POSTGRES_PASSWORD="${FUKS_BLOG_POSTGRES_PASSWORD}" \
+            -e POSTGRES_USER="${FUKS_BLOG_POSTGRES_USER}" \
             -e POSTGRES_DB=blog \
             -e PGDATA=/var/lib/postgresql/data/pgdata \
             -v "/server/fuks-blog/blog-backend-postgres/var":/var/lib/postgresql/data \

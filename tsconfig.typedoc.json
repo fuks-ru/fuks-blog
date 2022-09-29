@@ -6,11 +6,9 @@
       "ui/*": ["./packages/ui/src/*"],
       "constants/*": ["./packages/constants/src/*"],
 
-      "blog-frontend/*": ["./entries/blog-frontend/src/*"],
-      "blog-backend/*": ["./entries/blog-backend/src/*"],
-      "auth-frontend/*": ["./entries/auth-frontend/src/*"],
-      "auth-backend/*": ["./entries/auth-backend/src/*"],
-      "admin-frontend/*": ["./entries/admin-frontend/src/*"]
+      "frontend/*": ["./entries/frontend/src/*"],
+      "backend/*": ["./entries/backend/src/*"],
+      "admin/*": ["./entries/admin/src/*"]
     },
     "isolatedModules": false
   },
