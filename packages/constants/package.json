@@ -2,7 +2,7 @@
   "name": "@fuks-ru/constants",
   "packageManager": "yarn@3.2.0",
   "description": "Constants",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/fuks-ru/fuks-blog",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
